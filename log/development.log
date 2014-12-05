@@ -187,3 +187,4 @@ Migrating to CreateUserBusinessOpinions (20141204212252)
   [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212252')
   [1m[36m (53.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM schema_migrations[0m
