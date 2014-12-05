@@ -6,11 +6,5 @@ class Business < ActiveRecord::Base
 
 	def hello
 	end
-
-<<<<<<< HEAD
-	def test
-=======
-	def testing
->>>>>>> 351bc6402b40ee57d586bead8a941bf06f66257f
-	end
+	
 end
