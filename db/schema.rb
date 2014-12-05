@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20141205174739) do
   end
 
   create_table "offers", force: true do |t|
+    t.integer  "businesses_id"
+    t.string   "description"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
