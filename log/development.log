@@ -188,3 +188,61 @@ Migrating to CreateUserBusinessOpinions (20141204212252)
   [1m[36m (53.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
   [1m[36m (0.4ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateTags (20141204214023)
+  [1m[35m (66.9ms)[0m  DROP TABLE `tags`
+  [1m[36mSQL (50.8ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204214023'[0m
+Migrating to CreateUserBusinessOpinions (20141204212252)
+  [1m[35m (54.6ms)[0m  DROP TABLE `user_business_opinions`
+  [1m[36mSQL (54.8ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212252'[0m
+Migrating to CreateUserOfferOpinions (20141204212246)
+  [1m[35m (54.7ms)[0m  DROP TABLE `user_offer_opinions`
+  [1m[36mSQL (54.7ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212246'[0m
+Migrating to CreateOffers (20141204212022)
+  [1m[35m (54.5ms)[0m  DROP TABLE `offers`
+  [1m[36mSQL (44.7ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212022'[0m
+Migrating to CreateBusinesses (20141204212014)
+  [1m[35m (43.3ms)[0m  DROP TABLE `businesses`
+  [1m[36mSQL (43.4ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212014'[0m
+Migrating to CreateUsers (20141204212004)
+  [1m[35m (43.3ms)[0m  DROP TABLE `users`
+  [1m[36mSQL (43.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212004'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20141204212004)
+  [1m[35m (87.7ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(254) NOT NULL, `password` varchar(60) NOT NULL, `first_name` varchar(15), `last_name` varchar(15), `birthday` date, `gender` tinyint, `latitude_home` float, `longitude_home` float, `latitude_current` float, `longitutde_current` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212004')
+  [1m[36m (40.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBusinesses (20141204212014)
+  [1m[35m (88.1ms)[0m  CREATE TABLE `businesses` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(254) NOT NULL, `password` varchar(60) NOT NULL, `name` varchar(50) NOT NULL, `latitude` float NOT NULL, `longitude` float NOT NULL, `website` varchar(255), `phone` varchar(255), `address` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212014')
+  [1m[36m (42.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOffers (20141204212022)
+  [1m[35m (88.4ms)[0m  CREATE TABLE `offers` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212022')
+  [1m[36m (43.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserOfferOpinions (20141204212246)
+  [1m[35m (88.3ms)[0m  CREATE TABLE `user_offer_opinions` (`id` int(11) auto_increment PRIMARY KEY, `offer_id` int(11), `user_id` int(11), `opinion` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (199.4ms)[0m  [1mCREATE  INDEX `index_user_offer_opinions_on_offer_id_and_user_id`  ON `user_offer_opinions` (`offer_id`, `user_id`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20141204212246')[0m
+  [1m[35m (55.1ms)[0m  COMMIT
+Migrating to CreateUserBusinessOpinions (20141204212252)
+  [1m[36m (132.7ms)[0m  [1mCREATE TABLE `user_business_opinions` (`id` int(11) auto_increment PRIMARY KEY, `business_id` int(11), `user_id` int(11), `opinion` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (188.4ms)[0m  CREATE  INDEX `index_user_business_opinions_on_business_id_and_user_id`  ON `user_business_opinions` (`business_id`, `user_id`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212252')
+  [1m[36m (44.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTags (20141204214023)
+  [1m[35m (87.9ms)[0m  CREATE TABLE `tags` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204214023')
+  [1m[36m (99.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`

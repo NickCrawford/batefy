@@ -14,6 +14,14 @@
 ActiveRecord::Schema.define(version: 20141204214023) do
 
   create_table "businesses", force: true do |t|
+    t.string   "email",      limit: 254, null: false
+    t.string   "password",   limit: 60,  null: false
+    t.string   "name",       limit: 50,  null: false
+    t.float    "latitude",   limit: 24,  null: false
+    t.float    "longitude",  limit: 24,  null: false
+    t.string   "website"
+    t.string   "phone"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,8 +58,8 @@ ActiveRecord::Schema.define(version: 20141204214023) do
   add_index "user_offer_opinions", ["offer_id", "user_id"], name: "index_user_offer_opinions_on_offer_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",              limit: 254
-    t.string   "password",           limit: 60
+    t.string   "email",              limit: 254, null: false
+    t.string   "password",           limit: 60,  null: false
     t.string   "first_name",         limit: 15
     t.string   "last_name",          limit: 15
     t.date     "birthday"
