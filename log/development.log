@@ -1,0 +1,90 @@
+  [1m[36m (116.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (221.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20141204212004)
+  [1m[35m (102.8ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(254), `password` varchar(60), `first_name` varchar(15), `last_name` varchar(15), `birthday` date, `gender` tinyint, `latitude_home` float, `longitude_home` float, `latitude_current` float, `longitutde_current` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212004')
+  [1m[36m (57.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBusinesses (20141204212014)
+  [1m[35m (87.8ms)[0m  CREATE TABLE `businesses` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212014')
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOffers (20141204212022)
+  [1m[35m (87.6ms)[0m  CREATE TABLE `offers` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212022')
+  [1m[36m (41.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOfferUsers (20141204212246)
+  [1m[35m (87.7ms)[0m  CREATE TABLE `offer_users` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212246')
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBusinessUsers (20141204212252)
+  [1m[35m (87.7ms)[0m  CREATE TABLE `business_users` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212252')
+  [1m[36m (42.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20141204212301)
+  [1m[35m (87.7ms)[0m  CREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212301')
+  [1m[36m (42.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCategories (20141204212301)
+  [1m[35m (68.4ms)[0m  DROP TABLE `categories`
+  [1m[36mSQL (50.1ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212301'[0m
+Migrating to CreateBusinessUsers (20141204212252)
+  [1m[35m (54.2ms)[0m  DROP TABLE `business_users`
+  [1m[36mSQL (43.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212252'[0m
+Migrating to CreateOfferUsers (20141204212246)
+  [1m[35m (43.2ms)[0m  DROP TABLE `offer_users`
+  [1m[36mSQL (43.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212246'[0m
+Migrating to CreateOffers (20141204212022)
+  [1m[35m (43.3ms)[0m  DROP TABLE `offers`
+  [1m[36mSQL (43.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212022'[0m
+Migrating to CreateBusinesses (20141204212014)
+  [1m[35m (43.4ms)[0m  DROP TABLE `businesses`
+  [1m[36mSQL (43.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212014'[0m
+Migrating to CreateUsers (20141204212004)
+  [1m[35m (43.3ms)[0m  DROP TABLE `users`
+  [1m[36mSQL (43.7ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20141204212004'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20141204212004)
+  [1m[35m (105.0ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(254), `password` varchar(60), `first_name` varchar(15), `last_name` varchar(15), `birthday` date, `gender` tinyint, `latitude_home` float, `longitude_home` float, `latitude_current` float, `longitutde_current` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212004')
+  [1m[36m (46.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBusinesses (20141204212014)
+  [1m[35m (87.8ms)[0m  CREATE TABLE `businesses` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212014')
+  [1m[36m (42.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOffers (20141204212022)
+  [1m[35m (87.8ms)[0m  CREATE TABLE `offers` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212022')
+  [1m[36m (42.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOfferUsers (20141204212246)
+  [1m[35m (87.8ms)[0m  CREATE TABLE `offer_users` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212246')
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBusinessUsers (20141204212252)
+  [1m[35m (87.6ms)[0m  CREATE TABLE `business_users` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204212252')
+  [1m[36m (42.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTags (20141204214023)
+  [1m[35m (87.9ms)[0m  CREATE TABLE `tags` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141204214023')
+  [1m[36m (42.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
