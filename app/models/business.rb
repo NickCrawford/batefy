@@ -7,7 +7,11 @@ class Business < ActiveRecord::Base
 	def hello
 	end
 
+
 	def testing2 
+	end
+	
+	def test
 	end
 	
 end
