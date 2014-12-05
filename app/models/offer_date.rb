@@ -1,3 +1,3 @@
 class OfferDate < ActiveRecord::Base
-	belogs_to :offer
+	belongs_to :offer
 end
