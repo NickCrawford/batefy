@@ -3,7 +3,7 @@ class CreateUserOfferOpinions < ActiveRecord::Migration
     create_table :user_offer_opinions do |t|
       t.references :offer
       t.references :user
-      t.integer :opinion	
+      t.integer :opinion, :limit => 1	
       t.timestamps 
     end
     add_index :user_offer_opinions, ["offer_id","user_id"]

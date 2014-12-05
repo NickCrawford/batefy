@@ -355,3 +355,6 @@ Migrating to CreateOfferDates (20141205174739)
   [1m[36m (49.7ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
 >>>>>>> 9e10779d56ee0c18152c36a74379a043607307cf
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `businesses` (`created_at`, `email`, `latitude`, `longitude`, `name`, `password`, `updated_at`) VALUES ('2014-12-05 19:18:59', 'b@test.com', 3.456, 4.567, 'test', 'testing', '2014-12-05 19:18:59')
+  [1m[36m (36.5ms)[0m  [1mCOMMIT[0m
