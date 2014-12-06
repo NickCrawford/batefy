@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205174739) do
+ActiveRecord::Schema.define(version: 20141206000229) do
 
   create_table "businesses", force: true do |t|
     t.string   "email",      limit: 254, null: false
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20141205174739) do
     t.datetime "updated_at"
   end
 
+  create_table "businesses_tags", id: false, force: true do |t|
+    t.integer "business_id"
+    t.integer "tag_id"
+  end
+
+  add_index "businesses_tags", ["business_id", "tag_id"], name: "index_businesses_tags_on_business_id_and_tag_id", using: :btree
+
   create_table "offer_dates", force: true do |t|
     t.integer  "offer_id"
     t.date     "date"
@@ -36,7 +43,7 @@ ActiveRecord::Schema.define(version: 20141205174739) do
   end
 
   create_table "offers", force: true do |t|
-    t.integer  "businesses_id"
+    t.integer  "business_id"
     t.string   "description"
     t.string   "image"
     t.datetime "created_at"
