@@ -10,4 +10,6 @@ class Business < ActiveRecord::Base
 		where("businesses.latitude BETWEEN ? AND ? AND businesses.longitude BETWEEN ? AND ?", latMax,latMin,lngMax,lngMin) 
 	}
 	
+	scope :filter_by_name, lambda {|name| where(:name => name)}
+	
 end

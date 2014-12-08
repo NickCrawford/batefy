@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 20141206000229) do
 
   create_table "offers", force: true do |t|
     t.integer  "business_id"
-    t.string   "description"
-    t.string   "image"
+    t.integer  "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

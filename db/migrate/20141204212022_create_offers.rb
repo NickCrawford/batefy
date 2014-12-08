@@ -3,8 +3,7 @@ class CreateOffers < ActiveRecord::Migration
   def up
     create_table :offers do |t|
       t.references :business
-      t.string :description
-      t.string :image
+      t.integer :percentage
       t.timestamps
     end
   end
