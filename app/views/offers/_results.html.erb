@@ -1,0 +1,10 @@
+<% @businesses.each do |business| %>
+	<tr>
+  		<td><%= business.name %></td>
+  		<td>
+  			<%	business.offers.each do |offer| %> 
+  				<ul><%= offer.percentage %></ul>
+  			<% end %>
+  		</td>
+	</tr>
+<% end %>
