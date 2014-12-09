@@ -7,4 +7,5 @@ class Offer < ActiveRecord::Base
 	
 	scope :filter_by_percentage, lambda{|percentage| where(:percentage => percentage)}
 
+	
 end
