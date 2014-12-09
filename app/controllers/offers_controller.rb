@@ -8,10 +8,12 @@ class OffersController < ApplicationController
     #(param(:latitude),param(:longitude),param(:miles_range))
     sh = SearchHelper.new
     sh.filterByLocation(1,4,1000)
-    @businesses = sh.run
+    @businesses = []
   end
 
   def show
+      sh = SearchHelper.new
+      @businesses = sh.run
   end
 
   def new

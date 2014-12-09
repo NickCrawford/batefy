@@ -1,23 +1,24 @@
 <h1>Offers#index</h1>
 
 <div id="filterBar">
-<%= link_to("Filter by Percent", :sort => "percentage") %><br>
+<%= link_to("Filter by Percent") %><br>
 <%= link_to("Filter by Business", :sort => "business_id") %>
 </div>
 
-<div id="results">
+<br>
+<%= link_to("load all", fetch_businesses_path, :remote => true) %>
+<br>
+
+<div id="results_grid">
 <table style="width: 100%">
   <tr>
-    <td><h2>Business<h2></td>
-    <td><h2>Offer<h2></td> 
+    <th>Business</th>
+    <th>Offer</th> 
   </tr>
-	<% @offers.each do |offer| %>
-		<%= render(:partial => "results", :locals => {:o => offer}) %>
-		<br>
-	<% end %>
+	
+		<%= render(:partial => "results", :locals => {:business => @businesses}) %>
+		
 </table>
 </div>
 
 <br> 
-
-<%= link_to('See More', '#', :onclick => "getOffers(0);return => true") %>

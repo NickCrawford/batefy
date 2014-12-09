@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/fetch_businesses" => 'offers#show', as: 'fetch_businesses'
+
   root "offers#index"
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
