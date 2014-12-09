@@ -2,7 +2,7 @@ class OfferHelper
 
 	attr_accessor :location, :lat_lng_range, :tags, :percentage, :offers, :date
 
-	def initialize(latitude, longitude, miles_range, date, tags=[], percentage = 0)
+	def initialize(latitude, longitude, miles_range, date = "", tags=[], percentage = 0)
 		@location = Coordinate.new latitude,longitude
     	@lat_lng_range =location.getCoordinatesRange miles_range
 		@tags = tags
@@ -22,7 +22,11 @@ class OfferHelper
   	def filterByLocationAndTags
   		bh = BusinessHelper.new(lat_lng_range,tags)
   		businesses = bh.businesses
-  		@offers << business.offers
+  		print "Pre-Loop"
+  		businesses.each do |b|
+  			print b
+  			@offers << b.offers
+  		end
   	end
 
   	def filterByPercentage

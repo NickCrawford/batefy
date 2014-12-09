@@ -4,14 +4,15 @@ class OffersController < ApplicationController
   require_dependency "../../lib/offer_helper.rb"
   require_dependency "../../lib/coordinate"
 
-  layout false
+  layout 'application'
 
   def index
     #(param(:latitude),param(:longitude),param(:miles_range))
     location = Coordinate.new 1,4
     lat_lng_range =location.getCoordinatesRange 1000
-    bh = BusinessHelper.new lat_lng_range
-    @businesses = bh.businesses
+    oh = OfferHelper.new(1,4,1000)
+    #@offers = Offer.order(params[:sort])
+     @offers = oh.offers
   end
 
   def show
