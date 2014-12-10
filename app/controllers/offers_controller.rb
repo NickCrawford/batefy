@@ -16,6 +16,9 @@ class OffersController < ApplicationController
       @businesses = sh.run
   end
 
+  def create
+  end
+
   def new
   end
 

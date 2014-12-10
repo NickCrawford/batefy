@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: admin
   password: rails93
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
   #socket: /var/run/mysqld/mysqld.sock
 
 development:

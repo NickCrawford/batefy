@@ -6,9 +6,9 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :name, :limit =>50, :null => false
       t.float :latitude, :null => false
       t.float :longitude, :null => false
+      t.string :address
       t.string :website
       t.string :phone
-      t.string :address
       t.timestamps
     end
   end

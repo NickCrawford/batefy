@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206000229) do
+ActiveRecord::Schema.define(version: 20141210043732) do
 
   create_table "businesses", force: true do |t|
     t.string   "email",      limit: 254, null: false
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20141206000229) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "image"
   end
 
   create_table "businesses_tags", id: false, force: true do |t|
@@ -68,7 +73,7 @@ ActiveRecord::Schema.define(version: 20141206000229) do
   create_table "user_offer_opinions", force: true do |t|
     t.integer  "offer_id"
     t.integer  "user_id"
-    t.integer  "opinion",    limit: 1
+    t.integer  "opinion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
