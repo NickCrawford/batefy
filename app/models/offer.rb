@@ -5,6 +5,9 @@ class Offer < ActiveRecord::Base
 	has_many :user_offer_opinions
 	has_many :users, :through => :user_offer_opinions
 	
+	validates_presence_of :percentage
+	validates_inclusion_of :percentage, {:in => 1..100, :message => "Invalid percentage"}
+
 	scope :filter_by_percentage, lambda{|percentage| where(:percentage => percentage)}
 
 	

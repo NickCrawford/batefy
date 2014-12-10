@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
 
   require_dependency "../../lib/search_helper.rb"
+  require_dependency "../../lib/coordinate.rb"
 
   layout 'application'
 

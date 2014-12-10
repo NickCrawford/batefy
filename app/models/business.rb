@@ -16,7 +16,10 @@ class Business < ActiveRecord::Base
 	validates_presence_of :country
 	validates_presence_of :latitude
 	validates_presence_of :longitude
-
+	validates_length_of :password, {:minimum => 8, :message => "Keep your business safe! Your password should be at least 8 characters long. Using numbers and simbols is highly suggested"}
+	validates_numericality_of :latitude, {:message => "We could not find the specified address. Did you spell everything correctly? "}
+	validates_numericality_of :longitude, {:message => "We could not find the specified address. Did you spell everything correctly? "}
+	
 	scope :filter_by_location, lambda {|latMax,latMin,lngMax,lngMin| 
 		where("businesses.latitude BETWEEN ? AND ? AND businesses.longitude BETWEEN ? AND ?", latMax,latMin,lngMax,lngMin) 
 	}
