@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ioffer</title>
+  <title>iOffer</title>
   <%= javascript_include_tag('application') %>
+  <%= stylesheet_link_tag('application', :media => 'all') %>
 </head>
 <body>
+	<header>
+		<div id="logo"><%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , "#{}") %><div>
+		<div id="sign_in"> <%= link_to("Sign in", sign_in_path, :method => "get") %> </div>
+	</header>
 
-<%= yield %>
+	<nav> 
+		<ul>
+			<li> <%= link_to("Home", "#") %> </li>
+			<li> <%= link_to("Nearby", "#") %> </li>
+			<li> <%= link_to("My Offers", "#") %> </li>
+		</ul>
+	</nav>
+
+	<main>
+		<%= yield %>
+	</main>
 
 </body>
 </html>
