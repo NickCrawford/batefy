@@ -41,9 +41,8 @@ nav li {
 }
 
 main {
-	position: fixed;
-	left:250px;
-	top:75px;
+	margin-left: 250px;
+	margin-top: 75px;
 }
 
 h1 {
