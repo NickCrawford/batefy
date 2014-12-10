@@ -20,6 +20,7 @@ class OffersController < ApplicationController
   end
 
   def new
+    render("new")
   end
 
   def edit

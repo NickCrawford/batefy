@@ -1,3 +1,1 @@
-$("#results_grid").fadeOut()
-$("#results_grid").html("<%= j(render partial: "results", locals: {:business => @businesses}) %>")
-$("#results_grid").fadeIn()
+$("main").html("<%= j(render partial: "results", locals: {:business => @businesses}) %>")

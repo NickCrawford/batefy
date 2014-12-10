@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get "/fetch_businesses" => 'offers#show', as: 'fetch_businesses'
 
+  get "/sign_in" => 'offers#index'
+  get "/sign_up" => 'offers#index'
+
   root "offers#index"
 
   match ':controller(/:action(/:id))', :via => [:get, :post]

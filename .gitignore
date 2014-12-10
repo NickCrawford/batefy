@@ -1,3 +1,4 @@
 .DS_Store
 *.log
 database.yml
+tmp/*
