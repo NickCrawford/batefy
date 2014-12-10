@@ -24,7 +24,7 @@ class SearchHelper
 
 	def filterByDate(date)
 		@@query_elements[:date] = {}
-		@@query_elements[:date][:string] = " offer_date.date > ? "
+		@@query_elements[:date][:string] = " offer_dates.date > ? "
 		@@query_elements[:date][:attributes] = [date]
 	end
 
