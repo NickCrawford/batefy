@@ -43,4 +43,5 @@ class Business < ActiveRecord::Base
 			password = @new_password || self.password
 			self.password = BCrypt::Password.create(password)
 		end
+		
 end
