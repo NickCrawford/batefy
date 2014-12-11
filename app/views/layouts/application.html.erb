@@ -12,7 +12,8 @@
 		<% if @business.nil? %>
 			<%= link_to("Sign in", "#sign_in_modal", :method => "get", :id => "sign_in") %>
 		<% else %>
-			 <%= link_to(image_tag("/public/images/1.png", :id => "profile_image") + @business.name , "business", :id => "profile_name") %>
+			 <%= link_to("#{@business.name} ", "business#profile", :id => "profile_name") %>
+			 <%= link_to(image_tag("/images/1.png", :alt => "profile image", :id => "profile_image"), "business#profile") %>
 		<% end %> 
 		
 	</header>
