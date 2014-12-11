@@ -7,6 +7,7 @@ class Offer < ActiveRecord::Base
 	
 	validates_presence_of :percentage
 	validates_inclusion_of :percentage, {:in => 1..100, :message => "Invalid percentage"}
+	validates_associated :offer_date
 
 	scope :filter_by_percentage, lambda{|percentage| where(:percentage => percentage)}
 
