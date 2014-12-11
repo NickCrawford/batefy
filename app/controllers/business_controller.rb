@@ -1,5 +1,6 @@
 class BusinessController < ApplicationController
 
+
 	def sign_up
 		@business = Business.new
 	end

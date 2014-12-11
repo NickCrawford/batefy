@@ -10,11 +10,16 @@ class OffersController < ApplicationController
     sh = SearchHelper.new
     sh.filterByLocation(1,4,1000)
     @businesses = []
+    @business = Business.find(1)
   end
 
   def show
       sh = SearchHelper.new
       @businesses = sh.run
+  end
+
+  def sign_in 
+
   end
 
   def create

@@ -4,26 +4,36 @@
   <title>iOffer</title>
   <%= javascript_include_tag('application') %>
   <%= stylesheet_link_tag('application', :media => 'all') %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin" %>
 </head>
 <body>
 	<header>
-		<div id="logo"><%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , "#{}") %><div>
-		<div id="sign_in"> <%= link_to("Sign in", sign_in_path, :method => "get") %> </div>
+		<%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , "#", :id => "logo") %>
+		<% if @business.nil? %>
+			<%= link_to("Sign in", "#sign_in_modal", :method => "get", :id => "sign_in") %>
+		<% else %>
+			 <%= link_to(@business.name , "business", :id => "profile_name") %>
+			 <%= image_tag("/public/1.png", :id => "profile_image") %>
+		<% end %> 
+		
 	</header>
 
 	<nav> 
 		<ul>
-			<li> <%= link_to("Home", "#") %> </li>
+			<li> <%= link_to("Home", index_path, :remote => true) %> </li>
 			<li> <%= link_to("Nearby", "#") %> </li>
 			<li> <%= link_to("My Offers", "#") %> </li>
 		</ul>
 	</nav>
 
+	<div id="modal_box_" class="modal_dialog">
+		<a href="#close" title="Close" class="close">X</a>
+		<div id="content"></div>
+	</div>
+
 	<main>
 		<%= yield %>
 	</main>
-
-
 
 
 </body>

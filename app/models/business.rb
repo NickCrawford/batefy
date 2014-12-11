@@ -25,5 +25,5 @@ class Business < ActiveRecord::Base
 	}
 	
 	scope :filter_by_name, lambda {|name| where(:name => name)}
-	
+
 end
