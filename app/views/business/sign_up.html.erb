@@ -1,35 +1,35 @@
 <div class="page" id="sign_up">
 	<div id="input_div">
 		<table>
-		
+		<%= error_messages_for(@business) %>
 		<%= form_for(:business, :url => {:action => "create"}, 
 			:html => {:multipart => true}) do |f| %>
   				<tr> 
-  					<td><%= f.label(:name, "Name") %></td> 
+  					<td><%= f.label(:name, "Name *") %></td> 
   					<td><%= f.text_field(:name, :maxlength => 40) %></td>
   				</tr>
   				<tr> 
-  					<td><%= f.label(:password, "Password") %></td> 
-  					<td><%= f.password_field(:password, :maxlength => 40) %></td>
+  					<td><%= f.label(:password, "Password *") %></td> 
+  					<td><%= f.password_field(:password, :maxlength => 40,:autocomplete => "off") %></td>
   				</tr>
   				<tr> 
-  					<td><%= f.label(:email, "Email") %></td> 
+  					<td><%= f.label(:email, "Email *") %></td> 
   					<td><%= f.text_field(:email, :maxlength => 40) %></td>
   				</tr>
   				<tr> 
-  					<td><%= f.label(:country, "Country") %></td> 
+  					<td><%= f.label(:country, "Country *") %></td> 
   					<td><%= f.text_field(:country) %></td>
   				</tr>
   				<tr> 
-  					<td><%= f.label(:city, "City") %></td> 
+  					<td><%= f.label(:city, "City *") %></td> 
   					<td><%= f.text_field(:city) %></td>
-  					<td><%= f.label(:state, "State") %></td> 
+  					<td><%= f.label(:state, "State *") %></td> 
   					<td><%= f.text_field(:state) %></td>
-  					<td><%= f.label(:zip, "Zip") %></td> 
+  					<td><%= f.label(:zip, "Zip *") %></td> 
   					<td><%= f.text_field(:zip, :size => 5, :maxlength => 8) %></td>
   				</tr>
   				<tr> 
-  					<td><%= f.label(:address, "Address") %></td> 
+  					<td><%= f.label(:address, "Address *") %></td> 
   					<td><%= f.text_field(:address) %></td>
   				</tr>
   				<tr> 

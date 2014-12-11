@@ -1,0 +1,64 @@
+<div class="page" id="sign_up">
+	<div id="input_div">
+		<table>
+		<%= error_messages_for(@business) %>
+		<%= form_for(:business, :url => {:action => "update", :id => @business.id},:html => {:multipart => true}) do |f| %>
+  				<tr> 
+            
+  					<td><%= f.label(:name, "Name") %></td> 
+  					<td><%= f.text_field(:name, :maxlength => 40) %></td>
+  				</tr>
+  				
+  				<tr> 
+  					<td><%= f.label(:email, "Email") %></td> 
+  					<td><%= f.text_field(:email, :maxlength => 40) %></td>
+  				</tr>
+  				<tr> 
+  					<td><%= f.label(:country, "Country") %></td> 
+  					<td><%= f.text_field(:country) %></td>
+  				</tr>
+  				<tr> 
+  					<td><%= f.label(:city, "City") %></td> 
+  					<td><%= f.text_field(:city) %></td>
+  					<td><%= f.label(:state, "State") %></td> 
+  					<td><%= f.text_field(:state) %></td>
+  					<td><%= f.label(:zip, "Zip") %></td> 
+  					<td><%= f.text_field(:zip, :size => 5, :maxlength => 8) %></td>
+  				</tr>
+  				<tr> 
+  					<td><%= f.label(:address, "Address") %></td> 
+  					<td><%= f.text_field(:address) %></td>
+  				</tr>
+  				<tr> 
+  					<td><%= f.label(:phone, "Phone") %></td> 
+  					<td><%= f.text_field(:phone) %></td>
+  				</tr>
+  				<tr> 
+  					<td><%= f.label(:website, "Website") %></td> 
+  					<td><%= f.text_field(:website) %></td>
+  				</tr>
+          <tr> 
+            <td><%= f.label(:old_password, "Old Password") %></td> 
+            <td><%= f.password_field(:old_password, :maxlength => 40, :autocomplete => "off") %></td>
+          </tr>
+          <tr>
+            <td><%= f.label(:new_password, "New Password") %></td> 
+            <td><%= f.password_field(:new_password, :maxlength => 40) %></td>
+          </tr>
+          <tr>  
+            <td><%= f.label(:password_confirmation, "Confirm Password") %></td> 
+            <td><%= f.password_field(:password_confirmation, :maxlength => 40) %></td>
+          </tr>
+  				<!--<tr> 
+  					<td><%= f.label(:image, "Image") %></td> 
+  					<td><%= f.file_field(:image) %></td>
+  				</tr>-->
+  				<tr>  
+  					<td><%= f.submit("Submit") %></td>
+  				</tr>
+		<% end %>
+  </table>
+	
+  </div>
+
+</div>

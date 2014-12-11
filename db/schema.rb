@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210043732) do
+ActiveRecord::Schema.define(version: 20141211041304) do
 
   create_table "businesses", force: true do |t|
     t.string   "email",      limit: 254, null: false
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20141210043732) do
     t.string   "zip"
     t.string   "image"
   end
+
+  add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true, using: :btree
 
   create_table "businesses_tags", id: false, force: true do |t|
     t.integer "business_id"
