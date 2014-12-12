@@ -16,17 +16,16 @@ class OffersController < ApplicationController
   def show
       sh = SearchHelper.new
       @businesses = sh.run
-  end
 
-  def sign_in 
-
+      respond_to do |format|
+        format.js
+      end
   end
 
   def create
   end
 
   def new
-    render("new")
   end
 
   def edit
