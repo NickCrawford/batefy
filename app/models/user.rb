@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	has_secure_password
+
 	has_many :user_business_opinions
 	has_many :user_offer_opinions
 

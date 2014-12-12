@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211041304) do
+ActiveRecord::Schema.define(version: 20141212055114) do
 
   create_table "businesses", force: true do |t|
-    t.string   "email",      limit: 254, null: false
-    t.string   "password",   limit: 60,  null: false
-    t.string   "name",       limit: 50,  null: false
-    t.float    "latitude",   limit: 24,  null: false
-    t.float    "longitude",  limit: 24,  null: false
+    t.string   "email",           limit: 254, null: false
+    t.string   "name",            limit: 50,  null: false
+    t.float    "latitude",        limit: 24,  null: false
+    t.float    "longitude",       limit: 24,  null: false
     t.string   "website"
     t.string   "phone"
     t.string   "address"
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141211041304) do
     t.string   "state"
     t.string   "zip"
     t.string   "image"
+    t.string   "password_digest"
   end
 
   add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true, using: :btree
@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 20141211041304) do
 
   create_table "users", force: true do |t|
     t.string   "email",              limit: 254, null: false
-    t.string   "password",           limit: 60,  null: false
     t.string   "first_name",         limit: 15
     t.string   "last_name",          limit: 15
     t.date     "birthday"
@@ -95,6 +94,7 @@ ActiveRecord::Schema.define(version: 20141211041304) do
     t.float    "longitutde_current", limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end

@@ -11,7 +11,7 @@
   				
   				<tr> 
   					<td><%= f.label(:email, "Email") %></td> 
-  					<td><%= f.text_field(:email, :maxlength => 40) %></td>
+  					<td><%= @business.email %></td>
   				</tr>
   				<tr> 
   					<td><%= f.label(:country, "Country") %></td> 
@@ -46,15 +46,15 @@
             <td><%= f.password_field(:new_password, :maxlength => 40) %></td>
           </tr>
           <tr>  
-            <td><%= f.label(:password_confirmation, "Confirm Password") %></td> 
-            <td><%= f.password_field(:password_confirmation, :maxlength => 40) %></td>
+            <td><%= f.label(:new_password_confirmation, "Confirm Password") %></td> 
+            <td><%= f.password_field(:new_password_confirmation, :maxlength => 40) %></td>
           </tr>
   				<!--<tr> 
   					<td><%= f.label(:image, "Image") %></td> 
   					<td><%= f.file_field(:image) %></td>
   				</tr>-->
   				<tr>  
-  					<td><%= f.submit("Submit") %></td>
+  					<td><%= f.submit("Update Profile") %></td>
   				</tr>
 		<% end %>
   </table>
