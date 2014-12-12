@@ -12,15 +12,15 @@
 		<% if @business.nil? %>
 			<%= link_to("Sign in", "#sign_in_modal", :method => "get", :id => "sign_in") %>
 		<% else %>
-			 <%= link_to(@business.name , "business", :id => "profile_name") %>
-			 <%= image_tag("/public/1.png", :id => "profile_image") %>
+			 <%= link_to("#{@business.name} ", "business#profile", :id => "profile_name") %>
+			 <%= link_to(image_tag("/images/1.png", :alt => "profile image", :id => "profile_image"), "business#profile") %>
 		<% end %> 
 		
 	</header>
 
 	<nav> 
 		<ul>
-			<li> <%= link_to("Home", index_path, :remote => true) %> </li>
+			<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + "Home", index_path, :remote => true) %> </li>
 			<li> <%= link_to("Nearby", "#") %> </li>
 			<li> <%= link_to("My Offers", "#") %> </li>
 		</ul>
