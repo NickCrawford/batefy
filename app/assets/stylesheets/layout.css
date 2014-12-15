@@ -23,16 +23,16 @@ header {
 	border-bottom: inset;
 }
 
-header hr {
-	width: 1px;
-	height: 55px;
-	display: inline;
-}
-
 #logo {
 	position: fixed;
 	left: 0px;
 	top: 0px;
+}
+
+#sign_out_link {
+	position: fixed;
+	right: 200px;
+	top:10px;
 }
 
 #profile_button {
@@ -73,7 +73,6 @@ header hr {
 	left:5px;
 
 	padding-right: 20px;
-
 }
 
 nav {
