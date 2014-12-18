@@ -32,8 +32,8 @@ class BusinessController < ApplicationController
 	end
 
 	def create
-		#params[:business][:latitude]= 3
-		#params[:business][:longitude]= 4
+		params[:business][:latitude]= 3
+		params[:business][:longitude]= 4
 		if params.blank?
 			redirect_to(:action=>"sign_up")
 		end
@@ -41,6 +41,7 @@ class BusinessController < ApplicationController
 			if !@business.save
 				render("sign_up")
 			end
+		session[:id] = @business.id
 	end
 
 	def profile

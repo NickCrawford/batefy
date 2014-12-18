@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # geocoding gem
 gem 'geocoder'
 
+#Kaminari gem for pagination
+gem 'kaminari'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
