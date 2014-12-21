@@ -1,0 +1,26 @@
+<h1> SignIn </h1>
+
+<table>
+<%= form_for(:business, :url => {:action => "sign_in_attempt"}) do |f| %>
+	<tr>
+		<td><%if !flash.empty?%> <%=flash[:notice]%> <%end%></td>
+	</tr>
+	<tr>
+		<td><%= f.label(:email, "Email") %></td>
+		<td><%= f.text_field(:email) %></td>
+	</tr>
+	<tr>
+		<td><%= f.label(:password, "Password") %></td>
+		<td><%= f.password_field(:password) %></td>
+	</tr>
+	<tr>
+		<td><%= f.submit("Log in")%></td>
+	</tr>
+	<tr>
+		<td>Forgot Login</td>
+	</tr>
+	<tr>
+		<td><a href="sign_up">Sign up</a></td>
+	</tr>
+<%end%>
+</table>

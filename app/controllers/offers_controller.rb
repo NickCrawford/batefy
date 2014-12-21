@@ -17,18 +17,16 @@ class OffersController < ApplicationController
       @businesses = sh.run
   end
 
-  def sign_in 
-
+  def new
   end
 
   def create
   end
 
-  def new
-    render("new")
+  def edit
   end
 
-  def edit
+  def update
   end
 
   def delete

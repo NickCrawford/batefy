@@ -6,20 +6,25 @@ class BusinessController < ApplicationController
 		@businesses = Business.all 
 	end
 
-	def log_in
-
+	def sign_in
+		
 	end
 
-	def log_in_attempt
-		if (business = Business.find_by_email(params[:email]))
-			if business.authenticate(params[:password])
+	def sign_out
+		session.clear
+		redirect_to(:action => "sign_in")
+	end
+
+	def sign_in_attempt
+		if (business = Business.find_by_email(params[:business][:email]))
+			if business.authenticate(params[:business][:password])
 				flash[:notice] = "Successfully logged in"
 				session[:id] = business.id
-				redirect_to("profile") and return
+				redirect_to(:action => "profile", :id => session[:id]) and return
 			end
 		end
 		flash[:notice] = "Wrong email or password"
-		render("log_in")
+		render("sign_in")
 	end
 
 	def sign_up
@@ -27,12 +32,15 @@ class BusinessController < ApplicationController
 	end
 
 	def create
-		params[:business][:latitude]= 3
-		params[:business][:longitude]= 4
-		@business = Business.new(business_params)
-		if !@business.save
-			render("sign_up")
+		#params[:business][:latitude]= 3
+		#params[:business][:longitude]= 4
+		if params.blank?
+			redirect_to(:action=>"sign_up")
 		end
+		@business = Business.new(business_params)
+			if !@business.save
+				render("sign_up")
+			end
 	end
 
 	def profile

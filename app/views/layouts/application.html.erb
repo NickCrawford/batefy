@@ -9,20 +9,23 @@
 <body>
 	<header>
 		<%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , "#", :id => "logo") %>
-		<% if @business.nil? %>
-			<%= link_to("Sign in", "#sign_in_modal", :method => "get", :id => "sign_in") %>
-		<% else %>
-			 <%= link_to("#{@business.name} ", "business#profile", :id => "profile_name") %>
-			 <%= link_to(image_tag("/images/1.png", :alt => "profile image", :id => "profile_image"), "business#profile") %>
-		<% end %> 
 		
+		<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}, :id => "sign_out_link") %>
+
+		<% if is_user_signed_in %>
+			<div id="profile_button">
+			 	<%= link_to(image_tag("", :alt => "profile image", :id => "profile_image") + "#{@business.name} ", "business#profile") %>
+			</div>
+		<% else %>
+			<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
+		<% end %> 
 	</header>
 
 	<nav> 
 		<ul>
-			<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + "Home", index_path, :remote => true) %> </li>
-			<li> <%= link_to("Nearby", "#") %> </li>
-			<li> <%= link_to("My Offers", "#") %> </li>
+			<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + " Home", "offer#index") %> </li>
+			<li> <%= link_to(image_tag("map_icon.png", :size => "25x25") + " Nearby", "#") %> </li>
+			<li> <%= link_to(image_tag("offer_icon.png", :size => "25x25") + " My Offers", "#") %> </li>
 		</ul>
 	</nav>
 
