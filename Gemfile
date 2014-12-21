@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # geocoding gem
 gem 'geocoder'
 
+#photo upload
+gem "paperclip", "~> 3.1"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

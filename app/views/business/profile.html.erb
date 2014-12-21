@@ -1,6 +1,7 @@
 <div class="page" id="sign_up">
 	<div id="input_div">
 		<table>
+    <%= image_tag @business.image.url %>
 		<%= error_messages_for(@business) %>
 		<%= form_for(:business, :url => {:action => "update", :id => @business.id},:html => {:multipart => true}) do |f| %>
   				<tr> 
