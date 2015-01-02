@@ -5,13 +5,14 @@
 <br>
 
 <div id="results_grid">
-<table style="width: 100%">
-  <tr>
-    <th>Business</th>
-    <th>Offer</th> 
-  </tr>
+	<table style="width: 100%">
+  		<tr>
+    		<th>Business</th>
+    		<th>Offer</th> 
+  		</tr>
 	
-		<%= render(:partial => "results", :locals => {:business => @businesses}) %>
+		<%= "Total offers loaded: #{@businesses.count}" %>
+		
 		
 </table>
 

@@ -11,8 +11,6 @@
 		<%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , {:controller => "offers", :action => "index"}, :id => "logo") %>
 		
 		<% if is_user_signed_in %>
-			<% puts "Session Id #{session[:id]}" %>
-			<% puts "Business.nil?: #{@business.nil?}" %>
 			<div id="profile_button">
 			 	<%= link_to(image_tag("", :alt => "profile image", :id => "profile_image") + "#{Business.find(session[:id]).name} ", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
 			</div>
