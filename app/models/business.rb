@@ -1,7 +1,9 @@
 class Business < ActiveRecord::Base
 
 	has_secure_password
-	has_attached_file :image
+	has_attached_file :image,
+					  :url => "/assets/images/business/profile/:id/:style/:basename.:extension",
+					  :path => ":rails_root/public/assets/images/business/profile/:id/:style/:basename.:extension"
 
 	has_many :offers
 	has_and_belongs_to_many :tags

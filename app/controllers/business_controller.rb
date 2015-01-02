@@ -32,8 +32,8 @@ class BusinessController < ApplicationController
 	end
 
 	def create
-		#params[:business][:latitude]= 3
-		#params[:business][:longitude]= 4
+		params[:business][:latitude]= 3
+		params[:business][:longitude]= 4
 		if params.blank?
 			redirect_to(:action=>"sign_up")
 		end
@@ -60,7 +60,7 @@ class BusinessController < ApplicationController
 	private
 		def business_params
 				params.require(:business).permit(:name, :email, :password, :latitude, 
-					:longitude, :country, :city, :state, :zip, :address, :phone, :website, 
+					:longitude, :country, :city, :state, :zip, :address, :image, :phone, :website, 
 					:new_password, :new_password_confirmation, :old_password)
 		end
 end
