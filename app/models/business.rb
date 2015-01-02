@@ -1,19 +1,21 @@
 class Business < ActiveRecord::Base
 
-	has_secure_password
-	has_attached_file :image,
-					  :url => "/assets/images/business/profile/:id/:style/:basename.:extension",
-					  :path => ":rails_root/public/assets/images/business/profile/:id/:style/:basename.:extension"
-
 	has_many :offers
 	has_and_belongs_to_many :tags
 	has_many :user_business_opinions
 	has_many :users, :through => :user_business_opinions
-	
 
 	attr_accessor :old_password, :new_password, :new_password_confirmation
 	EMAIL_REGEX = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/
+
+	has_secure_password
+	geocoded_by :full_address
+	has_attached_file :image,
+					  :url => "/assets/images/business/profile/:id/:style/:basename.:extension",
+					  :path => ":rails_root/public/assets/images/business/profile/:id/:style/:basename.:extension"
 	
+	before_validation :geocode
+
 	validates_presence_of :name
 	validates_presence_of :email
 	validates_length_of :email, {:maximum => 254}
@@ -28,8 +30,11 @@ class Business < ActiveRecord::Base
 	validates_presence_of :state
 	validates_presence_of :zip
 	validates_presence_of :country
-	validates :latitude, :presence => true
-	validates :longitude, :presence => true
+	validates_presence_of :latitude
+	validates_presence_of :longitude
+	validates_attachment_presence :image
+	validates_attachment_size :image, :less_than => 5.megabytes
+	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']
 
 	private
 
@@ -44,6 +49,12 @@ class Business < ActiveRecord::Base
 		def password_changed?
 			!@new_password.blank?
 		end
+
+		def full_address
+			[self.address, self.zip, self.state, self.country].join(' ,')
+		end
+	
+
 
 	scope :filter_by_location, lambda {|latMax,latMin,lngMax,lngMin| 
 		where("businesses.latitude BETWEEN ? AND ? AND businesses.longitude BETWEEN ? AND ?", latMax,latMin,lngMax,lngMin) 

@@ -32,8 +32,6 @@ class BusinessController < ApplicationController
 	end
 
 	def create
-		params[:business][:latitude]= 3
-		params[:business][:longitude]= 4
 		if params.blank?
 			redirect_to(:action=>"sign_up")
 		end
