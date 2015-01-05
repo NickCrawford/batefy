@@ -1,37 +1,20 @@
-<h1>Offers#index</h1>
+<h1>Offers</h1>
 
 <br>
 <%= link_to("load all", fetch_businesses_path, :remote => true) %>
 <br>
 
 <div id="results_grid">
-<table style="width: 100%">
-  <tr>
-    <th>Business</th>
-    <th>Offer</th> 
-  </tr>
+	<table style="width: 100%">
+  		<tr>
+    		<th>Business</th>
+    		<th>Offer</th> 
+  		</tr>
 	
-		<%= render(:partial => "results", :locals => {:business => @businesses}) %>
+		<%= "Total offers loaded: #{@businesses.count}" %>
 		
-
+		
 </table>
 
-<% 3.times do |t| %>
-<br> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<pre> 			Hello </pre>
-<% end %>
 </div>
 

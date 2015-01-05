@@ -36,6 +36,7 @@ class SearchHelper
 
 	def run
 		string_query_statement, array_query_attributes=createQueryConditions
+
 		conditions = [string_query_statement] + array_query_attributes.flatten!
 		Business.joins(:offers).all.where(conditions)
 	end
