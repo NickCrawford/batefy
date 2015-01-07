@@ -1,20 +1,18 @@
 <h1>Offers</h1>
 
+<div id="filter_bar">
+	<h2>Filter</h2>
+<div>
+
+<%= "Total offers loaded: #{@businesses.count}" %>
+
 <br>
 <%= link_to("load all", fetch_businesses_path, :remote => true) %>
 <br>
 
 <div id="results_grid">
-	<table style="width: 100%">
-  		<tr>
-    		<th>Business</th>
-    		<th>Offer</th> 
-  		</tr>
-	
-		<%= "Total offers loaded: #{@businesses.count}" %>
+	<p>No results loaded :(</p>
 		
-		
-</table>
 
 </div>
 

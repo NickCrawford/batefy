@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>iOffer</title>
-  <%= javascript_include_tag('application') %>
-  <%= stylesheet_link_tag('application', :media => 'all') %>
-  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin" %>
+	<title>iOffer</title>
+	<%= javascript_include_tag('application') %>
+	<%= stylesheet_link_tag('application', :media => 'all') %>
+	<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin" %>
 </head>
 <body>
 	<header>
 		<%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , {:controller => "offers", :action => "index"}, :id => "logo") %>
 		
 		<% if is_user_signed_in %>
-			<div id="profile_button">
-			 	<%= link_to(image_tag("", :alt => "profile image", :id => "profile_image") + "#{Business.find(session[:id]).name} ", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
-			</div>
-			<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}, :id => "sign_out_link") %>
+		<div id="profile_button">
+			<%= link_to(image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") + "#{truncate(Business.find(session[:id]).name , length: 20)} ", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
+		</div>
+		<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}, :id => "sign_out_link") %>
 		<% else %>
-			<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
+		<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
 		<% end %> 
 	</header>
 
-	<nav> 
-		<ul>
-			<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + " Home", {:controller => "offers", :action => "index"}) %> </li>
-			<li> <%= link_to(image_tag("map_icon.png", :size => "25x25") + " Nearby", "#") %> </li>
-			<li> <%= link_to(image_tag("offer_icon.png", :size => "25x25") + " My Offers", "#") %> </li>
-		</ul>
-	</nav>
+	<div id="sidebar"> 
+		<div class="nav_box">
+			<ul>
+				<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + " Home", {:controller => "offers", :action => "index"}) %> </li>
+				<li> <%= link_to(image_tag("map_icon.png", :size => "25x25") + " Nearby", "#") %> </li>
+				<li> <%= link_to(image_tag("offer_icon.png", :size => "25x25") + " My Offers", "#") %> </li>
+			</ul>
+		</div>
+	</div>
 
 	<div id="modal_box_" class="modal_dialog">
 		<a href="#close" title="Close" class="close">X</a>

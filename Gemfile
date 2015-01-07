@@ -32,13 +32,11 @@ gem 'bcrypt', '~> 3.1.7'
 # geocoding gem
 gem 'geocoder'
 
-<<<<<<< HEAD
 #photo upload
 gem "paperclip", "~> 3.1"
-=======
+
 #Kaminari gem for pagination
 gem 'kaminari'
->>>>>>> offer_dev
 
 # Use unicorn as the app server
 # gem 'unicorn'

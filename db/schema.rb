@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20141221221111) do
   create_table "user_offer_opinions", force: true do |t|
     t.integer  "offer_id"
     t.integer  "user_id"
-    t.integer  "opinion"
+    t.integer  "opinion",    limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

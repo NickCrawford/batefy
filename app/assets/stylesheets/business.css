@@ -1,0 +1,73 @@
+#profile_header {
+	width: 100%;
+	height: 305px;
+
+	background-color: gray;
+
+	border-bottom: thin;
+	border-color: white;
+
+}
+
+#header_focus_image {
+	width: 250px;
+	height: 250px;
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	border: solid;
+	border-color: white;
+	border-radius: 10px;
+
+	position: relative;
+	top: 10px;
+}
+
+#header_back_image {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+}
+
+#profile_header h1 {
+	color: white;
+	font-family: "Cabin";
+	text-align: center;
+	margin: 8px;
+ }
+
+#input {
+	width: 100%;
+	margin: 0px;
+	background-color: blue;
+	float: center;
+}
+
+#confirm {
+	background-color: white;
+
+	width: 500px;
+	height: 300px;
+
+	z-index: 999999;
+	position: absolute;
+
+	top: 50%;
+	left: 50%;
+
+	margin: -250px 0 0 -150px;
+
+	opacity: 0;
+}
+
+#confirm h3 {
+	font-family: "Cabin";
+	text-align: center;
+	font-size: 28px;
+}
+
+#confirm:target {
+	opacity: 1;
+}
