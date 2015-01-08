@@ -127,7 +127,8 @@ header {
 
 main {
 	margin-left: 250px;
-	margin-top: 75px; 
+	margin-top: 75px;
+	padding: 0;
 }
 
 #sign_in {
@@ -156,6 +157,10 @@ main {
 }
 
 
+.page {
+	margin: 0px;
+	padding: 0;
+}
 
 .modal_dialog {
 	visibility: hidden;

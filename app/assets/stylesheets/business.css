@@ -34,40 +34,98 @@
 #profile_header h1 {
 	color: white;
 	font-family: "Cabin";
+	font-size:32px;
 	text-align: center;
-	margin: 8px;
+	margin-top: 8px;
  }
+
+#errors {
+	padding-bottom: 10px;
+
+	background-color: #FD6E67;
+
+	font-family: "Cabin";
+}
+
+#errors h2 {
+	text-align: center;
+
+	color: white;
+
+	display: block;
+	padding: 10px;
+	background-color: #CC534D;
+}
+
+#errors p {
+	font-size: 20px;
+	text-align: center;
+}
+
+#errors ul {
+	margin-left: 25%;
+	margin-right: auto;
+}
 
 #input {
 	width: 100%;
 	margin: 0px;
-	background-color: blue;
+	background-color: white;
 	float: center;
+}
+
+#input table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#input table label {
+	font-family: "Cabin";
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+#input input:not([type=submit]):not([type=file]) {
+	font-family: "Cabin";
+
+	border-radius: 5px;
 }
 
 #confirm {
 	background-color: white;
+	font-family: "Cabin";
+	text-align: center;
 
-	width: 500px;
-	height: 300px;
+	display: none;
 
-	z-index: 999999;
-	position: absolute;
-
-	top: 50%;
-	left: 50%;
-
-	margin: -250px 0 0 -150px;
-
-	opacity: 0;
+	border:solid;
+	border-color: black;
 }
 
 #confirm h3 {
-	font-family: "Cabin";
 	text-align: center;
 	font-size: 28px;
 }
 
 #confirm:target {
 	opacity: 1;
+
+	position: fixed;
+    top: 50%;
+    left: 50%;
+
+    margin-left: -25%;
+    margin-top:  -20%;
+
+    width: 50%;
+    height: auto;
+
+	min-width: 500px;
+	min-height: 300px;
+
+	display: block;
+
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
 }
