@@ -17,6 +17,9 @@
 		<% Offer.all.each do |offer| %>
 	    <li>
 	        <figure>
+	        	<div class="percent_label">
+	        		<h2><%= offer.percentage %>%</h2>
+	        	</div>
 	            <%= image_tag(offer.business.image.url) %>
 	            <figcaption>
 	                <h3><%= offer.business.name %></h3>

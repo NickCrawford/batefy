@@ -95,12 +95,39 @@ pre {
 	background-color: #196A3A;
 }
 
-figure:hover figcaption {
+.grid figure:hover figcaption {
     opacity: 1;
     transform: translateY(0px);
     transition: transform 0.4s, opacity 0.1s;
 }
 
-figure:hover img {
+.grid figure:hover img {
 	transform: translateY(-50px);
+}
+
+.grid .percent_label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	margin: 0;
+	width: 0;
+	height: 0;
+	border-top: 100px solid green;
+	border-right: 100px solid transparent;
+
+
+}
+.grid .percent_label h2 {
+	color: white;
+	font-family: "Cabin";
+	position: absolute;
+	top: -90px;
+	left: 0;
+	margin: 5px;
+
+	-webkit-transform: rotate(314deg);
+	-moz-transform: rotate(314deg);
+	-o-transform: rotate(314deg);
+	writing-mode: lr-tb;
 }
