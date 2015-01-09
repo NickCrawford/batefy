@@ -3,16 +3,31 @@
 <div id="filter_bar">
 	<h2>Filter</h2>
 <div>
-
-<%= "Total offers loaded: #{@businesses.count}" %>
-
 <br>
 <%= link_to("load all", fetch_businesses_path, :remote => true) %>
 <br>
-
-<div id="results_grid">
-	<p>No results loaded :(</p>
-		
-
+<p>
+	<% if Offer.all.count == 0 %> 
+		<%= "No offers to show." %>
+	<% else %>
+		<%= "Total offers loaded: #{Offer.all.count}" %>
+	<% end %>
+</p>
+	<ul class="grid">
+		<% Offer.all.each do |offer| %>
+	    <li>
+	        <figure>
+	            <%= image_tag(offer.business.image.url) %>
+	            <figcaption>
+	                <h3><%= offer.business.name %></h3>
+	                <p><%= offer.business.address %></p>
+	                <p><%= "#{offer.business.city}, #{offer.business.state} #{offer.business.zip}" %> </p>
+	                <p><%= offer.business.phone %></p>
+	                <%= link_to("Get Offer", "#") %>
+	            </figcaption>
+	        </figure>
+	    </li>
+	    <% end %>
+	</ul>
 </div>
 
