@@ -13,17 +13,18 @@
 		<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}, :id => "sign_out_link") %>
 
 		<% if is_user_signed_in %>
+			<% @business = Business.find(session[:id]) %>
 			<div id="profile_button">
-			 	<%= link_to(image_tag("", :alt => "profile image", :id => "profile_image") + "#{@business.name} ", "business#profile") %>
+			 	<%= link_to(image_tag("", :alt => "profile image", :id => "profile_image") + "#{@business.name} ", :controller=>"business", :action =>"profile") %>
 			</div>
 		<% else %>
-			<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
+			<%= link_to("Sign in", :controller => "business", :action => "sign_in", :method => "get", :id => "sign_in") %>
 		<% end %> 
 	</header>
 
 	<nav> 
 		<ul>
-			<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + " Home", "offer#index") %> </li>
+			<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + " Home", :controller=>"offers", :action => "index") %> </li>
 			<li> <%= link_to(image_tag("map_icon.png", :size => "25x25") + " Nearby", "#") %> </li>
 			<li> <%= link_to(image_tag("offer_icon.png", :size => "25x25") + " My Offers", "#") %> </li>
 		</ul>
