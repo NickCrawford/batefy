@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20141221221111) do
     t.string   "name",               limit: 50,  null: false
     t.float    "latitude",           limit: 24,  null: false
     t.float    "longitude",          limit: 24,  null: false
+    t.string   "address"
     t.string   "website"
     t.string   "phone"
-    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20141221221111) do
   create_table "user_offer_opinions", force: true do |t|
     t.integer  "offer_id"
     t.integer  "user_id"
-    t.integer  "opinion"
+    t.integer  "opinion",    limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

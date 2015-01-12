@@ -35,6 +35,9 @@ gem 'geocoder'
 #photo upload
 gem "paperclip", "~> 3.1"
 
+#Kaminari gem for pagination
+gem 'kaminari'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

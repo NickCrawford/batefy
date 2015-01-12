@@ -1,7 +1,150 @@
+
 h1 {
 	color: black;
 }
 
 pre {
 	font-family: "Cabin"
+}
+
+#filter_bar {
+	background-color:#C3C3C3;
+	width: 100%;
+	height: 150px;
+}
+
+#filter_bar h2 {
+	text-align: center;
+}
+
+/* Results Grid CSS */
+
+.grid {
+    padding: 20px 20px 100px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
+}
+ 
+.grid li {
+    display: inline-block;
+    width: 440px;
+    margin: 0;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+}
+
+.grid figure {
+    margin: 0;
+    position: relative;
+
+    overflow: hidden;
+}
+
+.grid figure img {
+    max-width: 100%;
+    display: block;
+    position: relative;
+
+    -webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+.grid figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background: white;
+    color:black;
+    font-family: "Cabin";
+
+    height: 75px;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	transform: translateY(100%);
+
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+	-moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+	transition: transform 0.4s, opacity 0.1s 0.3s;
+}
+
+.grid figcaption h3 {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.grid figcaption p {
+	line-height: 0;
+}
+ 
+.grid figcaption a {
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    background: #297A4A;
+    color: #fff;
+	text-decoration: none;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+}
+
+.grid figcaption a:hover {
+	background-color: #196A3A;
+}
+
+.grid figure:hover figcaption {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	transform: translateY(0px);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+	-moz-transition: -moz-transform 0.4s, opacity 0.1s;
+	transition: transform 0.4s, opacity 0.1s;
+}
+
+.grid figure:hover img {
+	-webkit-transform: translateY(-50px);
+	-moz-transform: translateY(-50px);
+	-ms-transform: translateY(-50px);
+	transform: translateY(-50px);
+}
+
+.grid .percent_label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	margin: 0;
+	width: 0;
+	height: 0;
+	border-top: 100px solid;
+	border-right: 100px solid transparent;
+
+
+}
+.grid .percent_label h2 {
+	color: white;
+	font-family: "Cabin";
+	position: absolute;
+	top: -90px;
+	left: 0;
+	margin: 5px;
+
+	-webkit-transform: rotate(315deg);
+	-moz-transform: rotate(315deg);
+	-o-transform: rotate(315deg);
+	writing-mode: lr-tb;
 }

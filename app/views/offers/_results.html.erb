@@ -1,10 +1,30 @@
-<% @businesses.each do |business| %>
-	<tr>
-  		<td><%= business.name %></td>
-  		<td>
-  			<%	business.offers.each do |offer| %> 
-  				<ul><%= offer.percentage %></ul>
-  			<% end %>
-  		</td>
-	</tr>
+<% if offers.nil? %>
+	<%= "No offers to display" %>
+<% else %>
+	<% offers.each do |offer| %>
+	<li>
+	    <figure>
+	    	<% if offer.percentage <= 15 %>
+	    		<%	color = "'border-top-color:#48C48F'" %>
+	    	<% elsif offer.percentage <= 30 %>
+	    		<%	color = "'border-top-color:#2D855F'" %>
+	    	<% elsif offer.percentage <= 45 %>
+	    		<%	color = "'border-top-color:#216447'" %>
+	    	<% else %>
+	    		<% color = "'border-top-color:#1C543C'" %>
+	    	<% end %>
+	    	<div class="percent_label" style=<%= raw(color) %>>
+	    		<h2 ><%= offer.percentage %>%</h2>
+	    	</div>
+	        <%= image_tag(offer.business.image.url) %>
+	        <figcaption>
+	            <h3><%= offer.business.name %></h3>
+	            <p><%= offer.business.address %></p>
+	            <p><%= "#{offer.business.city}, #{offer.business.state} #{offer.business.zip}" %> </p>
+	            <p><%= offer.business.phone %></p>
+	            <%= link_to("Get Offer", "#") %>
+	        </figcaption>
+	    </figure>
+	</li>
+	<% end %>
 <% end %>

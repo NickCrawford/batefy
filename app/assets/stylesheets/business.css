@@ -1,0 +1,136 @@
+#profile_header {
+	width: 100%;
+	height: 305px;
+
+	background-color: gray;
+
+	border-bottom: thin;
+	border-color: white;
+
+}
+
+#header_focus_image {
+	width: 250px;
+	height: 250px;
+	overflow: hidden;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	border: solid;
+	border-color: white;
+	border-radius: 10px;
+
+	position: relative;
+	top: 10px;
+}
+
+#header_focus_image img {
+
+	height:  100%;
+}
+
+#header_back_image {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+}
+
+#profile_header h1 {
+	color: white;
+	font-family: "Cabin";
+	font-size:32px;
+	text-align: center;
+	margin-top: 8px;
+ }
+
+#errors {
+	padding-bottom: 10px;
+
+	background-color: #FD6E67;
+
+	font-family: "Cabin";
+}
+
+#errors h2 {
+	text-align: center;
+
+	color: white;
+
+	display: block;
+	padding: 10px;
+	background-color: #CC534D;
+}
+
+#errors p {
+	font-size: 20px;
+	text-align: center;
+}
+
+#errors ul {
+	margin-left: 25%;
+	margin-right: auto;
+}
+
+#input {
+	width: 100%;
+	margin: 0px;
+	background-color: white;
+	float: center;
+}
+
+#input table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#input table label {
+	font-family: "Cabin";
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+#input input:not([type=submit]):not([type=file]) {
+	font-family: "Cabin";
+
+	border-radius: 5px;
+}
+
+#confirm {
+	background-color: white;
+	font-family: "Cabin";
+	text-align: center;
+
+	display: none;
+
+	border:solid;
+	border-color: black;
+}
+
+#confirm h3 {
+	text-align: center;
+	font-size: 28px;
+}
+
+#confirm:target {
+	opacity: 1;
+
+	position: fixed;
+    top: 50%;
+    left: 50%;
+
+    margin-left: -25%;
+    margin-top:  -20%;
+
+    width: 50%;
+    height: auto;
+
+	min-width: 500px;
+	min-height: 300px;
+
+	display: block;
+
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+}
