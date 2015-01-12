@@ -4,7 +4,7 @@
 	<h2>Filter</h2>
 <div>
 <br>
-<%= link_to("load all", fetch_businesses_path, :remote => true) %>
+<%= link_to("load none", fetch_businesses_path, :remote => true) %>
 <br>
 <p>
 	<% if Offer.all.count == 0 %> 
@@ -13,24 +13,11 @@
 		<%= "Total offers loaded: #{Offer.all.count}" %>
 	<% end %>
 </p>
+	<% @offers = Offer.all  %>
 	<ul class="grid">
-		<% Offer.all.each do |offer| %>
-	    <li>
-	        <figure>
-	        	<div class="percent_label">
-	        		<h2><%= offer.percentage %>%</h2>
-	        	</div>
-	            <%= image_tag(offer.business.image.url) %>
-	            <figcaption>
-	                <h3><%= offer.business.name %></h3>
-	                <p><%= offer.business.address %></p>
-	                <p><%= "#{offer.business.city}, #{offer.business.state} #{offer.business.zip}" %> </p>
-	                <p><%= offer.business.phone %></p>
-	                <%= link_to("Get Offer", "#") %>
-	            </figcaption>
-	        </figure>
-	    </li>
-	    <% end %>
+		
+		<%= render(partial: "results", locals: {offers: @offers}) %>
 	</ul>
 </div>
 
+lat,long, category

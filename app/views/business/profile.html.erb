@@ -1,5 +1,7 @@
 <div id="profile_header">
-  <%= image_tag(@business.image.url , :id => "header_focus_image") %>
+  <div id="header_focus_image">
+    <%= image_tag(@business.image.url) %>
+  </div>
   <!--<%= image_tag(@business.image.url , :id => "header_back_image") %>  -->
   <h1><%= Business.find(session[:id]).name %> </h1>
 </div>
