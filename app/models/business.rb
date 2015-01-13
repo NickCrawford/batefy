@@ -32,7 +32,7 @@ class Business < ActiveRecord::Base
 	validates_presence_of :country
 	validates_presence_of :latitude
 	validates_presence_of :longitude
-	validates_attachment_presence :image
+	validates_attachment_presence :image, :on => :create
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']
 
