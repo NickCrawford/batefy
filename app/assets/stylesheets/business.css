@@ -97,40 +97,58 @@
 }
 
 #confirm {
-	background-color: white;
+	opacity:0;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+
 	font-family: "Cabin";
 	text-align: center;
 
-	display: none;
-
-	border:solid;
-	border-color: black;
-}
-
-#confirm h3 {
-	text-align: center;
-	font-size: 28px;
-}
-
-#confirm:target {
-	opacity: 1;
-
-	position: fixed;
-    top: 50%;
-    left: 50%;
-
-    margin-left: -25%;
-    margin-top:  -20%;
-
-    width: 50%;
-    height: auto;
-
-	min-width: 500px;
-	min-height: 300px;
-
-	display: block;
 
 	-webkit-transition: opacity 400ms ease-in;
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
+	pointer-events: none;
+	-webkit-backface-visibility: hidden;
+}
+
+#confirm:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+#confirm > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 5px;
+	background: white;
+}
+
+.submit_btn {
+	background-color: #297A4A;
+    border:none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 15px 5px;
+    display: inline-block;
+
+    color: white;
+	font-family: 'Cabin';
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+.submit_btn:hover {
+	background-color: #196A3A;
 }
