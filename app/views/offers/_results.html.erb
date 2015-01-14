@@ -23,7 +23,7 @@
 	            <p><%= "#{offer.business.city}, #{offer.business.state} #{offer.business.zip}" %> </p>
 	            <p><%= offer.business.phone %></p>
 	            <%= link_to("Get Offer", "#") %>
-	            <%= link_to("Business Profile", {:controller => "business", :action => "profile", :id => offer.business}) %>
+	            <%= link_to("Business Profile", {:controller => "business", :action => "show", :id => offer.business}) %>
 	        </figcaption>
 	    </figure>
 	</li>

@@ -1,5 +1,8 @@
 <div id="filter_bar">
 	<h2>Filter</h2>
+	<%= form_for("/offers", remote: true) do |f| %>
+		<%= f.label(:percentage) %>
+	<% end %>
 <div>
 <br>
 <%= link_to("load none", fetch_businesses_path, :remote => true) %>
@@ -11,7 +14,7 @@
 		<%= "Total offers loaded: #{Offer.all.count}" %>
 	<% end %>
 </p>
-	<% @offers = Offer.all  %>
+	<% @offers = Offer.all %>
 	<ul class="grid">
 		
 		<%= render(partial: "results", locals: {offers: @offers}) %>

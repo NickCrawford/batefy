@@ -30,7 +30,7 @@ class SearchHelper
 
 	def filterByPercentage(percentage)
 		@@query_elements[:date] = {}
-		@@query_elements[:date][:string] = " offer.percentage = ? "
+		@@query_elements[:date][:string] = " offers.percentage = ? "
 		@@query_elements[:date][:attributes] = [percentage]
 	end
 
