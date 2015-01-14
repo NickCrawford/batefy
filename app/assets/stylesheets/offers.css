@@ -95,9 +95,9 @@ pre {
     background: #297A4A;
     color: #fff;
 	text-decoration: none;
-    position: absolute;
-    bottom: 20px;
-    right: 50px;
+    position: relative;
+    right: -200px;
+    bottom: 30px;
 }
 
 .grid figcaption a:hover {

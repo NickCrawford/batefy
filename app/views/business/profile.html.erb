@@ -59,24 +59,19 @@
    <td><%= f.file_field(:image) %></td>
  </tr>
  <tr>
-  <td> <%= link_to '<button type="button">Save Changes</button>'.html_safe, "#confirm" %> </td>
+  <td> <%= link_to('<button type="button" class="submit_btn">Save Changes</button>'.html_safe, "#confirm") %> </td>
 </tr>
 
 <div class="modal_box" id="confirm">
-  <h3>Confirm Password</h3>
   <div>
+    <h3>Confirm Password</h3>
     <p>Please type your password to save changes to your profile.</p>
-    <%= f.password_field(:old_password, :maxlength => 40, :autocomplete => "off") %>
+    <div><%= f.password_field(:old_password, :maxlength => 40, :autocomplete => "off") %></div>
+    <%= f.submit("Confirm", :class => "submit_btn") %>or 
+    <button type="button" class="modal_close" onclick="location.href='#'">Cancel</button>
   </div>
-  <button type="button" class="modal_close" onclick="location.href='#'">Cancel</button>
-  <%= f.submit("Confirm") %>
 </div>
-
-   <!--<tr> 
-    <td><%= f.label(:old_password, "Old Password") %></td> 
-    <td><%= f.password_field(:old_password, :maxlength => 40, :autocomplete => "off") %></td>
-  </tr>-->
-  <% end %>
+<% end %>
 </table>
 
 </div>
