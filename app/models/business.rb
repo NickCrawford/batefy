@@ -13,8 +13,8 @@ class Business < ActiveRecord::Base
 	has_attached_file :image,
 					  :url => "/assets/images/business/profile/:id/:style/:basename.:extension",
 					  :path => ":rails_root/public/assets/images/business/profile/:id/:style/:basename.:extension"
-	
-	before_validation :geocode
+
+	before_validation :geocode, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
 
 	validates_presence_of :name
 	validates_presence_of :email
@@ -30,12 +30,12 @@ class Business < ActiveRecord::Base
 	validates_presence_of :state
 	validates_presence_of :zip
 	validates_presence_of :country
-	validates_presence_of :latitude
-	validates_presence_of :longitude
 	validates_attachment_presence :image, :on => :create
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']
-
+		
+	validate :lat_changed?, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
+	
 	private
 
 		def examine_password
@@ -52,6 +52,12 @@ class Business < ActiveRecord::Base
 
 		def full_address
 			[self.address, self.zip, self.state, self.country].join(' ,')
+		end
+
+		def lat_changed?
+        	if !(self.latitude_changed?)
+            	self.errors.add(:address, "is not valid")
+        	end
 		end
 	
 

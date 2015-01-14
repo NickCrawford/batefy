@@ -1,6 +1,8 @@
 class BusinessController < ApplicationController
 
-	before_filter :require_log_in, :only => [:profile, :sign_out] 
+	layout "application"
+
+	before_filter :require_log_in, :only => [:profile, :sign_out, :update, :create] 
 	before_filter :require_not_log_in, :only => [:sign_up,:sign_in]
 	before_filter :require_parameters, :only => [:create, :update, :sign_in_attempt]
 
@@ -46,7 +48,7 @@ class BusinessController < ApplicationController
 	end
 
 	def update
-		@business = Business.find(params[:id])
+		@business = Business.find(session[:id])
 		if @business.update_attributes(business_params)
 			redirect_to(:action => 'profile', :id => @business.id) and return
 		end
@@ -74,8 +76,8 @@ class BusinessController < ApplicationController
 		end
 
 		def require_parameters
-			if params.blank?
-				redirect_to(:action => "sign_in")
-			end
+			params.delete(:action)
+			params.delete(:controller)
+			redirect_to(:action => "sign_in") if params.blank?
 		end
 end
