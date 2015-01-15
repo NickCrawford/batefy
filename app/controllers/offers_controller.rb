@@ -18,14 +18,16 @@ class OffersController < ApplicationController
   end
 
   def show
-      sh = SearchHelper.new
-      @businesses = sh.run
+    sh = SearchHelper.new
+    @businesses = sh.run
   end
 
   def new
+    @offer = Offer.new
   end
 
   def create
+    
   end
 
   def edit

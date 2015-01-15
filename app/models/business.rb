@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
 
-	has_many :offers
+	has_one :offer
 	has_and_belongs_to_many :tags
 	has_many :user_business_opinions
 	has_many :users, :through => :user_business_opinions

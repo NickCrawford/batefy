@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221221111) do
+ActiveRecord::Schema.define(version: 20150115023607) do
 
   create_table "businesses", force: true do |t|
     t.string   "email",              limit: 254, null: false
     t.string   "name",               limit: 50,  null: false
     t.float    "latitude",           limit: 24,  null: false
     t.float    "longitude",          limit: 24,  null: false
-    t.string   "address"
     t.string   "website"
     t.string   "phone"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
@@ -43,20 +43,12 @@ ActiveRecord::Schema.define(version: 20141221221111) do
 
   add_index "businesses_tags", ["business_id", "tag_id"], name: "index_businesses_tags_on_business_id_and_tag_id", using: :btree
 
-  create_table "offer_dates", force: true do |t|
-    t.integer  "offer_id"
-    t.date     "date"
-    t.time     "time_start"
-    t.time     "time_end"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "offers", force: true do |t|
     t.integer  "business_id"
     t.integer  "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "active"
   end
 
   create_table "tags", force: true do |t|
@@ -78,7 +70,7 @@ ActiveRecord::Schema.define(version: 20141221221111) do
   create_table "user_offer_opinions", force: true do |t|
     t.integer  "offer_id"
     t.integer  "user_id"
-    t.integer  "opinion",    limit: 1
+    t.integer  "opinion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
