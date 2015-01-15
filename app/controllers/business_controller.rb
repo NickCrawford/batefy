@@ -3,7 +3,7 @@ class BusinessController < ApplicationController
 	layout "application"
 
 	before_filter :require_log_in, :only => [:profile, :sign_out, :update, :create] 
-	before_filter :require_not_log_in, :only => [:sign_up,:sign_in]
+	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show]
 	before_filter :require_parameters, :only => [:create, :update, :sign_in_attempt]
 
 	def index

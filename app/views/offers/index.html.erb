@@ -1,3 +1,8 @@
+<% if is_user_signed_in %>
+	<div id="new_offer"> 
+		<%= render(template: "offers/new") %>
+	</div>
+<% end %>
 <div id="filter_bar">
 	<h2>Filter</h2>
 	<%= form_for("/offers", remote: true) do |f| %>

@@ -4,16 +4,9 @@
 	<% offers.each do |offer| %>
 	<li>
 	    <figure>
-	    	<% if offer.percentage <= 15 %>
-	    		<%	color = "'border-top-color:#48C48F'" %>
-	    	<% elsif offer.percentage <= 30 %>
-	    		<%	color = "'border-top-color:#2D855F'" %>
-	    	<% elsif offer.percentage <= 45 %>
-	    		<%	color = "'border-top-color:#216447'" %>
-	    	<% else %>
-	    		<% color = "'border-top-color:#1C543C'" %>
-	    	<% end %>
-	    	<div class="percent_label" style=<%= raw(color) %>>
+	    	<% color = {10 => "#48C48F" , 20 => "#2D855F", 40 => "#216447",50 => "#1C543C"} %>
+
+	    	<div class="percent_label" style=<%= "border-top-color:#{color[offer.percentage]}" %>>
 	    		<h2 ><%= offer.percentage %>%</h2>
 	    	</div>
 	        <%= image_tag(offer.business.image.url) %>
