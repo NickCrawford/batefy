@@ -3,7 +3,7 @@ html {
 }
 
 header {
-	background-color: #75B095;
+	background-color: rgba(48, 166, 112, 0.96);
 	
 	width: 100%;
 	height: 75px;
@@ -33,38 +33,62 @@ body {
 	top: 0px;
 }
 
-#sign_out_link {
-	position: fixed;
-	right: 300px;
-	top:10px;
-}
-
 #profile_button {
 	position: fixed;
-	top: 0px;
+	top: 10px;
 	right:25px;
+}
+
+#dd {
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+	line-height: 50px;
+	list-style-type: none;
+	border-radius: 5px;
 }
 
 #profile_button a {
 	display:inline-block;
 	vertical-align: middle;
 
-	border-radius: 5px;
 	height: 55px;
+	width: 200px;
 
 	color: white;
 	font-family: "Cabin";
 	font-size: 24px;
 
-	margin-top: 10px;
+	margin-top: 0;
 	padding-left: 5px;
 	padding-right: 10px;
 
 	text-decoration: none;
 }
 
-#profile_button a:hover {
+#profile_button li:not(:first-child) {
+	visibility: hidden;
+	background-color: white;
+}
+
+#profile_button li:not(:first-child) a {
+	color: black;
+}
+
+#dd:target {
 	background-color: #216A49;
+}
+
+#dd:target li {
+	visibility: visible;
+}
+
+#profile_button a:hover:first-child {
+	background-color: #216A49;
+}
+
+#profile_button a:hover {
+	background-color: gray;
 }
 
 #profile_image {
@@ -78,62 +102,9 @@ body {
 	padding-right: 20px;
 }
 
-#sidebar {
-	background-color: #C3C3C3;
-	height: 100%;
-	width: 250px;
-
-	position: fixed;
-	left: 0px;
-	top: 75px;
-	z-index: 100;
-}
-
-.nav_box {
-	padding: 5px;
-	background-color: white;
-}
-
-.nav_box ul {
-
-	padding-left: 15px;
-	padding-right: 15px;
-
-	list-style-type: none;
-}
-
-.nav_box li a {
-	background-color: white;
-	color: black;
-	font-family: 'Cabin';
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-
-    width: 210px;
-	height: 35px;
-
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.nav_box li a img {
-	position: relative;
-	top: 5px;
-	left:5px;
-}
-
-.nav_box li a:hover {
-	background-color: #A3A3A3;
-	color: white;
-	border-left-color: green;
-
-	cursor: pointer;
-}
-
 main {
-	margin-left: 250px;
-	margin-top: 75px;
+	position: relative;
+	top: 75px;
 }
 
 #sign_in {

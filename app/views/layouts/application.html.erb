@@ -11,30 +11,56 @@
 		<%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , {:controller => "offers", :action => "index"}, :id => "logo") %>
 		
 		<% if is_user_signed_in %>
-		<div id="profile_button">
-			<%= link_to(image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") + "#{truncate(Business.find(session[:id]).name , length: 20)} ", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
+		<ul id="profile_button">
+			<ul>
+				<li><%= link_to(image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") + "#{truncate(Business.find(session[:id]).name , length: 20)}", "#dd", :id => "ddtop") %>
+				</li>
+				<li>
+					<%= link_to("Profile", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
+				</li>
+
+				<li><%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %></li>
+			</ul>
+			
 		</div>
-		<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}, :id => "sign_out_link") %>
 		<% else %>
 		<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
 		<% end %> 
 	</header>
 
-	<div id="sidebar"> 
-		<div class="nav_box">
-			<ul>
-				<li> <%= link_to(image_tag("home_icon.png", :size => "25x25") + " Home", {:controller => "offers", :action => "index"}) %> </li>
-				<li> <%= link_to(image_tag("map_icon.png", :size => "25x25") + " Nearby", "#") %> </li>
-				<li> <%= link_to(image_tag("offer_icon.png", :size => "25x25") + " My Offers", "#") %> </li>
-			</ul>
-		</div>
-	</div>
-
 	<main>
 		<%= yield %>
 	</main>
 
+	<script type="text/javascript">
 
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});	
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-5').removeClass('active');
+				});
+
+			});
+
+		</script>
 </body>
 </html>
 

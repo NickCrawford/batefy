@@ -3,12 +3,18 @@
 		<%= render(template: "offers/new") %>
 	</div>
 <% end %>
-<div id="filter_bar">
-	<h2>Filter</h2>
-	<%= form_for("/offers", remote: true) do |f| %>
-		<%= f.label(:percentage) %>
-	<% end %>
-<div>
+
+<div id="filter_bar"> 
+	<h2>Search Filter</h2>	
+</div>
+
+	<% @offers = Offer.all %>
+	<ul class="grid">
+		
+		<%= render(partial: "results", locals: {offers: @offers}) %>
+	</ul>
+</div>
+
 <br>
 <%= link_to("load none", fetch_businesses_path, :remote => true) %>
 <br>
@@ -19,11 +25,3 @@
 		<%= "Total offers loaded: #{Offer.all.count}" %>
 	<% end %>
 </p>
-	<% @offers = Offer.all %>
-	<ul class="grid">
-		
-		<%= render(partial: "results", locals: {offers: @offers}) %>
-	</ul>
-</div>
-
-lat,long, category
