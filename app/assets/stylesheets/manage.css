@@ -1,0 +1,37 @@
+table {
+	margin: 0 auto;
+	background-color: white;
+	padding: 20px 40px;
+	width: 100%;
+	max-width: 1000px;
+}
+
+h2 {
+	font-size: 32px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 24px;
+	font-style: bold;
+	margin: 0;
+}
+
+h4 {
+	font-size: 14px;
+	color: gray;
+	margin: 0;
+}
+
+td {
+	text-align: center;
+}
+
+tr {
+	border: solid;
+	border-width: 3px;
+}
+
+.show_offers td {
+	background-color: blue;
+}
