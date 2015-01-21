@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "manage" %>
+
 <% offers_dates = {} %>
 <% @business.offers.each do |offer| %> 
 	<% offer_date = offer.offer_dates.last %>
@@ -6,9 +8,9 @@
 <% end %>
 
 <table>
-<th></th><th></th><th>Time Start</th><th>Time end</th><th>Percentage</th><th>Action</th>	
+<th></th><th>Time Start</th><th>Time end</th><th>Percentage</th><th>Action</th>	
 <% time=Time.now %>
-<br><%= time.strftime('%B') %>
+<br><h2><%= time.strftime('%B') %></h2>
 <% numDaysLeftInMonth= Time.days_in_month(time.month,time.year)-time.yesterday.day %>
 <% numDaysLeftInMonth.times  do	%>
 	<tr>
@@ -16,8 +18,7 @@
 		<%= f.hidden_field(:year, value: time.strftime('%Y')) %>
 		<%= f.hidden_field(:month, value: time.strftime('%m')) %>
 		<%= f.hidden_field(:day, value: time.strftime('%d')) %>
-		<td><%= time.day %></td>
-		<td><%= time.strftime('%A') %></td>
+		<td><h3><%= time.day %></h3><h4><%= time.strftime('%A') %></h4></td>
 		<td>
 		<%= f.time_select(:time_start, {ignore_date: true, minute_step: 30}) %>
 		</td>
@@ -28,10 +29,11 @@
 		<%= f.select(:percentage, options_for_select((20..50).step(10).to_a.map {|p| "#{p}%"} )) %>
 		</td>
 		<td>
-		<%= f.submit("Crea") %>
+		<%= f.submit("Create") %>
 		</td>
 	<% end %>
 	</tr>
+	
 	<% if (offers=offers_dates[time.beginning_of_day.to_i]) %>
 		<% offers.each do |offer_id| %>
 			<tr>
@@ -39,7 +41,6 @@
 			<% offer_date = offer.offer_dates.last %>
 			<% start_time = Time.at(offer_date.start_time) %>
 			<% end_time = Time.at(offer_date.end_time) %>
-			<td></td> 
 			<td></td>
 			<td><%= start_time.hour %>:<%= start_time.min %></td>
 			<td><%= end_time.hour %>:<%= end_time.min %></td>
@@ -47,6 +48,7 @@
 			<tr>
 		<% end %>
 	<% end %>
+
 	<% time = time.tomorrow %>
 <% end %>
 </table>
