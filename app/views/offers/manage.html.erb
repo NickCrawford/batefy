@@ -6,7 +6,7 @@
 <% end %>
 
 <table>
-<th></th><th></th><th>Time Start</th><th>Time end</th><th>Percentage</th><th>Action</th>	
+<th></th><th></th><th>Time Start</th><th>Time end</th><th>Percentage</th><th>Visible from</th><th>Action</th>	
 <% time=Time.now %>
 <br><%= time.strftime('%B') %>
 <% numDaysLeftInMonth= Time.days_in_month(time.month,time.year)-time.yesterday.day %>
@@ -28,7 +28,10 @@
 		<%= f.select(:percentage, options_for_select((20..50).step(10).to_a.map {|p| "#{p}%"} )) %>
 		</td>
 		<td>
-		<%= f.submit("Crea") %>
+		<%= f.select(:visible_from, options_for_select((1..12).to_a.map{|h| pluralize(h, "hour", "hours") +" before"}))%>
+		</td>
+		<td>
+		<%= f.submit("Create") %>
 		</td>
 	<% end %>
 	</tr>
@@ -39,11 +42,17 @@
 			<% offer_date = offer.offer_dates.last %>
 			<% start_time = Time.at(offer_date.start_time) %>
 			<% end_time = Time.at(offer_date.end_time) %>
+			<% visible_time = Time.at(offer_date.visible_from) %>
 			<td></td> 
 			<td></td>
 			<td><%= start_time.hour %>:<%= start_time.min %></td>
 			<td><%= end_time.hour %>:<%= end_time.min %></td>
 			<td><%= offer.percentage.to_s+'%'%></td>
+			<td><%= visible_time.hour %>:<%= visible_time.min %><td>
+			<%= form_for(:offer, :url=>{:action=>"delete"}) do |f|%>
+				<%= f.hidden_field(:offer_id, value: offer_id)%>
+				<td><%= f.submit("Delete")%><td>
+			<% end %>
 			<tr>
 		<% end %>
 	<% end %>

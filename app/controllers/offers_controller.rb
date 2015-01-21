@@ -5,9 +5,9 @@ class OffersController < ApplicationController
 
   layout 'application'
 
-  before_filter :require_log_in, :only => [:new,:create,:edit,:update,:delete]
-  before_filter :require_parameters, :only => [:edit, :update, :delete, :create]
-  before_filter :require_offer_ownership, :only => [:edit,:update,:delete]
+  before_filter :require_log_in, :only => [:manage,:create,:delete]
+  before_filter :require_parameters, :only => [:delete, :create]
+  before_filter :require_offer_ownership, :only => [:delete]
 
   def index
     #(param(:latitude),param(:longitude),param(:miles_range))
@@ -33,21 +33,16 @@ class OffersController < ApplicationController
       @business.offers << @offer
       @offer_date = OfferDate.new(offer_date_params)
       @offer.offer_dates << @offer_date
+      flash[:notice]="Offer created successfully"
     else
-      @message="An error occurred while activating the offer"
-    end
-  end
-
-  def update
-    if @offer.save
-      @message="Offer successfully activated"
-    else
-      @message="An error occurred while activating the offer"
+      flash[:notice]="An error occurred while activating the offer"
     end
   end
 
   def delete
+    @offer = Offer.find(params[:offer][:id])
     @offer.destroy
+    flash[:notice] = "Offer successfully deleted"
   end
 
   private
@@ -58,7 +53,7 @@ class OffersController < ApplicationController
 
     def offer_date_params
       set_time_attributes_from_params 
-      params.require(:offer).permit(:start_time,:end_time,:active_from)
+      params.require(:offer).permit(:start_time,:end_time,:visible_from)
     end
 
     def set_time_attributes_from_params
@@ -69,9 +64,10 @@ class OffersController < ApplicationController
       start_minute = params[:offer]['time_start(5i)'].to_i
       end_hour = params[:offer]['time_end(4i)'].to_i
       end_minute = params[:offer]['time_end(5i)'].to_i
+      visible_hour = start_hour - params[:offer][:visible_from].to_i
       params[:offer][:start_time] = Time.new(year,month,day,start_hour,start_minute).to_i
       params[:offer][:end_time] = Time.new(year,month,day,end_hour,end_minute).to_i
-      params[:offer][:active_from] = Time.new(year,month,day,start_hour,start_minute).to_i
+      params[:offer][:visible_from] = Time.new(year,month,day,visible_hour,start_minute).to_i
     end
 
     def require_log_in 
@@ -87,9 +83,13 @@ class OffersController < ApplicationController
     end
 
     def require_offer_ownership
-      if !(Business.find(session[:id]).offers.include? params[:offer_id])
-        redirect_to(:controller=>'business', :action => 'sign_in')
+      business = Business.find(session[:id])
+      business.offers.each do |offer|
+        if offer.id == params[:offer_id]
+          return
+        end
       end
+      redirect_to(:controller=>'business', :action => 'sign_in')
     end
 
 end
