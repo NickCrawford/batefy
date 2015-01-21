@@ -34,12 +34,14 @@ body {
 }
 
 #profile_button {
-	position: fixed;
+		position: fixed;
 	top: 10px;
 	right:25px;
+
 }
 
 #dd {
+
 	margin: 0;
 	padding: 0;
 	vertical-align: middle;
@@ -48,7 +50,7 @@ body {
 	border-radius: 5px;
 }
 
-#profile_button a {
+#dd a {
 	display:inline-block;
 	vertical-align: middle;
 
@@ -66,12 +68,12 @@ body {
 	text-decoration: none;
 }
 
-#profile_button li:not(:first-child) {
+#dd li:not(:first-child) {
 	visibility: hidden;
 	background-color: white;
 }
 
-#profile_button li:not(:first-child) a {
+#dd li:not(:first-child) a {
 	color: black;
 }
 
@@ -83,11 +85,11 @@ body {
 	visibility: visible;
 }
 
-#profile_button a:hover:first-child {
+#dd li:hover:first-child {
 	background-color: #216A49;
 }
 
-#profile_button a:hover {
+#dd li:not(:first-child) a:hover {
 	background-color: gray;
 }
 
