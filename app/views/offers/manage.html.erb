@@ -1,7 +1,11 @@
 <%= stylesheet_link_tag "manage" %>
 
+<% if !flash[:notice].blank? %>
+	<div> <%= flash[:notice] %> <div>
+<% end %>
+
 <% offers_dates = {} %>
-<% @business.offers.each do |offer| %> 
+<% @business.offers.each do |offer| %>  
 	<% offer_date = offer.offer_dates.last %>
 	<% offer_day = Time.at(offer_date.start_time).beginning_of_day.to_i %>
 	<% offers_dates[offer_day].blank? ? offers_dates[offer_day] = [offer.id] : offers_dates[offer_day] << offer.id %>  
@@ -49,10 +53,10 @@
 			<td><%= start_time.hour %>:<%= start_time.min %></td>
 			<td><%= end_time.hour %>:<%= end_time.min %></td>
 			<td><%= offer.percentage.to_s+'%'%></td>
-			<td><%= visible_time.hour %>:<%= visible_time.min %><td>
+			<td><%= visible_time.hour %>:<%= visible_time.min %></td>
 			<%= form_for(:offer, :url=>{:action=>"delete"}) do |f|%>
 				<%= f.hidden_field(:offer_id, value: offer_id)%>
-				<td><%= f.submit("Delete")%><td>
+				<td><%= f.submit("Delete")%></td>
 			<% end %>
 			<tr>
 		<% end %>
