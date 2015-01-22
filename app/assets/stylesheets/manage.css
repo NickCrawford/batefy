@@ -29,14 +29,10 @@ td {
 	text-align: center;
 }
 
-.day_label {
-	border: 1px solid black;
+.day {
+	display: none;
 }
 
-.add_cells {
-	background-color: gray;
-}
-
-.show_offers {
-	background-color: green;
+.day .day_trigger {
+	
 }
