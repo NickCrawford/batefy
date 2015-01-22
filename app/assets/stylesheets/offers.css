@@ -5,12 +5,16 @@
 
 	text-align: center;
 
-    border-radius: 5px;
+    border-radius: 3px;
 
 	position: fixed;
 	left: 10px;
 	top: 85px;
 	z-index: 100;
+}
+
+#filter_bar h2 {
+	font-size: 20px;
 }
 
 #new_offer h1 {
@@ -66,7 +70,7 @@
     list-style: none;
     text-align: center;
     min-width: 420px;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: #FFFFFF;
 
 }
@@ -84,6 +88,7 @@
 
 .grid figure {
     margin: 0;
+    height: 300px;
     position: relative;
     border-radius: 3px;
     border:1px solid gray;
@@ -92,7 +97,7 @@
 
 .grid figure img {
     max-width: 100%;
-    max-height: 100%;
+    height: 100%;
     display: block;
     position: relative;
 	
@@ -138,7 +143,7 @@
 .grid figcaption a {
     text-align: center;
     padding: 5px 10px;
-    border-radius: 2px;
+    border-radius: 3px;
     display: inline-block;
     background: #297A4A;
     color: #fff;
@@ -186,6 +191,8 @@
 .grid .percent_label h2 {
 	color: white;
 
+	font-size: 28px;
+
 	position: absolute;
 	top: -90px;
 	left: 0;
@@ -196,7 +203,4 @@
 	-o-transform: rotate(315deg);
 	writing-mode: lr-tb;
 }
-
-/* Managing offers CSS */
-
 
