@@ -32,8 +32,11 @@ gem 'bcrypt', '~> 3.1.7'
 # geocoding gem
 gem 'geocoder'
 
+# add google maps
+gem 'gmaps4rails'
+
 #photo upload
-gem "paperclip", "~> 3.1"
+gem 'paperclip', '~> 3.1'
 
 #Kaminari gem for pagination
 gem 'kaminari'

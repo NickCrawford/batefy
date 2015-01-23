@@ -13,7 +13,7 @@ class Business < ActiveRecord::Base
 	has_attached_file :image,
 					  :url => "/assets/images/business/profile/:id/:style/:basename.:extension",
 					  :path => ":rails_root/public/assets/images/business/profile/:id/:style/:basename.:extension"
-
+	
 	before_validation :geocode, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
 
 	validates_presence_of :name

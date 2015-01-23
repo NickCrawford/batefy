@@ -45,6 +45,7 @@ class BusinessController < ApplicationController
 
 	def profile
 		@business = Business.find(session[:id])
+		#@map = @business.to_gmaps4rails
 	end
 
 	def update

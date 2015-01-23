@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.infinitescroll
-//= require_tree .
+//= require layout.js
+

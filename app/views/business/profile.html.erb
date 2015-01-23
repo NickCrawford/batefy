@@ -1,12 +1,15 @@
+<%= stylesheet_link_tag "business.css" %>
+<%= javascript_include_tag "profile.js" %>
+<%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
 
 <div id="profile_header">
   <div id="header_focus_image">
     <%= image_tag(@business.image.url) %>
   </div>
-  <!--<%= image_tag(@business.image.url , :id => "header_back_image") %>  -->
   <h1><%= Business.find(session[:id]).name %> </h1>
+  <%= hidden_field_tag(:latitude, @business.latitude) %>
+  <%= hidden_field_tag(:longitude,@business.longitude)%>
 </div>
-
 <div id="input">
   <%= error_messages_for(@business) %>
   <table>
@@ -73,5 +76,7 @@
 </div>
 <% end %>
 </table>
-
+</div>
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
