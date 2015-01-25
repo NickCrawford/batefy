@@ -3,6 +3,18 @@ html {
 	font-family: "Cabin";
 }
 
+a{
+	text-decoration: none;
+	color: black;
+}
+
+p.clear{
+	clear:both;
+	height:0;
+	width:0;
+	margin:0; 
+}
+
 header {
 	background-color: rgba(48, 166, 112, 0.96);
 	
@@ -35,7 +47,7 @@ body {
 }
 
 #profile_button {
-		position: fixed;
+	position: fixed;
 	top: 10px;
 	right:25px;
 

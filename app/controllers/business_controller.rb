@@ -2,7 +2,7 @@ class BusinessController < ApplicationController
 
 	layout "application"
 
-	before_filter :require_log_in, :only => [:profile, :sign_out, :update, :create] 
+	before_filter :require_log_in, :only => [:profile, :sign_out, :update] 
 	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show]
 	before_filter :require_parameters, :only => [:create, :update, :sign_in_attempt]
 
@@ -38,14 +38,18 @@ class BusinessController < ApplicationController
 
 	def create
 		@business = Business.new(business_params)
-		if !@business.save
+		if @business.save
+			@tag = Tag.find(params[:business][:tags])
+			@tag.businesses << @business
+			@subtag = Subtag.find(params[:business][:subtags])
+			@subtag.businesses << @business
+		else
 			render("sign_up")
 		end
 	end
 
 	def profile
 		@business = Business.find(session[:id])
-		#@map = @business.to_gmaps4rails
 	end
 
 	def update

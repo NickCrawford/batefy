@@ -1,16 +1,42 @@
 #filter_bar {
+	position: relative;
 	background-color: #FFFFFF;
-	width: 230px;
-	height: 300px;
-
+	top:5px;
+	min-width: 420px;
+	padding:10px;
+	margin-left: 250px;
+	margin-right: 250px;
+	margin-bottom: 5px;
 	text-align: center;
-
     border-radius: 5px;
-
-	position: fixed;
-	left: 10px;
-	top: 85px;
 	z-index: 100;
+}
+
+#tag_bar, #subtag_bar{
+	float:left;
+	width:100%;
+	padding:5px;
+}
+
+#tag_bar a, #subtag_bar a{
+	display:inline-block;
+	padding:15px;
+	margin: 5px;
+	border-radius:3px;
+	background-color:#216A49;
+	color:white;
+}
+
+#subtag_bar a{
+	padding:5px;
+	background-color:#196A3A;
+}
+
+#google_map{
+	float:left;
+	height:283px;
+	width:100%;
+	border-radius: 3px;
 }
 
 #new_offer h1 {
@@ -21,7 +47,7 @@
 	text-align: center;
 	background-color: #FFFFFF;
 
-	padding: 20px;
+	padding: 10px;
 
 	margin: 10px 250px; 
 
@@ -75,7 +101,6 @@
     display: inline-block;
     width: 380px;
     height: 300px;
-    margin: 10px;
     padding: 20px;
     text-align: left;
     position: relative;

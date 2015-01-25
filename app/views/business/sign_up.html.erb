@@ -1,5 +1,6 @@
+<%= stylesheet_link_tag "business.css" %>
 <div class="page" id="sign_up">
-	<div id="input_div">
+	<div id="input">
 		<table>
 		<%= error_messages_for(@business) %>
 		<%= form_for(:business, :url => {:action => "create"}, 
@@ -18,7 +19,7 @@
   				</tr>
   				<tr> 
   					<td><%= f.label(:country, "Country *") %></td> 
-  					<td><%= f.text_field(:country) %></td>
+					<td><%= f.select(:country, options_for_select({"Italia"=>"Italia"})) %></td>
   				</tr>
   				<tr> 
   					<td><%= f.label(:city, "City *") %></td> 
@@ -32,6 +33,14 @@
   					<td><%= f.label(:address, "Address *") %></td> 
   					<td><%= f.text_field(:address) %></td>
   				</tr>
+          <tr> 
+            <td><%= f.label(:tags, "Category *") %></td> 
+          <td><%= f.select(:tags, options_for_select(Tag.all.collect {|t| [t.name, t.id] })) %></td>
+          </tr>
+          <tr> 
+            <td><%= f.label(:subtags, "Sub Category") %></td> 
+          <td><%= f.select(:subtags, options_for_select(Subtag.all.collect {|t| [t.name, t.id] })) %></td>
+          </tr>
   				<tr> 
   					<td><%= f.label(:phone, "Phone") %></td> 
   					<td><%= f.text_field(:phone) %></td>

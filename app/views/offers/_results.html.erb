@@ -1,4 +1,11 @@
-<% if offers.nil? %>
+<div id="subtag_bar">
+	<% if !subtags.blank? %>
+		<% subtags.each do |subtag|%>
+			<%= link_to("#{subtag.name}", fetch_businesses_path(:subtag_id=> subtag.id), :remote => true)%>
+		<% end %>
+	<% end %>
+</div>
+<% if offers.blank? %>
 	<%= "No offers to display" %>
 <% else %>
 	<% offers.each do |offer| %>
@@ -12,9 +19,11 @@
 	        <%= image_tag(offer.business.image.url) %>
 	        <figcaption>
 	            <h3><%= offer.business.name %></h3>
-	            <p><%= offer.business.address %></p>
-	            <p><%= "#{offer.business.city}, #{offer.business.state} #{offer.business.zip}" %> </p>
-	            <p><%= offer.business.phone %></p>
+	            <% date = offer.offer_dates.last %>
+	            <% start_time = Time.at(date.start_time) %>
+	            <% end_time = Time.at(date.end_time) %>
+	            <p> <%= start_time.hour %>:<%= start_time.min %>0</p>
+	            <p> <%= end_time.hour %>:<%= end_time.min %>0</p>
 	            <%= link_to("Get Offer", "#") %>
 	            <%= link_to("Business Profile", {:controller => "business", :action => "show", :id => offer.business}) %>
 	        </figcaption>

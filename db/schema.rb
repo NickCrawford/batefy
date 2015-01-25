@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117175330) do
+ActiveRecord::Schema.define(version: 20150125050853) do
 
   create_table "businesses", force: true do |t|
     t.string   "email",              limit: 254, null: false
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20150117175330) do
 
   add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true, using: :btree
 
+  create_table "businesses_subtags", id: false, force: true do |t|
+    t.integer "business_id"
+    t.integer "subtag_id"
+  end
+
+  add_index "businesses_subtags", ["business_id", "subtag_id"], name: "index_businesses_subtags_on_business_id_and_subtag_id", using: :btree
+
   create_table "businesses_tags", id: false, force: true do |t|
     t.integer "business_id"
     t.integer "tag_id"
@@ -52,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150117175330) do
     t.datetime "updated_at"
   end
 
+  add_index "offer_dates", ["offer_id"], name: "index_offer_dates_on_offer_id", using: :btree
+
   create_table "offers", force: true do |t|
     t.integer  "business_id"
     t.integer  "percentage"
@@ -59,6 +68,15 @@ ActiveRecord::Schema.define(version: 20150117175330) do
     t.datetime "updated_at"
     t.integer  "active"
   end
+
+  create_table "subtags", force: true do |t|
+    t.integer  "tag_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subtags", ["tag_id"], name: "index_subtags_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name"

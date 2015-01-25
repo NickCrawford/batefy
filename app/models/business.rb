@@ -2,6 +2,7 @@ class Business < ActiveRecord::Base
 
 	has_many :offers
 	has_and_belongs_to_many :tags
+	has_and_belongs_to_many :subtags
 	has_many :user_business_opinions
 	has_many :users, :through => :user_business_opinions
 
@@ -51,7 +52,7 @@ class Business < ActiveRecord::Base
 		end
 
 		def full_address
-			[self.address, self.zip, self.state, self.country].join(' ,')
+			[self.address, self.city, self.country].join(' ,')
 		end
 
 		def lat_changed?
@@ -59,11 +60,4 @@ class Business < ActiveRecord::Base
             	self.errors.add(:address, "is not valid")
         	end
 		end
-	
-
-
-	scope :filter_by_location, lambda {|latMax,latMin,lngMax,lngMin| 
-		where("businesses.latitude BETWEEN ? AND ? AND businesses.longitude BETWEEN ? AND ?", latMax,latMin,lngMax,lngMin) 
-	}
-	scope :filter_by_name, lambda {|name| where(:name => name)}
 end

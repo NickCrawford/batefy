@@ -17,9 +17,20 @@ class OffersController < ApplicationController
     @businesses = sh.run
   end
 
-  def show
-    sh = SearchHelper.new
-    @businesses = sh.run
+  def show  
+    if !params[:tag_id].blank? 
+      businesses = Tag.find(params[:tag_id]).businesses
+      @subtags = Tag.find(params[:tag_id]).subtags
+    else
+      subtag = Subtag.find(params[:subtag_id])
+      businesses = subtag.businesses
+      @subtags = Tag.find(subtag.tag.id).subtags
+    end
+    @offers = []
+    businesses.each do |business|
+       @offers << business.offers
+    end
+    @offers.flatten!
   end
 
   def manage

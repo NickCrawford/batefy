@@ -1,3 +1,5 @@
+var map_style = []
+
 $(document).ready(function(){
 
 	//creating map
@@ -7,9 +9,7 @@ $(document).ready(function(){
 		coords:{latitude: latitude,longitude: longitude},
 		zoom: 15,
 		mapId:'profile_header',
-		style: [{"featureType": "all","elementType": "all", "stylers": [
-            {"invert_lightness": true},{"saturation": 10},
-            {"lightness": 30},{"gamma": 0.5},{"hue": "#435158"}]}]
+		style: map_style
 	}
 	var map = createMap(info)
 	createMapMarker(map, latitude, longitude)
