@@ -14,14 +14,34 @@ header {
 	right:0px;
 
 	z-index: 99999;
+}
 
-	border: thin;
-	border-color: black;
-	border-style: solid;
-	border-left: none;
-	border-top:none;
-	border-right: none;
-	border-bottom: none;
+
+
+.header_nav {
+	list-style-type: none;
+	margin-left: 300px;
+	margin-right: 25px;
+}
+
+.header_nav li {
+	float: left;
+	display: inline-block;
+	padding: 10px 20px;
+	width: 14%;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.header_nav li:hover {
+	background-color: #196A3A;
+}
+
+.header_nav a {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
 }
 
 body {
@@ -112,14 +132,14 @@ main {
 #sign_in {
 	position: fixed;
 	right: 20px;
-	top:20px;
+	top:15px;
 
 	background-color: #297A4A;
 
     border:none;
     border-radius: 5px;
 
-    padding: 5px 20px;
+    padding: 10px 20px;
 
     display: block;
 

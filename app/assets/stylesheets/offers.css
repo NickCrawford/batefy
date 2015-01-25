@@ -17,49 +17,6 @@
 	font-size: 20px;
 }
 
-#new_offer h1 {
-	margin: 0;
-}
-
-#new_offer {
-	text-align: center;
-	background-color: #FFFFFF;
-
-	padding: 20px;
-
-	margin: 10px 250px; 
-
-    min-width: 420px;
-    border-radius: 5px;
-}
-
-#new_offer ul {
-	padding: 0px;
-
-}
-
-#new_offer li {
-	display: inline-block;
-
-	margin: 10px;
-	padding: 50px;
-
-	list-style-type: none;
-
-	border-radius: 5px;
-
-	
-	font-size: 30px;
-	color: white;
-	background-color: #30A671;
-
-}
-
-#new_offer li:hover {
-	background-color: #297A4A;
-	cursor: pointer;
-}
-
 /* Results Grid CSS */
 
 .grid {

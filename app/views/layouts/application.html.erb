@@ -2,14 +2,26 @@
 <html>
 <head>
 	<title>iOffer</title>
-	<%= javascript_include_tag('application') %>
+	<%= javascript_include_tag 'jquery', 'application' %>
 	<%= stylesheet_link_tag('application', :media => 'all') %>
 	<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin" %>
 </head>
 <body>
 	<header>
 		<%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , {:controller => "offers", :action => "index"}, :id => "logo") %>
-		
+		<div class="header_nav">
+			<ul>
+				<li><%= link_to "Browse", "offers/index" %></li>
+				<li><%= link_to "Nearby", "#" %></li>
+				<li><%= link_to "My Offers", "#" %></li>
+
+				<% if is_user_signed_in %>
+					<li><%= link_to "Manage Offers", "offers/manage", :class=>"manage_btn" %></li>
+				<% end %>
+			</ul>
+		</div>
+
+
 		<% if is_user_signed_in %>
 
 		<div id="profile_button">

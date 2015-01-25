@@ -1,21 +1,22 @@
-<%= stylesheet_link_tag "/assets/stylesheets/manage" %>
-<%= javascript_include_tag "manage" %>s
+
 <% if !flash[:notice].blank? %>
 	<div> <%= flash[:notice] %> <div>
 <% end %>
 
 <% offers_dates = {} %>
-<% @business.offers.each do |offer| %>  
-	<% offer_date = offer.offer_dates.last %>
-	<% offer_day = Time.at(offer_date.start_time).beginning_of_day.to_i %>
-	<% offers_dates[offer_day].blank? ? offers_dates[offer_day] = [offer.id] : offers_dates[offer_day] << offer.id %>  
-<% end %>
+ <% @business.offers.each do |offer| %>  
+ 	<% offer_date = offer.offer_dates.last %>
+ 	<% offer_day = Time.at(offer_date.start_time).beginning_of_day.to_i %>
+ 	<% offers_dates[offer_day].blank? ? offers_dates[offer_day] = [offer.id] : offers_dates[offer_day] << offer.id %>  
+ <% end %>
 
 <% time=Time.now %>
-<% month = Time.now.month %>
 
+<div class="month_display">
+<ul class="month_pages">
 <% 6.times do |i| %>
 
+<li>
 <h2><%= time.strftime('%B') %></h2>
 <table>
 	<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
@@ -27,10 +28,57 @@
 			<td></td>
 		<% end %>
 		<% (7-time.wday).times do %>
-			<td class="day_trigger"> <%= time.day %></td>
-			<div class="day">
-				Whatever!
-			</div>
+			<td class="day_toggle"> <%= time.day %></td>
+			<div class="day_info" style="display:none;">
+				<div>		
+						<div class="info_header">
+							<div class="date"><h4><%= time.strftime('%b') %><h3><%= time.day %></h3></h4></div>
+							<div class="weekday"><h2><%= time.strftime('%A') %></h2></div>
+							<div class="close">Done</div>
+						</div>
+						<div class="row">
+							<div class="cell"><b>Percentage</b></div>
+							<div class="cell"><b>Starts</b></div>
+							<div class="cell"><b>Ends</b></div>
+							<div class="new_toggle">+</div>
+						</div>
+						<div class="new_offer" style="display:none;">
+							<%= form_for(:offer, :url=>{:action=>"create"}) do |f| %>
+							<%= f.hidden_field(:year, value: time.strftime('%Y')) %>
+							<%= f.hidden_field(:month, value: time.strftime('%m')) %>
+							<%= f.hidden_field(:day, value: time.strftime('%d')) %>		
+								<div class="cell">
+								<%= f.select(:percentage, options_for_select((20..50).step(10).to_a.map {|p| "#{p}%"} )) %>
+								</div>
+								<div class="cell">
+								<%= f.time_select(:time_start, {ignore_date: true, minute_step: 30}) %>
+								</div>
+								<div class="cell">
+								<%= f.time_select(:time_end, {ignore_date: true, minute_step: 30}) %>
+								</div>
+								<div class="cell">
+								<%= f.submit("Create") %>
+								</div>
+							<% end %>
+						</div>
+
+						<% if(offers=offers_dates[time.beginning_of_day.to_i]) %>
+						<% offers.each do |offer_id| %>
+							<% offer = Offer.find(offer_id) %>
+							<% offer_date = offer.offer_dates.last %>
+							<% start_time = Time.at(offer_date.start_time) %>
+							<% end_time = Time.at(offer_date.end_time) %>
+							<% visible_time = Time.at(offer_date.visible_from) %>
+						<div class="row">
+							<div class="cell"><%= offer.percentage.to_s+'%'%></div>
+							<div class="cell"><%= start_time.hour %>:<%= start_time.min %></div>
+							<div class="cell"><%= end_time.hour %>:<%= end_time.min %></div>
+							<div class="cell">Delete </div>
+						</div>
+						<% end %>
+						<% end %>
+				</div>
+			</div> 
 			<% if time.day >= Time.days_in_month(time.month, time.year) %>
 				<% break %>
 			<% end %>
@@ -42,4 +90,26 @@
 	<% end %>
 </table>
 	<% time = time.tomorrow %>
+</li>
 <% end %>
+</ul>
+</div>
+
+<script type="text/javascript">
+$('.new_toggle').click(function ()
+ {
+     $('.new_offer').slideToggle(500);
+ });
+</script>
+<script type="text/javascript">
+$('.day_toggle').click(function ()
+ {
+     $(this).('.day_info').show();
+     alert("hello");
+ });
+</script>
+
+ 
+
+
+
