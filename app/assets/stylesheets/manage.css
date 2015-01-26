@@ -3,13 +3,15 @@ table {
 	background-color: white;
 	padding: 20px 40px;
 	width: 100%;
-	max-width: 1000px;
+	max-width: 700px;
 	border-collapse: collapse;
+	border-radius: 3px;
 }
 
 h2 {
 	font-size: 32px;
 	text-align: center;
+	margin: 20px;
 }
 
 h3 {
@@ -19,20 +21,116 @@ h3 {
 }
 
 h4 {
-	font-size: 14px;
 	color: gray;
 	margin: 0;
+	font-style: normal;
 }
 
 td {
-	padding: 20px 0; 
+	padding: 10px 20px; 
+	text-align: center;
+	border-collapse: none;
+}
+
+th {
+	padding: 10px;
+	text-align: center;
+	font-style: bold;
+	font-size: 24px;
+	border-bottom: 1px solid gray;
+}
+
+.day_toggle:hover {
+	background-color: #E3E3E3;
+	cursor: pointer;
+}
+
+.day_info {
+	display:none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.day_active {
+	background-color: #196A3A;
+	color: white;
+}
+
+.day_info > div {
+	width: 600px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 5px 20px;
+	border-radius: 3px;
+	background: white;
+}
+
+.close {
+	position: relative;
+	top: -20px;
+	right: -30px;
+	display: inline-block;
+	padding: 10px;
+	width: 10%;
+	color: black;
+	cursor: pointer;
+	background-color: white;
+	border-radius: 3px;
 	text-align: center;
 }
 
-.day {
-	display: none;
+.close:hover {
+	background-color: #E3E3E3;
 }
 
-.day .day_trigger {
-	
+.date {
+	padding: 20px;
+	display: inline-block;
 }
+
+.weekday {
+	margin: 0;
+	display: inline-block;
+	width: 70%;
+	text-align: center;
+}
+
+.info_header {
+	border-bottom: 1px solid gray;
+}
+
+.cell {
+	margin: 0;
+	padding: 10px;
+ 	display: inline-block;
+ 	text-align: center;
+ 	width: 120px;
+}
+
+.new_toggle {
+	width: 118px;
+	margin: 2px;
+	padding: 10px;
+ 	display: inline-block;
+ 	text-align: center;
+	background-color: rgb(68, 186, 132);
+	cursor: pointer;
+}
+
+.new_toggle:hover {
+	background-color: rgb(48, 166, 112);
+}
+
+.new_offer {
+	display:none;
+	background-color: rgb(48, 166, 112);
+}
+
+.month_pages {
+	list-style-type: none;
+}
+
