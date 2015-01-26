@@ -4,6 +4,7 @@ table {
 	padding: 20px 40px;
 	width: 100%;
 	max-width: 1000px;
+	border-collapse: collapse;
 }
 
 h2 {
@@ -24,14 +25,14 @@ h4 {
 }
 
 td {
+	padding: 20px 0; 
 	text-align: center;
 }
 
-tr {
-	border: solid;
-	border-width: 3px;
+.day {
+	display: none;
 }
 
-.show_offers td {
-	background-color: blue;
+.day .day_trigger {
+	
 }

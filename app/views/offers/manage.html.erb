@@ -1,5 +1,5 @@
-<%= stylesheet_link_tag "manage" %>
-
+<%= stylesheet_link_tag "/assets/stylesheets/manage" %>
+<%= javascript_include_tag "manage" %>s
 <% if !flash[:notice].blank? %>
 	<div> <%= flash[:notice] %> <div>
 <% end %>
@@ -11,57 +11,35 @@
 	<% offers_dates[offer_day].blank? ? offers_dates[offer_day] = [offer.id] : offers_dates[offer_day] << offer.id %>  
 <% end %>
 
-<table>
-<th></th><th>Time Start</th><th>Time end</th><th>Percentage</th><th>Visible from</th><th>Action</th>
 <% time=Time.now %>
-<br><h2><%= time.strftime('%B') %></h2>
-<% numDaysLeftInMonth= Time.days_in_month(time.month,time.year)-time.yesterday.day %>
-<% numDaysLeftInMonth.times  do	%>
-	<tr>
-	<%= form_for(:offer, :url=>{:action=>"create"}) do |f| %>
-		<%= f.hidden_field(:year, value: time.strftime('%Y')) %>
-		<%= f.hidden_field(:month, value: time.strftime('%m')) %>
-		<%= f.hidden_field(:day, value: time.strftime('%d')) %>
-		<td><h3><%= time.day %></h3><h4><%= time.strftime('%A') %></h4></td>
-		<td>
-		<%= f.time_select(:time_start, {ignore_date: true, minute_step: 30}) %>
-		</td>
-		<td>
-		<%= f.time_select(:time_end, {ignore_date: true, minute_step: 30}) %>
-		</td>
-		<td>
-		<%= f.select(:percentage, options_for_select((20..50).step(10).to_a.map {|p| "#{p}%"} )) %>
-		</td>
-		<td>
-		<%= f.select(:visible_from, options_for_select((1..12).to_a.map{|h| pluralize(h, "hour", "hours") +" before"}))%>
-		</td>
-		<td>
-		<%= f.submit("Create") %>
-		</td>
-	<% end %>
-	</tr>
-	
-	<% if (offers=offers_dates[time.beginning_of_day.to_i]) %>
-		<% offers.each do |offer_id| %>
-			<tr>
-			<% offer = Offer.find(offer_id) %>
-			<% offer_date = offer.offer_dates.last %>
-			<% start_time = Time.at(offer_date.start_time) %>
-			<% end_time = Time.at(offer_date.end_time) %>
-			<% visible_time = Time.at(offer_date.visible_from) %>
-			<td></td>
-			<td><%= start_time.hour %>:<%= start_time.min %></td>
-			<td><%= end_time.hour %>:<%= end_time.min %></td>
-			<td><%= offer.percentage.to_s+'%'%></td>
-			<td><%= visible_time.hour %>:<%= visible_time.min %></td>
-			<%= form_for(:offer, :url=>{:action=>"delete"}) do |f|%>
-				<%= f.hidden_field(:offer_id, value: offer_id)%>
-				<td><%= f.submit("Delete")%></td>
-			<% end %>
-			<tr>
-		<% end %>
-	<% end %>
+<% month = Time.now.month %>
 
+<% 6.times do |i| %>
+
+<h2><%= time.strftime('%B') %></h2>
+<table>
+	<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+
+	<% while time.day < Time.days_in_month(time.month, time.year)  do %>
+
+		<tr>
+		<% time.wday.times do  %>
+			<td></td>
+		<% end %>
+		<% (7-time.wday).times do %>
+			<td class="day_trigger"> <%= time.day %></td>
+			<div class="day">
+				Whatever!
+			</div>
+			<% if time.day >= Time.days_in_month(time.month, time.year) %>
+				<% break %>
+			<% end %>
+
+			<% time = time.tomorrow %>
+		<% end %>
+		
+		</tr>
+	<% end %>
+</table>
 	<% time = time.tomorrow %>
 <% end %>
-</table>
