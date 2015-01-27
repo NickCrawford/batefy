@@ -142,13 +142,17 @@ th {
 	display: hidden;
 }
 
-.next_month:hover, .prev_month:hover {
+.month{
+	display:none;
+}
+
+.change_month:hover{
 	background-color: #E3E3E3;
 	color: white;
 	cursor: pointer;
 }
 
-.next_month, .prev_month{
+.change_month{
 	font-size: 32px;
 	color: black;
 }

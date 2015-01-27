@@ -18,12 +18,12 @@
 <ul class="month_pages">
 <% 6.times do |i| %>
 
-<li>
+<li class="month" id=<%="month"+i.to_s%>>
 <table>
 	<tr>
-		<td class="prev_month"><</td>
+		<td class="change_month" data-id=<%=i-1%>><</td>
 		<td colspan="5"><h2><%= time.strftime('%B') %></h2></td>
-		<td class="next_month">></td>
+		<td class="change_month" data-id=<%=i+1%>>></td>
 	</tr>
 	<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
 

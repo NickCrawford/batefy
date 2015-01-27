@@ -1,16 +1,18 @@
 $(document).ready(function(){
-	$(".day_toggle").click(function(){
+
+
+	$(".new_toggle, .day_toggle, .close").click(function(){
 		var id = $(this).data("id")
-		$("#"+id).css("display", "block");
+		$("#"+id).slideToggle(500)
 	});
 
-	$(".new_toggle").click(function(){
+	$("#month0").css("display","block")
+	$(".change_month").click(function(){
 		var id = $(this).data("id")
-		$("#"+id).slideToggle(500);
-	});	
+		if (id >= 0 && id+1<=6 ) {
+			$(".month").css("display","none")
+			$("#month"+id).toggle("slide")
+		}
+	});
 
-	$(".close").click(function(){
-		var id = $(this).data("id")
-		$("#"+id).css("display", "none");
-	});	
 });
