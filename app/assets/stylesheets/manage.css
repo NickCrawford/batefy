@@ -70,7 +70,8 @@ th {
 	padding: 5px 20px 5px 20px;
 	border-radius: 3px;
 	background: white;
-	min-height: 250px;
+	height: 250px;
+	overflow: hidden;
 }
 
 .close {
@@ -108,30 +109,38 @@ th {
 }
 
 .cell {
-	margin: 0;
+	float: left;
 	padding: 10px;
  	display: inline-block;
+ 	font-size: 14px;
+ 	font-weight: 400;
  	text-align: center;
- 	width: 120px;
+ 	width: 100px;
 }
 
 .new_toggle {
-	width: 120px;
-	margin: 0;
+	float: right;
+	width: 100px;
 	padding: 10px;
  	display: inline-block;
  	text-align: center;
-	background-color: rgb(68, 186, 132);
+	background-color: #5AAC6C;
 	cursor: pointer;
 }
 
 .new_toggle:hover {
-	background-color: rgb(48, 166, 112);
+	background-color: #4A9C5C;
 }
 
 .new_offer {
+	float: left;
 	display:none;
-	background-color: rgb(48, 166, 112);
+	background-color: #4A9C5C;
+}
+
+.offers_container {
+	display: inline-block;
+	overflow: auto;
 }
 
 .month_pages {
