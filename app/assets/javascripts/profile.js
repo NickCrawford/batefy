@@ -8,7 +8,7 @@ $(document).ready(function(){
 	var info={
 		coords:{latitude: latitude,longitude: longitude},
 		zoom: 15,
-		mapId:'profile_header',
+		mapId:'map_header',
 		style: map_style
 	}
 	var map = createMap(info)

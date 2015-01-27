@@ -7,8 +7,10 @@
     <%= image_tag(@business.image.url) %>
   </div>
   <h1><%= Business.find(session[:id]).name %> </h1>
-  <%= hidden_field_tag(:latitude, @business.latitude) %>
-  <%= hidden_field_tag(:longitude,@business.longitude)%>
+  <div id="map_header">
+    <%= hidden_field_tag(:latitude, @business.latitude) %>
+    <%= hidden_field_tag(:longitude,@business.longitude)%>
+  </div>
 </div>
 <div id="input">
   <%= error_messages_for(@business) %>
