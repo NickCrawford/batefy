@@ -8,37 +8,41 @@
 </head>
 <body>
 	<header>
-		<%= link_to(image_tag("logo.png", :size => "250x75", :alt => "logo") , {:controller => "offers", :action => "index"}, :id => "logo") %>
-		<div class="header_nav">
-			<ul>
-				<li><%= link_to("Browse", {:controller=>"offers", :action=>"index"}) %></li>
-				<li><%= link_to "Nearby", "#" %></li>
-				<li><%= link_to "My Offers", "#" %></li>
-
-				<% if is_user_signed_in %>
-					<li><%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"} , :class=>"manage_btn") %></li>
-				<% end %>
-			</ul>
-		</div>
-
-
-		<% if is_user_signed_in %>
-
-		<div id="profile_button">
-			<ul id="dd">
-				<li><%= link_to(image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") + Business.find(session[:id]).name.truncate(10), "#dd", :id => "ddtop") %>
-				</li>
-				<li>
-					<%= link_to("Profile", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
-				</li>
-
-				<li><%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %></li>
-			</ul>
-			
-		</div>
-		<% else %>
-		<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
-		<% end %>
+		<div class="row">
+			<div class="smallcol">
+				<h1><%= link_to(image_tag("logo.png", :alt => "" , :id => "logo") , {:controller => "offers", :action => "index"}) %>
+				</h1>
+			</div>
+			<div class="largecol">
+			  		<div class="header_nav">
+			  			<ul>
+							<li><%= link_to("Browse", {:controller=>"offers", :action=>"index"}) %></li>
+							<li><%= link_to "Nearby", "#" %></li>
+							<li><%= link_to "My Offers", "#" %></li>
+							<li><%= link_to "About", "/about" %></li>
+							<% if is_user_signed_in %>
+								<li class="manage_btn last"><%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"}) %></li>
+							<% end %>
+						</ul>
+					</div>	
+			</div>
+			<div class="smallcol last">
+			<% if is_user_signed_in %>
+				<div id="profile_button">
+					<ul id="dd">
+						<li><%= link_to(image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") + Business.find(session[:id]).name.truncate(10), "#dd", :id => "ddtop") %>
+						</li>
+						<li><%= link_to("Profile", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
+						</li>
+						<li><%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %>
+						</li>
+					</ul>
+				</div>
+			<% else %>
+				<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
+			<% end %>
+			</div>
+		</div><!-- .row -->	
 	</header>
 
 	<main>

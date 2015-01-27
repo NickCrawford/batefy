@@ -1,9 +1,11 @@
 html {
-	background-color: #E3E3E3;
+	background-color: rgb(220, 223, 186);
 	font-family: "Cabin";
 }
 
-a{
+h1,body { margin: 0; }
+
+a {
 	text-decoration: none;
 	color: black;
 }
@@ -16,7 +18,7 @@ p.clear{
 }
 
 header {
-	background-color: rgba(48, 166, 112, 0.96);
+	background-color: rgba(19, 122, 42, 0.9);
 	
 	width: 100%;
 	height: 75px;
@@ -28,54 +30,53 @@ header {
 	z-index: 99999;
 }
 
+.row {width: 100%; height: 75px; max-width: 1140px;min-width: 720px;margin: 0 auto;position: relative;}
+.smallcol, .largecol {margin-right: 3.09090%; float: left;height: 75px; min-height: 1px;}
+.row .smallcol {width: 22.68182%;}
+.row .largecol {width: 48.45455%;}
+.last {margin-right: 0px;}
 
-
-.header_nav {
-	list-style-type: none;
-	margin-left: 300px;
-	margin-right: 25px;
-}
-
-.header_nav li {
-	float: left;
-	display: inline-block;
-	padding: 10px 20px;
-	width: 14%;
-	text-align: center;
-	border-radius: 3px;
-	cursor: pointer;
-}
+.header_nav {height: 46px;width: 540px; margin: 0 auto;} 
+.header_nav ul {height: 46px;float: left;padding: 0;list-style: none;}
+.header_nav ul  li {float: left; margin: 0;}
 
 .header_nav li:hover {
-	background-color: #196A3A;
+	background-color: rgb(16, 109, 37);
 }
 
-.header_nav a {
+.header_nav ul li a {
+	display: block;
+	padding: 10px 15px;
 	text-decoration: none;
 	color: white;
 	font-size: 20px;
 }
 
-body {
-	margin:0;
+.manage_btn {
+	background-color: rgb(27, 52, 108);
+}
+
+.header_nav .manage_btn:hover {
+	background-color: rgb(6, 28, 79);
+	color: white;
+}
+
+@media (max-width: 1020px) {
+	header {height: 100px;}
+	.row {width: 362px; height: 80px;margin: 10px auto 10px; auto;}
+	.smallcol:first-child {width: 250px;}
+	.largecol {width: 100px;}
+	.header_nav ul li a {padding: 5px 10px;font-size: 1.0em;}
+	#logo {width: 100px; height: 30px;}
 }
 
 #logo {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-}
-
-#profile_button {
-	position: fixed;
-	top: 10px;
-	right:25px;
-
+	width: 250px;
+	height: 75px;
 }
 
 #dd {
-
-	margin: 0;
+	margin: 10px;
 	padding: 0;
 	vertical-align: middle;
 	line-height: 50px;
@@ -110,7 +111,7 @@ body {
 }
 
 #dd:target {
-	background-color: #216A49;
+	background-color: rgb(16, 109, 37);
 }
 
 #dd:target li {
@@ -118,7 +119,7 @@ body {
 }
 
 #dd li:hover:first-child {
-	background-color: #216A49;
+	background-color: rgb(16, 109, 37);
 }
 
 #dd li:not(:first-child) a:hover {
@@ -163,5 +164,5 @@ main {
 }
 
 #sign_in:hover{
-	background-color: #196A3A;
+	background-color: rgb(16, 109, 37);
 }

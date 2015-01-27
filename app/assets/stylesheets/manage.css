@@ -1,5 +1,5 @@
 table {
-	margin: 0 auto;
+	margin: 10px auto;
 	background-color: white;
 	padding: 20px 40px;
 	width: 100%;
@@ -9,13 +9,15 @@ table {
 }
 
 h2 {
+	margin: 0;
 	font-size: 32px;
 	text-align: center;
-	margin: 20px;
+	padding: 5px 20px 10px 20px;
 }
 
 h3 {
 	font-size: 24px;
+	text-align: center;
 	font-style: bold;
 	margin: 0;
 }
@@ -24,6 +26,7 @@ h4 {
 	color: gray;
 	margin: 0;
 	font-style: normal;
+	text-align: center;
 }
 
 td {
@@ -47,7 +50,7 @@ th {
 
 .day_info {
 	display:none;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -67,6 +70,7 @@ th {
 	padding: 5px 20px 5px 20px;
 	border-radius: 3px;
 	background: white;
+	min-height: 250px;
 }
 
 .close {
@@ -112,8 +116,8 @@ th {
 }
 
 .new_toggle {
-	width: 118px;
-	margin: 2px;
+	width: 120px;
+	margin: 0;
 	padding: 10px;
  	display: inline-block;
  	text-align: center;
@@ -132,5 +136,20 @@ th {
 
 .month_pages {
 	list-style-type: none;
+}
+
+.month_pages li table{
+	display: hidden;
+}
+
+.next_month:hover, .prev_month:hover {
+	background-color: #E3E3E3;
+	color: white;
+	cursor: pointer;
+}
+
+.next_month, .prev_month{
+	font-size: 32px;
+	color: black;
 }
 

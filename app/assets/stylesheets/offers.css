@@ -4,8 +4,8 @@
 	top:5px;
 	min-width: 420px;
 	padding:10px;
-	margin-left: 250px;
-	margin-right: 250px;
+	margin-left: 200px;
+	margin-right: 200px;
 	margin-bottom: 5px;
 	text-align: center;
     border-radius: 5px;
@@ -84,17 +84,20 @@
 
 /* Results Grid CSS */
 
+@media (max-width: 1023px) {
+	.grid{margin: 0;}
+}
+
 .grid {
     padding: 10px 10px 100px 10px;
     margin-top: 10px; 
-    margin-left:250px;
-    margin-right: 250px;
+    margin-left:200px;
+    margin-right: 200px;
     list-style: none;
     text-align: center;
     min-width: 420px;
     border-radius: 3px;
     background-color: #FFFFFF;
-
 }
  
 .grid li {
@@ -196,7 +199,7 @@
 	transform: translateY(-50px);
 }
 
-.grid .percent_label {
+.percent_label {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -206,9 +209,8 @@
 	height: 0;
 	border-top: 100px solid;
 	border-right: 100px solid transparent;
-
-
 }
+
 .grid .percent_label h2 {
 	color: white;
 
@@ -225,3 +227,7 @@
 	writing-mode: lr-tb;
 }
 
+.20 { border-top-color: #4A9C5C;}
+.30 { border-top-color: #137A2A;}
+.40 { border-top-color: #005914;}
+.50 { border-top-color: #002E0A;}

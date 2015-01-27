@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	$(".new_toggle").click(function(){
 		var id = $(this).data("id")
-		$("#"+id).css("display", "block");
+		$("#"+id).slideToggle(500);
 	});	
 
 	$(".close").click(function(){
