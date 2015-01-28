@@ -27,7 +27,7 @@ header {
 	left: 0px;
 	right:0px;
 
-	z-index: 99999;
+	z-index: 1000;
 }
 
 .row {
