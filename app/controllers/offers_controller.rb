@@ -17,15 +17,11 @@ class OffersController < ApplicationController
     @businesses = sh.run
   end
 
-  def show  
-    if !params[:tag_id].blank? 
-      businesses = Tag.find(params[:tag_id]).businesses
-      @subtags = Tag.find(params[:tag_id]).subtags
-    else
-      subtag = Subtag.find(params[:subtag_id])
-      businesses = subtag.businesses
-      @subtags = Tag.find(subtag.tag.id).subtags
-    end
+  def show 
+    tag_businesses = Tag.find(params[:tag_id]).businesses
+    subtag_businesses = Subtag.find(params[:subtag_id]).businesses
+    search_businesses = Business.near(params[:search])
+    businesses = [tag_businesses, subtag_businesses, search_businesses].reduce {|memo,temp| memo & temp if !temp.blank?}
     @offers = []
     businesses.each do |business|
        @offers << business.offers
