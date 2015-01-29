@@ -35,6 +35,15 @@ function get_location(){
         coords:{latitude:coord[0], longitude:coord[1]},
           zoom:11,
       }
-      set_position(info);
-  }, "jsonp");
+      set_position(info)
+  }, "jsonp")
 }
+ 
+$(document).ready(function(){
+
+    $('.dropdown_container').click(function() {
+        $('.dropdown_items', this).fadeToggle(300)
+        $('.dropdown_container:after', this).css("border-width", "0 6px 6px 6px")
+    });
+ 
+});

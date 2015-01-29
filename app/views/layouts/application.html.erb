@@ -20,18 +20,16 @@
 							<li><%= link_to "Nearby", "#" %></li>
 							<li><%= link_to "My Offers", "#" %></li>
 							<li><%= link_to "About", "/about" %></li>
-							<% if is_user_signed_in %>
-								<li class="manage_btn last"><%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"}) %></li>
-							<% end %>
 						</ul>
 					</div>	
 			</div>
 			<div class="smallcol last">
 			<% if is_user_signed_in %>
-				<div id="profile_button">
-					<ul id="dd">
-						<li><%= link_to(image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") + Business.find(session[:id]).name.truncate(10), "#dd", :id => "ddtop") %>
-						</li>
+				<div class="dropdown_container">
+					<!--<%= image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") %> -->
+					<%= Business.find(session[:id]).name.truncate(10) %>
+					<ul class="dropdown_items">
+						<li class="manage_btn last"><%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"}) %></li>
 						<li><%= link_to("Profile", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
 						</li>
 						<li><%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %>
@@ -42,7 +40,7 @@
 				<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
 			<% end %>
 			</div>
-		</div><!-- .row -->	
+		</div>
 	</header>
 
 	<main>
