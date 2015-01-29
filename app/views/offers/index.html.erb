@@ -1,19 +1,6 @@
 <%= stylesheet_link_tag "offers.css" %>
 <%= javascript_include_tag "offers.js" %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
-<div id="filter_bar">
-	<div id="tag_bar">
-		<% Tag.all.find_each do |tag| %>
-			<%= link_to("#{tag.name}", fetch_businesses_path(:tag_id=> tag.id), :remote => true) %>
-		<% end %>
-	</div>
-	<div id="google_map"></div>
-	<p class="clear" ></p>
-</div>
 
-	<% @offers = Offer.all %>
-	<ul class="grid">
-		
-		<%= render(partial: "results", locals: {offers: @offers, subtags: @subtags}) %>
-	</ul>
-</div>
+<%= render(partial: "results", locals: {offers: @offers, subtags: @subtags, tag_id: @tag_id, subtag_id: @subtag_id, search: @search}) %>
+

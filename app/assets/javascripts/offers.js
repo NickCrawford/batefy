@@ -9,7 +9,6 @@ function set_position(position){
 	latitude = position.coords.latitude
   	longitude = position.coords.longitude
   	zoom = position.zoom
-  	display_map()
 }
 
 function display_map(){

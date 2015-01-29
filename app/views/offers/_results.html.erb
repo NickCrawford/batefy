@@ -1,13 +1,32 @@
-<div id="subtag_bar">
-	<% if !subtags.blank? %>
-		<% subtags.each do |subtag|%>
-			<%= link_to("#{subtag.name}", fetch_businesses_path(:subtag_id=> subtag.id), :remote => true)%>
+<div id="filter_bar">
+	<div id="tag_bar">
+		<% Tag.all.find_each do |tag| %>
+		<%= link_to("#{tag.name}", fetch_businesses_path(search: search, tag_id: tag.id, subtag_id: subtag_id), :remote => true) %>
 		<% end %>
-	<% end %>
+	</div>
+	<div id="search_bar">
+		<%= form_for(:offer, :url => {:action => "show" }, remote: true) do |f| %>
+		<%= f.hidden_field(:tag_id, {id: "tag_field", value: tag_id}) %>
+		<%= f.hidden_field(:subtag_id, {id: "subtag_field", value: subtag_id}) %>
+		<%= f.search_field(:search, {placeholder: "City, State", id: "search_field", value: search} ) %>
+		<%= f.submit("Search", {id: "search_button"}) %>
+		<% end %>
+	</div>
+	<p class="clear" ></p>
 </div>
-<% if offers.blank? %>
+
+<% @offers = Offer.all %>
+<ul class="grid">
+	<div id="subtag_bar">
+		<% if !subtags.blank? %>
+		<% subtags.each do |subtag|%>
+		<%= link_to("#{subtag.name}", fetch_businesses_path(search: search, tag_id: tag_id, subtag_id: subtag.id), :remote => true)%>
+		<% end %>
+		<% end %>
+	</div>
+	<% if offers.blank? %>
 	<%= "No offers to display" %>
-<% else %>
+	<% else %>
 	<% offers.each do |offer| %>
 	<li>
 	    <figure>
@@ -28,4 +47,6 @@
 	    </figure>
 	</li>
 	<% end %>
-<% end %>
+	<% end %>
+
+</ul>
