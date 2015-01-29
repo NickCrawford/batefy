@@ -2,11 +2,10 @@
 	position: relative;
 	background-color: #FFFFFF;
 	top:5px;
-	min-width: 420px;
+	min-width: 380px;
 	padding:10px;
-	margin-left: 200px;
-	margin-right: 200px;
-	margin-bottom: 5px;
+	width: 80%;
+	margin: 10px auto;
 	text-align: center;
     border-radius: 5px;
 	z-index: 100;
@@ -38,67 +37,19 @@
 }
 
 #search_field{
-	width:100%;
+	width:80%;
 	height:50px;
-}
-
-#new_offer h1 {
-	margin: 0;
-}
-
-#new_offer {
-	text-align: center;
-	background-color: #FFFFFF;
-
-	padding: 10px;
-
-	margin: 10px 250px; 
-
-    min-width: 420px;
-    border-radius: 5px;
-}
-
-#new_offer ul {
-	padding: 0px;
-
-}
-
-#new_offer li {
-	display: inline-block;
-
-	margin: 10px;
-	padding: 50px;
-
-	list-style-type: none;
-
-	border-radius: 5px;
-
-	
-	font-size: 30px;
-	color: white;
-	background-color: #30A671;
-
-}
-
-#new_offer li:hover {
-	background-color: #297A4A;
-	cursor: pointer;
 }
 
 /* Results Grid CSS */
 
-@media (max-width: 1023px) {
-	.grid{margin: 0;}
-}
-
 .grid {
     padding: 10px 10px 100px 10px;
-    margin-top: 10px; 
-    margin-left:200px;
-    margin-right: 200px;
+    margin: 10px auto;
+    width: 80%; 
     list-style: none;
     text-align: center;
-    min-width: 420px;
+    min-width: 380px;
     border-radius: 3px;
     background-color: #FFFFFF;
 }
@@ -249,3 +200,7 @@
 .percent_label .30 { border-top-color: #137A2A;}
 .percent_label .40 { border-top-color: #005914;}
 .percent_label .50 { border-top-color: #002E0A;}
+
+@media (max-width: 800px) {
+	.grid, #filter_bar {margin: 10px auto; width: 90%;}
+}
