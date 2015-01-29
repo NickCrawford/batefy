@@ -20,10 +20,10 @@
 	            <% date = offer.offer_dates.last %>
 	            <% start_time = Time.at(date.start_time) %>
 	            <% end_time = Time.at(date.end_time) %>
-	            <p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %></p>
-	            <p> <%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
-	            <%= link_to("Get Offer", "#") %>
-	            <%= link_to("Business Profile", {:controller => "business", :action => "show", :id => offer.business}) %>
+	            <p><i>Starts:</i> <b><%= start_time.hour %>:<%= format('%02d',start_time.min) %></b></p>
+	            <p><i>Ends:</i> <b><%= end_time.hour %>:<%= format('%02d',end_time.min) %></b></p>
+	            <%= link_to("Get Offer", "#", :class=>"offer_get_btn") %>
+	            <%= link_to("Business Profile", {:controller => "business", :action => "show", :id => offer.business}, :class=>"offer_profile_btn") %>
 	        </figcaption>
 	    </figure>
 	</li>
