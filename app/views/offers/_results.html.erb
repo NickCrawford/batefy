@@ -1,52 +1,46 @@
-<div id="filter_bar">
-	<div id="tag_bar">
-		<% Tag.all.find_each do |tag| %>
-		<%= link_to("#{tag.name}", fetch_businesses_path(search: search, tag_id: tag.id, subtag_id: subtag_id), :remote => true) %>
-		<% end %>
+<div id="search_page" >
+	<%= "subtag_id:"+subtag_id.to_s %>
+	<div id="filter_bar">
+		<div id="tag_bar">
+			<% Tag.all.find_each do |tag| %>
+			<%= link_to("#{tag.name}", fetch_businesses_path(search: search, tag_id: tag.id, subtag_id: nil), :remote => true) %>
+			<% end %>
+		</div>
+		<div id="search_bar">
+			<%= form_for(:offer, :url => {:action => "show" }, remote: true) do |f| %>
+			<%= f.hidden_field(:tag_id, {id: "tag_field", value: tag_id}) %>
+			<%= f.hidden_field(:subtag_id, {id: "subtag_field", value: subtag_id}) %>
+			<%= f.search_field(:search, {placeholder: "City, State", id: "search_field", value: search} ) %>
+			<%= f.submit("Search", {id: "search_button"}) %>
+			<% end %>
+		</div>
+		<p class="clear" ></p>
 	</div>
-	<div id="search_bar">
-		<%= form_for(:offer, :url => {:action => "show" }, remote: true) do |f| %>
-		<%= f.hidden_field(:tag_id, {id: "tag_field", value: tag_id}) %>
-		<%= f.hidden_field(:subtag_id, {id: "subtag_field", value: subtag_id}) %>
-		<%= f.search_field(:search, {placeholder: "City, State", id: "search_field", value: search} ) %>
-		<%= f.submit("Search", {id: "search_button"}) %>
+	<ul class="grid">
+		<% if offers.blank? %>
+		<%= "No offers to display" %>
+		<% else %>
+		<% offers.each do |offer| %>
+		<li>
+			<figure>
+				<div class="percent_label <%= offer.percentage %>">
+					<h2><%= offer.percentage %>%</h2>
+				</div>
+				<%= image_tag(offer.business.image.url) %>
+				<figcaption>
+					<h3><%= offer.business.name %></h3>
+					<% date = offer.offer_dates.last %>
+					<% start_time = Time.at(date.start_time) %>
+					<% end_time = Time.at(date.end_time) %>
+					<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %></p>
+					<p> <%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+					<%= link_to("Get Offer", "#") %>
+					<%= link_to("Business Profile", {:controller => "business", :action => "show", :id => offer.business}) %>
+				</figcaption>
+			</figure>
+		</li>
 		<% end %>
-	</div>
-	<p class="clear" ></p>
+		<% end %>
+
+	</ul>
 </div>
-
-<% @offers = Offer.all %>
-<ul class="grid">
-	<div id="subtag_bar">
-		<% if !subtags.blank? %>
-		<% subtags.each do |subtag|%>
-		<%= link_to("#{subtag.name}", fetch_businesses_path(search: search, tag_id: tag_id, subtag_id: subtag.id), :remote => true)%>
-		<% end %>
-		<% end %>
-	</div>
-	<% if offers.blank? %>
-	<%= "No offers to display" %>
-	<% else %>
-	<% offers.each do |offer| %>
-	<li>
-		<figure>
-			<div class="percent_label <%= offer.percentage %>">
-				<h2><%= offer.percentage %>%</h2>
-			</div>
-			<%= image_tag(offer.business.image.url) %>
-			<figcaption>
-				<h3><%= offer.business.name %></h3>
-				<% date = offer.offer_dates.last %>
-				<% start_time = Time.at(date.start_time) %>
-				<% end_time = Time.at(date.end_time) %>
-				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %></p>
-				<p> <%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
-				<%= link_to("Get Offer", "#") %>
-				<%= link_to("Business Profile", {:controller => "business", :action => "show", :id => offer.business}) %>
-			</figcaption>
-		</figure>
-	</li>
-	<% end %>
-	<% end %>
-
-</ul>
