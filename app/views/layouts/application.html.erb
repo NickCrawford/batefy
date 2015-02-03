@@ -26,9 +26,9 @@
 				</div>
 				<div class="smallcol last">
 					<% if is_user_signed_in %>
-					<div class="dropdown_container">
+					<div class="dropdown_container" title="<%= Business.find(session[:id]).name %>">
 						<!--<%= image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") %> -->
-						<%= Business.find(session[:id]).name.truncate(10) %>
+						<%= Business.find(session[:id]).name.truncate(18) %>
 						<ul class="dropdown_items">
 							<li class="manage_btn last"><%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"}) %></li>
 							<li><%= link_to("Profile", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
