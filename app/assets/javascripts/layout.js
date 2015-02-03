@@ -51,3 +51,14 @@ $(document).ready(function(){
     });
  
 });
+
+$(document).mouseup(function (e)
+{
+    var container = $("#header_mobile");
+
+    if (!container.is(e.target) 
+        && container.has(e.target).length === 0) 
+    {
+        $("#mobile_menu").hide();
+    }
+});
