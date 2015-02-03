@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 	$(".day_toggle, .close").click(function(){
 		var id = $(this).data("id")
-		$("#"+id).fadeToggle(500)
+		$("#"+id).fadeToggle(300)
 	});
 
 

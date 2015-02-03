@@ -40,7 +40,7 @@ header {
 .row .largecol {width: 48%;}
 .last {margin-right: 0px;}
 
-.header_nav {height: 46px;width: 540px; margin: 0 auto;} 
+.header_nav {height: 75px;width: 400px; margin: 0 auto;} 
 .header_nav ul {height: 46px;float: left;padding: 0;list-style: none;}
 .header_nav ul  li {float: left; margin: 0;}
 
@@ -54,23 +54,114 @@ header {
 	font-size: 18px;
 }
 
-.header_nav .manage_btn:hover {
+.header_nav .current {
 	background-color: rgb(6, 28, 79);
 	color: white;
 }
 
-@media (max-width: 1020px) {
-	header {height: 100px;}
-	.row {width: 200px; height: 80px;margin: 10px auto 10px;}
-	.smallcol:first-child {width: 250px;}
-	.largecol {width: 100px;}
-	.header_nav ul li a {padding: 5px 10px;font-size: 1.0em;}
-	#logo {width: 100px; height: 30px;}
+#logo {
+	width: 183px;
+	height: 75px;
 }
 
-#logo {
-	width: 250px;
+/* Styles for mobile header bar */ 
+
+#header_mobile {display: none; height: 75px;}
+
+#mobile_logo_ctn {
+	margin: 0 auto;
+}
+
+#mobile_menu_ctn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 75px;
 	height: 75px;
+
+	background-color: transparent
+}
+
+#mobile_menu_ctn:hover {
+	background-color: rgb(16, 109, 37);
+}
+
+#mobile_menu_ctn:before {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 16px;
+	top: 18px;
+	height: 7px;
+	width: 38px;
+	border-top: 6px solid white;
+}
+
+#mobile_menu_ctn:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 16px;
+	top: 31px;
+	height: 7px;
+	width: 38px;
+	border-top: 6px solid white;
+	border-bottom: 6px solid white;
+}
+
+#mobile_menu {
+	list-style: none;
+	display: none;
+	position: fixed;
+	top: 75px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+
+	background-color: white;
+		border-bottom: 1px solid black;
+}
+
+#mobile_menu li {
+	display: block;
+	height: 75px;
+	border-bottom: 1px solid gray;
+}
+
+#mobile_menu li:hover {
+	background-color: #E3E3E3;
+}
+
+#mobile_menu li a {
+	display: block;
+	height: 75px;
+	margin: 0 25px;
+	line-height: 75px;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+#mobile_menu b {
+	position: absolute;
+	top: 0;
+	left: 130px;
+}
+
+#mobile_profile_image {
+	width: 65px;
+	height: 65px;
+	padding: 5px;
+}
+
+.mobile_profile_cell a {
+	padding-left: 75px;
+}
+
+@media (max-width: 800px) {
+	#header_big {display: none;}
+	#header_mobile {display: block;}
 }
 
 .dropdown_container {

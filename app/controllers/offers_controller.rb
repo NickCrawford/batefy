@@ -13,11 +13,11 @@ class OffersController < ApplicationController
   end
 
   def show
-    tag_businesses = Tag.find_by_id(params[:tag_id])
-    subtag_businesses = Subtag.find_by_id(params[:subtag_id])
+    tag_businesses = Tag.find_by_id(params[:tag_id]) 
+    subtag_businesses = Subtag.find_by_id(params[:subtag_id]) 
     search_businesses = Business.near(params[:search])
-    businesses = [tag_businesses, subtag_businesses].reduce {|memo,temp| memo & temp.businesses if !temp.blank?}
-    
+    @businez = [tag_businesses,subtag_businesses].map {|a| a.businesses unless a.blank?}
+    @businez = @businez.reduce {|memo,temp| memo & temp unless temp.blank?}
     @offers = []
     businesses = Business.all
     businesses.each do |business|
@@ -27,7 +27,6 @@ class OffersController < ApplicationController
     @search = params[:search]
     @tag_id= params[:tag_id]
     @subtag_id= params[:subtag_id]
-    @tag_id= params[:search]
   end
 
   def manage

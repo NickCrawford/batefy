@@ -1,5 +1,4 @@
 <div id="search_page" >
-	<%= "subtag_id:"+subtag_id.to_s %>
 	<div id="filter_bar">
 		<div id="tag_bar">
 			<% Tag.all.find_each do |tag| %>
@@ -41,6 +40,5 @@
 		</li>
 		<% end %>
 		<% end %>
-
 	</ul>
 </div>
