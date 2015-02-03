@@ -10,23 +10,23 @@ class OffersController < ApplicationController
   #before_filter :require_offer_ownership, :only => [:delete]
 
   def index
-    #(param(:latitude),param(:longitude),param(:miles_range))
-    sh = SearchHelper.new
-    sh.filterByPercentage(10)
-    sh.filterByLocation(1,4,1000)
-    @businesses = sh.run
   end
 
-  def show 
-    tag_businesses = Tag.find(params[:tag_id]).businesses
-    subtag_businesses = Subtag.find(params[:subtag_id]).businesses
+  def show
+    tag_businesses = Tag.find_by_id(params[:tag_id]) 
+    subtag_businesses = Subtag.find_by_id(params[:subtag_id]) 
     search_businesses = Business.near(params[:search])
-    businesses = [tag_businesses, subtag_businesses, search_businesses].reduce {|memo,temp| memo & temp if !temp.blank?}
+    @businez = [tag_businesses,subtag_businesses].map {|a| a.businesses unless a.blank?}
+    @businez = @businez.reduce {|memo,temp| memo & temp unless temp.blank?}
     @offers = []
+    businesses = Business.all
     businesses.each do |business|
-       @offers << business.offers
+      @offers << business.offers
     end
     @offers.flatten!
+    @search = params[:search]
+    @tag_id= params[:tag_id]
+    @subtag_id= params[:subtag_id]
   end
 
   def manage

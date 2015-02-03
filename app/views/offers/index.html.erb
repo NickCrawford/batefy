@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag "offers.css" %>
 <%= javascript_include_tag "offers.js" %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
-
-<%= render(partial: "results", locals: {offers: @offers, subtags: @subtags, tag_id: @tag_id, subtag_id: @subtag_id, search: @search}) %>
+<% @offers = Offer.all %>
+<% @tag_id = nil %>
+<% @subtag_id = nil %>
+<% search = "" %>
+<%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, search: @search}) %>
 

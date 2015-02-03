@@ -145,7 +145,7 @@ th {
 }
 
 .row_info {
-	overflow: scroll;
+	overflow: hidden;
 }
 
 .month_pages {
