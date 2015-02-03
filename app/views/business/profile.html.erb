@@ -19,7 +19,7 @@
     <tr> 
 
      <td><%= f.label(:name, "Name") %></td> 
-     <td><%= f.text_field(:name, :maxlength => 40) %></td>
+     <td><%= f.text_field(:name, :maxlength => 40, :class=>"text_input") %></td>
    </tr>
    <tr> 
      <td><%= f.label(:email, "Email") %></td> 
@@ -27,23 +27,25 @@
    </tr>
    <tr> 
      <td><%= f.label(:address, "Address") %></td> 
-     <td><%= f.text_field(:address) %></td>
+     <td><%= f.text_field(:address , :class=>"text_input") %></td>
    </tr>
    <tr> 
      <td><%= f.label(:city, "City") %></td> 
-     <td><%= f.text_field(:city) %></td>
+     <td><%= f.text_field(:city, :class=>"text_input") %></td>
   <tr>
      <td><%= f.label(:state, "State") %></td> 
-     <td><%= f.text_field(:state) %></td>
+     <td><%= f.text_field(:state , :class=>"text_input") %></td>
+   </tr>
+   <tr>
      <td><%= f.label(:zip, "Zip") %></td> 
-     <td><%= f.text_field(:zip, :size => 5, :maxlength => 8) %></td>
+     <td><%= f.text_field(:zip, :size => 5, :maxlength => 8, :class=>"text_input") %></td>
   </tr>
   <tr> 
      <td><%= f.label(:country, "Country") %></td> 
-     <td><%= f.text_field(:country) %></td>
+     <td><%= f.text_field(:country, :class=>"text_input") %></td>
   </tr>
   <tr> 
-      <td><%= f.label(:tags, "Category *") %></td> 
+      <td><%= f.label(:tags, "Category") %></td> 
       <td><%= @business.tags.last.name %></td>
   </tr>
   <tr> 
@@ -52,19 +54,19 @@
   </tr>
   <tr> 
      <td><%= f.label(:phone, "Phone") %></td> 
-     <td><%= f.text_field(:phone) %></td>
+     <td><%= f.text_field(:phone, :class=>"text_input") %></td>
   </tr>
   <tr> 
      <td><%= f.label(:website, "Website") %></td> 
-     <td><%= f.text_field(:website) %></td>
+     <td><%= f.text_field(:website, :class=>"text_input") %></td>
    </tr>
    <tr>
     <td><%= f.label(:new_password, "New Password") %></td> 
-    <td><%= f.password_field(:new_password, :maxlength => 40) %></td>
+    <td><%= f.password_field(:new_password, :maxlength => 40, :class=>"text_input") %></td>
   </tr>
   <tr>  
     <td><%= f.label(:new_password_confirmation, "Confirm Password") %></td> 
-    <td><%= f.password_field(:new_password_confirmation, :maxlength => 40) %></td>
+    <td><%= f.password_field(:new_password_confirmation, :maxlength => 40, :class=>"text_input") %></td>
   </tr>
   <tr> 
    <td><%= f.label(:image, "Image") %></td> 

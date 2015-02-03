@@ -26,8 +26,8 @@
 					<h2><%= offer.percentage %>%</h2>
 				</div>
 				<%= image_tag(offer.business.image.url) %>
+				<h3><%= offer.business.name %></h3>
 				<figcaption>
-					<h3><%= offer.business.name %></h3>
 					<% date = offer.offer_dates.last %>
 					<% start_time = Time.at(date.start_time) %>
 					<% end_time = Time.at(date.end_time) %>
