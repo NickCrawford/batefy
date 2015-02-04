@@ -2,54 +2,39 @@ class SearchHelper
 
 	attr_accessor :results
 
-	@@query_elements = {}
+	@@businesses
 
-	def filterByLocation(latitude, longitude, range)
-		@range = Coordinate.getLatLngRange(latitude,longitude,range)
-		@@query_elements[:location] = {}
-		@@query_elements[:location][:string] = " businesses.latitude BETWEEN ? AND ? AND businesses.longitude BETWEEN ? AND ? "
-		@@query_elements[:location][:attributes] = [@range[:latMin], @range[:latMax], @range[:lngMin], @range[:lngMax]]
+	def initialize (businesses)
+	 @@businesses = businesses
+	end
+	
+	def filter_by_location(location)
+		@@businesses << Business.near(location) unless location.blank?
 	end
 
-	def filterByTags(tags)
-		@@query_elements[:tags] = {}
-		@@query_elements[:tags][:string] = ""
-		@@query_elements[:tags][:attributes] = []
-		tags.each do |name|
-			@@query_elements[:tags][:string] = @@query_elements[:tags][:string] == "" ? "" : @@query_elements[:tags][:string] += "OR"
-			@@query_elements[:tags][:string] +=  " tags.name = ? "
-			@@query_elements[:tags][:attributes] << name
-		end
+	def filter_by_tag(tag)
+		tag = Tag.find_by_id(tag)
+		@@businesses << tag.businesses unless tag.nil?
 	end
 
-	def filterByDate(date)
-		@@query_elements[:date] = {}
-		@@query_elements[:date][:string] = " offer_dates.date > ? "
-		@@query_elements[:date][:attributes] = [date]
+	def filter_by_subtag(subtag)
+		subtag = Subtag.find_by_id(subtag)
+		@@businesses << subtag.businesses unless subtag.nil?
 	end
 
-	def filterByPercentage(percentage)
-		@@query_elements[:date] = {}
-		@@query_elements[:date][:string] = " offers.percentage = ? "
-		@@query_elements[:date][:attributes] = [percentage]
+	def filter_by_date(date)
+		
 	end
 
-	def run
-		string_query_statement, array_query_attributes=createQueryConditions
-
-		conditions = [string_query_statement] + array_query_attributes.flatten!
-		Business.joins(:offers).all.where(conditions)
-	end
-
-	def createQueryConditions
-		string_query_statement=""
-		array_query_attributes=[]
-		@@query_elements.each do |element|
-			string_query_statement = string_query_statement == "" ? "" : string_query_statement += "AND"
-			string_query_statement += element[1][:string]
-			array_query_attributes << element[1][:attributes]
-		end
-		[string_query_statement,array_query_attributes]
-	end
+	def get_offers
+		offers = []
+		@@businesses = @@businesses.reduce {|memo,temp| memo & temp}
+		@@businesses.each do |business|
+      		offers << business.offers
+      	end
+      	offers.flatten!
+    end
 
 end
+	
+

@@ -3,6 +3,14 @@ $(document).ready(function(){
 	//get user position
 	geolocation()
 	var geocoder = new google.maps.Geocoder()
+
+});
+
+$(document).on('keyup','#search_field', function(e){
+	$(".search_button").attr("href","/fetch_businesses?"+"tag_id="+$("#tag_id").val()+"&subtag_id="+$("#subtag_id").val()+"&search="+$("#search_field").val());
+	if(e.which == 13) {
+    	$("#search_field_button").click()
+    }
 });
 
 function set_position(position){
