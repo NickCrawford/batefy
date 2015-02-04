@@ -1,26 +1,35 @@
-<h1> SignIn </h1>
+<%= stylesheet_link_tag "signin.css" %>
+
+<div class="content_container">
+
+<h1>Sign In</h1>
 
 <table>
 <%= form_for(:business, :url => {:action => "sign_in_attempt"}) do |f| %>
+		<%if !flash.empty?%> 
 	<tr>
-		<td><%if !flash.empty?%> <%=flash[:notice]%> <%end%></td>
+		<td class="errors" colspan="2">
+			<p> <%=flash[:notice]%> </p>
+		</td>
 	</tr>
 	<tr>
-		<td><%= f.label(:email, "Email") %></td>
-		<td><%= f.text_field(:email) %></td>
+		<td><br></td>
+	</tr>
+			<%end%>
+	<tr>
+		<td colspan="2"><%= f.text_field(:email, :placeholder=>"Email", :class=>"text_input") %></td>
 	</tr>
 	<tr>
-		<td><%= f.label(:password, "Password") %></td>
-		<td><%= f.password_field(:password) %></td>
+		<td colspan="2"><%= f.password_field(:password, :placeholder=>"Password", :class=>"text_input") %></td>
 	</tr>
 	<tr>
-		<td><%= f.submit("Log in")%></td>
+		<td><%= f.submit("Sign in", :class=>"submit_btn")%></td>
+		<td><%= link_to "Forgot password?", "#" %></td>
 	</tr>
 	<tr>
-		<td>Forgot Login</td>
-	</tr>
-	<tr>
-		<td><a href="sign_up">Sign up</a></td>
+		<td colspan="2">Are you a business owner? <a href="sign_up" style="color: blue">Sign up</a> now!</td>
 	</tr>
 <%end%>
 </table>
+
+</div>
