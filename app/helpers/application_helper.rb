@@ -1,7 +1,11 @@
 module ApplicationHelper
 
-	def is_user_signed_in 
-		return !session[:id].nil?
+	def is_business_signed_in 
+		return !session[:business_id].nil?
+	end
+
+	def is_user_signed_in
+		return !session[:user_id].nil?
 	end
 
 	def error_messages_for(object)

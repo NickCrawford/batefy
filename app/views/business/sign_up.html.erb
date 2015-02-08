@@ -3,7 +3,7 @@
 	<div id="input">
 		<table>
 		<%= error_messages_for(@business) %>
-		<%= form_for(:business, :url => {:action => "create"}, 
+		<%= form_for(:business, :url => {:action => "sign_up_attempt"}, 
 			:html => {:multipart => true}) do |f| %>
   				<tr> 
   					<td><%= f.label(:name, "Name *") %></td> 

@@ -4,6 +4,9 @@
 <% if !flash[:notice].blank? %>
 <div> <%= flash[:notice] %> <div>
 	<% end %>
+<% if !flash[:error].blank? %>
+<div> <%= flash[:error] %> <div>
+	<% end %>
 
 	<% offers_dates = {} %>
 	<% @business.offers.each do |offer| %>  

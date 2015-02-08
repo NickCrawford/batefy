@@ -15,6 +15,9 @@
 		<p class="clear" ></p>
 	</div>
 	<ul class="grid">
+		<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
+		<% subtag_name = Tag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name%>
+		<%= "Showing results for: #{search}, #{tag_name}, #{subtag_name}"%><hr>
 		<% if offers.blank? %>
 		<%= "No offers to display" %>
 		<% else %>
