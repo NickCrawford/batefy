@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20150125050853) do
     t.string   "name",               limit: 50,  null: false
     t.float    "latitude",           limit: 24,  null: false
     t.float    "longitude",          limit: 24,  null: false
-    t.string   "address"
     t.string   "website"
     t.string   "phone"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150125050853) do
     t.integer  "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "active"
   end
 
   create_table "subtags", force: true do |t|
@@ -96,7 +97,7 @@ ActiveRecord::Schema.define(version: 20150125050853) do
   create_table "user_offer_opinions", force: true do |t|
     t.integer  "offer_id"
     t.integer  "user_id"
-    t.integer  "opinion",    limit: 1
+    t.integer  "opinion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,18 +105,29 @@ ActiveRecord::Schema.define(version: 20150125050853) do
   add_index "user_offer_opinions", ["offer_id", "user_id"], name: "index_user_offer_opinions_on_offer_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",              limit: 254, null: false
-    t.string   "first_name",         limit: 15
-    t.string   "last_name",          limit: 15
-    t.date     "birthday"
+    t.string   "email",              limit: 254,              null: false
+    t.string   "password_digest",                             null: false
+    t.string   "name",               limit: 35
+    t.integer  "birthday"
     t.integer  "gender",             limit: 1
-    t.float    "latitude_home",      limit: 24
-    t.float    "longitude_home",     limit: 24
+    t.string   "address",                        default: ""
+    t.string   "country",                        default: ""
+    t.string   "city",                           default: ""
+    t.string   "state",                          default: ""
+    t.string   "zip",                            default: ""
+    t.string   "image"
+    t.string   "website"
+    t.string   "phone"
+    t.float    "latitude",           limit: 24
+    t.float    "longitude",          limit: 24
     t.float    "latitude_current",   limit: 24
     t.float    "longitutde_current", limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

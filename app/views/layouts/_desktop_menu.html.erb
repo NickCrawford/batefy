@@ -1,0 +1,22 @@
+<div id="header_big">
+	<div class="row">
+		<div class="smallcol">
+			<h1><%= link_to(image_tag("logo.png", :alt => "" , :id => "logo") , {:controller => "offers", :action => "index"}) %>
+			</h1>
+		</div>
+		<div class="largecol">
+			<div class="header_nav">
+				<%= render(partial:"layouts/general_menu") %>
+			</div>	
+		</div>
+		<div class="smallcol last">
+			<% if is_business_signed_in %>
+				<%= render(partial:"layouts/business_dropdown") %>
+			<% elsif is_user_signed_in %>
+				<%= render(partial:"layouts/user_dropdown") %>
+			<% else %>
+			<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
+			<% end %>
+		</div>
+	</div>
+</div>

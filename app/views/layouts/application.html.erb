@@ -8,75 +8,15 @@
 </head>
 <body>
 	<header>
-		<div id="header_big">
-			<div class="row">
-				<div class="smallcol">
-					<h1><%= link_to(image_tag("logo.png", :alt => "" , :id => "logo") , {:controller => "offers", :action => "index"}) %>
-					</h1>
-				</div>
-				<div class="largecol">
-					<div class="header_nav">
-						<ul>
-							<li><%= link_to "Browse", {:controller=>"offers", :action=>"index"}, class: cp("/") %></li>
-							<li><%= link_to "Nearby", "#", class: cp("nearby") %></li>
-							<li><%= link_to "My Offers", "#" , class: cp("#")%></li>
-							<li><%= link_to "About", {:controller=>"pages", :action =>"show", :page => "about"} , class: cp("/pages/show?page=about")%></li>
-						</ul>
-					</div>	
-				</div>
-				<div class="smallcol last">
-					<% if is_user_signed_in %>
-					<div class="dropdown_container" title="<%= Business.find(session[:id]).name %>">
-						<!--<%= image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "profile_image") %> -->
-						<%= Business.find(session[:id]).name.truncate(18) %>
-						<ul class="dropdown_items">
-							<li class="manage_btn last"><%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"}) %></li>
-							<li><%= link_to("Profile", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
-							</li>
-							<li><%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %>
-							</li>
-						</ul>
-					</div>
-					<% else %>
-					<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", :id => "sign_in") %>
-					<% end %>
-				</div>
-			</div>
-		</div>
-		<div id="header_mobile">
-			<div id="mobile_logo_ctn">
-				<h1><%= link_to(image_tag("logo.png", :alt => "" , :id => "logo") , {:controller => "offers", :action => "index"}) %>
-				</h1>
-			</div>
-			<div id="mobile_menu_ctn">
-				<ul id="mobile_menu">
-					<% if is_user_signed_in %>
-					<li><%= link_to(image_tag(Business.find(session[:id]).image.url, :alt => "profile image", :id => "mobile_profile_image") + raw("<b>View Profile</b>"), {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>
-					</li>
-					<li>
-						<%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"}) %>
-					</li>
-					<% end %>
-					<li><%= link_to "Browse", {:controller=>"offers", :action=>"index"}, class: cp("/") %></li>
-					<li><%= link_to "Nearby", "#", class: cp("nearby") %></li>
-					<li><%= link_to "My Offers", "#" , class: cp("#")%></li>
-					<% if is_user_signed_in %>
-					<li><%= link_to "About", {:controller=>"pages", :action =>"show", :page => "about"} , class: cp("/pages/show?page=about")%></li>
-					<li>
-						<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %>
-					</li>
-					<% else %>
-					<li><%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get") %></li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
-	</div>
-</header>
+		
+		<%= render(partial: "layouts/mobile_menu") %>
+		<%= render(partial: "layouts/desktop_menu") %>
 
-<main>
-	<%= yield %>
-</main>
+	</header>
+
+	<main>
+		<%= yield %>
+	</main>
 
 
 </body>

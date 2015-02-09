@@ -2,10 +2,10 @@
 
 <div class="content_container">
 
-<h1>Business Sign In</h1>
+<h1>User Sign In</h1>
 
 <table>
-<%= form_for(:business, :url => {:action => "sign_in_attempt"}) do |f| %>
+<%= form_for(:user, :url => {:action => "sign_in_attempt"}) do |f| %>
 		<%if !flash[:error].blank?%> 
 	<tr>
 		<td class="errors" colspan="2">
@@ -37,7 +37,7 @@
 		<td><%= link_to "Forgot password?", "#" %></td>
 	</tr>
 	<tr>
-		<td colspan="2">Are you a business owner? <a href="sign_up" style="color: blue">Sign up</a> now!</td>
+		<td colspan="2">Are you a new user? <a href="sign_up" style="color: blue">Sign up</a> now!</td>
 	</tr>
 <%end%>
 </table>

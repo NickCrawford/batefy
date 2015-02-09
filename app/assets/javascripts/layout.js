@@ -43,7 +43,7 @@ $(document).ready(function(){
 
     $('.dropdown_container').click(function() {
         $('.dropdown_items', this).fadeToggle(300)
-        $('.dropdown_container:after', this).css("border-width", "0 6px 6px 6px")
+        $(this).toggleClass('open')
     });
 
     $('#mobile_menu_ctn').click(function() {

@@ -34,7 +34,6 @@ class Business < ActiveRecord::Base
 	validates_attachment_presence :image, :on => :create
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']
-		
 	validate :lat_changed?, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
 	
 	private
@@ -43,7 +42,7 @@ class Business < ActiveRecord::Base
 			if authenticate(@old_password)
 				self.password = @new_password if password_changed? && errors.empty?
 			else
-				errors.add(:old_password, "Invalid. You must provide a valid password to update your profile")
+				errors.add(:old_password, "invalid. You must provide a valid password to update your profile")
 			end
 		end
 
@@ -52,7 +51,11 @@ class Business < ActiveRecord::Base
 		end
 
 		def full_address
-			[self.address, self.city, self.country].join(' ,')
+			if self.country == "United States"
+				[self.address, self.city, self.state, self.country].join(' ,')
+			else
+				[self.address, self.city, self.country].join(' ,')
+			end
 		end
 
 		def lat_changed?

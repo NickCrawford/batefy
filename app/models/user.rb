@@ -1,22 +1,64 @@
 class User < ActiveRecord::Base
 
-	has_secure_password
-
 	has_many :user_business_opinions
 	has_many :user_offer_opinions
-
 	has_many :businesses, :through => :user_business_opinions
 	has_many :offers, :through => :user_offer_opinions
 
-	validates :email, :presence => true,
-					  :length => {:maximum => 254},
-					  :format => {:with => /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/ , :message => "The format of your email doesn't look right."},
-					  :uniqueness => {:case_sensitive => false, "Somebody already reagistered with this email. Did you forget your password?"}	
-	validates :password, :presence => true,
-					     :length => {:minimum => 6, :message => "Keep your account safe! Your password should be at least 6 characters long."}			
-	validates_inclusion_of :gender, {:in => ["M","F","O"], :allow_blank => true, :allow_nil => true}
+	attr_accessor :old_password, :new_password, :new_password_confirmation
+	EMAIL_REGEX = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/
 
-	scope :filter_by_email, lambda{|email| where(:email => email)}
-	scope :filter_by_name, lambda{|name| where(:name => name)}
+	has_secure_password
+	geocoded_by :full_address
+	has_attached_file :image,
+					  :url => "/assets/images/user/profile/:id/:style/:basename.:extension",
+					  :path => ":rails_root/public/assets/images/user/profile/:id/:style/:basename.:extension"
+
+	before_validation :geocode, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
+
+	validates_presence_of :name
+	validates_length_of :name, {:maximum=>30, :minimum=>2, :too_long=>"is too long", :too_short=>"is too short"} 
+	validates_presence_of :email
+	validates_length_of :email, {:maximum => 254, :message=> "is too long"}
+	validates_format_of :email,  {:with => EMAIL_REGEX , :message => "is not valid"}
+	validates_uniqueness_of :email, {:message => "already in use", :on => :create }	
+	validates_confirmation_of :new_password
+	validates_length_of :new_password, {:minimum=> 8, :too_short => "must be at least 8 characters long", :allow_blank => true }
+	validate :examine_password, :on => :update
+	validates_attachment_size :image, :less_than => 5.megabytes
+	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']
+	validates_inclusion_of :gender, {:in => [0,1,2], :allow_blank => true, :allow_nil => true}
+	validate :lat_changed?, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
+
 	scope :order_by_name, lambda{ order('name ASC')}
+
+	private
+
+		def examine_password
+			if authenticate(@old_password)
+				self.password = @new_password if password_changed? && errors.empty?
+			else
+				errors.add(:old_password, "invalid. You must provide a valid password to update your profile")
+			end
+		end
+
+		def password_changed?
+			!@new_password.blank?
+		end
+
+		def full_address
+			if self.country == "United States"
+				[self.address, self.city, self.state, self.country].join(' ,')
+			else
+				[self.address, self.city, self.country].join(' ,')
+			end
+		end
+
+		def lat_changed?
+        	if !(self.latitude_changed?)
+            	self.errors.add(:address, "is not valid")
+        	end
+		end
+
+
 end

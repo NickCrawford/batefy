@@ -4,26 +4,21 @@
 
 <div id="profile_header">
   <div id="header_focus_image">
-    <%= image_tag(@business.image.url) %>
+    <%= image_tag(@user.image.url)%>
   </div>
-  <h1><%= @business.name %> </h1>
-  <div id="map_header">
-    <%= hidden_field_tag(:latitude, @business.latitude) %>
-    <%= hidden_field_tag(:longitude,@business.longitude)%>
-  </div>
+  <h1><%= User.find(session[:user_id]).name %> </h1>
 </div>
 <div id="input">
-  <%= error_messages_for(@business) %>
+  <%= error_messages_for(@user) %>
   <table>
-    <%= form_for(:business, :url => {:action => "profile_update", :id => @business.id},:html => {:multipart => true}) do |f| %>
-    <tr> 
-
-     <td><%= f.label(:name, "Name") %></td> 
+    <%= form_for(:user, :url => {:action => "profile_update", :id => @user.id},:html => {:multipart => true}) do |f| %>
+    <tr>
+     <td><%= f.label(:name, "Full Name") %></td> 
      <td><%= f.text_field(:name, :maxlength => 40, :class=>"text_input") %></td>
    </tr>
    <tr> 
      <td><%= f.label(:email, "Email") %></td> 
-     <td><%= @business.email %></td>
+     <td><%= @user.email %></td>
    </tr>
    <tr> 
      <td><%= f.label(:address, "Address") %></td> 
@@ -40,17 +35,9 @@
      <td><%= f.label(:zip, "Zip") %></td> 
      <td><%= f.text_field(:zip, :size => 5, :maxlength => 8, :class=>"text_input") %></td>
   </tr>
-  <tr> 
+  <tr>
     <td><%= f.label(:country, "Country *") %></td> 
     <td><%= f.select(:country, ["Italia", "United States"]) %></td>
-  </tr>
-  <tr> 
-      <td><%= f.label(:tags, "Category") %></td> 
-      <td><%= @business.tags.last.name %></td>
-  </tr>
-  <tr> 
-      <td><%= f.label(:subtags, "Sub Category") %></td> 
-      <td><%= @business.subtags.last.name %></td>
   </tr>
   <tr> 
      <td><%= f.label(:phone, "Phone") %></td> 
