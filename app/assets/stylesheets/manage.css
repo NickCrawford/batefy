@@ -2,8 +2,7 @@ table {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px 40px;
-	width: 100%;
-	max-width: 700px;
+	width: 80%;
 	border-collapse: collapse;
 	border-radius: 3px;
 }
@@ -141,15 +140,17 @@ th {
 
 .offers_container {
 	display: inline-block;
-	overflow: hidden;
+	overflow: auto;
 }
 
 .row_info {
-	overflow: hidden;
+	overflow: auto;
 }
 
 .month_pages {
 	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 .month_pages li table{
