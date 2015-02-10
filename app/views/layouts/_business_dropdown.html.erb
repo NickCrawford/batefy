@@ -1,6 +1,6 @@
 <div class="dropdown_container" title="<%= Business.find(session[:business_id]).name %>">
 	<%= image_tag(Business.find(session[:business_id]).image.url, :alt => "profile image", :id => "profile_image") %>
-	<%= Business.find(session[:business_id]).name.truncate(18) %>
+	<div class="profile_name"><%= Business.find(session[:business_id]).name.truncate(16) %></div>
 	<ul class="dropdown_items">
 		<li class="manage_btn last"><%= link_to("Manage Offers", {:controller=>"offers", :action=>"manage"}) %></li>
 		<li><%= link_to("Profile", {:controller => "business", :action => "profile"}, :title => "View/Edit your profile") %>

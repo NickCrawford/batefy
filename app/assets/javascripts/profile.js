@@ -14,4 +14,12 @@ $(document).ready(function(){
 	var map = createMap(info)
 	createMapMarker(map, latitude, longitude)
 
+	$("#tab_bar li").click(function(){
+		var id = $(this).data("id")
+		$(".tab").hide()
+		$("#tab_bar li").removeClass()
+		$(id).fadeToggle(300)
+		$(this).addClass("active")
+	});
+
 });
