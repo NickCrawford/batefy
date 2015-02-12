@@ -111,11 +111,20 @@ header {
     margin-top: -3px;
     border-width: 6px 6px 0 6px;
     border-style: solid;
-    border-color: gray transparent;
+    border-color: white transparent;
+
+    transition:All 0.3s ease;
+	-webkit-transition:All 0.3s ease;
+	-moz-transition:All 0.3s ease;
+	-o-transition:All 0.3s ease;
 }
 
 .dropdown_container.open:after{
-	border-width: 0 6px 6px 6px;
+	transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
 }
 
 .dropdown_container .dropdown_items {
@@ -136,6 +145,7 @@ header {
     text-decoration: none;
     color: #333;
     padding: 15px;
+    transition: all 0.3s ease-out;
 }
 
 .dropdown_container .dropdown_items li:hover a {
