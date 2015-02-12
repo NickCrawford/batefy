@@ -4,7 +4,7 @@ $(document).ready(function(){
 		$(".tab_nav").hide()
 		$(".tab").hide()
 		$($(this).data("nav-id")).show()
-		$($(this).data("tab-id")).show()
+		$($(this).data("tab-id")).fadeToggle(300)
 	});
 
 	$(".signup_next").click(function(){
