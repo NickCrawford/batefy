@@ -1,4 +1,5 @@
-<%= stylesheet_link_tag "business.css" %>
+<%= stylesheet_link_tag "profile_info_tab.css" %>
+<%= stylesheet_link_tag "profile.css" %>
 <%= javascript_include_tag "user_profile.js" %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
 
@@ -6,7 +7,6 @@
   <div id="header_focus_image">
     <%= image_tag(@user.image.url)%>
   </div>
-  <h1><%= User.find(session[:user_id]).name %> </h1>
 </div>
 <div id="profile_info">
   <%= error_messages_for(@user) %>

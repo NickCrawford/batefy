@@ -9,7 +9,7 @@ p.clear{clear:both; height:0; width:0; margin:0; }
 
 /* Main Page Styles */
 html {
-	background-color: rgb(220, 223, 186);
+	background-color: #FFFFFF ;rgb(220, 223, 186);
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -329,7 +329,7 @@ header {
 	background-color: #005914
 }
 
-.errors {
+.errors, .notices {
 	padding: 0;
 	border-radius: 3px;
 
@@ -337,7 +337,7 @@ header {
 	background-color: #FD6E67;
 }
 
-.errors h2 {
+.errors h2 , .notices h2{
 	text-align: center;
 	color: white;
 	display: block;
@@ -345,12 +345,17 @@ header {
 	background-color: #CC534D;
 }
 
-.errors p {
+.errors p, .notices p {
 	font-size: 20px;
 	text-align: center;
 }
 
-.errors ul {
+.errors ul , .notices ul{
 	margin-left: 25%;
 	margin-right: auto;
 }
+
+.notices {
+	background-color: rgb(19, 122, 42)
+}
+

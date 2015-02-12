@@ -1,36 +1,21 @@
 <%= stylesheet_link_tag "profile_info_tab.css" %>
-<%= stylesheet_link_tag "sign_up.css" %>
-<%= javascript_include_tag "signup.js" %>
+<%= stylesheet_link_tag "business_sign_up.css" %>
+<%= javascript_include_tag "sign_up.js" %>
+  <div id="business_search_container">
+    <div id="list_container">
+
+    </div>
+  </div>
+
   <div id="profile_info">
     <%= error_messages_for(@business) %>
     <div id="tabs_container">
-      <%= form_for(:business, :url => {:action => "profile_update", :id => @business.id},:html => {:multipart => true}) do |f| %>
+      <%= form_for(:business, :url => {:action => "sign_up_attempt"} ,:html => {:multipart => true}) do |f| %>
       <ul id="tab_bar">
-        <li data-id="#general_tab" class="active"><%= image_tag("icons/general.png", {class: "icon"}) %></li>
-        <li data-id="#location_tab"><%= image_tag("icons/location.png", {class: "icon"}) %></li>
-        <li data-id="#account_tab"><%= image_tag("icons/account.png", {class: "icon"}) %></li>
+        <li class="active"><%= image_tag("icons/general.png", {class: "icon"}) %></li>
+        <li ><%= image_tag("icons/location.png", {class: "icon"}) %></li>
+        <li ><%= image_tag("icons/account.png", {class: "icon"}) %></li>
       </ul>
-
-      <div class="tab" id="account_tab">
-        <ul>
-          <li><%= f.label(:email, "Email") %> <div class="profile_input"><%= @business.email %></div></li>
-          <li><%= f.label(:new_password, "New Password") %> <%= f.password_field(:new_password, :maxlength => 40, :class=>"profile_input") %></li>
-          <li><%= f.label(:new_password_confirmation, "Confirm Password") %> <%= f.password_field(:new_password_confirmation, :maxlength => 40, :class=>"profile_input") %></li>
-        </ul>
-      </div>  
-
-      <div class="tab" id="location_tab">
-        <ul>
-          <li><%= f.label(:address, "Address") %> <%= f.text_field(:address , :class=>"profile_input") %></li>
-          <li><%= f.label(:city, "City") %> <%= f.text_field(:city, :class=>"profile_input") %></li>
-          <li><%= f.label(:state, "State") %> <%= f.text_field(:state , :class=>"profile_input") %></li>
-          <li><%= f.label(:zip, "Zip") %> <%= f.text_field(:zip, :size => 5, :maxlength => 8, :class=>"profile_input") %></li>
-          <li>
-            <%= f.label(:country, "Country") %>
-            <%= f.select(:country, ["Italia", "United States"], {}, {class: "profile_input"}) %>
-          </li>
-        </ul>
-      </div>
 
       <div class="tab" id="general_tab">
         <ul>
@@ -48,18 +33,40 @@
         </ul>
       </div> 
 
+      <div class="tab" id="location_tab">
+        <ul>
+          <li><%= f.label(:address, "Address") %> <%= f.text_field(:address , :class=>"profile_input") %></li>
+          <li><%= f.label(:city, "City") %> <%= f.text_field(:city, :class=>"profile_input") %></li>
+          <li><%= f.label(:state, "State") %> <%= f.text_field(:state , :class=>"profile_input") %></li>
+          <li><%= f.label(:zip, "Zip") %> <%= f.text_field(:zip, :size => 5, :maxlength => 8, :class=>"profile_input") %></li>
+          <li>
+            <%= f.label(:country, "Country") %>
+            <%= f.select(:country, ["Italia", "United States"], {}, {class: "profile_input"}) %>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="tab" id="account_tab">
+        <ul>
+          <li><%= f.label(:email, "Email") %> <%= f.email_field(:email , :class=>"profile_input") %></li>
+          <li><%= f.label(:new_password, "New Password") %> <%= f.password_field(:new_password, :maxlength => 40, :class=>"profile_input") %></li>
+          <li><%= f.label(:new_password_confirmation, "Confirm Password") %> <%= f.password_field(:new_password_confirmation, :maxlength => 40, :class=>"profile_input") %></li>
+        </ul>
+      </div>  
+
       <div class="tab_nav" id="tab_nav_0">
-         <%= button_tag("Next" , type: "button" , class: "submit_btn", id: "signup_next", data: {nav_id: "#tab_nav_1", tab_id: "#location_tab"}) %>
+         <%= button_tag("Next" , type: "button" , class: "submit_btn signup_next", data: {nav_id: "#tab_nav_1", tab_id: "#location_tab"}) %>
       </div>
 
       <div class="tab_nav" id="tab_nav_1">
-        <%= button_tag("Back" , type: "button" , class: "submit_btn", id: "signup_back", data: {nav_id: "#tab_nav_0", tab_id: "#account_tab"}) %>
-         <%= button_tag("Next" , type: "button" , class: "submit_btn", id: "signup_next",  data: {nav_id: "#tab_nav_2", tab_id: "#general_tab"}) %>
+        <%= button_tag("Back" , type: "button" , class: "submit_btn signup_back", data: {nav_id: "#tab_nav_0", tab_id: "#general_tab"}) %>
+         <%= button_tag("Next" , type: "button" , class: "submit_btn signup_next",  data: {nav_id: "#tab_nav_2", tab_id: "#account_tab"}) %>
       </div>
 
        <div class="tab_nav" id="tab_nav_2">
-        <%= button_tag("Back" , type: "button" , class: "submit_btn", id: "signup_back",  data: {nav_id: "#tab_nav_1", tab_id: "#location_tab"}) %>
-          <%= button_tag("Finish" , type: "button" , class: "submit_btn", id: "signup_finish") %>
+        <%= button_tag("Back" , type: "button" , class: "submit_btn signup_back",  data: {nav_id: "#tab_nav_1", tab_id: "#location_tab"}) %>
+          <%= f.submit("Finish" , class: "submit_btn", id: "signup_finish") %>
       </div>
       
     </div>

@@ -37,18 +37,22 @@
 .tab {
 	display:none;
 	margin: 0 auto;
-
+	height: 250px;
 	padding: 40px 50px;
 
 	border-bottom: 1px solid gray;
 }
 
-#general_tab{
+#general_tab {
 	display:block;
 }
 
 .tab ul li {
 	margin: 10px;
+}
+
+.tab ul li div{
+
 }
 
 #profile_info label {

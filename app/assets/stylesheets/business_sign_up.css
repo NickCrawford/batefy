@@ -1,3 +1,10 @@
+#business_search_container {
+	width: 80%;
+	margin: 0 auto;
+	display: block;
+	background-color: gray;
+}
+
 #tab_bar li:hover:not(.active) {
 	border-bottom-color: #E3E3E3;
 	cursor: default;
@@ -11,10 +18,10 @@
 	display: block;
 }
 
-#signup_next, #signup_finish {
+.signup_next, #signup_finish {
 	float: right;
 }
 
-#signup_back {
+.signup_back {
 	float: left;
 }
