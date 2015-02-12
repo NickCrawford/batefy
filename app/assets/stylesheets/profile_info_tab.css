@@ -1,0 +1,72 @@
+#profile_info {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 40px;
+	background-color: white;
+	float: center;
+}
+
+#tabs_container {
+	width: 50%;
+	height: 350px;
+	margin: 0 auto;
+}
+
+#tab_bar {
+	width: 100%;
+	margin: 0 auto;
+}
+#tab_bar li {
+	width: 32%;
+	display: inline-block;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	padding: 10px 0;
+	border-bottom: 4px solid #E3E3E3;
+
+	cursor: pointer;
+	cursor: hand;
+}
+
+#tab_bar li:hover, #tab_bar li.active{
+	border-bottom: 4px solid green;
+}
+
+.tab {
+	display:none;
+	margin: 0 auto;
+
+	padding: 40px 50px;
+
+	border-bottom: 1px solid gray;
+}
+
+#general_tab{
+	display:block;
+}
+
+.tab ul li {
+	margin: 10px;
+}
+
+#profile_info label {
+	font-family: "Raleway";
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+.profile_input {
+	float: right;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+	position: center middle;
+}
+
+#profile_submit {
+	float: right;
+}
