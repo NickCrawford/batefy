@@ -1,0 +1,20 @@
+#tab_bar li:hover:not(.active) {
+	border-bottom-color: #E3E3E3;
+	cursor: default;
+}
+
+.tab_nav {
+	display: none;
+}
+
+#tab_nav_0 {
+	display: block;
+}
+
+#signup_next, #signup_finish {
+	float: right;
+}
+
+#signup_back {
+	float: left;
+}
