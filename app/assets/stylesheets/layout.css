@@ -101,7 +101,7 @@ header {
 	background-color: #061C4F;
 }
 
-.dropdown_container:after, .dropdown_container.open:after {
+.dropdown_container:after{
     content: "";
     width: 0;
     height: 0;
@@ -112,6 +112,10 @@ header {
     border-width: 6px 6px 0 6px;
     border-style: solid;
     border-color: gray transparent;
+}
+
+.dropdown_container.open:after{
+	border-width: 0 6px 6px 6px;
 }
 
 .dropdown_container .dropdown_items {

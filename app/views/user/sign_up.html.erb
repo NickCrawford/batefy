@@ -5,17 +5,15 @@
 		<%= form_for(:user, :url => {:action => "sign_up_attempt"}, 
 			:html => {:multipart => true}) do |f| %>
   				<tr> 
-  					<td><%= f.label(:name, "Full Name *") %></td> 
-  					<td><%= f.text_field(:name, :maxlength => 40, :class=>"text_input") %></td>
+  					<td><%= f.text_field(:name, placeholder: "Full Name", maxlength: 40, class: "text_input") %></td>
   				</tr>
+          <tr> 
+            <td><%= f.text_field(:email,  placeholder: "Email", :maxlength => 40, :class=>"text_input") %></td>
+          </tr>  
   				<tr> 
-  					<td><%= f.label(:password, "Password *") %></td> 
-  					<td><%= f.password_field(:password, :maxlength => 40,:autocomplete => "off", :class=>"text_input") %></td>
-  				</tr>
-  				<tr> 
-  					<td><%= f.label(:email, "Email *") %></td> 
-  					<td><%= f.text_field(:email, :maxlength => 40, :class=>"text_input") %></td>
-  				</tr>   				<tr>  
+  					<td><%= f.password_field(:password,  placeholder: "Password", :maxlength => 40,:autocomplete => "off", :class=>"text_input") %></td>
+  				</tr> 				
+          <tr> 
   					<td colspan="2"><%= f.submit("Sign Up", :class=>"submit_btn") %></td>
   				</tr>
 		<% end %>
