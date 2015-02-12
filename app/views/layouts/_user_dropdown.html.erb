@@ -1,6 +1,8 @@
 <div class="dropdown_container" title="<%= User.find(session[:user_id]).name %>">
-	<%= image_tag(User.find(session[:user_id]).image.url, :alt => "profile image", :id => "profile_image") %>
-	<%= User.find(session[:user_id]).name.truncate(18) %>
+	<% image_url = User.find(session[:user_id]).image.url == "/images/original/missing.png
+    General" ? User.find(session[:user_id]).image.url : "profile_default.png" %>
+	<%= image_tag(image_url, :alt => "", :id => "profile_image") %>
+	<div class="profile_name"><%= User.find(session[:user_id]).name.truncate(18) %></div>
 	<ul class="dropdown_items">
 		<li><%= link_to("Profile", {controller: "user", action: "profile"}, title: "View/Edit your profile") %>
 		</li>
