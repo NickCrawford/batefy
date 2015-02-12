@@ -28,6 +28,12 @@
 
 	cursor: pointer;
 	cursor: hand;
+
+	-o-transition:.2s ease-out;
+	-ms-transition:.2s ease-out;
+	-moz-transition:.2s ease-out;
+	-webkit-transition:.2s ease-out;
+	transition:.2s ease-out;
 }
 
 #tab_bar li:hover, #tab_bar li.active{

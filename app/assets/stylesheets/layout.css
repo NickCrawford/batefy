@@ -9,7 +9,7 @@ p.clear{clear:both; height:0; width:0; margin:0; }
 
 /* Main Page Styles */
 html {
-	background-color: #FFFFFF ;rgb(220, 223, 186);
+	background-color: white;#F5F5F5;
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -31,6 +31,8 @@ header {
 	right:0px;
 
 	z-index: 1000;
+
+	box-shadow: 0 0 10px #ccc;
 }
 
 .row {
@@ -63,11 +65,11 @@ header {
 	color: white;
 	font-size: 18px;
 
-	-o-transition:.5s;
-	-ms-transition:.5s;
-	-moz-transition:.5s;
-	-webkit-transition:.5s;
-	transition:.5s;
+	-o-transition:.5s ease-out;
+	-ms-transition:.5s ease-out;
+	-moz-transition:.5s ease-out;
+	-webkit-transition:.5s ease-out;
+	transition:.5s ease-out;
 }
 
 .header_nav li:hover a:not(.current) {color: #1B336C;}
