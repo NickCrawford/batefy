@@ -13,8 +13,9 @@
 </div>
 
 <div id="profile_info">
-  <%= error_messages_for(@business) %>
+
   <div id="tabs_container">
+      <%= error_messages_for(@business) %>
     <%= form_for(:business, :url => {:action => "profile_update", :id => @business.id},:html => {:multipart => true}) do |f| %>
     <ul id="tab_bar">
       <li data-id="#general_tab" class="active"><%= image_tag("icons/general.png", {class: "icon"}) %></li>
@@ -54,7 +55,7 @@
       </ul>
     </div>
 
-    <%= link_to( button_tag("Save Changes" , type: "button" , class: "submit_btn", id: "profile_submit",onclick: 'document.getElementById("confirm_field").focus();'), "#confirm") %>
+    <%= button_tag("Save Changes" , type: "button" , class: "submit_btn", id: "profile_submit") %>
   </div>
   <p class='clear'></p>
 </div>
@@ -62,10 +63,10 @@
   <div class="modal_box" id="confirm">
     <div>
       <h3>Confirm Password</h3>
-      <p>Please type your password to save changes to your profile.</p>
+      <p>Please type your password to save changes to your profile.</p><br>
       <div><%= f.password_field(:old_password, :id => "confirm_field", :maxlength => 40, :autocomplete => "off") %></div>
       <%= f.submit("Confirm", :class => "submit_btn") %>or 
-      <button type="button" class="modal_close" onclick="location.href='#'">Cancel</button>
+      <button type="button" id="modal_close">Cancel</button>
     </div>
   </div>
   <% end %>

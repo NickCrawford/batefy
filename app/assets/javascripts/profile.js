@@ -22,4 +22,19 @@ $(document).ready(function(){
 		$(this).addClass("active")
 	});
 
+	$("input").keydown(function(e){
+		if(e.which==13){
+			e.preventDefault()
+		}
+	});
+
+	$("#profile_submit").click(function(){
+		$("#confirm").show()
+		$("#confirm").css("pointer-events","auto")
+	});
+	
+	$("#modal_close").click(function(){
+		$("#confirm").hide()
+	});
+
 });
