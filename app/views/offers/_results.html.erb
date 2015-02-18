@@ -1,17 +1,21 @@
 <div id="search_page" >
 	<div id="filter_bar">
 		<div id="tag_bar">
+			<h2>What kind of offers are you looking for?</h2>
 			<% Tag.all.find_each do |tag| %>
 			<%= link_to("#{tag.name}", fetch_businesses_path(search: search, tag_id: tag.id, subtag_id: nil), :remote => true, class: "search_button") %>
 			<% end %>
+
+			<div id="search_bar">
+				<%= hidden_field_tag(:tag_id, tag_id) %>
+				<%= hidden_field_tag(:subtag_id, subtag_id) %>
+				<%= hidden_field_tag(:search, search) %>
+				
+				<%= search_field_tag(:search, search, {placeholder: "City, State", id: "search_field"} ) %>
+				<%= link_to("Search", fetch_businesses_path(), :remote => true, id: "search_field_button", class: "search_button") %>
+			</div>
 		</div>
-		<div id="search_bar">
-			<%= hidden_field_tag(:tag_id, tag_id) %>
-			<%= hidden_field_tag(:subtag_id, subtag_id) %>
-			<%= hidden_field_tag(:search, search) %>
-			<%= link_to("Search", fetch_businesses_path(), :remote => true, id: "search_field_button", class: "search_button") %>
-			<%= search_field_tag(:search, search, {placeholder: "City, State", id: "search_field"} ) %>
-		</div>
+		
 		<p class="clear" ></p>
 	</div>
 	<ul class="grid">

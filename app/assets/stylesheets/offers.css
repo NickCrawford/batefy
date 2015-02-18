@@ -1,27 +1,40 @@
 #filter_bar {
-	position: relative;
-	background-color: #FFFFFF;
-	top:5px;
-	min-width: 380px;
+	display: block;
+	width: 100%;
+	height: 80vh;
+	margin: 0 auto;
+	background-color: #F5F5F5;
 	padding:10px;
-	width: 80%;
-	margin: 10px auto;
 	text-align: center;
-    border-radius: 5px;
 	z-index: 100;
 }
 
 #tag_bar, #subtag_bar{
-	float:left;
-	padding:5px;
+	width: 60%;
+	margin: 0 auto;
+	position: relative;
+	top: 20%;
+	padding:25px;
+	background-color: #E3E3E3;
+	border-radius: 3px;
+
+	-webkit-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
+	-moz-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
+	box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
 }
 
-#tag_bar a, #subtag_bar a{
+#tag_bar h2 {
+	margin-bottom: 25px;
+	color: black;
+	font-weight: 500;
+}
+
+#tag_bar a:not(#search_field_button), #subtag_bar a{
 	display:inline-block;
 	padding:15px;
 	margin: 5px;
 	border-radius:3px;
-	background-color:#216A49;
+	background-color: rgb(19, 122, 42);
 	color:white;
 }
 
@@ -31,14 +44,15 @@
 }
 
 #search_bar{
-	float:left;
+	width: 80%;
+	margin: 0 auto;
 	border-radius: 3px;
 	padding: 5px;
 }
 
 #search_field{
-	width:80%;
-	height:50px;
+	width:60%;
+	height:30px;
 }
 
 /* Results Grid CSS */
