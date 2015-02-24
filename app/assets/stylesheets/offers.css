@@ -3,7 +3,7 @@
 	width: 100%;
 	height: 80vh;
 	margin: 0 auto;
-	background-color: #777;
+	background-color: #F5F5F5;
 	padding:10px;
 	text-align: center;
 	z-index: 100;
@@ -17,7 +17,7 @@
 	position: relative;
 	top: 10%;
 	padding:25px;
-	background-color: #858585;
+	background-color: #454F8C;
 	border-radius: 3px;
 	overflow: scroll;
 
@@ -37,9 +37,9 @@
 	padding:15px;
 	margin: 5px;
 	border-radius:3px;
-	border: 1px solid  #FB9E25;
+	border: 1px solid #FFF;
 	background-color: transparent;
-	color:   #FB9E25;
+	color:   #FFF;
 	font-size: 16px;
 
  	-o-transition: background-color .3s ease;
@@ -50,7 +50,7 @@
 }
 
 #tag_bar a:not(#search_field_button):hover, #subtag_bar a:hover{
-	background-color: #FFF;
+	background-color:  #FB9E25;
 }
 
 #search_bar{
@@ -67,7 +67,7 @@
 	margin: 0 auto;
 	height:40px;
 	border-radius: 3px;
-	background-color: #777;
+	background-color: #061C4F;
 	color: #FB9E25;
 	border: none;
   	font-size: 16px;
@@ -118,8 +118,8 @@
  
 .grid li {
     display: inline-block;
-    width: 28%;
-    height: 20%;
+    width: 250px;
+    height: 200px;
     text-align: left;
     position: relative;
     border-radius: 3px;
@@ -129,8 +129,8 @@
 
 .grid figure {
     margin: 0;
-    width: 100%;
-    height: 300px;
+    width: 250px;
+    height: 200px;
     position: relative;
     border-radius: 3px;
     border:1px solid gray;
@@ -151,35 +151,40 @@
 
 .grid figcaption {
     position: absolute;
-    top: 160px;
-    left: 0;
-    padding: 20px;
-    background: black;
-    color:white;
-
+    bottom: 5px;
+    left: 5px;
+    width: 240px;
     height: 50px;
-    width: 100%;
-    opacity: 1;
-    -webkit-transform: translateY(100%);
-	-moz-transform: translateY(100%);
-	-ms-transform: translateY(100%);
-	transform: translateY(100%);
-
-	-webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
-	-moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
-	transition: transform 0.4s, opacity 0.1s 0.3s;
+    background: rgba(255,255,255,0.9);
+    color:black;
+    border-radius: 0;
+    overflow: hidden;
 }
 
 .grid figcaption h3 {
-    margin: 0;
+	font-size: 14px;
+	font-weight: 400;
+	margin-top: 5px;
+    margin-left: 5px;
     padding: 0;
-    color: white;
+    color: black;
 }
 
 .grid figcaption p {
-	line-height: 0;
-	margin-top: 20px;
-	padding-top: 5px;
+	font-size: 14px;
+	font-weight: 300;
+	margin-top: 5px;
+    margin-left: 5px;
+    padding: 0;
+    color: black;
+}
+
+.grid figcaption a {
+	color: black;
+}
+
+.grid figcaption a:hover {
+	text-decoration: underline;
 }
  
 .offer_get_btn {
@@ -192,20 +197,6 @@
 	position: absolute;
 	right: 50px;
 	top: 15px; 
-}
-
-.grid figcaption a {
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 3px;
-    display: inline-block;
-    background: #297A4A;
-    color: #fff;
-	text-decoration: none;
-}
-
-.grid figcaption a:hover {
-	background-color: #196A3A;
 }
 
 .grid figure:hover figcaption {
@@ -222,36 +213,33 @@
 
 .percent_label {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 5px;
+	left: 5px;
 	z-index: 10;
 	margin: 0;
-	width: 0;
-	height: 0;
-	border-top: 100px solid;
-	border-right: 100px solid transparent;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+
+	background-color: auto;
 }
 
 .grid .percent_label h2 {
+	height: 50px;
+	width: 50px;
 	color: white;
 
-	font-size: 28px;
+	font-size: 20px;
+	text-align: center;
 
 	position: absolute;
-	top: -90px;
-	left: 0;
-	margin: 5px;
-
-	-webkit-transform: rotate(315deg);
-	-moz-transform: rotate(315deg);
-	-o-transform: rotate(315deg);
-	writing-mode: lr-tb;
+	top: 10px;
 }
 
-.20 { border-top-color: #4A9C5C;}
-.30 { border-top-color: #137A2A;}
-.40 { border-top-color: #005914;}
-.50 { border-top-color: #002E0A;}
+.twenty { background-color: #DEC8AB;}
+.thirty { background-color: #FB9E25;}
+.forty { background-color: #FF9000;}
+.fifty { background-color: #DE7D00;}
 
 @media (max-width: 800px) {
 	.grid, #filter_bar {width: 100%; padding: 0;}

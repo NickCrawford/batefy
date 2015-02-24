@@ -41,6 +41,9 @@ gem 'paperclip', '~> 3.1'
 #Kaminari gem for pagination
 gem 'kaminari'
 
+#change numbers into human words
+gem 'to_words'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

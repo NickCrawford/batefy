@@ -30,19 +30,20 @@
 		<% offers.each do |offer| %>
 		<li>
 			<figure>
-				<div class="percent_label <%= offer.percentage %>">
-					<h2><%= offer.percentage %>%</h2>
+				<div class="percent_label <%= offer.percentage.to_words %>">
+					<h2><%= offer.percentage %></h2>
 				</div>
 				<%= image_tag(offer.business.image.url) %>
 	
 				<figcaption>
-					<h3><%= offer.business.name %></h3>
+					<h3 title="<%= offer.business.name %>"><%= link_to(offer.business.name.truncate(28), {controller: "business", action: "show", id: offer.business.id}) %></h3>
 					<% date = offer.offer_dates.last %>
 					<% start_time = Time.at(date.start_time) %>
 					<% end_time = Time.at(date.end_time) %>
 					<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
 					 <%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
 				</figcaption>
+
 			</figure>
 		</li>
 		<% end %>

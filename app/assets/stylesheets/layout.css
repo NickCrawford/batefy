@@ -85,8 +85,10 @@ header {
 }
 
 #logo {
-	width: 183px;
-	height: 75px;
+	margin-top: 8px;
+	margin-left: 30px;
+	width: 147px;
+	height: 50px;
 }
 
 /* Styles for Profile Dropdown */
@@ -98,7 +100,7 @@ header {
     margin: 0 auto;
     padding: 15px 15px;
     border: none;
-    background-color: #777;
+    background-color: #1B336C;
     color: white;
     cursor: pointer;
     outline: none;
@@ -111,7 +113,7 @@ header {
 }
 
 .dropdown_container:hover, .dropdown_container.open {
-	background-color: #FB9E25;
+	background-color: #061C4F;
 
 }
 
@@ -202,7 +204,7 @@ header {
 }
 
 #sign_in:hover{
-	background-color: #061C4F
+	background-color: #061C4F;
 }
 
 /* Styles for mobile header bar */ 
