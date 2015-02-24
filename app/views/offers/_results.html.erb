@@ -10,9 +10,11 @@
 				<%= hidden_field_tag(:tag_id, tag_id) %>
 				<%= hidden_field_tag(:subtag_id, subtag_id) %>
 				<%= hidden_field_tag(:search, search) %>
+
 				
-				<%= search_field_tag(:search, search, {placeholder: "City, State", id: "search_field"} ) %>
-				<%= link_to("Search", fetch_businesses_path(), :remote => true, id: "search_field_button", class: "search_button") %>
+				<%= search_field_tag(:search, search, {placeholder: "Search near a location...", id: "search_field"} ) %>
+				<%= link_to(image_tag("icons/search.png"), fetch_businesses_path(), :remote => true, id: "search_field_button", class: "search_button") %>
+				
 			</div>
 		</div>
 		

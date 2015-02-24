@@ -9,7 +9,7 @@ p.clear{clear:both; height:0; width:0; margin:0; }
 
 /* Main Page Styles */
 html {
-	background-color: white;#F5F5F5;
+	background-color: #F5F5F5;
 	font-family: 'Raleway', sans-serif;
 	height: 100%;
 }
@@ -27,7 +27,7 @@ main {
 
 /* Header Bar Styles */
 header {
-	background-color: rgba(19, 122, 42, 0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 	
 	width: 100%;
 	height: 64px;
@@ -68,21 +68,20 @@ header {
 	padding: 10px 15px;
 
 	text-decoration: none;
-	color: white;
+	color: #FB9E25;
 	font-size: 18px;
 
-	-o-transition:.5s ease-out;
-	-ms-transition:.5s ease-out;
-	-moz-transition:.5s ease-out;
-	-webkit-transition:.5s ease-out;
-	transition:.5s ease-out;
+	-o-transition: color .3s ease;
+	-ms-transition: color .3s ease;
+	-moz-transition: color .3s ease;
+	-webkit-transition: color .3s ease;
+	transition: color .3s ease;
 }
 
-.header_nav li:hover a:not(.current) {color: #1B336C;}
+.header_nav li:hover a:not(.current) {color: #FFCC8A;}
 
 .header_nav .current {
-	color: #1B336C;
-	border-bottom: 5px solid #1B336C;
+	color:  #777;
 }
 
 #logo {
@@ -99,14 +98,21 @@ header {
     margin: 0 auto;
     padding: 15px 15px;
     border: none;
-    background-color: #1B336C;
+    background-color: #777;
     color: white;
     cursor: pointer;
     outline: none;
+
+    -o-transition: background-color .3s ease;
+	-ms-transition: background-color .3s ease;
+	-moz-transition: background-color .3s ease;
+	-webkit-transition: background-color .3s ease;
+	transition: background-color .3s ease;
 }
 
-.dropdown_container:hover {
-	background-color: #061C4F;
+.dropdown_container:hover, .dropdown_container.open {
+	background-color: #FB9E25;
+
 }
 
 .dropdown_container:after{
@@ -229,7 +235,7 @@ header {
 	top: 15px;
 	height: 7px;
 	width: 38px;
-	border-top: 6px solid white;
+	border-top: 6px solid #FB9E25;
 }
 
 #mobile_menu_ctn:after {
@@ -240,8 +246,8 @@ header {
 	top: 28px;
 	height: 8px;
 	width: 38px;
-	border-top: 6px solid white;
-	border-bottom: 6px solid white;
+	border-top: 6px solid #FB9E25;
+	border-bottom: 6px solid #FB9E25;
 }
 
 #mobile_menu {
