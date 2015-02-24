@@ -27,6 +27,7 @@
 		<% if offers.blank? %>
 		<%= "No offers to display" %>
 		<% else %>
+		<% date = "" %>
 		<% offers.each do |offer| %>
 		<li>
 			<figure>
@@ -41,7 +42,8 @@
 					<% start_time = Time.at(date.start_time) %>
 					<% end_time = Time.at(date.end_time) %>
 					<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
-					 <%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+					 <%= end_time.hour %>:<%= format('%02d',end_time.min) %>
+					 <%=offer.business.distance_from([45.475723, 9.202894]).round(2)%></p>
 				</figcaption>
 
 			</figure>
