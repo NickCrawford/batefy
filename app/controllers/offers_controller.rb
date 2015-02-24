@@ -10,6 +10,8 @@ class OffersController < ApplicationController
   before_filter :require_offer_ownership, :only => [:delete]
 
   def index
+    @offers = Business.near(request.location.city).offers
+    @search = request.location.city
   end
 
   def show

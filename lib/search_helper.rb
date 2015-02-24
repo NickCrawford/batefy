@@ -9,7 +9,8 @@ class SearchHelper
 	end
 	
 	def filter_by_location(location)
-		@@businesses << Business.near(location) unless location.blank?
+		location = location.blank? ? request.location.city : location
+		@@businesses << Business.near(location)
 	end
 
 	def filter_by_tag(tag)
@@ -22,10 +23,6 @@ class SearchHelper
 		@@businesses << subtag.businesses unless subtag.nil?
 	end
 
-	def filter_by_date(date)
-		
-	end
-
 	def get_offers
 		offers = []
 		@@businesses = @@businesses.reduce {|memo,temp| memo & temp}
@@ -33,7 +30,22 @@ class SearchHelper
       		offers << business.offers
       	end
       	offers.flatten!
+      	offers = filter_by_date(offers)
     end
+
+    def filter_by_date(offers)
+    	now = Time.now.to_i
+    	filtered_offers = []
+		offers.each do |offer|
+			date = offer.offer_dates.last
+			active_from = Time.at(date.visible_from).to_i
+			end_time = Time.at(date.end_time).to_i
+			unless (now>end_time) 
+				filtered_offers << offer
+			end
+		end
+		filtered_offers
+	end
 
 end
 	
