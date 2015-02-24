@@ -27,12 +27,18 @@
 		<td colspan="5"><h2><%= time.strftime('%B') %></h2></td>
 		<td class="change_month" data-id=<%=i+1%>>></td>
 	</tr>
-	<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+	<th>Sun</th>
+	<th>Mon</th>
+	<th>Tue</th>
+	<th>Wed</th>
+	<th>Thu</th>
+	<th>Fri</th>
+	<th>Sat</th>
 					<% while time.day < Time.days_in_month(time.month, time.year)  do %>
 
 					<tr>
 						<% time.wday.times do  %>
-						<td></td>
+							<td></td>
 						<% end %>
 						<% (7-time.wday).times do %>
 						<% if(offers=offers_dates[time.beginning_of_day.to_i]) %>

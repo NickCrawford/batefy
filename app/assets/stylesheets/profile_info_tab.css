@@ -37,7 +37,7 @@
 }
 
 #tab_bar li:hover, #tab_bar li.active{
-	border-bottom: 4px solid green;
+	border-bottom: 4px solid #FB9E25;
 }
 
 .tab {

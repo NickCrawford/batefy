@@ -165,7 +165,7 @@ header {
 }
 
 .dropdown_container .dropdown_items li:hover a {
-    color: rgb(19, 122, 42);
+    color: #FB9E25;
 }
 
 #profile_image {
@@ -223,10 +223,16 @@ header {
 	height: 64px;
 
 	background-color: transparent
+
+	 -o-transition: border-color .3s ease;
+	-ms-transition: border-color .3s ease;
+	-moz-transition: border-color .3s ease;
+	-webkit-transition: border-color .3s ease;
+	transition: border-color .3s ease;	
 }
 
-#mobile_menu_ctn:hover {
-	background-color: rgb(16, 109, 37);
+#mobile_menu_ctn:hover:before, #mobile_menu_ctn:hover:after {
+	border-color: #FFCC8A;
 }
 
 #mobile_menu_ctn:before {
@@ -339,7 +345,7 @@ header {
 }
 
 .submit_btn {
-	background-color: #137A2A;
+	background-color: #1B336C;
     border:none;
     padding: 5px 20px;
     margin: 15px 5px;
@@ -347,16 +353,21 @@ header {
 
     color: white;
 	font-family: 'Raleway';
-	font-weight: 300;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 300;
     text-decoration: none;
     cursor: pointer;
+
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 
 .submit_btn:hover {
-	background-color: #005914
+	background-color: #061C4F;
 }
 
 .errors, .notices {
