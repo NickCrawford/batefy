@@ -23,20 +23,8 @@ function geolocation(){
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(set_position, function(error){
       alert('If you don\'t share your location we can\'t find the best offers for you');
-      get_location()
     });
   }
-}
-
-function get_location(){
-  $.get("http://ipinfo.io/geo", function(response) {
-      coord=response.loc.split(',');
-        var info={
-        coords:{latitude:coord[0], longitude:coord[1]},
-          zoom:11,
-      }
-      set_position(info)
-  }, "jsonp")
 }
  
 $(document).ready(function(){

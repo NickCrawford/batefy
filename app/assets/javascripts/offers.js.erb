@@ -1,0 +1,36 @@
+latitude=''
+longitude=''
+
+$(document).ready(function(){
+	geolocation()
+
+});
+
+$(document).on('click','.search_button', function(e){
+});
+
+function get_offers(latitude,longitude,tag_id,subtag_id){
+	$.ajax({
+		type:'get',
+		url:'show?latitude='+latitude+'&longitude='+longitude+'&tag_id='+tag_id+'&tag_id='+subtag_id,
+		success:function(data){
+			alert(data)
+			$("#search_page").html(data)
+		}
+	});
+}
+
+function set_position(position){
+	var tag_id = $("#tag_id").val()
+	var subtag_id = $("#subtag_id").val()
+	get_offers(position.coords.latitude.toString(),position.coords.longitude.toString(),tag_id,subtag_id)
+}
+
+function display_map(){
+	var info={
+	    coords:{latitude: latitude ,longitude:longitude},
+	    zoom:  zoom || 15,
+	    mapId:'google_map',
+	}
+  	createMap(info)
+}

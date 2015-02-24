@@ -9,7 +9,7 @@ class SearchHelper
 	end
 	
 	def filter_by_location(location)
-		location = location.blank? ? request.location.city : location
+		location = location.blank? ? "milano" : location
 		@@businesses << Business.near(location)
 	end
 
