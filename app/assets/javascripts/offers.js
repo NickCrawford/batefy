@@ -7,6 +7,7 @@ $(document).ready(function(){
 	latitude = $("#latitude").val();
 	longitude = $("#longitude").val();
 	geolocation()
+	display_map()
 });
 
 $(document).on('click','.tag_button', function(){
@@ -30,6 +31,7 @@ function set_position(position){
 	latitude = position.coords.latitude
 	longitude = position.coords.longitude
 	get_offers()
+	display_map()
 }
 
 function display_map(){
