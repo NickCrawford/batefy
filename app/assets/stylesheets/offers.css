@@ -53,53 +53,6 @@
 	background-color:  #FB9E25;
 }
 
-#search_bar{
-	width: 80%;
-	height: 40px;
-	margin: 10px auto;
-	vertical-align: middle;
-  	white-space: nowrap;
-  	position: relative;
-}
-
-#search_field{
-	width:60%;
-	margin: 0 auto;
-	height:40px;
-	border-radius: 3px;
-	background-color: #061C4F;
-	color: #FB9E25;
-	border: none;
-  	font-size: 16px;
- 	padding-left: 45px;
-
- 	-webkit-transition: background .5s ease;
-	-moz-transition: background .5s ease;
-	-ms-transition: background .5s ease;
-	-o-transition: background .5s ease;
-	transition: background .5s ease;
-}
-
-#search_field:hover, #search_field:focus, #search_field:active{
-    outline:none;
-    background: #FFF;
-  }
-
-#search_field_button {
-	height: 40px;
-    margin-left: -44px;
-}
-
-#search_field_button img {
-	width: 20px;
-	height: 20px;
-	padding: 10px;
-	position: relative;
-	top: 15px;
-	background-color: white;
-	border-radius: 3px;
-}
-
 
 
 /* Results Grid CSS */

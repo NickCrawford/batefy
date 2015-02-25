@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'user/signup'
-
-  get 'user/signin'
-
-  get 'user/profile'
-
-  get 'user/myoffers'
-
-  get "/fetch_businesses" => 'offers#show', as: 'fetch_businesses'
-
   root "offers#index"
 
   get "/:page" => "page#show"
