@@ -1,4 +1,4 @@
-#filter_bar {
+#filter_container {
 	display: block;
 	width: 100%;
 	height: 80vh;
@@ -8,7 +8,7 @@
 	z-index: 100;
 }
 
-#tag_bar {
+#filter_box {
 	width: 60%;
 	height: 60%;
 	min-width: 400px;
@@ -30,16 +30,29 @@
 	z-index: 100;
 }
 
-#tag_bar h2 {
-	margin-bottom: 25px;
+#filter_box h2 {
+	margin-bottom: 20px;
 	color: white;
 	font-weight: 300;
 	font-size: 32px;
 	z-index: 100;
 }
 
-#tag_close {
-	display: none;
+#filter_box h3 {
+	margin-bottom: 10px;
+	color: white;
+	font-weight: 300;
+	font-size: 24px;
+	z-index: 100;
+}
+
+.tag_close {
+	display: inline-block;
+	color: white;
+}
+
+.tag_close:hover {
+	color: white;
 }
 
 #position_map {
@@ -52,7 +65,7 @@
 	z-index: 100;
 }
 
-#tag_bar a:not(#search_field_button), .subtag_bar a{
+#tag_bar a, .subtag_bar a{
 	display:inline-block;
 	padding:15px;
 	margin: 5px;
@@ -70,7 +83,7 @@
 
 }
 
-#tag_bar a:not(#search_field_button):hover, .subtag_bar a:hover{
+#tag_bar a:hover, .subtag_bar a:hover{
 	background-color:  #FB9E25;
 }
 

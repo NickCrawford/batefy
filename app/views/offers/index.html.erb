@@ -4,20 +4,21 @@
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
 
 <div id="search_page" >
-	<div id="filter_bar">
-		<div id="tag_bar">
+	<div id="filter_container">
+		<div id="filter_box">
 			<h2>I'd like offers for...</h2>
-			<% Tag.all.find_each do |tag| %>
-			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id}, class: "search_button tag_button") %>
-			<% end %>
-			<div id="tag_close">
-				<p>X</p>
+			<div id="tag_bar">
+				<% Tag.find_each do |tag| %>
+				<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id}, class: "search_button tag_button") %>
+				<% end %>
 			</div>
 
-			<% Tag.all.find_each do |tag| %>
-			<div class="subtag_bar" id="<%= tag.id %>" style="display: none;">
-			<% tag.subtags.all.find_each do |subtag| %>
-				<%= link_to("#{subtag.name}", "#", data: {tag_id: tag.id}, class: "search_button subtag_button") %>
+			<% Tag.find_each do |tag| %>
+			<div class="subtag_bar" id="subtag<%= tag.id %>" style="display: none;">
+				<h3><%= tag.name %></h3>
+				<div class="tag_close">X</div>
+			<% tag.subtags.find_each do |subtag| %>
+				<%= link_to("#{subtag.name}", "#", data: {tag_id: tag.id, subtag_id: subtag.id}, class: "search_button subtag_button") %>
 				<% end %>
 			</div>
 		<% end %>

@@ -17,14 +17,14 @@ $(document).on('click','.search_button', function(){
 });
 
 $(document).on('click','.tag_button', function(){
-	$(".subtag_button").hide(500)
-
 	var id = $(this).data("tag-id")
+	$("#tag_bar").hide(500)
+	$("#subtag"+id).show()
+});
 
-	$(".tag_button").not(this).hide(500)
-	$("#tag_close").css("display","inline-block")
-
-	$("#"+id).show(500)
+$(document).on('click','.tag_close', function(){
+	$(".subtag_bar").hide()
+	$("#tag_bar").show()
 });
 
 function get_offers(){
@@ -51,7 +51,6 @@ function set_up_search(){
 }
 
 function add_map(){
-	alert("hi")
 	var info={
 	    coords:{latitude: latitude ,longitude:longitude},
 	    zoom:  15,
@@ -62,7 +61,6 @@ function add_map(){
 
 function add_map_event(map){
 	google.maps.event.addListener(map, 'dblclick', function(event) {
-    	alert("hello")
     	latitude = event.latLng.lat()
     	longitude = event.latLng.lng()
     	set_up_search()
