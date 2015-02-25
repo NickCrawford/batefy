@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag "offers.css" %>
 <%= javascript_include_tag "offers.js" %>
+<%= javascript_include_tag "maps.js" %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
 
 <%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}) %>
