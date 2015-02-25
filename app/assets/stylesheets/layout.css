@@ -100,7 +100,7 @@ header {
     margin: 0 auto;
     padding: 15px 15px;
     border: none;
-    background-color: #1B336C;
+    background-color: #454F8C;
     color: white;
     cursor: pointer;
     outline: none;
@@ -190,7 +190,7 @@ header {
     margin: 0 auto;
     padding: 10px 15px;
 
-	background-color: #1B336C;
+	background-color: #454F8C;
 
     border:none;
     border-radius: 3px;
@@ -340,12 +340,12 @@ header {
 .text_input:focus {
 
     background-color: #FFFFFF;
-    border: 1px solid #1B336C ;
+    border: 1px solid #454F8C ;
     outline: none;
 }
 
 .submit_btn {
-	background-color: #1B336C;
+	background-color: #454F8C;
     border:none;
     padding: 5px 20px;
     margin: 15px 5px;

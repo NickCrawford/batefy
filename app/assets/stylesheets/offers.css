@@ -9,8 +9,9 @@
 	z-index: 100;
 }
 
-#tag_bar, #subtag_bar{
+#tag_bar {
 	width: 60%;
+	height: 60%;
 	min-width: 400px;
 	max-height: 80%;
 	margin: 0 auto;
@@ -26,13 +27,19 @@
 	box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
 }
 
+.subtag_bar {
+	z-index: 100;
+}
+
 #tag_bar h2 {
 	margin-bottom: 25px;
 	color: white;
-	font-weight: 500;
+	font-weight: 300;
+	font-size: 32px;
+	z-index: 100;
 }
 
-#tag_bar a:not(#search_field_button), #subtag_bar a{
+#tag_bar a:not(#search_field_button), .subtag_bar a{
 	display:inline-block;
 	padding:15px;
 	margin: 5px;
@@ -49,57 +56,9 @@
 	transition: background-color .3s ease;
 }
 
-#tag_bar a:not(#search_field_button):hover, #subtag_bar a:hover{
+#tag_bar a:not(#search_field_button):hover, .subtag_bar a:hover{
 	background-color:  #FB9E25;
 }
-
-#search_bar{
-	width: 80%;
-	height: 40px;
-	margin: 10px auto;
-	vertical-align: middle;
-  	white-space: nowrap;
-  	position: relative;
-}
-
-#search_field{
-	width:60%;
-	margin: 0 auto;
-	height:40px;
-	border-radius: 3px;
-	background-color: #061C4F;
-	color: #FB9E25;
-	border: none;
-  	font-size: 16px;
- 	padding-left: 45px;
-
- 	-webkit-transition: background .5s ease;
-	-moz-transition: background .5s ease;
-	-ms-transition: background .5s ease;
-	-o-transition: background .5s ease;
-	transition: background .5s ease;
-}
-
-#search_field:hover, #search_field:focus, #search_field:active{
-    outline:none;
-    background: #FFF;
-  }
-
-#search_field_button {
-	height: 40px;
-    margin-left: -44px;
-}
-
-#search_field_button img {
-	width: 20px;
-	height: 20px;
-	padding: 10px;
-	position: relative;
-	top: 15px;
-	background-color: white;
-	border-radius: 3px;
-}
-
 
 
 /* Results Grid CSS */

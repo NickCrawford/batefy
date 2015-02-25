@@ -1,16 +1,20 @@
 <div id="search_page" >
 	<div id="filter_bar">
 		<div id="tag_bar">
+			<h2>Select a category...</h2>
 			<% Tag.all.find_each do |tag| %>
-			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id, subtag_id: ''}, class: "search_button") %>
+			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id}, class: "tag_button") %>
 			<% end %>
+
+			<% Tag.all.find_each do |tag| %>
+			<div class="subtag_bar" id="<%= tag.id %>" style="display: none;">
+			<% tag.subtags.all.find_each do |subtag| %>
+				<%= link_to("#{subtag.name}", "#", data: {tag_id: tag.id}) %>
+				<% end %>
+			</div>
+		<% end %>
 		</div>
-		<div id="search_bar">
-			<%= hidden_field_tag(:tag_id, tag_id) %>
-			<%= hidden_field_tag(:subtag_id, subtag_id) %>
-			<%= hidden_field_tag(:latitude, latitude) %>
-			<%= hidden_field_tag(:longitude, longitude) %>
-		</div>
+		
 		<p class="clear" ></p>
 	</div>
 	<ul class="grid">
