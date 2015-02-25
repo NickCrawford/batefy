@@ -2,9 +2,8 @@
 	display: block;
 	width: 100%;
 	height: 80vh;
-	margin: 0 auto;
+	margin: 0;
 	background-color: #F5F5F5;
-	padding:10px;
 	text-align: center;
 	z-index: 100;
 }
@@ -39,12 +38,15 @@
 	z-index: 100;
 }
 
+#tag_close {
+	display: none;
+}
+
 #position_map {
 	display: block;
 	width: 100%;
 	margin: 0 auto;
 	background-color: #F5F5F5;
-	padding:10px;
 	text-align: center;
 	z-index: 100;
 }
@@ -64,6 +66,7 @@
 	-moz-transition: background-color .3s ease;
 	-webkit-transition: background-color .3s ease;
 	transition: background-color .3s ease;
+
 }
 
 #tag_bar a:not(#search_field_button):hover, .subtag_bar a:hover{
@@ -150,6 +153,8 @@
 .grid figcaption a {
 	color: black;
 }
+
+.grid figcaption i {float: right; margin-right: 10px; color: #777;}
 
 .grid figcaption a:hover {
 	text-decoration: underline;

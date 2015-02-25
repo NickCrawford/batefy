@@ -8,12 +8,24 @@ $(document).ready(function(){
 	longitude = $("#longitude").val();
 	geolocation()
 	display_map()
+
 });
 
-$(document).on('click','.tag_button', function(){
+$(document).on('click','.search_button', function(){
 	tag_id = $(this).data('tag-id')
 	subtag_id = $(this).data('subtag-id')
 	get_offers()
+});
+
+$(document).on('click','.tag_button', function(){
+	$(".subtag_button").hide(500)
+
+	var id = $(this).data("tag-id")
+
+	$(".tag_button").not(this).hide(500)
+	$("#tag_close").css("display","inline-block")
+
+	$("#"+id).show(500)
 });
 
 function get_offers(){
@@ -37,7 +49,7 @@ function set_position(position){
 function display_map(){
 	var info={
 	    coords:{latitude: latitude ,longitude:longitude},
-	    zoom:  zoom || 15,
+	    zoom:  15,
 	    mapId:'position_map',
 	}
   	createMap(info)

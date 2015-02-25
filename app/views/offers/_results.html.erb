@@ -1,15 +1,18 @@
 <div id="search_page" >
 	<div id="filter_bar">
 		<div id="tag_bar">
-			<h2>Select a category...</h2>
+			<h2>I'd like offers for...</h2>
 			<% Tag.all.find_each do |tag| %>
-			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id}, class: "tag_button") %>
+			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id}, class: "search_button tag_button") %>
 			<% end %>
+			<div id="tag_close">
+				<p>X</p>
+			</div>
 
 			<% Tag.all.find_each do |tag| %>
 			<div class="subtag_bar" id="<%= tag.id %>" style="display: none;">
 			<% tag.subtags.all.find_each do |subtag| %>
-				<%= link_to("#{subtag.name}", "#", data: {tag_id: tag.id}) %>
+				<%= link_to("#{subtag.name}", "#", data: {tag_id: tag.id}, class: "search_button subtag_button") %>
 				<% end %>
 			</div>
 		<% end %>
@@ -38,7 +41,7 @@
 				<%= image_tag(offer.business.image.url) %>
 	
 				<figcaption>
-					<h3><%= offer.business.name %><%=offer.business.distance_from(@location).round(2)%></h3>
+					<h3><%= offer.business.name %><i><%=offer.business.distance_from(@location).round(2)%>km</i></h3>
 					<% date = offer.offer_dates.last %>
 					<% start_time = Time.at(date.start_time) %>
 					<% end_time = Time.at(date.end_time) %>
