@@ -75,7 +75,7 @@
 										<%= f.time_select(:time_end, {ignore_date: true, minute_step: 30}) %>
 									</div>
 									<div class="cell">
-										<%= f.select(:visible_from, (1..24).step(1).to_a.map {|p| "#{p}"}) %> hours before
+										<%= f.select(:visible_from, (1..24).step(1).to_a.map {|p| "#{p}"}) %><br>hours before
 									</div>
 									<div class="cell">
 										<%= f.submit("Create") %>

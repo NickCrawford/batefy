@@ -59,7 +59,7 @@ th {
 }
 
 .day_active {
-	background-color: #196A3A;
+	background-color: #FB9E25;
 	color: white;
 }
 
@@ -124,18 +124,20 @@ th {
 	padding: 10px;
  	display: inline-block;
  	text-align: center;
-	background-color: #5AAC6C;
+ 	color: #777;
+	background-color: #F5F5F5;
 	cursor: pointer;
 }
 
 .new_toggle:hover, .new_toggle.active {
-	background-color: #4A9C5C;
+	background-color: #E3E3E3;
 }
 
 .new_offer {
 	float: left;
 	display:none;
-	background-color: #4A9C5C;
+	background-color: #E3E3E3;
+	color: #777;
 }
 
 .offers_container {
