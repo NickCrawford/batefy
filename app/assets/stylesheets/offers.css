@@ -45,6 +45,7 @@
 #position_map {
 	display: block;
 	width: 100%;
+	height: 80vh;
 	margin: 0 auto;
 	background-color: #F5F5F5;
 	text-align: center;
@@ -75,7 +76,7 @@
 
 /* Results Grid CSS */
 
-.grid {
+#grid {
     padding: 10px 10px 100px 10px;
     margin: 10px auto;
     width: 80%; 
@@ -87,7 +88,7 @@
     position: relative;
 }
  
-.grid li {
+#grid li {
     display: inline-block;
     width: 250px;
     height: 200px;
@@ -98,7 +99,7 @@
     margin: 20px;
 }
 
-.grid figure {
+#grid figure {
     margin: 0;
     width: 250px;
     height: 200px;
@@ -108,7 +109,7 @@
     overflow: hidden;
 }
 
-.grid figure img {
+#grid figure img {
     max-width: 100%;
     height: 100%;
     display: block;
@@ -120,7 +121,7 @@
 	transition: transform 0.4s;
 }
 
-.grid figcaption {
+#grid figcaption {
     position: absolute;
     bottom: 5px;
     left: 5px;
@@ -132,7 +133,7 @@
     overflow: hidden;
 }
 
-.grid figcaption h3 {
+#grid figcaption h3 {
 	font-size: 14px;
 	font-weight: 400;
 	margin-top: 5px;
@@ -141,7 +142,7 @@
     color: black;
 }
 
-.grid figcaption p {
+#grid figcaption p {
 	font-size: 14px;
 	font-weight: 300;
 	margin-top: 5px;
@@ -150,13 +151,14 @@
     color: black;
 }
 
-.grid figcaption a {
+#grid figcaption a {
 	color: black;
 }
 
-.grid figcaption i {float: right; margin-right: 10px; color: #777;}
+#grid figcaption i {float: right; margin-right: 10px; color: #777;}
 
-.grid figcaption a:hover {
+
+#grid figcaption a:hover {
 	text-decoration: underline;
 }
  
@@ -172,7 +174,7 @@
 	top: 15px; 
 }
 
-.grid figure:hover figcaption {
+#grid figure:hover figcaption {
 	opacity: 1;
 	-webkit-transform: translateY(0px);
 	-moz-transform: translateY(0px);
@@ -197,7 +199,7 @@
 	background-color: auto;
 }
 
-.grid .percent_label h2 {
+#grid .percent_label h2 {
 	height: 50px;
 	width: 50px;
 	color: white;
@@ -215,6 +217,6 @@
 .fifty { background-color: #DE7D00;}
 
 @media (max-width: 800px) {
-	.grid, #filter_bar {width: 100%; padding: 0;}
+	#grid, #filter_bar {width: 100%; padding: 0;}
 	#tag_bar{width: 100%; height: 100%; top: 0; margin: 0;}
 }

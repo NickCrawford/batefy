@@ -7,8 +7,7 @@ $(document).ready(function(){
 	latitude = $("#latitude").val();
 	longitude = $("#longitude").val();
 	geolocation()
-	display_map()
-
+	set_up_search()
 });
 
 $(document).on('click','.search_button', function(){
@@ -34,7 +33,7 @@ function get_offers(){
 		type:'get',
 		url:'offers/show/?latitude='+latitude+'&longitude='+longitude+'&tag_id='+tag_id+'&subtag_id='+subtag_id,
 		success:function(data){
-			$("#search_page").html(data)
+			$("#grid").html(data)
 		}
 	});
 }
@@ -42,15 +41,30 @@ function get_offers(){
 function set_position(position){
 	latitude = position.coords.latitude
 	longitude = position.coords.longitude
-	get_offers()
-	display_map()
+	set_up_search()
 }
 
-function display_map(){
+function set_up_search(){
+	get_offers()
+	map = add_map()
+	add_map_event(map)
+}
+
+function add_map(){
+	alert("hi")
 	var info={
 	    coords:{latitude: latitude ,longitude:longitude},
 	    zoom:  15,
-	    mapId:'position_map',
+	    mapId:'position_map'
 	}
-  	createMap(info)
+  	return create_map(info)
+}
+
+function add_map_event(map){
+	google.maps.event.addListener(map, 'dblclick', function(event) {
+    	alert("hello")
+    	latitude = event.latLng.lat()
+    	longitude = event.latLng.lng()
+    	set_up_search()
+  	});
 }

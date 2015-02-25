@@ -11,8 +11,8 @@ $(document).ready(function(){
 		mapId:'map_header',
 		style: map_style
 	}
-	var map = createMap(info)
-	createMapMarker(map, latitude, longitude)
+	var map = create_map(info)
+	create_map_marker(map, latitude, longitude)
 
 	$("#tab_bar li").click(function(){
 		var id = $(this).data("id")

@@ -1,56 +1,32 @@
-<div id="search_page" >
-	<div id="filter_bar">
-		<div id="tag_bar">
-			<h2>I'd like offers for...</h2>
-			<% Tag.all.find_each do |tag| %>
-			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id}, class: "search_button tag_button") %>
-			<% end %>
-			<div id="tag_close">
-				<p>X</p>
+<ul id="grid">
+	<%= hidden_field_tag(:latitude, latitude) %>
+	<%= hidden_field_tag(:longitude, longitude) %>
+	<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
+	<% subtag_name = Tag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name%>
+	<%= "Showing results for: #{tag_name}, #{subtag_name}"%><hr>
+	<% if offers.blank? %>
+	<%= "No offers to display" %>
+	<% else %>
+	<% offers.each do |offer| %>
+	<li>
+		<figure>
+			<div class="percent_label <%= offer.percentage.to_words %>">
+				<h2><%= offer.percentage %>%</h2>
 			</div>
+			<%= image_tag(offer.business.image.url) %>
 
-			<% Tag.all.find_each do |tag| %>
-			<div class="subtag_bar" id="<%= tag.id %>" style="display: none;">
-			<% tag.subtags.all.find_each do |subtag| %>
-				<%= link_to("#{subtag.name}", "#", data: {tag_id: tag.id}, class: "search_button subtag_button") %>
-				<% end %>
-			</div>
-		<% end %>
-		</div>
-
-		<%= hidden_field_tag(:tag_id, tag_id) %>
-		<%= hidden_field_tag(:subtag_id, subtag_id) %>
-		<%= hidden_field_tag(:latitude, latitude) %>
-		<%= hidden_field_tag(:longitude, longitude) %>
-
-	</div>
-	<div id="position_map"></div>
-	<ul class="grid">
-		<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
-		<% subtag_name = Tag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name%>
-		<%= "Showing results for: #{tag_name}, #{subtag_name}"%><hr>
-		<% if offers.blank? %>
-		<%= "No offers to display" %>
-		<% else %>
-		<% offers.each do |offer| %>
-		<li>
-			<figure>
-				<div class="percent_label <%= offer.percentage.to_words %>">
-					<h2><%= offer.percentage %>%</h2>
-				</div>
-				<%= image_tag(offer.business.image.url) %>
-	
-				<figcaption>
-					<h3><%= offer.business.name %><i><%=offer.business.distance_from(@location).round(2)%>km</i></h3>
-					<% date = offer.offer_dates.last %>
-					<% start_time = Time.at(date.start_time) %>
-					<% end_time = Time.at(date.end_time) %>
-					<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
-					 <%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+			<figcaption>
+				<h3><%= offer.business.name %><%=offer.business.distance_from(latitude+', '+longitude).round(2)%></h3>
+				<% date = offer.offer_dates.last %>
+				<% start_time = Time.at(date.start_time) %>
+				<% end_time = Time.at(date.end_time) %>
+				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
+					<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+>>>>>>> ae002f59d046bbfa4c5fb9ee7925fb7fbdc96026
 				</figcaption>
 			</figure>
 		</li>
 		<% end %>
 		<% end %>
 	</ul>
-</div>
+

@@ -3,5 +3,27 @@
 <%= javascript_include_tag "maps.js" %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
 
-<%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}) %>
+<div id="search_page" >
+	<div id="filter_bar">
+		<div id="tag_bar">
+			<h2>I'd like offers for...</h2>
+			<% Tag.all.find_each do |tag| %>
+			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id}, class: "search_button tag_button") %>
+			<% end %>
+			<div id="tag_close">
+				<p>X</p>
+			</div>
 
+			<% Tag.all.find_each do |tag| %>
+			<div class="subtag_bar" id="<%= tag.id %>" style="display: none;">
+			<% tag.subtags.all.find_each do |subtag| %>
+				<%= link_to("#{subtag.name}", "#", data: {tag_id: tag.id}, class: "search_button subtag_button") %>
+				<% end %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+	<div id="position_map"></div>
+	<%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}) %>
+
+</div>
