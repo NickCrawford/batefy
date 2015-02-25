@@ -14,9 +14,14 @@
 			</div>
 		<% end %>
 		</div>
-		
-		<p class="clear" ></p>
+
+		<%= hidden_field_tag(:tag_id, tag_id) %>
+		<%= hidden_field_tag(:subtag_id, subtag_id) %>
+		<%= hidden_field_tag(:latitude, latitude) %>
+		<%= hidden_field_tag(:longitude, longitude) %>
+
 	</div>
+	<div id="position_map"></div>
 	<ul class="grid">
 		<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
 		<% subtag_name = Tag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name%>

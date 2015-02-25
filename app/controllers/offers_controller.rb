@@ -18,15 +18,15 @@ class OffersController < ApplicationController
   end
 
   def show
-    search = SearchHelper.new([])
-    search.filter_by_location(params[:latitude])
-    search.filter_by_tag(params[:tag_id])
-    search.filter_by_subtag(params[:subtag_id])
-    @offers = search.get_offers
     @latitude = params[:latitude]
     @longitude = params[:longitude]
     @tag_id = params[:tag_id]
     @subtag_id = params[:subtag_id]
+    search = SearchHelper.new([])
+    search.filter_by_location(@latitude+','+@longitude)
+    search.filter_by_tag(@tag_id)
+    search.filter_by_subtag(@subtag_id)
+    @offers = search.get_offers
     render partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}
   end
 
