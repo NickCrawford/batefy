@@ -7,7 +7,7 @@ $(document).ready(function(){
 		var id = $(this).data("id")
 		$(".tab").hide()
 		$("#tab_bar li").removeClass()
-		$(id).show()
+		$(id).fadeToggle(500)
 		$(this).addClass("active")
 	});
 

@@ -10,14 +10,16 @@ class OffersController < ApplicationController
   before_filter :require_offer_ownership, :only => [:delete]
 
   def index
-    @location = "45.468874, 9.187174" #request.location.latitude.to_s+", "+request.location.longitude.to_s
-    businesses = Business.near("milano") #Business.near(@location)
-    @offers = get_offers_from_businesses(businesses)
+    @latitude = '45.468874' #request.location.latitude.to_s
+    @longitude = '9.187174' #request.location.longitude.to_s
+    search = SearchHelper.new([])
+    search.filter_by_location(@latitude+', '+@longitude)
+    @offers = search.get_offers
   end
 
   def show
     search = SearchHelper.new([])
-    search.filter_by_location(params[:latitude].to_s+','+params[:longitude].to_s)
+    search.filter_by_location(params[:latitude])
     search.filter_by_tag(params[:tag_id])
     search.filter_by_subtag(params[:subtag_id])
     @offers = search.get_offers
@@ -25,9 +27,7 @@ class OffersController < ApplicationController
     @longitude = params[:longitude]
     @tag_id = params[:tag_id]
     @subtag_id = params[:subtag_id]
-    if request.xhr?
-      render partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}
-    end
+    render partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}
   end
 
   def manage

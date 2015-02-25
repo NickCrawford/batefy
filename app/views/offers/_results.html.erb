@@ -2,7 +2,7 @@
 	<div id="filter_bar">
 		<div id="tag_bar">
 			<% Tag.all.find_each do |tag| %>
-			<%= link_to("#{tag.name}", fetch_businesses_path(latitude: latitude, longitude:longitude, tag_id: tag.id, subtag_id: nil), :remote => true, class: "search_button") %>
+			<%= link_to("#{tag.name}", "#", data: {tag_id: tag.id, subtag_id: ''}, class: "search_button") %>
 			<% end %>
 		</div>
 		<div id="search_bar">
@@ -23,7 +23,7 @@
 		<% offers.each do |offer| %>
 		<li>
 			<figure>
-				<div class="percent_label <%= offer.percentage %>">
+				<div class="percent_label <%= offer.percentage.to_words %>">
 					<h2><%= offer.percentage %>%</h2>
 				</div>
 				<%= image_tag(offer.business.image.url) %>

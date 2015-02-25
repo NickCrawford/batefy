@@ -1,29 +1,35 @@
 latitude=''
 longitude=''
+tag_id=''
+subtag_id=''
 
 $(document).ready(function(){
+	latitude = $("#latitude").val();
+	longitude = $("#longitude").val();
 	geolocation()
-
 });
 
-$(document).on('click','.search_button', function(e){
+$(document).on('click','.search_button', function(){
+	tag_id = $(this).data('tag-id')
+	subtag_id = $(this).data('subtag-id')
+	get_offers()
 });
 
-function get_offers(latitude,longitude,tag_id,subtag_id){
+function get_offers(){
+	//alert("latitude:"+latitude+" longitude:"+longitude+" tag_id:"+tag_id+" subtag_id:"+subtag_id)
 	$.ajax({
 		type:'get',
-		url:'show?latitude='+latitude+'&longitude='+longitude+'&tag_id='+tag_id+'&tag_id='+subtag_id,
+		url:'fetch_businesses/?latitude=45.469115, 9.186144&longitude='+longitude+'&tag_id='+tag_id+'&subtag_id='+subtag_id,
 		success:function(data){
-			alert(data)
 			$("#search_page").html(data)
 		}
 	});
 }
 
 function set_position(position){
-	var tag_id = $("#tag_id").val()
-	var subtag_id = $("#subtag_id").val()
-	get_offers(position.coords.latitude.toString(),position.coords.longitude.toString(),tag_id,subtag_id)
+	latitude = position.coords.latitude
+	longitude = position.coords.longitude
+	get_offers()
 }
 
 function display_map(){
