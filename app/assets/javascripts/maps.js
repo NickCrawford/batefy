@@ -1,4 +1,4 @@
-function createMap(info){
+function create_map(info){
 	var mapOptions={
          	center: new google.maps.LatLng(info.coords.latitude,info.coords.longitude),
           	zoom: info.zoom || 15,
@@ -10,7 +10,7 @@ function createMap(info){
     return map;
 }
 
-function createMapMarker(map, latitude, longitude){
+function create_map_marker(map, latitude, longitude){
   var position = new google.maps.LatLng(latitude, longitude);
   var marker = new google.maps.Marker({
       position: position,
