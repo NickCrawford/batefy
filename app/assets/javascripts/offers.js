@@ -1,32 +1,42 @@
-$(".tag_button").click(function(){
-	alert("asdkhsdlfkjh")
-});
+latitude=''
+longitude=''
+tag_id=''
+subtag_id=''
 
 $(document).ready(function(){
-
-	//get user position
+	latitude = $("#latitude").val();
+	longitude = $("#longitude").val();
 	geolocation()
-	var geocoder = new google.maps.Geocoder()
 });
 
-$(document).on('keyup','#search_field', function(e){
-	$(".search_button").attr("href","/fetch_businesses?"+"tag_id="+$("#tag_id").val()+"&subtag_id="+$("#subtag_id").val()+"&search="+$("#search_field").val());
-	if(e.which == 13) {
-    	$("#search_field_button").click()
-    }
+$(document).on('click','.tag_button', function(){
+	tag_id = $(this).data('tag-id')
+	subtag_id = $(this).data('subtag-id')
+	get_offers()
 });
+
+function get_offers(){
+	//alert("latitude:"+latitude+" longitude:"+longitude+" tag_id:"+tag_id+" subtag_id:"+subtag_id)
+	$.ajax({
+		type:'get',
+		url:'offers/show/?latitude='+latitude+'&longitude='+longitude+'&tag_id='+tag_id+'&subtag_id='+subtag_id,
+		success:function(data){
+			$("#search_page").html(data)
+		}
+	});
+}
 
 function set_position(position){
 	latitude = position.coords.latitude
-  	longitude = position.coords.longitude
-  	zoom = position.zoom
+	longitude = position.coords.longitude
+	get_offers()
 }
 
 function display_map(){
 	var info={
 	    coords:{latitude: latitude ,longitude:longitude},
 	    zoom:  zoom || 15,
-	    mapId:'google_map',
+	    mapId:'position_map',
 	}
   	createMap(info)
 }
