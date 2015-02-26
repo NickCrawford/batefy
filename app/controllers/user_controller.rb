@@ -3,7 +3,7 @@ class UserController < ApplicationController
   ActionController::Parameters.permit_all_parameters = true
 
   before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
-  before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update, :my_offers] 
+  before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update, :my_offers, :buy_offer] 
   before_filter :require_not_log_in, :only => [:sign_up,:sign_in]
   before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt]
 
@@ -53,6 +53,15 @@ class UserController < ApplicationController
   end
 
   def my_offers
+  	@user = User.find(session[:user_id])
+  	@offers = @user.offers
+  end
+
+  def buy_offer
+  	user = User.find(session[:user_id])
+  	offer = Offer.find_by_id(params[:offer_id])
+  	user.offers << offer
+  	offer.users << user
   end
 
   private
@@ -70,8 +79,8 @@ class UserController < ApplicationController
 	end
 
 	def require_not_log_in
-		if view_context.is_user_signed_in
-			redirect_to(:action => "profile")
+		if view_context.is_business_signed_in || view_context.is_user_signed_in
+			redirect_to("/")
 		end
 	end
 

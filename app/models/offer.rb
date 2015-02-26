@@ -2,8 +2,7 @@ class Offer < ActiveRecord::Base
 
 	belongs_to :business
 	has_many :offer_dates
-	has_many :user_offer_opinions
-	has_many :users, :through => :user_offer_opinions
+	has_and_belongs_to_many :users
 	
 	validates_presence_of :percentage
 	validates_associated :offer_dates

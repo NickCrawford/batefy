@@ -20,9 +20,8 @@
 				<% date = offer.offer_dates.last %>
 				<% start_time = Time.at(date.start_time) %>
 				<% end_time = Time.at(date.end_time) %>
-				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
+				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> -
 					<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
->>>>>>> ae002f59d046bbfa4c5fb9ee7925fb7fbdc96026
 				</figcaption>
 			</figure>
 		</li>
