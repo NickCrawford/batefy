@@ -41,6 +41,10 @@ $(document).on('click','.offer_get_btn', function(){
 	});
 });
 
+$(document).on('click','#map_tab', function(){
+	$('#position_map_container').fadeIn(300)
+});
+
 function get_offers(){
 	//alert("latitude:"+latitude+" longitude:"+longitude+" tag_id:"+tag_id+" subtag_id:"+subtag_id)
 	$.ajax({
@@ -60,15 +64,15 @@ function set_position(position){
 
 function set_up_search(){
 	get_offers()
-	map = add_map()
+	map = add_map('position_map')
 	add_map_event(map)
 }
 
-function add_map(){
+function add_map(map_name){
 	var info={
 	    coords:{latitude: latitude ,longitude:longitude},
 	    zoom:  15,
-	    mapId:'position_map'
+	    mapId: map_name
 	}
   	return create_map(info)
 }

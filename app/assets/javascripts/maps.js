@@ -2,6 +2,7 @@ function create_map(info){
 	var mapOptions={
          	center: new google.maps.LatLng(info.coords.latitude,info.coords.longitude),
           	zoom: info.zoom || 15,
+            scrollWheel: info.scrollable || true,
           	mapTypeId: info.mapType || google.maps.MapTypeId.ROADMAP,
             disableDefaultUI: true,
           	styles: info.style

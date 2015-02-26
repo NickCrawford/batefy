@@ -1,8 +1,7 @@
 #filter_container {
 	display: block;
 	width: 100%;
-	height: 80vh;
-	margin: 0;
+	margin-top: 50px;
 	background-color: #F5F5F5;
 	text-align: center;
 	z-index: 100;
@@ -80,34 +79,70 @@
 }
 
 #position_map_container {
-	width: 60%;
-	height: 60%;
-	min-width: 400px;
-	max-height: 80%;
-	margin: 0 auto;
-	position: relative;
-	top: 10%;
-	padding:25px;
-	border-radius: 3px;
-	overflow: scroll;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
 }
 
-#small_map {
-	display: block;
+#position_map_container > div {
+	width: 80%;
+	height: 80%;
+	position: relative;
+	margin: 10% auto;
+	padding: 20px;
+	border-radius: 3px;
+	background: white;
 }
 
 #position_map {
 	display: hidden;
 	position: relative;
-	width: 200px;
-	height: 200px;
-
-	background-color: #F5F5F5;
-	text-align: center;
-	z-index: 100;
+	width: 60%;
+	height: 60%;
 }
 
-#tag_bar a, .subtag_bar a{
+
+#map_tab {
+	display: block;
+
+	margin-top: 30px; 
+	margin-left:  auto;
+	margin-right: auto;
+	width: 120px;
+	height: 120px;
+	cursor: pointer;
+	cursor: hand;
+	border: 1px solid #000;
+	color: #000;
+	border-radius: 120px;
+
+	-o-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+} 
+
+#map_tab > div {
+	position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#map_tab:hover {
+	color: #777;
+	border-color: #777;
+	background-color: #E3E3E3;
+}
+
+.search_button {
 	display:inline-block;
 	padding:15px;
 	margin: 5px;
@@ -117,6 +152,9 @@
 	color:   #FFF;
 	font-size: 16px;
 
+	cursor: hand;
+	cursor: pointer;
+
  	-o-transition: background-color .3s ease;
 	-ms-transition: background-color .3s ease;
 	-moz-transition: background-color .3s ease;
@@ -125,7 +163,7 @@
 
 }
 
-#tag_bar a:hover, .subtag_bar a:hover{
+.search_button:hover{
 	background-color:  #FB9E25;
 }
 

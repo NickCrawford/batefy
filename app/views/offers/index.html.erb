@@ -3,13 +3,21 @@
 <%= javascript_include_tag "maps.js" %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
 
-<div id="search_page" >
+<div id="search_page">
+
+
+	<div id="position_map_container">
+		<div>
+			<div id="position_map"></div>
+		</div>
+	</div>
+
 	<div id="filter_container">
 		<div id="filter_box">
 			<h2>I'd like offers for...</h2>
 			<div id="tag_bar">
 				<% Tag.find_each do |tag| %>
-				<%= button_tag("#{tag.name}", data: {tag_id: tag.id}, class: "search_button tag_button") %>
+				<div class="search_button tag_button" data-tag-id="<%= tag.id %>"><%=tag.name%></div>
 				<% end %>
 			</div>
 
@@ -20,14 +28,19 @@
 				<h3><%= tag.name %></h3>
 			</div>
 			<% tag.subtags.find_each do |subtag| %>
-				<%= button_tag("#{subtag.name}", data: {tag_id: tag.id, subtag_id: subtag.id}, class: "search_button subtag_button") %>
+				<div class="search_button subtag_button" data-tag-id="<%= tag.id %>" data-subtag-id="<%= subtag.id %>"><%= subtag.name%></div>
 				<% end %>
 			</div>
 		<% end %>
+		
 		</div>
-		<div id="position_map_container">
-			<div id="position_map"></div>
+		<div id="map_tab">
+			<div>
+				<%= image_tag('icons/mapmarker.png') %><br>
+				Change Location
+			</div>
 		</div>
+
 	</div>
 	<%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}) %>
 

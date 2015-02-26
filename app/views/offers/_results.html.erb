@@ -2,7 +2,7 @@
 	<%= hidden_field_tag(:latitude, latitude) %>
 	<%= hidden_field_tag(:longitude, longitude) %>
 	<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
-	<% subtag_name = Tag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name %>
+	<% subtag_name = Subtag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name %>
 	<%= "Showing results for: #{tag_name}, #{subtag_name}"%><hr>
 	<% if offers.blank? %>
 	<%= "No offers to display" %>
@@ -21,7 +21,7 @@
 				<% end_time = Time.at(date.end_time) %>
 				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
 				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
-				
+
 				<% if is_user_signed_in %>
 					<div class='offer_btn' id='get_offer_btn'>Get Offer</div>
 				<% elsif is_business_signed_in %>
