@@ -2,10 +2,10 @@
 <%= javascript_include_tag "manage.js" %>
 
 <% if !flash[:notice].blank? %>
-<div> <%= flash[:notice] %> <div>
+<div class="notices"> <p><%= flash[:notice] %></p> </div>
 	<% end %>
 <% if !flash[:error].blank? %>
-<div> <%= flash[:error] %> <div>
+<div class="errors"> <p><%= flash[:error] %></p> </div>
 	<% end %>
 
 	<% offers_dates = {} %>

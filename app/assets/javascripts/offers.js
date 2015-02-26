@@ -16,6 +16,10 @@ $(document).on('click','.search_button', function(){
 	get_offers()
 });
 
+$(document).on('click','.subtag_button', function(){
+	$('html,body').animate({scrollTop: $("#grid").offset().top},'slow');
+});
+
 $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
 	$("#tag_bar").fadeOut(200)
