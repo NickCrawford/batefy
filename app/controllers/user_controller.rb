@@ -3,7 +3,7 @@ class UserController < ApplicationController
   ActionController::Parameters.permit_all_parameters = true
 
   before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
-  before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update, :my_offers, :buy_offer] 
+  before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update, :my_offers, :get_offer] 
   before_filter :require_not_log_in, :only => [:sign_up,:sign_in]
   before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt]
 
@@ -57,11 +57,12 @@ class UserController < ApplicationController
   	@offers = @user.offers
   end
 
-  def buy_offer
+  def get_offer
   	user = User.find(session[:user_id])
   	offer = Offer.find_by_id(params[:offer_id])
   	user.offers << offer
   	offer.users << user
+    render :nothing => true
   end
 
   private

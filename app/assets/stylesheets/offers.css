@@ -6,11 +6,12 @@
 	background-color: #F5F5F5;
 	text-align: center;
 	z-index: 100;
+	overflow: hidden;
 }
 
 #filter_box {
 	width: 60%;
-	height: 60%;
+	height: auto;
 	min-width: 400px;
 	max-height: 80%;
 	margin: 0 auto;
@@ -19,11 +20,17 @@
 	padding:25px;
 	background-color: #454F8C;
 	border-radius: 3px;
-	overflow: scroll;
+	overflow: hidden;
 
 	-webkit-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
 	-moz-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
 	box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
+
+	-o-transition: height .3s ease;
+	-ms-transition: height .3s ease;
+	-moz-transition: height .3s ease;
+	-webkit-transition: height .3s ease;
+	transition: hright .3s ease;
 }
 
 .subtag_bar {
@@ -31,35 +38,69 @@
 }
 
 #filter_box h2 {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	color: white;
 	font-weight: 300;
 	font-size: 32px;
 	z-index: 100;
 }
 
-#filter_box h3 {
+.subtag_header_ctn {
+	position: relative;
 	margin-bottom: 10px;
 	color: white;
+}
+
+#filter_box h3 {
+	width: 100%;
 	font-weight: 300;
 	font-size: 24px;
-	z-index: 100;
+	display: inline-block;
 }
 
 .tag_close {
-	display: inline-block;
+	display: block;
 	color: white;
+	padding: 5px 15px;
+	border-radius: 30px;
+	font-size: 20px;
+
+	position: absolute;
+	left: 20%;
+
+	-o-transition: color .3s ease;
+	-ms-transition: color .3s ease;
+	-moz-transition: color .3s ease;
+	-webkit-transition: color .3s ease;
+	transition: color .3s ease;
 }
 
 .tag_close:hover {
-	color: white;
+	cursor: pointer;
+	cursor: hand;
+	color: #E3E3E3;
+}
+
+#position_map_container {
+	width: 60%;
+	height: 60%;
+	min-width: 400px;
+	max-height: 80%;
+	margin: 0 auto;
+	position: relative;
+	top: 10%;
+	padding:25px;
+	border-radius: 3px;
+	overflow: scroll;
 }
 
 #position_map {
 	display: block;
-	width: 100%;
-	height: 80vh;
-	margin: 0 auto;
+	position: relative;
+	width: 200px;
+	height: 200px;
+
+	border-radius: 200px;
 	background-color: #F5F5F5;
 	text-align: center;
 	z-index: 100;
@@ -112,92 +153,6 @@
     margin: 20px;
 }
 
-#grid figure {
-    margin: 0;
-    width: 250px;
-    height: 200px;
-    position: relative;
-    border-radius: 3px;
-    border:1px solid gray;
-    overflow: hidden;
-}
-
-#grid figure img {
-    max-width: 100%;
-    height: 100%;
-    display: block;
-    position: relative;
-	
-	border-radius: 3px;
-    -webkit-transition: -webkit-transform 0.4s;
-	-moz-transition: -moz-transform 0.4s;
-	transition: transform 0.4s;
-}
-
-#grid figcaption {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    width: 240px;
-    height: 50px;
-    background: rgba(255,255,255,0.9);
-    color:black;
-    border-radius: 0;
-    overflow: hidden;
-}
-
-#grid figcaption h3 {
-	font-size: 14px;
-	font-weight: 400;
-	margin-top: 5px;
-    margin-left: 5px;
-    padding: 0;
-    color: black;
-}
-
-#grid figcaption p {
-	font-size: 14px;
-	font-weight: 300;
-	margin-top: 5px;
-    margin-left: 5px;
-    padding: 0;
-    color: black;
-}
-
-#grid figcaption a {
-	color: black;
-}
-
-#grid figcaption i {float: right; margin-right: 10px; color: #777;}
-
-
-#grid figcaption a:hover {
-	text-decoration: underline;
-}
- 
-.offer_get_btn {
-	position: absolute;
-	right: 50px;
-	top: 75px; 
-}
-
-.offer_profile_btn {
-	position: absolute;
-	right: 50px;
-	top: 15px; 
-}
-
-#grid figure:hover figcaption {
-	opacity: 1;
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	transform: translateY(0px);
-	-webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
-	-moz-transition: -moz-transform 0.4s, opacity 0.1s;
-	transition: transform 0.4s, opacity 0.1s;
-}
-
 
 .percent_label {
 	position: absolute;
@@ -228,6 +183,116 @@
 .thirty { background-color: #FB9E25;}
 .forty { background-color: #FF9000;}
 .fifty { background-color: #DE7D00;}
+
+#grid figure {
+    margin: 0;
+    width: 250px;
+    height: 200px;
+    position: relative;
+    border-radius: 3px;
+    border:1px solid gray;
+    overflow: hidden;
+
+    background-color: #E3E3E3;
+}
+
+#grid figure:hover img {
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	transform: scale(0.8);
+}
+
+#grid figure:hover figcaption{
+	-webkit-transform: translateY(-50px);
+	-moz-transform: translateY(-50px);
+	-ms-transform: translateY(-50px);
+	transform: translateY(-50px);
+}
+
+#grid figure img {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+	
+	border-radius: 3px;
+    -webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+#grid figcaption {
+    position: absolute;
+    bottom: -50px;
+    left: 0px;
+    width: 250px;
+    height: 100px;
+    background: rgba(255,255,255,0.9);
+    color:black;
+    border-radius: 0;
+    overflow: hidden;
+
+    -webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+#grid figcaption h3 {
+	font-size: 14px;
+	font-weight: 400;
+	margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 0;
+    color: black;
+}
+
+#grid figcaption p {
+	font-size: 14px;
+	font-weight: 300;
+	margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 0;
+    color: black;
+}
+
+#grid figcaption a:not(.offer_get_btn) {
+	color: black;
+}
+
+#grid figcaption i {float: right; margin-right: 10px; color: #777;}
+
+
+#grid figcaption a:hover:not(.offer_get_btn) {
+	text-decoration: underline;
+}
+ 
+.offer_get_btn {
+	display: block;
+	width: 90%;
+	margin: 10px auto;
+	padding: 5px 0px;
+
+	border:1px solid #777;
+	border-radius: 3px;
+
+	background-color: #454F8C;
+	color: #FFF;
+	text-align: center;
+	font-size: 18px;
+
+	-o-transition: background-color .3s ease;
+	-ms-transition: background-color .3s ease;
+	-moz-transition: background-color .3s ease;
+	-webkit-transition: background-color .3s ease;
+	transition: background-color .3s ease;
+}
+
+.offer_get_btn:hover {
+	background-color: #061C4F;
+}
 
 @media (max-width: 800px) {
 	#grid, #filter_bar {width: 100%; padding: 0;}

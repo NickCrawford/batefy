@@ -18,13 +18,23 @@ $(document).on('click','.search_button', function(){
 
 $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
-	$("#tag_bar").hide(500)
-	$("#subtag"+id).show()
+	$("#tag_bar").fadeOut(200)
+	$("#subtag"+id).delay(200).fadeIn(200)
 });
 
 $(document).on('click','.tag_close', function(){
-	$(".subtag_bar").hide()
-	$("#tag_bar").show()
+	$(".subtag_bar").fadeOut(200)
+	$("#tag_bar").delay(200).fadeIn(200)
+});
+
+$(document).on('click','.offer_get_btn', function(){
+	$.ajax({
+		type:'get',
+		url:'user/get_offer/?offer_id='+$(this).data('offer-id'),
+		success:function(){
+			$(this).html("offer bought!")
+		},
+	});
 });
 
 function get_offers(){
