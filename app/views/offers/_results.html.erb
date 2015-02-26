@@ -2,7 +2,7 @@
 	<%= hidden_field_tag(:latitude, latitude) %>
 	<%= hidden_field_tag(:longitude, longitude) %>
 	<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
-	<% subtag_name = Tag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name%>
+	<% subtag_name = Tag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name %>
 	<%= "Showing results for: #{tag_name}, #{subtag_name}"%><hr>
 	<% if offers.blank? %>
 	<%= "No offers to display" %>
@@ -14,19 +14,21 @@
 				<h2><%= offer.percentage %>%</h2>
 			</div>
 			<%= image_tag(offer.business.image.url) %>
-
 			<figcaption>
-				<h3><%= offer.business.name %><%=offer.business.distance_from(latitude+', '+longitude).round(2)%></h3>
+				<h3><%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}) %><i><%=offer.business.distance_from(latitude+', '+longitude).round(2)%></i></h3>
 				<% date = offer.offer_dates.last %>
 				<% start_time = Time.at(date.start_time) %>
 				<% end_time = Time.at(date.end_time) %>
 				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
-					<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
->>>>>>> ae002f59d046bbfa4c5fb9ee7925fb7fbdc96026
+				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+				<%= link_to("Get Offer", "#", class: 'offer_get_btn') %>
+
 				</figcaption>
 			</figure>
 		</li>
 		<% end %>
 		<% end %>
 	</ul>
+
+
 
