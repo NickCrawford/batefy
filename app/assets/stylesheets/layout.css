@@ -340,7 +340,7 @@ header {
 .text_input:focus {
 
     background-color: #FFFFFF;
-    border: 1px solid #454F8C ;
+    border: 1px solid #454F8C;
     outline: none;
 }
 

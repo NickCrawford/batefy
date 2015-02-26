@@ -42,7 +42,11 @@ $(document).on('click','.offer_get_btn', function(){
 });
 
 $(document).on('click','#map_tab', function(){
-	$('#position_map_container').fadeIn(300)
+	$('#position_map_modal').fadeIn(300)
+});
+
+$(document).on('click','#map_close', function(){
+	$('#position_map_modal').fadeOut(300)
 });
 
 function get_offers(){

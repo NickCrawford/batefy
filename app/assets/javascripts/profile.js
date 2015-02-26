@@ -16,9 +16,9 @@ $(document).ready(function(){
 
 	$("#tab_bar li").click(function(){
 		var id = $(this).data("id")
-		$(".tab").hide()
+		$(".tab").fadeOut(200)
 		$("#tab_bar li").removeClass()
-		$(id).fadeToggle(300)
+		$(id).delay(200).fadeIn(200)
 		$(this).addClass("active")
 	});
 

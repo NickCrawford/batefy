@@ -12,9 +12,15 @@
     <div id="tabs_container">
       <%= form_for(:business, :url => {:action => "sign_up_attempt"} ,:html => {:multipart => true}) do |f| %>
       <ul id="tab_bar">
-        <li class="active"><%= image_tag("icons/general.png", {class: "icon"}) %></li>
-        <li ><%= image_tag("icons/location.png", {class: "icon"}) %></li>
-        <li ><%= image_tag("icons/account.png", {class: "icon"}) %></li>
+        <li class="active">
+          <span class="icon"><i class="fa fa-user fa-lg"></i></span>
+        </li>
+        <li >
+          <span class="icon"><i class="fa fa-globe fa-lg"></i></span>
+          </li>
+        <li >
+          <span class="icon"><i class="fa fa-envelope-o fa-lg"></i></span>
+          </li>
       </ul>
 
       <div class="tab" id="general_tab">

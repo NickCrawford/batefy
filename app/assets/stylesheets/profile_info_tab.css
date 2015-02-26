@@ -72,9 +72,7 @@
 }
 
 .icon {
-	width: 20px;
-	height: 20px;
-	position: center middle;
+	color: #000;
 }
 
 #profile_submit {

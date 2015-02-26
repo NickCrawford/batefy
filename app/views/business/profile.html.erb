@@ -19,9 +19,15 @@
       <%= error_messages_for(@business) %>
     <%= form_for(:business, :url => {:action => "profile_update", :id => @business.id},:html => {:multipart => true}) do |f| %>
     <ul id="tab_bar">
-      <li data-id="#general_tab" class="active"><%= image_tag("icons/general.png", {class: "icon"}) %></li>
-      <li data-id="#location_tab"><%= image_tag("icons/location.png", {class: "icon"}) %></li>
-      <li data-id="#account_tab"><%= image_tag("icons/account.png", {class: "icon"}) %></li>
+      <li class="active" data-id="#general_tab">
+          <span class="icon"><i class="fa fa-user fa-lg"></i></span>
+        </li>
+        <li data-id="#location_tab">
+          <span class="icon"><i class="fa fa-globe fa-lg"></i></span>
+          </li>
+        <li data-id="#account_tab">
+          <span class="icon"><i class="fa fa-envelope-o fa-lg"></i></span>
+          </li>
     </ul>
 
     <div class="tab" id="general_tab">
