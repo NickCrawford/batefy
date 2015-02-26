@@ -27,7 +27,7 @@
 
     -webkit-transition: -webkit-transform 0.4s;
 	-moz-transition: -moz-transform 0.4s;
-	transition: transform 0.4s;
+	transition: transform 0.4s ease;
 }
 
 .subtag_bar {
@@ -192,7 +192,7 @@
 
 }
 
-.search_button:hover{
+.search_button:hover, .search_button.active{
 	background-color:  #FB9E25;
 }
 
@@ -277,10 +277,10 @@
 	top: 10px;
 }
 
-.twenty { background-color: #DEC8AB;}
+.twenty { background-color: #FBC325;}
 .thirty { background-color: #FB9E25;}
-.forty { background-color: #FF9000;}
-.fifty { background-color: #DE7D00;}
+.forty { background-color: #E58202;}
+.fifty { background-color: #E54302;}
 
 #grid figure {
     margin: 0;

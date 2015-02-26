@@ -17,13 +17,16 @@ $(document).on('click','.search_button', function(){
 });
 
 $(document).on('click','.subtag_button', function(){
-	$('html,body').animate({scrollTop: $("#grid").offset().top},'slow');
+	$('html,body').animate({scrollTop: $("#grid").offset().top - 64},'slow');
+	$('.subtag_button').removeClass('active')
+	$(this).toggleClass('active')
 });
 
 $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
 	$("#tag_bar").fadeOut(200)
 	$("#subtag"+id).delay(200).fadeIn(200)
+	$("#filter_box").delay(200).slideDown(200)
 });
 
 $(document).on('click','.tag_close', function(){

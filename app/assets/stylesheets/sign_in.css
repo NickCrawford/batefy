@@ -1,6 +1,6 @@
 .content_container {
 	position: relative;
-	background-color: #FFFFFF;
+	background-color: rgba(255,255,255, 0.8);
 	top:5px;
 	min-width: 380px;
 	padding:10px;
@@ -26,4 +26,9 @@ table {
 
 td {
 	margin: 20px 10px;
+}
+
+body {
+	background-image::url('app/assets/images/"skyline.jpg"');
+}
 }

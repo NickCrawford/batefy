@@ -4,6 +4,9 @@
 
 <table>
 <%= form_for(:user, :url => {:action => "sign_in_attempt"}) do |f| %>
+	<tr>
+		<td><h1>Sign In</h1></td>
+	</tr>
 		<%if !flash[:error].blank?%> 
 	<tr>
 		<td class="errors" colspan="2">
