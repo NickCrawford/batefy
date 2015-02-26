@@ -3,7 +3,10 @@
 	<%= hidden_field_tag(:longitude, longitude) %>
 	<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
 	<% subtag_name = Subtag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name %>
-	<%= "Showing results for: #{tag_name}, #{subtag_name}"%><hr>
+	<div id="grid_header">
+		<h2>Offers</h2>
+		<h3><%= tag_name%><u><%= subtag_name.empty? ? "" : " > " %></u><%= subtag_name%></h3>
+	</div>
 	<% if offers.blank? %>
 	<%= "No offers to display" %>
 	<% else %>
