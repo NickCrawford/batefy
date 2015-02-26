@@ -31,6 +31,16 @@ $(document).on('click','.tag_close', function(){
 	$("#tag_bar").delay(200).fadeIn(200)
 });
 
+$(document).on('click','.offer_get_btn', function(){
+	$.ajax({
+		type:'get',
+		url:'user/get_offer/?offer_id='+$(this).data('offer-id'),
+		success:function(){
+			$(this).html("offer bought!")
+		},
+	});
+});
+
 function get_offers(){
 	//alert("latitude:"+latitude+" longitude:"+longitude+" tag_id:"+tag_id+" subtag_id:"+subtag_id)
 	$.ajax({

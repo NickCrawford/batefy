@@ -71,7 +71,7 @@ class BusinessController < ApplicationController
 		
 		def business_params
 				params.require(:business).permit(:name, :email, :password,
-				 :country, :city, :state, :zip, :address, :image, :phone, :website, 
+				 :country, :city, :state, :zip, :address, :image, :phone, :website, :promoter_code, 
 					:new_password, :new_password_confirmation, :old_password)
 		end
 
@@ -82,8 +82,8 @@ class BusinessController < ApplicationController
 		end
 
 		def require_not_log_in
-			if view_context.is_business_signed_in
-				redirect_to(:action => "profile")
+			if view_context.is_business_signed_in || view_context.is_user_signed_in 
+				redirect_to("/")
 			end
 		end
 

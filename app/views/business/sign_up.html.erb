@@ -19,28 +19,28 @@
 
       <div class="tab" id="general_tab">
         <ul>
-          <li><%= f.label(:name, "Name") %> <%= f.text_field(:name, :maxlength => 40, :class=>"profile_input") %> </li>
+          <li><%= f.label(:name, "Name*") %> <%= f.text_field(:name, :maxlength => 40, :class=>"profile_input") %> </li>
           <li><%= f.label(:phone, "Phone") %> <%= f.text_field(:phone, :class=>"profile_input") %> </li>
           <li><%= f.label(:website, "Website") %> <%= f.text_field(:website, :class=>"profile_input") %> </li>
-          <li><%= f.label(:tags, "Category") %>
+          <li><%= f.label(:tags, "Category*") %>
             <%= f.select(:tags, options_for_select(Tag.all.collect {|t| [t.name, t.id]}), {}, {class: "profile_input"})%>
           </li>
-          <li><%= f.label(:subtags, "Sub Category") %>
+          <li><%= f.label(:subtags, "Sub Category*") %>
             <%= f.select(:subtags, options_for_select(Subtag.all.collect {|t| [t.name, t.id]}), {}, {class: "profile_input"})%>
           </li>
           <li>
-          <%= f.label(:image, "Image") %> <%= f.file_field(:image, :class => "profile_input") %></li>
+          <%= f.label(:image, "Image*") %> <%= f.file_field(:image, :class => "profile_input") %></li>
         </ul>
       </div> 
 
       <div class="tab" id="location_tab">
         <ul>
-          <li><%= f.label(:address, "Address") %> <%= f.text_field(:address , :class=>"profile_input") %></li>
-          <li><%= f.label(:city, "City") %> <%= f.text_field(:city, :class=>"profile_input") %></li>
-          <li><%= f.label(:state, "State") %> <%= f.text_field(:state , :class=>"profile_input") %></li>
-          <li><%= f.label(:zip, "Zip") %> <%= f.text_field(:zip, :size => 5, :maxlength => 8, :class=>"profile_input") %></li>
+          <li><%= f.label(:address, "Address*") %> <%= f.text_field(:address , :class=>"profile_input") %></li>
+          <li><%= f.label(:city, "City*") %> <%= f.text_field(:city, :class=>"profile_input") %></li>
+          <li><%= f.label(:state, "State*") %> <%= f.text_field(:state , :class=>"profile_input") %></li>
+          <li><%= f.label(:zip, "Zip*") %> <%= f.text_field(:zip, :size => 5, :maxlength => 8, :class=>"profile_input") %></li>
           <li>
-            <%= f.label(:country, "Country") %>
+            <%= f.label(:country, "Country*") %>
             <%= f.select(:country, ["Italia", "United States"], {}, {class: "profile_input"}) %>
           </li>
         </ul>
@@ -49,9 +49,10 @@
 
       <div class="tab" id="account_tab">
         <ul>
-          <li><%= f.label(:email, "Email") %> <%= f.email_field(:email , :class=>"profile_input") %></li>
-          <li><%= f.label(:new_password, "New Password") %> <%= f.password_field(:new_password, :maxlength => 40, :class=>"profile_input") %></li>
-          <li><%= f.label(:new_password_confirmation, "Confirm Password") %> <%= f.password_field(:new_password_confirmation, :maxlength => 40, :class=>"profile_input") %></li>
+          <li><%= f.label(:email, "Email*") %> <%= f.email_field(:email , :class=>"profile_input") %></li>
+          <li><%= f.label(:password, "New Password*") %> <%= f.password_field(:password, :maxlength => 40, :class=>"profile_input") %></li>
+          <li><%= f.label(:password_confirmation, "Confirm Password*") %> <%= f.password_field(:password_confirmation, :maxlength => 40, :class=>"profile_input") %></li>
+           <li><%= f.label(:promoter_code, "Promoter Code") %> <%= f.password_field(:promoter_code,:class=>"profile_input") %></li>
         </ul>
       </div>  
 

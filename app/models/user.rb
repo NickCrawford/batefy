@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
 
 	has_many :user_business_opinions
 	has_many :user_offer_opinions
-	has_many :businesses, :through => :user_business_opinions
-	has_many :offers, :through => :user_offer_opinions
+	has_and_belongs_to_many :offers
 
 	attr_accessor :old_password, :new_password, :new_password_confirmation
 	EMAIL_REGEX = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/
