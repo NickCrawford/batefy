@@ -88,9 +88,6 @@
 	bottom: 0;
 	background: rgba(0,0,0,0.8);
 	z-index: 99999;
-
-	pointer-events: none;
-	-webkit-backface-visibility: hidden;
 }
 
 #position_map_modal > div {
