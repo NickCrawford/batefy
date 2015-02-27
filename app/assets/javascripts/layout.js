@@ -22,6 +22,11 @@ $(document).ready(function(){
         $(this).toggleClass('open')
     });
 
+    $('#sign_in').click(function() {
+        $('#account_type_modal').fadeToggle(300)
+        $(this).toggleClass('open')
+    });
+
     $('#mobile_menu_ctn').click(function() {
         $('#mobile_menu', this).slideToggle(400)
     });

@@ -26,7 +26,6 @@ $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
 	$("#tag_bar").fadeOut(200)
 	$("#subtag"+id).delay(200).fadeIn(200)
-	$("#filter_box").delay(200).slideDown(200)
 });
 
 $(document).on('click','.tag_close', function(){

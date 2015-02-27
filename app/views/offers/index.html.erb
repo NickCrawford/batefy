@@ -24,7 +24,7 @@
 			<% Tag.find_each do |tag| %>
 			<div class="subtag_bar" id="subtag<%= tag.id %>" style="display: none;">
 			<div class="subtag_header_ctn">	
-				<div class="tag_close">x</div>
+				<div class="tag_close"><i class="fa fa-angle-left fa-lg"></i></div>
 				<h3><%= tag.name %></h3>
 			</div>
 			<% tag.subtags.find_each do |subtag| %>

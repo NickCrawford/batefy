@@ -13,7 +13,7 @@
 			<% elsif is_user_signed_in %>
 				<%= render(partial:"layouts/user_dropdown") %>
 			<% else %>
-			<%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get", id: 'sign_in') %>
+				<%= render(partial:"layouts/sign_in_dropdown") %>
 			<% end %>
 		</div>
 	</div>
