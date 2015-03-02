@@ -33,18 +33,37 @@ $(document).on('click','.tag_close', function(){
 	$("#tag_bar").delay(200).fadeIn(200)
 });
 
-$(document).on('click','.offer_get_btn', function(){
+$(document).on('click','.get_offer_btn', function(){
+	var button = $(this)
 	$.ajax({
 		type:'get',
 		url:'user/get_offer/?offer_id='+$(this).data('offer-id'),
 		success:function(){
-			$(this).html("offer bought!")
+			button.html('Delete Offer')
+			button.removeClass("offer_btn get_offer_btn")
+			button.addClass("offer_btn delete_offer_btn")
+		},
+	});
+});
+
+$(document).on('click','.delete_offer_btn', function(){
+	var button = $(this)
+	$.ajax({
+		type:'get',
+		url:'user/delete_offer/?offer_id='+$(this).data('offer-id'),
+		success:function(){
+			button.html('Get Offer')
+			button.removeClass("offer_btn delete_offer_btn")
+			button.addClass("offer_btn get_offer_btn")
 		},
 	});
 });
 
 $(document).on('click','#map_tab', function(){
 	$('#position_map_modal').fadeIn(300)
+	map = add_map('position_map')
+	add_map_event(map)
+
 });
 
 $(document).on('click','#map_close', function(){
@@ -65,13 +84,7 @@ function get_offers(){
 function set_position(position){
 	latitude = position.coords.latitude
 	longitude = position.coords.longitude
-	set_up_search()
-}
-
-function set_up_search(){
 	get_offers()
-	map = add_map('position_map')
-	add_map_event(map)
 }
 
 function add_map(map_name){
@@ -87,6 +100,6 @@ function add_map_event(map){
 	google.maps.event.addListener(map, 'dblclick', function(event) {
     	latitude = event.latLng.lat()
     	longitude = event.latLng.lng()
-    	set_up_search()
+    	get_offers()
   	});
 }

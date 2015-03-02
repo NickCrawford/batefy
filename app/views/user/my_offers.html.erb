@@ -1,2 +1,25 @@
-<h1>User#myoffers</h1>
-<p>Find me in app/views/user/myoffers.html.erb</p>
+<%= stylesheet_link_tag('offers.css')%>
+<ul id="grid">
+	<% if @offers.blank? %>
+	<%= "No offers to display" %>
+	<% else %>
+	<% @offers.each do |offer| %>
+	<li>
+		<figure>
+			<div class="percent_label <%= offer.percentage.to_words %>">
+				<h2><%= offer.percentage %>%</h2>
+			</div>
+			<%= image_tag(offer.business.image.url) %>
+			<figcaption>
+				<h3><%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}) %></h3>
+				<% date = offer.offer_dates.last %>
+				<% start_time = Time.at(date.start_time) %>
+				<% end_time = Time.at(date.end_time) %>
+				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
+				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+				</figcaption>
+			</figure>
+		</li>
+		<% end %>
+		<% end %>
+	</ul>

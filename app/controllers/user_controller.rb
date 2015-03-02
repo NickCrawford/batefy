@@ -1,9 +1,9 @@
 class UserController < ApplicationController
-  
-  ActionController::Parameters.permit_all_parameters = true
+
+  require_dependency "../../lib/search_helper.rb"
 
   before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
-  before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update, :my_offers, :get_offer] 
+  before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update, :my_offers, :get_offer, :delete_offer] 
   before_filter :require_not_log_in, :only => [:sign_up,:sign_in]
   before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt]
 
@@ -55,6 +55,8 @@ class UserController < ApplicationController
   def my_offers
   	@user = User.find(session[:user_id])
   	@offers = @user.offers
+    search = SearchHelper.new
+    @offers=search.filter_by_date(@offers)
   end
 
   def get_offer
@@ -62,6 +64,13 @@ class UserController < ApplicationController
   	offer = Offer.find_by_id(params[:offer_id])
   	user.offers << offer
   	offer.users << user
+    render :nothing => true
+  end
+
+  def delete_offer
+    user = User.find(session[:user_id])
+    offer = Offer.find_by_id(params[:offer_id])
+    user.offers.delete(offer)
     render :nothing => true
   end
 

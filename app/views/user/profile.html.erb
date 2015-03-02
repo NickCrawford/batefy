@@ -49,7 +49,7 @@
         <li><%= f.label(:new_password_confirmation, "Confirm Password") %> <%= f.password_field(:new_password_confirmation, :maxlength => 40, :class=>"profile_input") %></li>
       </ul>
     </div>
-      <%= link_to( button_tag("Save Changes" , :type => "button" , :class => "submit_btn " , id: "profile_submit", :onclick => 'document.getElementById("confirm_field").focus();'), "#confirm") %>
+      <%= button_tag("Save Changes" , type: "button" , class: "submit_btn", id: "profile_submit") %>
       <p class="clear"></p>
   </div>
 
@@ -60,7 +60,7 @@
     <p>Please type your password to save changes to your profile.</p>
     <div><%= f.password_field(:old_password, :id => "confirm_field", :maxlength => 40, :autocomplete => "off") %></div>
     <%= f.submit("Confirm", :class => "submit_btn") %>or 
-    <button type="button" class="modal_close" onclick="location.href='#'">Cancel</button>
+    <button type="button" id="modal_close">Cancel</button>
   </div>
 </div>
 <% end %>

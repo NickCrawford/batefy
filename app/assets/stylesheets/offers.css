@@ -1,8 +1,13 @@
 #filter_container {
 	display: block;
 	width: 100%;
-	margin-top: 50px;
+	padding-top: 50px;
 	background-color: #F5F5F5;
+	/**
+	background-image: url("milan_skyline.gif");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	**/
 	text-align: center;
 	z-index: 100;
 	overflow: hidden;

@@ -4,8 +4,8 @@ class SearchHelper
 
 	@@businesses
 
-	def initialize (businesses)
-	 @@businesses = businesses
+	def initialize (businesses=nil)
+		@@businesses = businesses
 	end
 	
 	def filter_by_location(location)
@@ -27,15 +27,15 @@ class SearchHelper
 		offers = []
 		@@businesses = @@businesses.reduce {|memo,temp| memo & temp}
 		@@businesses.each do |business|
-      		offers << business.offers
-      	end
-      	offers.flatten!
-      	offers = filter_by_date(offers)
-    end
+			offers << business.offers
+		end
+		offers.flatten!
+		offers = filter_by_date(offers)
+	end
 
-    def filter_by_date(offers)
-    	now = Time.now.to_i
-    	filtered_offers = []
+	def filter_by_date(offers)
+		now = Time.now.to_i
+		filtered_offers = []
 		offers.each do |offer|
 			date = offer.offer_dates.last
 			active_from = Time.at(date.visible_from).to_i
@@ -48,5 +48,5 @@ class SearchHelper
 	end
 
 end
-	
+
 

@@ -26,7 +26,11 @@
 				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
 
 				<% if is_user_signed_in %>
-					<div class='offer_btn' id='get_offer_btn'>Get Offer</div>
+					<% if !has_user_gotten_offer(offer.id)%>
+						<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Get Offer</div>
+					<% else %>
+						<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Delete Offer</div>
+					<% end %>
 				<% elsif is_business_signed_in %>
 					<%= link_to("Manage My Offers", {controller: 'offers', action: 'manage'}, class: 'offer_btn') %>
 				<% else %>

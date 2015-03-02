@@ -11,4 +11,13 @@ $(document).ready(function(){
 		$(this).addClass("active")
 	});
 
+	$("#profile_submit").click(function(){
+		$("#confirm").show()
+		$("#confirm").css("pointer-events","auto")
+	});
+	
+	$("#modal_close").click(function(){
+		$("#confirm").hide()
+	});
+
 });
