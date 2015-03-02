@@ -1,0 +1,14 @@
+#big_logo {
+	width: 100%;
+	background: #E3E3E3;
+	height: 30vw;
+}
+
+#big_logo h1 {
+	width: 30%;
+	font-size: 40px;
+	font-weight: 300;
+	text-align: center;
+	color: #777;
+	margin: 0px auto;
+}
