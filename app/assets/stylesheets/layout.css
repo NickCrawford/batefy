@@ -264,7 +264,7 @@ header {
 
 /* Styles for mobile header bar */ 
 
-#header_mobile {display: none; height: 75px; background-color: #FFF;}
+#header_mobile {display: none; height: 64px; background-color: #FFF;}
 
 #mobile_logo_ctn {
 	margin: 0 auto;
