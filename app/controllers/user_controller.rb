@@ -63,7 +63,6 @@ class UserController < ApplicationController
   	user = User.find(session[:user_id])
   	offer = Offer.find_by_id(params[:offer_id])
   	user.offers << offer
-  	offer.users << user
     render :nothing => true
   end
 
