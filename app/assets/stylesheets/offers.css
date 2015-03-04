@@ -403,7 +403,7 @@
 	background-color: #061C4F;
 }
 
-@media (max-width: 800px) {
+@media handheld, only screen and (max-width: 800px) {
 	#grid, #filter_bar {width: 100%; padding: 0;}
 	#tag_bar{width: 100%; height: 100%; top: 0; margin: 0;}
 	#position_map_modal { background-color: #FFF;}

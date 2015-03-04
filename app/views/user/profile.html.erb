@@ -15,14 +15,20 @@
   <div id="tabs_container">
     <%= form_for(:user, :url => {:action => "profile_update", :id => @user.id},:html => {:multipart => true}) do |f| %>
     <ul id="tab_bar">
-      <li data-id="#general_tab" class="active"><%= image_tag("icons/general.png", {class: "icon"}) %></li>
-      <li data-id="#location_tab"><%= image_tag("icons/location.png", {class: "icon"}) %></li>
-      <li data-id="#account_tab"><%= image_tag("icons/account.png", {class: "icon"}) %></li>
+      <li class="active" data-id="#general_tab">
+          <span class="icon"><i class="fa fa-user fa-lg"></i></span>
+        </li>
+        <li data-id="#location_tab">
+          <span class="icon"><i class="fa fa-globe fa-lg"></i></span>
+          </li>
+        <li data-id="#account_tab">
+          <span class="icon"><i class="fa fa-envelope-o fa-lg"></i></span>
+          </li>
     </ul>
 
     <div class="tab" id="general_tab">
       <ul>
-        <li><%= f.label(:name, "Name") %> <%= f.text_field(:name, :maxlength => 40, :class=>"profile_input") %> </li>
+        <li><%= f.label(:name, "Name") %> <%= f.text_field(:name, :maxlength => 38, :class=>"profile_input") %> </li>
         <li><%= f.label(:phone, "Phone") %> <%= f.text_field(:phone, :class=>"profile_input") %> </li>
         <li><%= f.label(:website, "Website") %> <%= f.text_field(:website, :class=>"profile_input") %> </li>
         <li><%= f.label(:image, "Image") %> <%= f.file_field(:image, :class => "profile_input") %></li>

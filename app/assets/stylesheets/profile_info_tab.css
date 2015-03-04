@@ -1,6 +1,5 @@
 #profile_info {
 	width: 100%;
-	height: 100%;
 	margin: 0 auto;
 	padding-top: 40px;
 	background-color: white;
@@ -9,7 +8,6 @@
 
 #tabs_container {
 	width: 50%;
-	height: 350px;
 	margin: 0 auto;
 }
 
@@ -43,8 +41,8 @@
 .tab {
 	display:none;
 	margin: 0 auto;
-	height: 250px;
-	padding: 40px 50px;
+	height: 220px;
+	padding: 5px 50px 40px 50px;
 
 	border-bottom: 1px solid gray;
 }
@@ -57,10 +55,6 @@
 	margin: 10px;
 }
 
-.tab ul li div{
-
-}
-
 #profile_info label {
 	font-family: "Raleway";
 	font-size: 20px;
@@ -68,7 +62,11 @@
 }
 
 .profile_input {
+	display: inline-block;
 	float: right;
+	height: 20px;
+	font-size: 14px;
+	margin-bottom: 10px;
 }
 
 .icon {
@@ -77,4 +75,14 @@
 
 #profile_submit {
 	float: right;
+}
+
+
+@media handheld, only screen and (max-width: 800px) {
+	#tabs_container{width: 90%}
+}
+
+@media handheld, only screen and (max-width: 950px) {
+	.profile_input{display: block; width: 100%;}
+	.tab {height: 345px;}
 }

@@ -27,14 +27,14 @@
 
 				<% if is_user_signed_in %>
 					<% if !has_user_gotten_offer(offer.id)%>
-						<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Get Offer</div>
+						<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Save Offer</div>
 					<% else %>
-						<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Delete Offer</div>
+						<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Remove Offer</div>
 					<% end %>
 				<% elsif is_business_signed_in %>
 					<%= link_to("Manage My Offers", {controller: 'offers', action: 'manage'}, class: 'offer_btn') %>
 				<% else %>
-					<%= link_to("Sign In To Get Offers", {controller: 'user', action: 'sign_in'}, class: 'offer_btn') %>
+					<%= link_to("Sign In To Save Offers", {controller: 'user', action: 'sign_in'}, class: 'offer_btn') %>
 				<% end %>
 				</figcaption>
 			</figure>
