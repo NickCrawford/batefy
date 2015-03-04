@@ -5,8 +5,8 @@ class BusinessController < ApplicationController
 
 	before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
 	before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update] 
-	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show]
-	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt]
+	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show, :forgot_password_attempt, :change_password]
+	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt, :change_password, :forgot_password_attempt]
 
 	def index
 		#must include an offset and a limit that can be changed 
@@ -64,7 +64,29 @@ class BusinessController < ApplicationController
 	end
 
 	def show
-			@business = Business.find(params[:id])
+		@business = Business.find(params[:id])
+	end
+
+	def forgot_password_attempt
+		if (business=Business.find_by_email(params[:email]))
+			BusinessPasswordToken.new(business_id: business.id)
+			flash[:notice] = "Check your email for further instructions"
+		else
+			flash[:error] = "No Business with this email was found"
+		end
+		render("forgot_password")
+	end
+
+	def change_password
+		if(business_id = BusinessPasswordToken.find_by_token(params[:token]))
+			@business = Business.find(business_id)
+		else
+			flash[:error] = "The link provided is invalid or has already expired"
+		end
+	end
+
+	def change_password_attempt
+		
 	end
 
 	private
