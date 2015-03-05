@@ -1,19 +1,23 @@
-
+<%= stylesheet_link_tag "show.css" %>
 <div id="profile_header">
+  <div id="map_header">
+    <%= hidden_field_tag(:latitude, @business.latitude) %>
+    <%= hidden_field_tag(:longitude,@business.longitude)%>
+  </div>
   <div id="header_focus_image">
     <%= image_tag(@business.image.url) %>
   </div>
-  <!--<%= image_tag(@business.image.url , :id => "header_back_image") %>  -->
-  <h1><%= @business.name %></h1>
 </div>
 
 <div id="info">
   <ul>
-    <li><%= @business.email %></li>
+    <li><h2><%= @business.name %></h2></li>
     <li><%= @business.address %></li>
     <li><%= "#{@business.city}, #{@business.state}  #{@business.zip}"%></li>
     <li><%= @business.country %></li>
+    <li><br></li>
     <li><%= @business.phone %></li>
+    <li><%= @business.email %></li>
     <li><%= @business.website%></li>
   </ul>
 </div>
