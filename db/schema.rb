@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226020103) do
+ActiveRecord::Schema.define(version: 20150304021436) do
 
   create_table "businesses", force: true do |t|
-    t.string   "email",              limit: 254, null: false
-    t.string   "name",               limit: 50,  null: false
-    t.float    "latitude",           limit: 24,  null: false
-    t.float    "longitude",          limit: 24,  null: false
+    t.string   "email",                 limit: 254, null: false
+    t.string   "name",                  limit: 50,  null: false
+    t.float    "latitude",              limit: 24,  null: false
+    t.float    "longitude",             limit: 24,  null: false
     t.string   "website"
     t.string   "phone"
     t.string   "address"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150226020103) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "promoter_code"
+    t.string   "forgot_password_token"
   end
 
   add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true, using: :btree
@@ -67,7 +68,6 @@ ActiveRecord::Schema.define(version: 20150226020103) do
     t.integer  "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "active"
   end
 
   create_table "offers_users", id: false, force: true do |t|
@@ -102,40 +102,31 @@ ActiveRecord::Schema.define(version: 20150226020103) do
 
   add_index "user_business_opinions", ["business_id", "user_id"], name: "index_user_business_opinions_on_business_id_and_user_id", using: :btree
 
-  create_table "user_offer_opinions", force: true do |t|
-    t.integer  "offer_id"
-    t.integer  "user_id"
-    t.integer  "opinion"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_offer_opinions", ["offer_id", "user_id"], name: "index_user_offer_opinions_on_offer_id_and_user_id", using: :btree
-
   create_table "users", force: true do |t|
-    t.string   "email",              limit: 254,              null: false
-    t.string   "password_digest",                             null: false
-    t.string   "name",               limit: 35
+    t.string   "email",                 limit: 254,              null: false
+    t.string   "password_digest",                                null: false
+    t.string   "name",                  limit: 35
     t.integer  "birthday"
-    t.integer  "gender",             limit: 1
-    t.string   "address",                        default: ""
-    t.string   "country",                        default: ""
-    t.string   "city",                           default: ""
-    t.string   "state",                          default: ""
-    t.string   "zip",                            default: ""
+    t.integer  "gender",                limit: 1
+    t.string   "address",                           default: ""
+    t.string   "country",                           default: ""
+    t.string   "city",                              default: ""
+    t.string   "state",                             default: ""
+    t.string   "zip",                               default: ""
     t.string   "image"
     t.string   "website"
     t.string   "phone"
-    t.float    "latitude",           limit: 24
-    t.float    "longitude",          limit: 24
-    t.float    "latitude_current",   limit: 24
-    t.float    "longitutde_current", limit: 24
+    t.float    "latitude",              limit: 24
+    t.float    "longitude",             limit: 24
+    t.float    "latitude_current",      limit: 24
+    t.float    "longitutde_current",    limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "forgot_password_token"
   end
 
 end

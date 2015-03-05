@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 	private
 
 		def examine_password
+			return true if forgot_password_token_changed?
 			if authenticate(@old_password)
 				self.password = @new_password if password_changed? && errors.empty?
 			else

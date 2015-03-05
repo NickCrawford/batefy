@@ -259,36 +259,49 @@
     margin: 20px;
 }
 
-
 .percent_label {
 	position: absolute;
-	top: 5px;
-	left: 5px;
+	top: 0px;
+	left: 15px;
 	z-index: 10;
-	margin: 0;
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-
-	background-color: auto;
+	margin: 0; 
+	width: 50px; 
+	height: 55px; 
+	background: red;
+} 
+.percent_label:after { 
+	content: ""; 
+	position: absolute; 
+	bottom: -15px; 
+	left: 0; 
+	width: 0; 
+	height: 0; 
+	border-left: 25px solid transparent; 
+	border-right: 25px solid transparent; 
+	border-top: 15px solid red; 
 }
 
 #grid .percent_label h2 {
 	height: 50px;
 	width: 50px;
-	color: white;
-
+	font-family: sans-serif;
 	font-size: 20px;
+	font-weight: 400;
 	text-align: center;
-
+	color: white;
 	position: absolute;
 	top: 10px;
 }
 
-.twenty { background-color: #FBC325;}
-.thirty { background-color: #FB9E25;}
-.forty { background-color: #E58202;}
-.fifty { background-color: #E54302;}
+.twenty { background-color: #FBC325; height:35px;}
+.thirty { background-color: #FB9E25; height:45px;}
+.forty { background-color: #E58202; height:55px;}
+.fifty { background-color: #E54302; height:65px;}
+
+.twenty:after { border-top-color: #FBC325;}
+.thirty:after { border-top-color: #FB9E25;}
+.forty:after { border-top-color: #E58202;}
+.fifty:after { border-top-color: #E54302;}
 
 #grid figure {
     margin: 0;

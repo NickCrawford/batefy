@@ -6,7 +6,7 @@
 <div id="profile_header">
   <div id="header_focus_image">
     <% image_url = @user.image.url == "/images/original/missing.png
-    General" ? @user.image.url : "profile_default.png" %>
+    General" ? "profile_default.png" : @user.image.url %>
     <%= image_tag(image_url)%>
   </div>
 </div>

@@ -5,8 +5,8 @@ class BusinessController < ApplicationController
 
 	before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
 	before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update] 
-	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show, :forgot_password_attempt, :change_password]
-	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt, :change_password, :forgot_password_attempt]
+	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
+	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
 
 	def index
 		#must include an offset and a limit that can be changed 
@@ -69,7 +69,7 @@ class BusinessController < ApplicationController
 
 	def forgot_password_attempt
 		if (business=Business.find_by_email(params[:email]))
-			BusinessPasswordToken.new(business_id: business.id)
+			business.update_attributes({forgot_password_token: @token = Digest::SHA1.hexdigest([Time.now, rand].join)})
 			flash[:notice] = "Check your email for further instructions"
 		else
 			flash[:error] = "No Business with this email was found"
@@ -78,23 +78,28 @@ class BusinessController < ApplicationController
 	end
 
 	def change_password
-		if(business_id = BusinessPasswordToken.find_by_token(params[:token]))
-			@business = Business.find(business_id)
-		else
+		@token = params[:token]
+		unless (business = Business.find_by_forgot_password_token(@token))
 			flash[:error] = "The link provided is invalid or has already expired"
 		end
 	end
 
 	def change_password_attempt
-		
+		business = Business.find_by_forgot_password_token(@token) 
+		if (business.update_attributes(forgot_password_token: "", new_password: params[:new_password], 
+			new_password_confirmation: params[:new_password_confirmation]))
+			flash[:notice] = "Password successfully updated"
+			redirect_to("sign_in")
+		end
+		render("change_password")
 	end
 
 	private
-		
+
 		def business_params
 				params.require(:business).permit(:name, :email, :password,
 				 :country, :city, :state, :zip, :address, :image, :phone, :website, :promoter_code, 
-					:new_password, :new_password_confirmation, :old_password)
+					:new_password, :new_password_confirmation, :old_password, :forgot_password_token)
 		end
 
 		def require_log_in
@@ -112,7 +117,7 @@ class BusinessController < ApplicationController
 		def require_parameters
 			params.delete(:action)
 			params.delete(:controller)
-			redirect_to(:action => "sign_in") if params.blank?
+			redirect_to(:action => "/") if params.blank?
 		end
 
 		def clear_flash
