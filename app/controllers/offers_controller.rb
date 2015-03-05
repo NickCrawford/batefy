@@ -92,7 +92,6 @@ class OffersController < ApplicationController
       start_hour, start_minute = params[:offer]['time_start(4i)'].to_i, params[:offer]['time_start(5i)'].to_i
       end_hour, end_minute = params[:offer]['time_end(4i)'].to_i, params[:offer]['time_end(5i)'].to_i
       visible_hour = start_hour - params[:offer][:visible_from].to_i
-      visible_hour = visible_hour < 0 ? 0 : visible_hour
       params[:offer][:start_time] = Time.new(year,month,day,start_hour,start_minute).to_i
       params[:offer][:end_time] = Time.new(year,month,day,end_hour,end_minute).to_i
       params[:offer][:visible_from] = Time.new(year,month,day,visible_hour,start_minute).to_i

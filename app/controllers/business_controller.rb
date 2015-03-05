@@ -5,8 +5,13 @@ class BusinessController < ApplicationController
 
 	before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
 	before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update] 
+<<<<<<< HEAD
+	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
+	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt, :forgot_password_attempt, :change_password, :change_password_attempt]
+=======
 	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
 	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
+>>>>>>> 2e8ef8748cc9afc3f0d54c9b02af5824e5a39ba8
 
 	def index
 		#must include an offset and a limit that can be changed 
