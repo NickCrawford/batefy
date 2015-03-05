@@ -67,6 +67,9 @@ class BusinessController < ApplicationController
 		@business = Business.find(params[:id])
 	end
 
+	def forgot_password
+	end
+
 	def forgot_password_attempt
 		if (business=Business.find_by_email(params[:email]))
 			business.update_attributes({forgot_password_token: @token = Digest::SHA1.hexdigest([Time.now, rand].join)})
@@ -117,7 +120,7 @@ class BusinessController < ApplicationController
 		def require_parameters
 			params.delete(:action)
 			params.delete(:controller)
-			redirect_to(:action => "/") if params.blank?
+			redirect_to("/") if params.blank?
 		end
 
 		def clear_flash
