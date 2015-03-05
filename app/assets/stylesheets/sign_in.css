@@ -14,7 +14,7 @@ h1 {
 	color: #777;
 	font-weight: 300;
 	text-align: center;
-	font-size: 24px;	
+	font-size: 26px;	
 	margin-bottom: 10px;
 }
 
@@ -29,6 +29,7 @@ td {
 
 p {
 	font-size: 14px;
+	color: #333;
 }
 
 #page {
@@ -40,4 +41,36 @@ p {
 
 main {
 	margin-top: 0;
+}
+
+#forgot_container {
+	position: relative;
+	top: 64px;
+	left: 50%;
+	width: 500px;
+	height: 300px;
+	margin-left: -250px;
+}
+
+#forgot_container h1 {
+	float: none;
+	font-size: 32px;
+	color: #333;
+}
+
+#forgot_container h2 {
+	float: none;
+	font-size: 18px;
+	color: #777;
+	font-weight: 300;
+}
+
+#forgot_container div {
+	display: block;
+	text-align: center;
+	margin: 20px;
+}
+
+#forgot_container .errors {
+	margin: 0;
 }
