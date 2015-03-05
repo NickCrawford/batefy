@@ -13,16 +13,23 @@
 			</li>
 			<% end %>
 			<li><%= link_to "Browse", {:controller=>"offers", :action=>"index"}, class: cp("/") %></li>
-			<li><%= link_to "Nearby", "#", class: cp("nearby") %></li>
 			<li><%= link_to "About", {:controller=>"pages", :action =>"show", :page => "about"} , class: cp("/pages/show?page=about")%></li>
 			<% if is_user_signed_in %>
 			<li><%= link_to "My Offers", "#" , class: cp("#")%></li>
 			<% end %>
 			<% if is_business_signed_in %>
+			<li>
 				<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %>
 			</li>
+			<% elsif is_user_signed_in %>
+			<li>
+				<%= link_to("Sign Out", {:controller=>"user", :action => "sign_out"}) %>
+			</li>
 			<% else %>
-			<li><%= link_to("Sign in", {:controller => "business", :action => "sign_in"}, :method => "get") %></li>
+			<li><%= link_to("User Sign in", {:controller => "business", :action => "sign_in"}, :method => "get") %>
+			</li>
+			<li><%= link_to("Business Sign In", {:controller => "business", :action => "sign_in"}, :method => "get") %>
+			</li>
 			<% end %>
 		</ul>
 	</div>

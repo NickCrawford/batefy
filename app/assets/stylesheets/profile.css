@@ -24,6 +24,9 @@
 	max-width:240px;
 	max-height:240px;
 	height: 20vw;
+	max-width: 240px;
+	max-height: 240px;
+
 	overflow: hidden;
 	display: block;
 
