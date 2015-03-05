@@ -461,3 +461,16 @@ header {
 	background-color: rgb(19, 122, 42)
 }
 
+#spinner {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -25px;
+	margin-top: -25px;
+}
+
+#spinner img {
+	display: none;
+	width: 50px;
+	height: 50px;
+}

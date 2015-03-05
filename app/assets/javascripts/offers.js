@@ -6,8 +6,8 @@ subtag_id=''
 $(document).ready(function(){
 	latitude = $("#latitude").val();
 	longitude = $("#longitude").val();
+	get_offers()
 	geolocation()
-	set_up_search()
 });
 
 $(document).on('click','.search_button', function(){
