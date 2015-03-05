@@ -22,6 +22,9 @@
 
 	width: 20vw;
 	height: 20vw;
+	max-width: 240px;
+	max-height: 240px;
+
 	overflow: hidden;
 	display: block;
 
@@ -31,7 +34,8 @@
 }
 
 #header_focus_image img {
-	height:  100%;
+	height:  auto;
+	width: 240px;
 }
 
 #confirm {
