@@ -75,7 +75,7 @@ class SignInOutController < ApplicationController
 	def require_parameters
 		params.delete(:action)
 		params.delete(:controller)
-		redirect_to(:action => "/") if params.blank?
+		redirect_to("/") if params.blank?
 	end
 
 	def clear_flash

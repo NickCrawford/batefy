@@ -55,7 +55,7 @@ class BusinessController < ApplicationController
 
 		def require_log_in
 			if !view_context.is_business_signed_in
-				redirect_to(:action => "sign_in")
+				redirect_to("/sign_in_out/sign_in")
 			end
 		end
 
