@@ -63,7 +63,6 @@ $(document).on('click','#map_tab', function(){
 	$('#position_map_modal').fadeIn(300)
 	map = add_map('position_map')
 	add_map_event(map)
-
 });
 
 $(document).on('click','#map_close', function(){
@@ -82,6 +81,7 @@ function get_offers(){
 }
 
 function set_position(position){
+	$("#spinner").hide()
 	latitude = position.coords.latitude
 	longitude = position.coords.longitude
 	get_offers()

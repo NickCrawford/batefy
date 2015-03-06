@@ -3,7 +3,7 @@
 	<div class="content_container">
 
 		<table>
-			<%= form_for(:business, :url => {:action => "sign_in_attempt"}) do |f| %>
+			<%= form_tag("sign_in_attempt") do |f| %>
 			<tr>
 				<td colspan="2"><h1>Sign In</h1></td>
 			</tr>
@@ -29,17 +29,20 @@
 			<%end%>
 
 			<tr>
-				<td colspan="2"><%= f.text_field(:email, :placeholder=>"Email", :class=>"text_input") %></td>
+				<td colspan="2"><%= text_field_tag(:email, "Email", :class=>"text_input") %></td>
 			</tr>
 			<tr>
-				<td colspan="2"><%= f.password_field(:password, :placeholder=>"Password", :class=>"text_input") %></td>
+				<td colspan="2"><%= password_field_tag(:password, "Password", :class=>"text_input") %></td>
 			</tr>
 			<tr>
-				<td><%= f.submit("Sign in", :class=>"submit_btn")%></td>
+				<td><%= submit_tag("Sign in", :class=>"submit_btn")%></td>
 				<td><%= link_to "Forgot password?", "#" %></td>
 			</tr>
 			<tr>
-				<td colspan="2"><p>Are you a business owner? <a href="sign_up" style="color: blue">Sign up</a> now!</p></td>
+				<td colspan="2"><p>Are you a business owner? <a href="/business/sign_up" style="color: blue">Sign up</a> now!</p></td>
+			</tr>
+			<tr>
+				<td colspan="2"><p>Are you a new User? <a href="/user/sign_up" style="color: blue">Sign up</a> now!</p></td>
 			</tr>
 			<%end%>
 		</table>

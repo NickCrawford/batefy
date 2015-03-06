@@ -1,18 +1,20 @@
 
 function geolocation(){
+  $("#spinner").show()
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(set_position, function(error){
-      alert('If you don\'t share your location we can\'t find the best offers for you');
+      alert('Sharing your location helps us showing you the best offers around you')
+      $("#spinner").hide()
     });
   }
 }
 
 $(document).ajaxStart(function(){
-  $('#spinner').show();
+  $('#spinner').show()
 });
 
 $(document).ajaxComplete(function(){
-  $('#spinner').hide();
+  $('#spinner').hide()
 });
 
 $(document).ready(function(){
@@ -35,11 +37,11 @@ $(document).ready(function(){
 
 $(document).mouseup(function (e)
 {
-    var container = $("#header_mobile");
+    var container = $("#header_mobile")
 
     if (!container.is(e.target) 
         && container.has(e.target).length === 0) 
     {
-        $("#mobile_menu").hide();
+        $("#mobile_menu").hide()
     }
 });

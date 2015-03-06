@@ -21,7 +21,7 @@ class Business < ActiveRecord::Base
 	validates_presence_of :email
 	validates_length_of :email, {:maximum => 254}
 	validates_format_of :email,  {:with => EMAIL_REGEX , :message => "is not valid"}
-	validates_uniqueness_of :email, {:message => "already in use", :on => :create }
+	validate :email_uniqueness, :on => :create
 	validates_length_of :password, {:minimum => 8, :too_short => "must be at least 8 characters long", :on => :create }
 	validates_confirmation_of :new_password
 	validates_length_of :new_password, {:minimum=> 8, :too_short => "must be at least 8 characters long", :allow_blank => true }
@@ -63,5 +63,11 @@ class Business < ActiveRecord::Base
         	if !(self.latitude_changed?)
             	self.errors.add(:address, "is not valid")
         	end
+		end
+
+		def email_uniqueness
+			if (User.find_by_email(self.email) or Business.find_by_email(self.email))
+				errors.add(:email, "already in use.")
+			end
 		end
 end

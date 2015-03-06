@@ -17,18 +17,12 @@
 			<% if is_user_signed_in %>
 			<li><%= link_to "My Offers", "#" , class: cp("#")%></li>
 			<% end %>
-			<% if is_business_signed_in %>
+			<% if is_business_signed_in or is_user_signed_in%>
 			<li>
-				<%= link_to("Sign Out", {:controller=>"business", :action => "sign_out"}) %>
-			</li>
-			<% elsif is_user_signed_in %>
-			<li>
-				<%= link_to("Sign Out", {:controller=>"user", :action => "sign_out"}) %>
+				<%= link_to("Sign Out", {:controller=>"sign_in_out", :action => "sign_out"}) %>
 			</li>
 			<% else %>
-			<li><%= link_to("User Sign in", {:controller => "business", :action => "sign_in"}, :method => "get") %>
-			</li>
-			<li><%= link_to("Business Sign In", {:controller => "business", :action => "sign_in"}, :method => "get") %>
+			<li><%= link_to("Sign in", {:controller => "sign_in_out", :action => "sign_in"}, :method => "get") %>
 			</li>
 			<% end %>
 		</ul>

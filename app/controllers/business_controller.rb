@@ -3,43 +3,15 @@ class BusinessController < ApplicationController
 
 	layout "application"
 
-	before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
-	before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update] 
-<<<<<<< HEAD
-	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :show, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
-	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt, :forgot_password_attempt, :change_password, :change_password_attempt]
-=======
-	before_filter :require_not_log_in, :only => [:sign_up,:sign_in, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
-	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt, :forgot_password, :forgot_password_attempt, :change_password, :change_password_attempt]
->>>>>>> 2e8ef8748cc9afc3f0d54c9b02af5824e5a39ba8
+	before_filter :clear_flash, :only=> [:sign_up_attempt,:profile_update]
+	before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update]
+	before_filter :require_not_log_in, :only => [:sign_up]
+	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :forgot_password_attempt]
 
 	def index
 		#must include an offset and a limit that can be changed 
 		#with show more. 
 		@businesses = Business.all
-	end
-
-	def sign_out
-		session.clear
-		redirect_to(:action => "sign_in")
-	end
-
-	def sign_in
-	end
-
-	def sign_in_attempt
-		if business = Business.find_by_email(params[:business][:email])
-			if business.authenticate(params[:business][:password])
-				session[:business_id] = business.id
-				redirect_to(:action => "profile") and return
-			end
-		end
-		flash[:error] = "Wrong email or password"
-		render("sign_in")
-	end
-
-	def sign_up
-		@business = Business.new
 	end
 
 	def sign_up_attempt
@@ -50,7 +22,7 @@ class BusinessController < ApplicationController
 			@subtag = Subtag.find(params[:business][:subtags])
 			@subtag.businesses << @business
 			flash[:notice] = "Account successfully created"
-			render("sign_in")
+			render("/sign_in_out/sign_in")
 		else
 			render("sign_up")
 		end
@@ -70,33 +42,6 @@ class BusinessController < ApplicationController
 
 	def show
 		@business = Business.find(params[:id])
-	end
-
-	def forgot_password_attempt
-		if (business=Business.find_by_email(params[:email]))
-			business.update_attributes({forgot_password_token: @token = Digest::SHA1.hexdigest([Time.now, rand].join)})
-			flash[:notice] = "Check your email for further instructions"
-		else
-			flash[:error] = "No Business with this email was found"
-		end
-		render("forgot_password")
-	end
-
-	def change_password
-		@token = params[:token]
-		unless (business = Business.find_by_forgot_password_token(@token))
-			flash[:error] = "The link provided is invalid or has already expired"
-		end
-	end
-
-	def change_password_attempt
-		business = Business.find_by_forgot_password_token(@token) 
-		if (business.update_attributes(forgot_password_token: "", new_password: params[:new_password], 
-			new_password_confirmation: params[:new_password_confirmation]))
-			flash[:notice] = "Password successfully updated"
-			redirect_to("sign_in")
-		end
-		render("change_password")
 	end
 
 	private

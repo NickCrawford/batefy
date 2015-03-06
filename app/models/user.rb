@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :email
 	validates_length_of :email, {:maximum => 254, :message=> "is too long"}
 	validates_format_of :email,  {:with => EMAIL_REGEX , :message => "is not valid"}
-	validates_uniqueness_of :email, {:message => "already in use", :on => :create }	
+	validate :email_uniqueness, :on => :create	
 	validates_confirmation_of :new_password
 	validates_length_of :new_password, {:minimum=> 8, :too_short => "must be at least 8 characters long", :allow_blank => true }
 	validate :examine_password, :on => :update
@@ -60,5 +60,10 @@ class User < ActiveRecord::Base
         	end
 		end
 
+		def email_uniqueness
+			if (User.find_by_email(self.email) or Business.find_by_email(self.email))
+				errors.add(:email, "already in use.")
+			end
+		end
 
 end
