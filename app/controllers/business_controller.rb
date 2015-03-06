@@ -8,6 +8,7 @@ class BusinessController < ApplicationController
 	before_filter :require_not_log_in, :only => [:sign_up]
 	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :forgot_password_attempt]
 
+
 	def index
 		#must include an offset and a limit that can be changed 
 		#with show more. 
@@ -67,7 +68,7 @@ class BusinessController < ApplicationController
 		def require_parameters
 			params.delete(:action)
 			params.delete(:controller)
-			redirect_to(:action => "/") if params.blank?
+			redirect_to("/") if params.blank?
 		end
 
 		def clear_flash
