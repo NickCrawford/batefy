@@ -46,6 +46,8 @@ gem 'to_words'
 
 #support for postrges database
 gem 'pg'
+
+gem 'rails_12factor', group :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
