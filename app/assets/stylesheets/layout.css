@@ -277,9 +277,9 @@ header {
 	width: 64px;
 	height: 64px;
 
-	background-color: transparent
+	background-color: transparent;
 
-	 -o-transition: border-color .3s ease;
+	-o-transition: border-color .3s ease;
 	-ms-transition: border-color .3s ease;
 	-moz-transition: border-color .3s ease;
 	-webkit-transition: border-color .3s ease;
