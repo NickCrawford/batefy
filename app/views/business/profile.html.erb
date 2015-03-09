@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag "profile.css" %>
 <%= javascript_include_tag "profile.js" %>
 <%= javascript_include_tag "maps.js" %>
-<%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false" %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false" %>
 <div id="profile_header">
   <div id="map_header">
     <%= hidden_field_tag(:latitude, @business.latitude) %>
