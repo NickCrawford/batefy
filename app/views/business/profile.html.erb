@@ -17,7 +17,7 @@
 
   <div id="tabs_container">
       <%= error_messages_for(@business) %>
-    <%= form_for(:business, :url => {:action => "profile_update", :id => @business.id},:html => {:multipart => true}) do |f| %>
+    <%= form_for(:business, :url => {:action => "profile_update", :id => @business.id},:html => {multipart: true, autocomplete: 'off'}) do |f| %>
     <ul id="tab_bar">
       <li class="active" data-id="#general_tab">
           <span class="icon"><i class="fa fa-user fa-lg"></i></span>
