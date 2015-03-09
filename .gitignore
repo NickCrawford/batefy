@@ -2,4 +2,4 @@
 *.log
 tmp/
 database.yml
-**/public
+public
