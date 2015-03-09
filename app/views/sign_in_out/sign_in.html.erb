@@ -29,15 +29,15 @@
 			<%end%>
 
 			<tr>
-				<td colspan="2"><%= text_field_tag(:email, "Email", :class=>"text_input") %></td>
+				<td colspan="2"><%= text_field_tag(:email, "", placeholder: "Email", :class=>"text_input") %></td>
 			</tr>
 			<tr><td></td></tr>
 			<tr>
-				<td colspan="2"><%= password_field_tag(:password, "Password", :class=>"text_input") %></td>
+				<td colspan="2"><%= password_field_tag(:password, "", placeholder: "Password", :class=>"text_input") %></td>
 			</tr>
 			<tr>
 				<td><%= submit_tag("Sign in", :class=>"submit_btn")%></td>
-				<td><%= link_to "Forgot password?", "forgot_password" %></td>\
+				<td><%= link_to "Forgot password?", "forgot_password" %></td>
 			</tr>
 			<tr>
 				<td colspan="2"><p>Are you a business owner? <a href="/business/sign_up" style="color: blue">Sign up</a> now!</p></td>
