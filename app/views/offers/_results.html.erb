@@ -22,9 +22,11 @@
 				<% date = offer.offer_dates.last %>
 				<% start_time = Time.at(date.start_time) %>
 				<% end_time = Time.at(date.end_time) %>
+				<% visible_from = Time.at(date.visible_from) %>
 				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
-				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
-
+				<%= end_time.hour %>:<%= format('%02d',end_time.min) %>
+				<%= "year: "+start_time.year.to_s+" month:"+start_time.month.to_s+" day:"+start_time.day.to_s+" hour"+start_time.hour.to_s+" minute:"+start_time.min.to_s%>
+				<%= "year: "+visible_from.year.to_s+" month:"+visible_from.month.to_s+" day:"+visible_from.day.to_s+" hour"+visible_from.hour.to_s+" minute:"+visible_from.min.to_s%></p>
 				<% if is_user_signed_in %>
 					<% if !has_user_gotten_offer(offer.id)%>
 						<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Get Offer</div>

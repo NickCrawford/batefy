@@ -10,8 +10,8 @@ class OffersController < ApplicationController
   before_filter :require_offer_ownership, :only => [:delete]
 
   def index
-    @latitude = '45.468874' #request.location.latitude.to_s
-    @longitude = '9.187174' #request.location.longitude.to_s
+    @latitude = request.location.latitude.to_s
+    @longitude = request.location.longitude.to_s
     search = SearchHelper.new([])
     search.filter_by_location(@latitude+', '+@longitude)
     @offers = search.get_offers
@@ -92,9 +92,13 @@ class OffersController < ApplicationController
       start_hour, start_minute = params[:offer]['time_start(4i)'].to_i, params[:offer]['time_start(5i)'].to_i
       end_hour, end_minute = params[:offer]['time_end(4i)'].to_i, params[:offer]['time_end(5i)'].to_i
       visible_hour = start_hour - params[:offer][:visible_from].to_i
+      if visible_hour < 0 
+        params[:offer][:visible_from] = (Time.new(year,month,day,24+visible_hour,start_minute)-1.day).to_i
+      else
+        params[:offer][:visible_from] = Time.new(year,month,day,visible_hour,start_minute).to_i
+      end
       params[:offer][:start_time] = Time.new(year,month,day,start_hour,start_minute).to_i
       params[:offer][:end_time] = Time.new(year,month,day,end_hour,end_minute).to_i
-      params[:offer][:visible_from] = Time.new(year,month,day,visible_hour,start_minute).to_i
       return params[:offer][:end_time] > params[:offer][:start_time]
     end
 
