@@ -74,6 +74,24 @@ th {
 	overflow: hidden;
 }
 
+.day_offers_count{
+	float:right;
+	height:30px;
+	width:30px;
+	background-color: white;
+	border-radius:30px;
+	border:1px solid red; 
+}
+
+.day_offers_count p{
+	display:block;
+	height:100%;
+	width: 100%;
+	color:black;
+	text-align: center;
+	font-weight: 400;
+}
+
 .close {
 	position: relative;
 	top: -20px;

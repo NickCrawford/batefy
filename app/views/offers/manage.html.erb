@@ -42,7 +42,8 @@
 						<% end %>
 						<% (7-time.wday).times do %>
 						<% if(offers=offers_dates[time.beginning_of_day.to_i]) %>
-						<td class="day_toggle day_active" data-id=<%= time.to_i%>> <%= time.day %></td>
+						<td class="day_toggle day_active" data-id=<%= time.to_i%>> <%= time.day %>
+							<div class='day_offers_count'><p><%=offers.length%></p></div></td>
 						<% else %>
 						<td class="day_toggle" data-id=<%= time.to_i%>> <%= time.day %></td>
 						<% end %>
