@@ -67,6 +67,8 @@
 	border-radius: 30px;
 	font-size: 20px;
 
+	z-index: 9999;
+
 	position: absolute;
 	left: 20%;
 
@@ -219,6 +221,12 @@
     position: relative;
 }
 
+#grid h4 {
+	font-size: 20px;
+	font-weight: 300;
+	color: #333;
+}
+
 #grid_header {
 	display: block;
 	width: 100%;
@@ -298,11 +306,6 @@
 .thirty { background-color: #FB9E25; height:45px;}
 .forty { background-color: #E58202; height:55px;}
 .fifty { background-color: #E54302; height:65px;}
-
-.twenty:after { border-top-color: #FBC325;}
-.thirty:after { border-top-color: #FB9E25;}
-.forty:after { border-top-color: #E58202;}
-.fifty:after { border-top-color: #E54302;}
 
 #grid figure {
     margin: 0;
@@ -417,9 +420,61 @@
 	background-color: #061C4F;
 }
 
+/* Small Screen Styles */
+
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px)  {
-	#grid, #filter_bar {width: 100%; padding: 0;}
-	#tag_bar{width: 100%; height: 100%; top: 0; margin: 0;}
+	#grid, #filter_container {width: 100%; padding: 0; margin: 0;}
+	#filter_box {width: 100%; padding: 25px 0;}
+	#tag_bar{width: 100%; top: 0; margin: 0; padding: 0;}
 	#position_map_modal { background-color: #FFF;}
 	#position_map_modal > div { width: 90%; height: 90%; margin: 20px auto; padding: 0;}
 }
+
+/* Phone specific styles */
+
+@media handheld, only screen and (max-device-width: 800px) {
+	#filter_box h2 {width: 100%; font-size: 72px;}
+	.search_button {min-width: 40%; font-size: 36px; margin: 20px; padding: 30px 15px; border-width: 3px;}
+	#filter_box h3 {font-size: 54px;}
+	.tag_close {display: block; width: 54px; height: 54px; font-size: 50px; cursor: pointer;}
+	#map_tab {width: 200px;height: 200px;border: 2px solid #000;border-radius: 200px; font-size: 30px;}
+	#grid h4 {font-size: 32px;}
+	#grid_header { height: 150px;}
+	#grid_header h2 {font-size: 72px;}
+	#grid_header h3, #grid_header u {font-size: 40px;}
+	#grid figure, #grid li {width: 90vw; height: 60vw;}
+	
+	#grid figcaption {width: 90vw; height: 30vw; bottom: -15vw;}
+	#grid figcaption h3 {font-size: 48px; margin: 15px 0 15px 20px;}
+	#grid figcaption p {font-size: 40px; margin:  15px 0 15px 20px;}
+	#grid figcaption i {margin-right: 30px;}
+ 	.offer_btn {margin: 30px auto; padding: 15px 0px; border-width:3px; font-size: 48px;}
+ 	#grid figure:hover figcaption{
+		-webkit-transform: translateY(-15vw);
+		-moz-transform: translateY(-15vw);
+		-ms-transform: translateY(-15vw);
+		transform: translateY(-15vw);
+	}
+
+	.percent_label {
+		width: 14vw; 
+		height: 20vw; 
+		left: 0;
+	} 
+	.percent_label:after { 
+		bottom: -4vw;  
+		border-left: 7vw solid transparent; 
+		border-right: 7vw solid transparent; 
+		border-top: 4vw solid red; 
+	}
+
+	#grid .percent_label h2 { width: 14vw; height: 14vw; font-size: 52px; font-weight: 500; top: 6vw;}
+
+
+}
+
+
+.twenty:after { border-top-color: #FBC325;}
+.thirty:after { border-top-color: #FB9E25;}
+.forty:after { border-top-color: #E58202;}
+.fifty:after { border-top-color: #E54302;}
