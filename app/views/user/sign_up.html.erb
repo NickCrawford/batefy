@@ -4,6 +4,9 @@
 		<%= error_messages_for(@user) %>
 		<%= form_for(:user, :url => {:action => "sign_up_attempt"}, 
 			:html => {:multipart => true}) do |f| %>
+         <tr>
+        <td><h1>Sign Up</h1></td>
+        </tr>
   				<tr> 
   					<td><%= f.text_field(:name, placeholder: "Full Name", maxlength: 40, class: "text_input") %></td>
   				</tr>
