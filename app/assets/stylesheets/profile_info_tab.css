@@ -79,7 +79,12 @@
 
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
-	#tabs_container{width: 90%}
+	#tabs_container{width: 90%; height:; auto;}
+	.profile_input{display: block; width: 100%; font-size: 32px; padding: 20px 20px 20px 40px;}
+	#profile_info label  {font-size: 40px;}
+	#profile_info { height: auto;}
+	.icon {font-size: 32px;}
+	.tab {height: auto;}
 }
 
 @media handheld, only screen and (max-width: 950px) {
