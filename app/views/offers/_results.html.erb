@@ -5,10 +5,10 @@
 	<% subtag_name = Subtag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name %>
 	<div id="grid_header">
 		<h2>Offers</h2>
-		<h3><%= tag_name%><u><%= subtag_name.empty? ? "" : " > " %></u><%= subtag_name%></h3>
+		<h3><%= tag_name.empty? ? "Nearby" : "#{tag_name}" %><u><%= subtag_name.empty? ? "" : " > " %></u><%= subtag_name%></h3>
 	</div>
 	<% if offers.blank? %>
-	<%= "No offers to display" %>
+	<h4><%= "No offers to display" %></h4>
 	<% else %>
 	<% offers.each do |offer| %>
 	<li>

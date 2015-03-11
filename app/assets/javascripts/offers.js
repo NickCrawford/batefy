@@ -17,7 +17,13 @@ $(document).on('click','.search_button', function(){
 });
 
 $(document).on('click','.subtag_button', function(){
-	$('html,body').animate({scrollTop: $("#grid").offset().top - 64},'slow');
+	var header_offset = 0;
+	if ($("#header_big").is(":visible")) {
+		header_offset = $("header").height();
+	} else {
+		header_offset = $("#header_mobile").height();
+	}
+	$('html,body').animate({scrollTop: $("#grid").offset().top - header_offset},'slow');
 	$('.subtag_button').removeClass('active')
 	$(this).toggleClass('active')
 });

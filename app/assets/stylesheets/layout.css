@@ -214,52 +214,8 @@ header {
 	transition: background-color .3s ease;
 }
 
-#sign_in:hover, #sign_in.open{
+#sign_in:hover {
 	background-color: #061C4F;
-}
-
-#account_type_modal {
-	display: none;
-	width: 110px;
-	margin: 0 auto;
-	padding: 10px;
-	position: relative;
-	top: 30px;
-
-	background: #FFF;
-    list-style: none;
-    box-shadow: 2px 2px 4px gray;
-}
-
-#account_type_modal li a {
-	display: block;
-	padding: 10px 5px;
-	font-size: 16px;
-	cursor: pointer;
-	cursor: hand;
-
-	width: 100%;
-	height: 100%;
-    color: #333;
-    -o-transition: color .3s ease;
-	-ms-transition: color .3s ease;
-	-moz-transition: color .3s ease;
-	-webkit-transition: color .3s ease;
-	transition: color .3s ease;
-}
-
-#account_type_modal li:hover a {
-   color: #FB9E25;
-}
-
-#account_type_modal p {
-	color: #777;
-	font-size: 14px;
-	padding: 5px 10px;
-}
-
-#account_type_modal i {
-	margin-right: 10px;
 }
 
 /* Styles for mobile header bar */ 
@@ -364,10 +320,6 @@ header {
 	padding-left: 75px;
 }
 
-@media handheld, only screen and (max-width: 800px) {
-	#header_big {display: none;}
-	#header_mobile {display: block;}
-}
 
 /* Styles for inputs */
          
@@ -473,4 +425,53 @@ header {
 #spinner img {
 	width: 50px;
 	height: 50px;
+}
+
+
+/* Mobile Styles */
+
+@media handheld, only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
+	#header_big {display: none;}
+	#header_mobile {display: block;}
+}
+
+@media handheld, only screen and (max-device-width: 800px) {
+	#header_mobile{height: 120px;}
+	#logo {
+		margin-top: 15px;
+		width: 264px;
+		height: 90px; 
+	}
+	main {margin-top: 120px;}
+
+	#mobile_menu_ctn {
+		width: 120px;
+		height: 120px;
+	}
+
+	#mobile_menu_ctn:before {
+		right: 30px;
+		top: 30px;
+		height: 14px;
+		width: 65px;
+		border-top: 10px solid #FB9E25;
+	}
+
+	#mobile_menu_ctn:after {
+		right: 30px;
+		top: 54px;
+		height: 14px;
+		width: 65px;
+		border-top: 10px solid #FB9E25;
+		border-bottom: 10px solid #FB9E25;
+	}
+
+	#mobile_menu {top: 120px;}
+	#mobile_menu li {height: 120px; font-size: 48px;}
+	#mobile_menu li a {
+		height: 120px;
+		margin-left: 40px;
+		line-height: 120px;
+		font-size: 48px;
+	}
 }
