@@ -32,16 +32,16 @@ $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
 	$("#tag_bar").fadeOut(200)
     $("#filter_box").animate({
-        height: $("#subtag"+id).height() + $("#filter_box").height()}, 500, function() {
-        	$("#subtag"+id).delay(200).fadeIn(200)
+        height: $("#subtag"+id).height() + $("#filter_box").height()}, 300, function() {
+        	$("#subtag"+id).fadeIn(200)
     	});
 });
 
 $(document).on('click','.tag_close', function(){
 	$(".subtag_bar").fadeOut(200)
 	$("#filter_box").animate({
-        height: $("#filter_box").height() - $(this).parent().parent().height()}, 500, function() {
-        	$("#tag_bar").delay(200).fadeIn(200)
+        height: $("#filter_box").height() - $(this).parent().parent().height()}, 300, function() {
+        	$("#tag_bar").fadeIn(200)
     	});
 });
 
