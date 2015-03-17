@@ -31,12 +31,18 @@ $(document).on('click','.subtag_button', function(){
 $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
 	$("#tag_bar").fadeOut(200)
-	$("#subtag"+id).delay(200).fadeIn(200)
+    $("#filter_box").animate({
+        height: $("#subtag"+id).height() + $("#filter_box").height()}, 500, function() {
+        	$("#subtag"+id).delay(200).fadeIn(200)
+    	});
 });
 
 $(document).on('click','.tag_close', function(){
 	$(".subtag_bar").fadeOut(200)
-	$("#tag_bar").delay(200).fadeIn(200)
+	$("#filter_box").animate({
+        height: $("#filter_box").height() - $(this).parent().parent().height()}, 500, function() {
+        	$("#tag_bar").delay(200).fadeIn(200)
+    	});
 });
 
 $(document).on('click','.get_offer_btn', function(){
