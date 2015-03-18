@@ -1,7 +1,7 @@
 #profile_info {
 	width: 100%;
 	margin: 0 auto;
-	padding-top: 40px;
+	padding-top: 0px;
 	background-color: white;
 	float: center;
 }
@@ -13,7 +13,7 @@
 
 #tab_bar {
 	width: 100%;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 #tab_bar li {
 	width: 32%;
@@ -77,14 +77,23 @@
 	float: right;
 }
 
+.field_with_errors {
+	display: inline;
+	position: relative;
+}
+
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
-	#tabs_container{width: 90%; height:; auto;}
+	#tabs_container{width: 90%; height: auto;}
+	
+}
+
+@media handheld, only screen and (max-device-width: 800px)	{
 	.profile_input{display: block; width: 100%; font-size: 32px; padding: 20px 20px 20px 40px;}
 	#profile_info label  {font-size: 40px;}
 	#profile_info { height: auto;}
 	.icon {font-size: 32px;}
-	.tab {height: auto;}
+	.tab {border:  none;}
 }
 
 @media handheld, only screen and (max-width: 950px) {

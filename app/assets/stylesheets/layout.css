@@ -96,7 +96,7 @@ header {
 .dropdown_container {
     position: relative; 
     top:  6px;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     padding: 15px 15px;
     border: none;
@@ -114,7 +114,6 @@ header {
 
 .dropdown_container:hover, .dropdown_container.open {
 	background-color: #061C4F;
-
 }
 
 .dropdown_container:after{
@@ -178,7 +177,10 @@ header {
 }
 
 .profile_name {
-	margin-left: 30px;
+	margin-left: 35px;
+	margin-right: 27px;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 #sign_in_container {
@@ -378,7 +380,7 @@ header {
 }
 
 .errors, .notices {
-	padding: 10px 0;
+	padding: 10px 0 20px 0;
 	width: 100%;
 	margin: 0 auto;
 	color: white;
