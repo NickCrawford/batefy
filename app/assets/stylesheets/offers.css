@@ -85,9 +85,8 @@
 	color: #E3E3E3;
 }
 
-#position_map_modal {
+.modal {
 	display: none;
-
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -205,6 +204,56 @@
 
 .search_button:hover, .search_button.active{
 	background-color:  #FB9E25;
+}
+
+#info_modal > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 3px;
+	background: white;
+}
+
+#info_modal h1 {
+	color: #FB9E25; 
+	font-size: 32px;
+	font-weight: 300;
+	text-align: center;
+	margin-top: 20px;
+}
+#info_modal p {
+	color: #777; 
+	font-size: 24px;
+	font-weight: 300;
+	margin: 10px;
+}
+#info_modal_content {
+	padding: 10px;
+}
+
+#info_modal_footer {
+	padding: 10px;
+}
+
+#info_close {
+	float: right;
+	display: block;
+	margin-top: -10px;
+	padding: 10px;
+	color: #333;
+	cursor: pointer;
+	border-radius: 3px;
+
+	-o-transition: color .3s ease;
+	-ms-transition: color .3s ease;
+	-moz-transition: color .3s ease;
+	-webkit-transition: color .3s ease;
+	transition: color .3s ease;
+}
+
+#info_close:hover {
+	color: #777;
 }
 
 /* Results Grid CSS */

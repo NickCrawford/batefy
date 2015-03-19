@@ -14,11 +14,12 @@ $(document).ready(function(){
 
 
 	$("#month0").css("display","block")
+
 	$(".change_month").click(function(){
 		var id = $(this).data("id")
 		if (id >= 0 && id+1<=6 ) {
 			$(".month").css("display","none")
-			$("#month"+id).fadeToggle()
+			$("#month"+id).show()
 		}
 	});
 
