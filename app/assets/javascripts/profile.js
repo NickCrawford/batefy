@@ -29,12 +29,12 @@ $(document).ready(function(){
 	});
 
 	$("#profile_submit").click(function(){
-		$("#confirm").show()
+		$("#confirm").fadeIn(300)
 		$("#confirm").css("pointer-events","auto")
 	});
 	
 	$("#modal_close").click(function(){
-		$("#confirm").hide()
+		$("#confirm").fadeOut(300)
 	});
 
 });
