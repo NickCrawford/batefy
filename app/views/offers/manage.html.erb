@@ -24,8 +24,8 @@
 <table>
 	<tr>
 		<td colspan="5"><h1><%= time.strftime('%B') %></h1><h2><%= time.strftime('%Y') %></h2></td>
-		<td class="change_month" data-id=<%=i-1%>><i class="fa fa-angle-left fa-2x"></i></td>
-		<td class="change_month" data-id=<%=i+1%>><i class="fa fa-angle-right fa-2x"></i></td>
+		<td colspan="2"> <div class="change_month" data-id=<%=i-1%>><i class="fa fa-angle-left fa-2x"></i></div>
+		<div class="change_month" data-id=<%=i+1%>><i class="fa fa-angle-right fa-2x"></i></div></td>
 	</tr>
 	<th>Sun</th>
 	<th>Mon</th>
@@ -79,7 +79,7 @@
 									<div class="cell"><b>Starts</b></div>
 									<div class="cell"><b>Ends</b></div>
 									<div class="cell" title="This is the time at which the offer becomes visible to the user, but might not be valid on the time period."><b>Visible at</b></div>
-									<div class="new_toggle" data-id=<%= time.to_i.to_s+"n"%>>+</div>
+									<div class="new_toggle" data-id=<%= time.to_i.to_s+"n"%>><i class="fa fa-plus "></i></div>
 								</div>
 								<div class="new_offer" id=<%= time.to_i.to_s+"n"%>>
 									<%= form_for(:offer, :url=>{:action=>"create"}) do |f| %>
