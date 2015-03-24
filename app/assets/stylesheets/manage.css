@@ -2,11 +2,6 @@ main {
 	margin-top: 0;
 }
 
-.errors, .notices {
-	margin-top: 64px;
-	margin-bottom: -64px;
-}
-
 /* Month table styles */
 
 table {

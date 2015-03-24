@@ -15,7 +15,12 @@
           </tr>  
   				<tr> 
   					<td><%= f.password_field(:password,  placeholder: "Password", :maxlength => 40,:autocomplete => "off", :class=>"text_input") %></td>
-  				</tr> 				
+  				</tr> 			
+          <tr>
+            <td>
+              <p>I accept the <%= link_to "Terms and Conditions", {controller:"pages", action:"show", page:"legal"} , class: cp("/pages/show?page=legal") %>. <%= check_box_tag(:terms, :class => "profile_input") %> </p>
+            </td>
+          </tr>	
           <tr> 
   					<td colspan="2"><%= f.submit("Sign Up", :class=>"submit_btn") %></td>
   				</tr>

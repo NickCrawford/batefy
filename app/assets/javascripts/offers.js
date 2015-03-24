@@ -11,7 +11,11 @@ $(document).ready(function(){
 	geolocation()
 
 	$("#info_close").click(function(){
-		$("#info_modal").fadeOut(300)
+		$("#info_bar").slideToggle(300)
+	});
+
+	$("#info_tab").click(function(){
+		$("#info_bar").slideToggle(300)
 	});
 });
 
@@ -53,16 +57,18 @@ $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
 	$("#tag_bar").fadeOut(200)
     $("#filter_box").animate({
-        height: $("#subtag"+id).height() + $("#filter_box").height() - $("h2").outerHeight()}, 300, function() {
+        height: $("#subtag"+id).height() + $("#filter_box").height()}, 300, function() {
         	$("#subtag"+id).fadeIn(200)
-    	})
-})
+        	$("#filter_box").css({overflow: "scroll"})
+    	});
+});
 
 $(document).on('click','.tag_close', function(){
 	$(".subtag_bar").fadeOut(200)
 	$("#filter_box").animate({
-        height: $("#filter_box").height() - $(this).parent().parent().height() + $("h2").outerHeight() }, 300, function() {
+        height: $("#filter_box").height() - $(this).parent().parent().height()}, 300, function() {
         	$("#tag_bar").fadeIn(200)
+        	$("#filter_box").css({overflow: "scroll"})
     	});
 })
 
