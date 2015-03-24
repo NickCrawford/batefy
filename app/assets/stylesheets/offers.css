@@ -206,42 +206,71 @@
 	background-color:  #FB9E25;
 }
 
-#info_modal > div {
-	width: 400px;
+#info_bar {
+	width: 100%;
+	padding: 10px 0;
+	background: #E3E3E3;
 	position: relative;
-	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
-	border-radius: 3px;
-	background: white;
 }
 
-#info_modal h1 {
-	color: #FB9E25; 
-	font-size: 32px;
-	font-weight: 300;
-	text-align: center;
-	margin-top: 20px;
+#info_bar_content {
+	width: 80%;
+	margin: 0 auto;
+	display: block;
+	position: relative;
 }
-#info_modal p {
-	color: #777; 
+
+#info_bar_content h1 {
+	width: 100%;
+	display: inline-block;
+	margin: 0 auto;
+	color: #FB9E25; 
 	font-size: 24px;
 	font-weight: 300;
-	margin: 10px;
+	text-align: center;
 }
-#info_modal_content {
-	padding: 10px;
+#info_bar_content p {
+	display: inline-block;
+	color: #777; 
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+	margin: 5px;
+	line-height: 1.5;
 }
 
-#info_modal_footer {
-	padding: 10px;
+#info_bar_content a {
+	display: inline-block;
+	color: #333; 
+	font-size: 18px;
+	font-weight: 400;
+	text-align: right;
+	float: right;
+	margin: 0 10px;
+	-o-transition: color .3s ease;
+	-ms-transition: color .3s ease;
+	-moz-transition: color .3s ease;
+	-webkit-transition: color .3s ease;
+	transition: color .3s ease;
+}
+
+#info_bar_content a:hover {
+	 color: #FB9E25;
+}
+
+#info_bar_footer{
+	float: right;
 }
 
 #info_close {
-	float: right;
-	display: block;
-	margin-top: -10px;
-	padding: 10px;
-	color: #333;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+	text-align: center;
+	color: #777;
 	cursor: pointer;
 	border-radius: 3px;
 
@@ -253,7 +282,7 @@
 }
 
 #info_close:hover {
-	color: #777;
+	color: #FB9E25;
 }
 
 /* Results Grid CSS */
@@ -350,11 +379,6 @@
 	position: absolute;
 	top: 10px;
 }
-
-.twenty { background-color: #FBC325; height:35px;}
-.thirty { background-color: #FB9E25; height:45px;}
-.forty { background-color: #E58202; height:55px;}
-.fifty { background-color: #E54302; height:65px;}
 
 #grid figure {
     margin: 0;
@@ -522,8 +546,17 @@
 
 }
 
+.ten { background-color: #FBC325; height:30px;}
+.twenty { background-color: #FBC325; height:35px;}
+.thirty { background-color: #FB9E25; height:40px;}
+.forty { background-color: #FB9E25; height:45px;}
+.fifty { background-color: #E58202; height:50px;}
+.sixty { background-color: #E58202; height:55px;}
+.seventy { background-color: #E54302; height:60px;}
+.eighty { background-color: #E54302; height:65px;}
 
-.twenty:after { border-top-color: #FBC325;}
-.thirty:after { border-top-color: #FB9E25;}
-.forty:after { border-top-color: #E58202;}
-.fifty:after { border-top-color: #E54302;}
+
+.ten:after, .twenty:after { border-top-color: #FBC325;}
+.thirty:after, .forty:after { border-top-color: #FB9E25;}
+.fifty:after, .sixty:after { border-top-color: #E58202;}
+.seventy:after, .eighty:after { border-top-color: #E54302;}

@@ -1,3 +1,17 @@
+main {
+	margin-top: 0;
+}
+
+html {
+	background-color: white;
+}
+
+#profile_info {
+	position: relative;
+	margin-top: 64px;
+	top: 5%;
+}
+
 #business_search_container {
 	width: 80%;
 	margin: 0 auto;

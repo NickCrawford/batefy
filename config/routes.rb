@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "offers#index"
 
-  get "/:page" => "page#show"
+  get "/:page" => "pages#show" 
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 

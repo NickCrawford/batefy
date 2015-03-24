@@ -397,7 +397,7 @@ header {
 }
 
 .errors p, .notices p {
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 	text-align: center;
 	margin: 5px;
