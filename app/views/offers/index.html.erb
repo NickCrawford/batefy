@@ -13,7 +13,11 @@
 			<p>Double Click to Select a Location</p>
 		</div>
 	</div>
-	<div id="info_bar">
+	<% display = "none" %>
+	<% if (!is_user_signed_in) && (!is_business_signed_in) %>
+	<% display = "block" %>
+	<% end %>
+	<div id="info_bar" style="display: <%= display %>">
 			<div id="info_bar_content">
 				<h1>Benvenuti a Batefy</h1>
 				<p>
