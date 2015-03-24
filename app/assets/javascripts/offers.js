@@ -13,6 +13,10 @@ $(document).ready(function(){
 	$("#info_close").click(function(){
 		$("#info_bar").slideToggle(300)
 	});
+
+	$("#info_tab").click(function(){
+		$("#info_bar").slideToggle(300)
+	});
 });
 
 $(document).on('click','.search_button', function(){
