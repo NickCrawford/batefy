@@ -18,3 +18,15 @@ function create_map_marker(map, latitude, longitude){
       map: map
   });
 }
+
+function get_address_from_coordinates(coordinates){
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({'latLng': coordinates}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        return  results[1].formatted_address
+      }
+    }
+    return "Could not create address"
+  });
+}

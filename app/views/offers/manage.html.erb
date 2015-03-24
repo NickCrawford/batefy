@@ -87,7 +87,7 @@
 									<%= f.hidden_field(:month, value: time.strftime('%m')) %>
 									<%= f.hidden_field(:day, value: time.strftime('%d')) %>		
 									<div class="cell">
-										<%= f.select(:percentage, options_for_select((20..50).step(10).to_a.map {|p| "#{p}%"} )) %>
+										<%= f.select(:percentage, options_for_select((10..80).step(10).to_a.map {|p| "#{p}%"} )) %>
 									</div>
 									<div class="cell">
 										<%= f.time_select(:time_start, {ignore_date: true, minute_step: 30}) %>

@@ -28,6 +28,7 @@ class SignInOutController < ApplicationController
 	def forgot_password_attempt
 		if (business=Business.find_by_email(params[:email]))
 			business.update_attributes({forgot_password_token: @token = Digest::SHA1.hexdigest([Time.now, rand].join)})
+			BusinessNotifier.forgot_password(business,@token)
 			flash[:notice] = "Check your email for further instructions"
 		elsif user = User.find_by_email(params[:email])
 			user.update_attributes({forgot_password_token: @token = Digest::SHA1.hexdigest([Time.now, rand].join)})
