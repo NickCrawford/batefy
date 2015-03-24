@@ -44,6 +44,9 @@ gem 'kaminari'
 #change numbers into human words
 gem 'to_words'
 
+#send emails
+gem 'mail'
+
 group :production do
 	#support for postrges database
 	gem 'pg'

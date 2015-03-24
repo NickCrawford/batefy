@@ -18,7 +18,7 @@
 			</div>
 			<%= image_tag(offer.business.image.url) %>
 			<figcaption>
-				<h3><%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}) %><i><%=offer.business.distance_from(latitude+', '+longitude).round(2)%></i></h3>
+				<h3><%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}) %><i><%=offer.business.distance_from(latitude+', '+longitude).round(2)%> km</i></h3>
 				<% date = offer.offer_dates.last %>
 				<% start_time = Time.at(date.start_time) %>
 				<% end_time = Time.at(date.end_time) %>
@@ -32,7 +32,11 @@
 						<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Remove Offer</div>
 					<% end %>
 				<% elsif is_business_signed_in %>
+					<% if offer.business.id == Business.find(session[:business_id]).id %>
 					<%= link_to("Manage My Offers", {controller: 'offers', action: 'manage'}, class: 'offer_btn') %>
+					<% else %>
+						<%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}, class: 'offer_btn') %>
+					<% end%>
 				<% else %>
 					<%= link_to("Sign In To Get Offers", {controller: 'sign_in_out', action: 'sign_in'}, class: 'offer_btn') %>
 				<% end %>

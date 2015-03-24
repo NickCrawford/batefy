@@ -11,6 +11,7 @@
 			<div id="map_close">Done</div>
 			<div id="position_map"></div>
 			<p>Double Click to Select a Location</p>
+			<%= text_field_tag(:address_bar, "", placeholder: "Enter address and press enter")%>
 		</div>
 	</div>
 	<% display = "none" %>
@@ -21,7 +22,7 @@
 			<div id="info_bar_content">
 				<h1>Benvenuti a Batefy</h1>
 				<p>
-				Trova i migliori sconti alla carta su qualsiasi attività tu abbia in programma nelle prossime 24h…scarica lo sconto SENZA IMPEGNO e SOLO SE LO USI paghi direttamente alla cassa! <%= link_to "COME FUNZIONA", {controller:"pages", action:"show", page:"about"} , class: cp("/pages/show?page=about") %></p>
+				Trova i migliori sconti alla carta su qualsiasi attività tu abbia in programma nelle prossime 24h…scarica lo sconto SENZA IMPEGNO, GRATIS e SOLO SE LO USI paghi direttamente alla cassa! <%= link_to "COME FUNZIONA", {controller:"pages", action:"show", page:"about"} , class: cp("/pages/show?page=about") %></p>
 			</div>
 			<div id="info_close"><i class="fa fa-times fa-lg"></i></div>
 	</div>
@@ -50,7 +51,7 @@
 		<div id="map_tab">
 			<div>
 				<i class="fa fa-map-marker fa-2x"></i><br>
-				Change Location
+				<p id="address_string"> Change Location <p>
 			</div>
 		</div>
 
