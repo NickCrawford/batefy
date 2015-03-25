@@ -1,3 +1,15 @@
+html {
+	background-color: #FFF;
+}
+
+main {
+	margin-top: 0;
+}
+
+#search_page {
+	margin-top: 64px;
+}
+
 #filter_container {
 	display: block;
 	width: 100%;
@@ -5,7 +17,7 @@
 	/* background-color: #F5F5F5; */
 	background-image: url('indexheader.jpg');
 	background-size: auto;
-	background-position: 50% 70%;
+	background-position: center;
 	text-align: center;
 	z-index: 100;
 	overflow: hidden;
@@ -211,7 +223,6 @@
 
 #grid {
     padding: 5px 0 100px 0;
-    margin-bottom: 20px;
     width: 100%; 
     list-style: none;
     text-align: center;

@@ -57,7 +57,7 @@ $(document).on('click','.tag_button', function(){
 	var id = $(this).data("tag-id")
 	$("#tag_bar").fadeOut(200)
     $("#filter_box").animate({
-        height: $("#subtag"+id).height() + $("#filter_box").height()}, 300, function() {
+        height: $("#subtag"+id).height() + $("#filter_box").height() - 55}, 300, function() {
         	$("#subtag"+id).fadeIn(200)
         	$("#filter_box").css({overflow: "scroll"})
     	});
@@ -66,7 +66,7 @@ $(document).on('click','.tag_button', function(){
 $(document).on('click','.tag_close', function(){
 	$(".subtag_bar").fadeOut(200)
 	$("#filter_box").animate({
-        height: $("#filter_box").height() - $(this).parent().parent().height()}, 300, function() {
+        height: $("#filter_box").height() - $(this).parent().parent().height() + 55}, 300, function() {
         	$("#tag_bar").fadeIn(200)
         	$("#filter_box").css({overflow: "scroll"})
     	});
@@ -114,7 +114,7 @@ function get_offers(){
 		type:'get',
 		url:'offers/show/?latitude='+latitude+'&longitude='+longitude+'&tag_id='+tag_id+'&subtag_id='+subtag_id,
 		success:function(data){
-			$("#grid").html(data)
+			$("update").html(data)
 		}
 	})
 }

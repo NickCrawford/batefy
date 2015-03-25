@@ -1,10 +1,6 @@
 <div class="dropdown_container" title="<%= User.find(session[:user_id]).name %>">
-<<<<<<< HEAD
-	<% image_url = User.find(session[:user_id]).image.url == "/images/original/missing.png" ? User.find(session[:user_id]).image.url : "profile_default.png" %>
-=======
 	 <% image_url = User.find(session[:user_id]).image.url == "/images/original/missing.png
     General" ? "profile_default.png" : User.find(session[:user_id]).image.url %>
->>>>>>> 5da6f27dafc0998e11dfa6c9b948d8929569c74f
 	<%= image_tag(image_url, :alt => "", :id => "profile_image") %>
 	<div class="profile_name"><%= User.find(session[:user_id]).name.truncate(18) %></div>
 	<ul class="dropdown_items">
