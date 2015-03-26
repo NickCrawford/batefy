@@ -4,10 +4,9 @@
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false" %>
 
 <div id="profile_header">
-  <div id="header_focus_image">
-    <% image_url = @user.image.url == "/images/original/missing.png
+  <% image_url = @user.image.url == "/images/original/missing.png
     General" ? "profile_default.png" : @user.image.url %>
-    <%= image_tag(image_url)%>
+  <div id="header_focus_image" style="background-image: url(<%= image_url %>)">
   </div>
 </div>
 <div id="profile_info">

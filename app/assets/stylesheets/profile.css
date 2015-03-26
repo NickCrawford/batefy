@@ -36,11 +36,9 @@ html {
 	border: solid;
 	border-color: white;
 	border-radius: 200px;
-}
 
-#header_focus_image img {
-	height:  100%;
-	width: 240px;
+	background-size: cover;
+	background-position: center;
 }
 
 #confirm {

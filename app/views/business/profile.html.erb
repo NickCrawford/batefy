@@ -8,8 +8,7 @@
     <%= hidden_field_tag(:latitude, @business.latitude) %>
     <%= hidden_field_tag(:longitude,@business.longitude)%>
   </div>
-  <div id="header_focus_image">
-    <%= image_tag(@business.image.url) %>
+  <div id="header_focus_image" style="background-image: url(<%= @business.image.url %>)">
   </div>
 </div>
 
