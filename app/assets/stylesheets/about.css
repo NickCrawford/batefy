@@ -1,3 +1,8 @@
+#content {
+	padding: 20px 100px;
+	text-align: center;
+}
+
 #big_logo {
 	width: 100%;
 	background: #E3E3E3;
@@ -6,9 +11,43 @@
 
 #big_logo h1 {
 	width: 30%;
-	font-size: 40px;
+	font-size: 48px;
 	font-weight: 300;
 	text-align: center;
-	color: #777;
+	color: #333;
 	margin: 0px auto;
+	position: relative;
+	top: 40%;
+}
+
+.big_section {
+	padding: 10px;
+	display: block;
+	margin: 20px 0;
+	font-size: 20px;
+}
+
+.big_section_header {
+	text-align: center;
+	font-size: 28px;
+	color: #FB9E25;
+}
+
+.section {
+	padding: 10px 20px;
+	max-width: 400px;
+	display: inline-block;
+	margin: 0 auto;
+	vertical-align: top;
+}
+
+.section_header {
+	color: #333;
+	font-size: 24px;
+	text-align: center;
+}
+
+.section .section_info {
+	color: #777;
+	font-size: 18px;
 }

@@ -10,12 +10,12 @@ $(document).ready(function(){
 	get_offers()
 	geolocation()
 
-	$("#info_close").click(function(){
-		$("#info_bar").slideToggle(300)
+	$(".info_close").click(function(){
+		$(".info_bar").slideToggle(300)
 	});
 
-	$("#info_tab").click(function(){
-		$("#info_bar").slideToggle(300)
+	$(".info_tab").click(function(){
+		$(".info_bar").slideToggle(300)
 	});
 });
 
@@ -114,7 +114,7 @@ function get_offers(){
 		type:'get',
 		url:'offers/show/?latitude='+latitude+'&longitude='+longitude+'&tag_id='+tag_id+'&subtag_id='+subtag_id,
 		success:function(data){
-			$("update").html(data)
+			$("#grid").html(data)
 		}
 	})
 }

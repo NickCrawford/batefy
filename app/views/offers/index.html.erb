@@ -4,7 +4,7 @@
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false" %>
 
 <div id="search_page">
-	<div id="info_tab"><i class="fa fa-question-circle fa-lg"></i></div>
+	<div class="info_tab"><i class="fa fa-question-circle fa-lg"></i></div>
 	<div id="position_map_modal" class="modal">
 		<div>
 			<h3>Current Location</h3>
@@ -18,13 +18,13 @@
 	<% if (!is_user_signed_in) && (!is_business_signed_in) %>
 	<% display = "block" %>
 	<% end %>
-	<div id="info_bar" style="display: <%= display %>">
-			<div id="info_bar_content">
+	<div class="info_bar" style="display: <%= display %>">
+			<div class="info_bar_content">
 				<h1>Benvenuti a Batefy</h1>
 				<p>
 				Trova i migliori sconti alla carta su qualsiasi attività tu abbia in programma nelle prossime 24h…scarica lo sconto SENZA IMPEGNO, GRATIS e SOLO SE LO USI paghi direttamente alla cassa! <%= link_to "COME FUNZIONA", {controller:"pages", action:"show", page:"about"} , class: cp("/pages/show?page=about") %></p>
 			</div>
-			<div id="info_close"><i class="fa fa-times fa-lg"></i></div>
+			<div class="info_close"><i class="fa fa-times fa-lg"></i></div>
 	</div>
 	<div id="filter_container">
 		<div id="filter_box">
@@ -56,8 +56,8 @@
 		</div>
 
 	</div>
-	<div id="update">
+	<ul id="grid">
 	<%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}) %>
-	</div>
+	</ul>
 
 </div>

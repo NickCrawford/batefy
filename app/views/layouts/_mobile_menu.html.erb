@@ -14,7 +14,8 @@
 			<li><%= link_to "Browse", {:controller=>"offers", :action=>"index"}, class: cp("/") %></li>
 			<li><%= link_to "About", {:controller=>"pages", :action =>"show", :page => "about"} , class: cp("/pages/show?page=about")%></li>
 			<% if is_user_signed_in %>
-			<li><%= link_to "My Offers", "#" , class: cp("#")%></li>
+			<li><%= link_to "My Offers", {controller: "user", action:"my_offers"} , class: cp("myoffers")%>
+			</li>
 			<% end %>
 			<% if is_business_signed_in or is_user_signed_in%>
 			<li>

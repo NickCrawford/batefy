@@ -221,7 +221,7 @@ header {
 }
 
 
-#info_bar {
+.info_bar {
 	width: 100%;
 	padding: 10px 0;
 	background: #F5F5F5;
@@ -229,14 +229,14 @@ header {
 	z-index: 300;
 }
 
-#info_bar_content {
+.info_bar_content {
 	width: 80%;
 	margin: 0 auto;
 	display: block;
 	position: relative;
 }
 
-#info_bar_content h1 {
+.info_bar_content h1 {
 	width: 100%;
 	display: inline-block;
 	margin: 0 auto;
@@ -245,7 +245,7 @@ header {
 	font-weight: 300;
 	text-align: center;
 }
-#info_bar_content p {
+.info_bar_content p {
 	display: inline-block;
 	color: #777; 
 	font-size: 18px;
@@ -255,7 +255,7 @@ header {
 	line-height: 1.5;
 }
 
-#info_bar_content a {
+.info_bar_content a {
 	display: inline-block;
 	color: #333; 
 	font-size: 18px;
@@ -270,15 +270,15 @@ header {
 	transition: color .3s ease;
 }
 
-#info_bar_content a:hover {
+.info_bar_content a:hover {
 	 color: #FB9E25;
 }
 
-#info_bar_footer{
+.info_bar_footer{
 	float: right;
 }
 
-#info_close {
+.info_close {
 	position: absolute;
 	right: 20px;
 	top: 50%;
@@ -298,12 +298,12 @@ header {
 	transition: color .3s ease;
 }
 
-#info_close:hover {
+.info_close:hover {
 	color: #FB9E25;
 }
 
 /* Styles for info bar headers */
-#info_tab {
+.info_tab {
 	position: absolute;
 	top: 64px;
 	right: 0;
@@ -324,13 +324,13 @@ header {
 	transition: color .3s ease;
 }
 
-#info_tab i {
+.info_tab i {
 	position: relative;
 	top: 20%;
 
 }
 
-#info_tab:hover {
+.info_tab:hover {
 	color: #FB9E25;
 }
 
