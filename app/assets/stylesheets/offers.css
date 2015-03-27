@@ -108,39 +108,58 @@ main {
 
 #position_map_modal > div {
 	width: 60%;
-	height: 60%;
-	min-height: 300px;
+	height: auto;
 	min-width: 250px;
 	position: relative;
 	margin: 5% auto;
 	padding: 10px 20px;
 	border-radius: 3px;
 	background: white;
+	vertical-align: text-bottom;
 }
 
 #position_map {
 	display: block;
-	position: relative;
+	margin: 0 auto;
 	width: 100%;
-	height: 80%;
+	height: 50vh;
 	border-radius: 3px;
 }
 
-#position_map_modal > div h3 {
+#position_map_modal > div h1 {
 	display: inline-block;
 	margin: 5px;
 	font-size: 20px;
 	font-weight: 300;
 	color: #777;
 }
-#position_map_modal > div p {
+#position_map_modal > div h2 {
+	height: auto;
 	display: inline-block;
-	text-align: center;
-	margin: 5px;
-	font-size: 14px;
+	margin: 10px;
+	font-size: 20px;
 	font-weight: 300;
 	color: #777;
 }
+#position_map_modal_footer {
+	height: 100%;
+	min-height: 60px;
+	text-align: center;
+}
+
+#position_map_modal_footer::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#position_map_modal_right {
+	width: 100%;
+	height: auto;
+	display: inline-block;
+	float: right;
+}
+
 
 #map_close {
 	float: right;
@@ -434,6 +453,7 @@ main {
 	#tag_bar{width: 100%; top: 0; margin: 0; padding: 0;}
 	#position_map_modal { background-color: #FFF;}
 	#position_map_modal > div { width: 90%; height: 90%; margin: 20px auto; padding: 0;}
+	#position_map {height: 64vh;}
 }
 
 /* Phone specific styles */

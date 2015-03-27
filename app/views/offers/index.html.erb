@@ -7,11 +7,16 @@
 	<div class="info_tab"><i class="fa fa-question-circle fa-lg"></i></div>
 	<div id="position_map_modal" class="modal">
 		<div>
-			<h3>Current Location</h3>
+			<h1>Current Location</h1>
 			<div id="map_close">Done</div>
 			<div id="position_map"></div>
-			<p>Double Click to Select a Location</p>
-			<%= text_field_tag(:address_bar, "", placeholder: "Enter address and press enter")%>
+				<div id="position_map_modal_footer">
+					<h2>Double Click the Map to Select a Location</h2>
+					<div id="position_map_modal_right">
+						<%= text_field_tag(:address_bar, "", placeholder: "Enter address", class: "text_input")%>
+						<%= button_tag("Search" , type: "button" , class: "submit_btn", id: "address_button") %>
+					</div>
+				</div>
 		</div>
 	</div>
 	<% display = "none" %>
