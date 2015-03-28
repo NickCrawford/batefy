@@ -21,8 +21,8 @@
 					<% end %>
 					<tr>
 						<td colspan="5"><h1><%= time.strftime('%B') %></h1><h2><%= time.strftime('%Y') %></h2></td>
-						<td colspan="2"> <div class="change_month" data-id=<%=i-1%>><i class="fa fa-angle-left fa-2x"></i></div>
-						<div class="change_month" data-id=<%=i+1%>><i class="fa fa-angle-right fa-2x"></i></div></td>
+						<td colspan="2"> <div class="change_month <%= ((i == 0)? 'change_month_inactive':'') %>" data-id=<%=i-1%>><i class="fa fa-angle-left fa-2x"></i></div>
+						<div class="change_month <%= ((i == 5)? 'change_month_inactive':'') %>" data-id=<%=i+1%>><i class="fa fa-angle-right fa-2x"></i></div></td>
 					</tr>
 					<th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
 					<% if !time.sunday? %>

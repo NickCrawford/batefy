@@ -15,7 +15,7 @@ table {
 }
 
 h1 {
-	font-family: 'Raleway';
+	font-family: 'Raleway', sans-serif;
 	text-align: left;
 	font-size: 40px;
 	font-weight: 400;
@@ -59,6 +59,11 @@ td {
 
 .change_month:hover { 
 	color: #FB9E25;
+}
+
+.change_month_inactive {
+	color: #777;
+	cursor: default;
 }
 
 .week td {
