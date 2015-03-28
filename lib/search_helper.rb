@@ -34,13 +34,13 @@ class SearchHelper
 	end
 
 	def filter_by_date(offers)
-		now = Time.now.to_i
+		now = Time.now.in_time_zone("Rome").to_i
 		filtered_offers = []
 		offers.each do |offer|
 			date = offer.offer_dates.last
-			active_from = Time.at(date.visible_from).to_i
-			end_time = Time.at(date.end_time).to_i
-			unless (now>end_time) 
+			active_from = Time.at(date.visible_from).in_time_zone("Rome").to_i
+			end_time = Time.at(date.end_time).in_time_zone("Rome").to_i
+			unless (now>end_time || now < active_from) 
 				filtered_offers << offer
 			end
 		end

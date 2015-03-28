@@ -4,10 +4,10 @@
 <% offers_dates = {} %>
 <% @business.offers.each do |offer| %>  
 	<% offer_date = offer.offer_dates.last %>
-	<% offer_day = Time.at(offer_date.start_time).beginning_of_day.to_i %>
+	<% offer_day = Time.at(offer_date.start_time).in_time_zone("Rome").beginning_of_day.to_i %>
 	<% offers_dates[offer_day].blank? ? offers_dates[offer_day] = [offer.id] : offers_dates[offer_day] << offer.id %>  
 <% end %>
-<% time=Time.zone.now.beginning_of_month %>
+<% time=Time.now.in_time_zone("Rome").beginning_of_month %>
 <div class="month_display">
 	<ul class="month_pages">
 		<% 6.times do |i| %>
@@ -36,7 +36,7 @@
 							<tr class="week">
 						<%end%>
 
-						<% if time < Time.zone.now %>
+						<% if time < Time.now.in_time_zone("Rome") %>
 							<td class="day_inactive">
 								<div class="number">
 									<%= time.day %>

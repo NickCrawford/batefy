@@ -3,7 +3,6 @@ function geolocation(){
   $("#spinner").show()
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(set_position, function(error){
-      alert('Sharing your location helps us showing you the best offers around you')
       $("#spinner").hide()
     });
   }

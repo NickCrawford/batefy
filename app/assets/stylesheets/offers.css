@@ -20,7 +20,7 @@ main {
 	background-position: center;
 	text-align: center;
 	z-index: 100;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 #filter_box {
@@ -34,7 +34,7 @@ main {
 	padding:25px;
 	background-color: rgba(69,79,140, 0.85);
 	border-radius: 3px;
-	overflow: hidden;
+	overflow: visible;
 
 	-webkit-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
 	-moz-box-shadow: inset 0px 0px 20px -10px rgba(0,0,0,1);
