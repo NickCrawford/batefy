@@ -314,7 +314,8 @@ header {
 	border-bottom-left-radius: 3px;
 	cursor: pointer;
 	cursor: hand;
-	color: #F5F5F5 ;rgb(69,79,140);
+	color: #F5F5F5 ;
+	
 	z-index: 200;
 
 	-o-transition: color .3s ease;
