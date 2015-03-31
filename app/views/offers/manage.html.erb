@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag "manage.css" %>
 <%= javascript_include_tag "manage.js" %>
 
+<% time_zone="Rome"%>
 <% offers_dates = {} %>
 <% @business.offers.each do |offer| %>  
 	<% offer_date = offer.offer_dates.last %>
-	<% offer_day = Time.at(offer_date.start_time).beginning_of_day.to_i %>
+	<% offer_day = Time.at(offer_date.start_time).in_time_zone(time_zone).beginning_of_day.to_i %>
 	<% offers_dates[offer_day].blank? ? offers_dates[offer_day] = [offer.id] : offers_dates[offer_day] << offer.id %>  
 <% end %>
 <% time=Time.now.beginning_of_month %>
@@ -36,7 +37,7 @@
 							<tr class="week">
 						<%end%>
 
-						<% if time < Time.now.in_time_zone("Rome").beginning_of_day %>
+						<% if time < Time.now.beginning_of_day %>
 							<td class="day_inactive">
 								<div class="number">
 									<%= time.day %>
@@ -49,12 +50,12 @@
 									<%= time.day %>
 								</div>
 								<div class='day_offers_preview'>
-									<% if(offers=offers_dates[time.beginning_of_day.to_i]) %>
+									<% if(offers=offers_dates[time.in_time_zone(time_zone).beginning_of_day.to_i]) %>
 										<% offers.each do |offer_id| %>
 											<% offer = Offer.find(offer_id) %>
 											<% offer_date = offer.offer_dates.last %>
-											<% start_time = Time.at(offer_date.start_time) %>
-											<% end_time = Time.at(offer_date.end_time) %>
+											<% start_time = Time.at(offer_date.start_time).in_time_zone(time_zone) %>
+											<% end_time = Time.at(offer_date.end_time).in_time_zone(time_zone) %>
 											<p><%= offer.percentage.to_s+'%'%>
 											<%= start_time.hour %>:<%= format('%02d',start_time.min) %>
 											<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
