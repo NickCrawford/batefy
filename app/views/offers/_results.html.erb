@@ -20,9 +20,9 @@
 			<figcaption>
 				<h3><%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}) %><i><%=offer.business.distance_from(latitude+', '+longitude).round(2)%> km</i></h3>
 				<% date = offer.offer_dates.last %>
-				<% start_time = Time.at(date.start_time) %>
-				<% end_time = Time.at(date.end_time) %>
-				<% visible_from = Time.at(date.visible_from) %>
+				<% start_time = Time.at(date.start_time).in_time_zone("Rome") %>
+				<% end_time = Time.at(date.end_time).in_time_zone("Rome") %>
+				<% visible_from = Time.at(date.visible_from).in_time_zone("Rome") %>
 				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
 				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
 				<% if is_user_signed_in %>

@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']
 	validates_inclusion_of :gender, {:in => [0,1,2], :allow_blank => true, :allow_nil => true}
 	validate :lat_changed?, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
+	validates :terms, :acceptance => true
 
 	scope :order_by_name, lambda{ order('name ASC')}
 

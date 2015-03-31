@@ -74,7 +74,7 @@ class OffersController < ApplicationController
     def require_parameters
       params.delete(:action)
       params.delete(:controller)
-      redirect_to(:controller=>'business', :action => 'sign_in') if params.blank? #maybe it shouldnt be sign_in
+      redirect_to(:controller=>'business', :action => 'sign_in') if params.blank?
     end
 
     def require_offer_ownership
@@ -93,12 +93,12 @@ class OffersController < ApplicationController
       end_hour, end_minute = params[:offer]['time_end(4i)'].to_i, params[:offer]['time_end(5i)'].to_i
       visible_hour = start_hour - params[:offer][:visible_from].to_i
       if visible_hour < 0 
-        params[:offer][:visible_from] = (Time.new(year,month,day,24+visible_hour,start_minute)-1.day).to_i
+        params[:offer][:visible_from] = (Time.new(year,month,day,24+visible_hour,start_minute)-1.day).in_time_zone("Rome").to_i
       else
-        params[:offer][:visible_from] = Time.new(year,month,day,visible_hour,start_minute).to_i
+        params[:offer][:visible_from] = Time.new(year,month,day,visible_hour,start_minute).in_time_zone("Rome").to_i
       end
-      params[:offer][:start_time] = Time.new(year,month,day,start_hour,start_minute).to_i
-      params[:offer][:end_time] = Time.new(year,month,day,end_hour,end_minute).to_i
+      params[:offer][:start_time] = Time.new(year,month,day,start_hour,start_minute).in_time_zone("Rome").to_i
+      params[:offer][:end_time] = Time.new(year,month,day,end_hour,end_minute).in_time_zone("Rome").to_i
       return params[:offer][:end_time] > params[:offer][:start_time]
     end
 
