@@ -4,15 +4,8 @@
 }
 
 #grid figure:hover img {
-	-webkit-transform: translateY(0);
-	-moz-transform: translateY(0);
-	-ms-transform: translateY(0);
-	transform: translateY(0);
 }
 
 #grid figure:hover figcaption{
-	-webkit-transform: translateY(0);
-	-moz-transform: translateY(0);
-	-ms-transform: translateY(0);
-	transform: translateY(0);
+	
 }

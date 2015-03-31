@@ -1,5 +1,8 @@
 <%= stylesheet_link_tag('offers.css')%>
 <%= stylesheet_link_tag('my_offers.css') %>
+<%= javascript_include_tag "offers.js" %>
+
+<% time_zone="Rome"%>
 <div id="search_page">
 <div class="info_bar" style="display: <%= display %>">
 			<div class="info_bar_content">
@@ -24,12 +27,14 @@
 			<figcaption>
 				<h3><%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}) %></h3>
 				<% date = offer.offer_dates.last %>
-				<% start_time = Time.at(date.start_time) %>
-				<% end_time = Time.at(date.end_time) %>
+				<% start_time = Time.at(date.start_time).in_time_zone(time_zone) %>
+				<% end_time = Time.at(date.end_time).in_time_zone(time_zone) %>
 				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
 				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+				<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Remove Offer</div>
 				</figcaption>
 			</figure>
+			
 		</li>
 		<% end %>
 		<% end %>
