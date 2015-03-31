@@ -1,13 +1,3 @@
-
-function geolocation(){
-  $("#spinner").show()
-  if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(set_position, function(error){
-      $("#spinner").hide()
-    });
-  }
-}
-
 $(document).ajaxStart(function(){
   $('#spinner').show()
 });

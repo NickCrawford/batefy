@@ -4,12 +4,9 @@ tag_id=''
 subtag_id=''
 
 $(document).ready(function(){
-	$("#info_modal").show()
 	latitude = $("#latitude").val();
 	longitude = $("#longitude").val();
 	get_offers()
-	geolocation()
-
 	$(".info_close").click(function(){
 		$(".info_bar").slideToggle(300)
 	});
@@ -30,15 +27,13 @@ $(document).on('keyup','#address_bar',function(e){
 		latitude = $(this).val()
 		longitude=""
 		get_offers()
-		$("#map_close").click()
 	}
 })
 
 $(document).on('click','#address_button',function(){
-	latitude = $(this).val()
+	latitude = $("#address_bar").val()
 	longitude=""
 	get_offers()
-	$("#map_close").click()
 })
 
 $(document).on('click','.subtag_button', function(){
@@ -59,16 +54,17 @@ $(document).on('click','.tag_button', function(){
     $("#filter_box").animate({
         height: $("#subtag"+id).height() + $("#filter_box").height() - 55}, 300, function() {
         	$("#subtag"+id).fadeIn(200)
-        	//$("#filter_box").css({overflow: "scroll"})
+        	$("#filter_box").css("height", "auto")
     	});
 });
 
 $(document).on('click','.tag_close', function(){
 	$(".subtag_bar").fadeOut(200)
+	$("#tag_bar").fadeIn(200)
 	$("#filter_box").animate({
         height: $("#filter_box").height() - $(this).parent().parent().height() + 55}, 300, function() {
         	$("#tag_bar").fadeIn(200)
-        	//$("#filter_box").css({overflow: "scroll"})
+        	$("#filter_box").css("height", "auto")
     	});
 })
 
@@ -98,14 +94,8 @@ $(document).on('click','.delete_offer_btn', function(){
 	})
 })
 
-$(document).on('click','#map_tab', function(){
-	$('#position_map_modal').fadeIn(300)
-	map = add_map('position_map')
-	add_map_event(map)
-})
-
-$(document).on('click','#map_close', function(){
-	$('#position_map_modal').fadeOut(300)
+$(document).on('click','#my_location',function(){
+	geolocation()
 })
 
 function get_offers(){
@@ -126,23 +116,3 @@ function set_position(position){
 	get_offers()
 }
 
-function add_map(map_name){
-	var info={
-	    coords:{latitude: latitude ,longitude:longitude},
-	    zoom:  15,
-	    mapId: map_name
-	}
-  	return create_map(info)
-}
-
-function add_map_event(map){
-	google.maps.event.addListener(map, 'dblclick', function(event) {
-    	latitude = event.latLng.lat()
-    	longitude = event.latLng.lng()
-    	var latlng = new google.maps.LatLng(latitude, longitude);
-    	var address = get_address_from_coordinates(latlng)
-    	console.log(address)
-    	$("#address_string").text(address)
-    	get_offers()
-  	})
-}

@@ -13,7 +13,7 @@ main {
 #filter_container {
 	display: block;
 	width: 100%;
-	padding-top: 50px;
+	padding: 50px 0;
 	/* background-color: #F5F5F5; */
 	background-image: url('indexheader.jpg');
 	background-size: auto;
@@ -45,10 +45,6 @@ main {
 	transition: transform 0.4s ease;
 }
 
-.subtag_bar {
-	z-index: 100;
-}
-
 #filter_box h2 {
 	margin-bottom: 10px;
 	color: white;
@@ -57,17 +53,21 @@ main {
 	z-index: 100;
 }
 
-.subtag_header_ctn {
-	position: relative;
-	margin-bottom: 10px;
-	color: white;
-}
-
 #filter_box h3 {
 	width: 100%;
 	font-weight: 300;
 	font-size: 24px;
 	display: inline-block;
+}
+
+.subtag_bar {
+	z-index: 100;
+}
+
+.subtag_header_ctn {
+	position: relative;
+	margin-bottom: 10px;
+	color: white;
 }
 
 .tag_close {
@@ -95,119 +95,40 @@ main {
 	color: #E3E3E3;
 }
 
-.modal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0,0,0,0.8);
-	z-index: 99999;
-}
-
-#position_map_modal > div {
-	width: 60%;
-	height: auto;
-	min-width: 250px;
-	position: relative;
-	margin: 5% auto;
-	padding: 10px 20px;
-	border-radius: 3px;
-	background: white;
-	vertical-align: text-bottom;
-}
-
-#position_map {
-	display: block;
-	margin: 0 auto;
-	width: 100%;
-	height: 50vh;
-	border-radius: 3px;
-}
-
-#position_map_modal > div h1 {
-	display: inline-block;
-	margin: 5px;
-	font-size: 20px;
-	font-weight: 300;
-	color: #777;
-}
-#position_map_modal > div h2 {
-	height: auto;
-	display: inline-block;
-	margin: 10px;
-	font-size: 20px;
-	font-weight: 300;
-	color: #777;
-}
-#position_map_modal_footer {
+#location_bar {
+	margin-top: 40px; 
 	height: 100%;
-	min-height: 60px;
+	vertical-align: center;
 	text-align: center;
 }
 
-#position_map_modal_footer::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-#position_map_modal_right {
-	width: 100%;
-	height: auto;
-	display: inline-block;
-	float: right;
-}
-
-
-#map_close {
-	float: right;
-	display: inline-block;
+#my_location {
 	padding: 5px;
-	color: #333;
-	cursor: pointer;
-	background-color:#FFF;
-	border-radius: 3px;
-	text-align: center;
-}
-
-#map_close:hover {
-	background-color: #E3E3E3;
-}
-
-#map_tab {
-	display: block;
-
-	margin: 20px auto; 
-	width: 120px;
-	height: 120px;
-	cursor: pointer;
-	cursor: hand;
-	border: 1px solid #000;
-	color: #333;
-	border-radius: 120px;
-	background-color: rgba(255,255,255,0.9);
-
-	-o-transition: all .3s ease;
-	-ms-transition: all .3s ease;
-	-moz-transition: all .3s ease;
-	-webkit-transition: all .3s ease;
-	transition: all .3s ease;
-} 
-
-#map_tab > div {
 	position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+	right: -35px;
+	cursor: hand;
+	cursor: pointer;
 }
 
-#map_tab:hover {
-	color: #000;
-	border-color: #000;
-	background-color: rgba(227,227,227,0.9);
+#my_location:hover {
+	color: #FB9E25;
+}
+
+#address_bar {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;	
+	padding: 11px 10px 11px 40px;
+	border: 1px solid #FFF;
+	border-right: none;
+}
+
+#address_button {
+	position: relative;
+	left: -9px;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	border: 1px solid #FFF;
+	border-left: none;
 }
 
 .search_button {
@@ -220,10 +141,8 @@ main {
 	background-color: transparent;
 	color:   #FFF;
 	font-size: 16px;
-
 	cursor: hand;
 	cursor: pointer;
-
  	-o-transition: background-color .3s ease;
 	-ms-transition: background-color .3s ease;
 	-moz-transition: background-color .3s ease;

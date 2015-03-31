@@ -1,3 +1,13 @@
+function geolocation(){
+  $("#spinner").show()
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(set_position, function(error){
+      $("#spinner").hide()
+      alert("You need to allow geolocation")
+    });
+  }
+}
+
 function create_map(info){
 	var mapOptions={
          	center: new google.maps.LatLng(info.coords.latitude,info.coords.longitude),
