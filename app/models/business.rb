@@ -35,7 +35,8 @@ class Business < ActiveRecord::Base
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']
 	validate :lat_changed?, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
-	
+	validates :terms, :acceptance => true
+
 	private
 
 		def examine_password
