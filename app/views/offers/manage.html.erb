@@ -64,12 +64,12 @@
 								</div>
 							</td>
 							<!-- Create modal for each day -->
-							<div class="day_info" id="<%= time.to_i%>">
+							<div class="modal" id="<%= time.to_i%>">
 								<div>		
-									<div class="info_header">
+									<div class="header">
 										<div class="date"><h4><%= time.strftime('%b') %><h3><%= time.day %></h3></h4></div>
 										<div class="weekday"><h1><%= time.strftime('%A') %></h1></div>
-										<div class="close" data-id=<%= time.to_i%> >Done</div>
+										<div class="close" data-id=<%= time.to_i%> ><i class="fa fa-times fa-lg"></i></div>
 									</div>
 									<div class="row_info">
 										<div class="cell"><b>Percentage</b></div>
@@ -101,7 +101,7 @@
 										<% end %>
 									</div>
 									<div class="offers_container">	
-										<% if(offers=offers_dates[time.beginning_of_day.to_i]) %>
+										<% if(offers=offers_dates[time.in_time_zone(time_zone).beginning_of_day.to_i]) %>
 											<% offers.each do |offer_id| %>
 												<% offer = Offer.find(offer_id) %>
 												<% offer_date = offer.offer_dates.last %>

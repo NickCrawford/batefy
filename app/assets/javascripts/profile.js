@@ -33,8 +33,4 @@ $(document).ready(function(){
 		$("#confirm").css("pointer-events","auto")
 	});
 	
-	$("#modal_close").click(function(){
-		$("#confirm").fadeOut(300)
-	});
-
 });

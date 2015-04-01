@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "offers.css" %>
+<%= stylesheet_link_tag "index.css" %>
 <%= javascript_include_tag "offers.js" %>
 <%= javascript_include_tag "index.js" %>
 <%= javascript_include_tag "maps.js" %>
@@ -39,12 +40,13 @@
 			<% end %>
 		</div>
 		<div id="location_bar">
-			<i class="fa fa-map-marker fa-lg" id="my_location"></i>
-			<%= text_field_tag(:address_bar, "", placeholder: "Enter address", class: "text_input")%>
+			<i class="fa fa-map-marker fa-lg" id="my_location" title="Use current location"></i>
+			<%= text_field_tag(:address_bar, "", placeholder: "Where?", class: "text_input")%>
 			<%= button_tag("Search" , type: "button" , class: "submit_btn", id: "address_button") %>
 		</div>
 	</div>
 	<ul id="grid">
 	<%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}) %>
 	</ul>
+	<div id="spinner"><i class="fa fa-circle-o-notch fa-3x fa-spin"></i><div>
 </div>

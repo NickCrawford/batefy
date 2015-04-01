@@ -66,13 +66,17 @@
   <p class='clear'></p>
 </div>
 
-  <div class="modal_box" id="confirm">
-    <div>
-      <h3>Confirm Password</h3>
-      <p>Please type your password to save changes to your profile.</p><br>
-      <div><%= f.password_field(:old_password, :id => "confirm_field", :maxlength => 40, :autocomplete => "off") %></div>
-      <%= f.submit("Confirm", :class => "submit_btn") %>or 
-      <button type="button" id="modal_close">Cancel</button>
+  <div class="modal" id="confirm">
+  <div>
+    <div class="header">
+      <h1>Confirm Password</h1>
+      <div class="close"><i class="fa fa-times fa-lg"></i></div>
+    </div>
+    <div class="body">
+      <p>Please type your password to save changes to your profile.</p>
+      <div><%= f.password_field(:old_password, :id => "confirm_field", :maxlength => 40, :autocomplete => "off", class: "text_input") %></div>
+      <%= f.submit("Confirm", :class => "submit_btn") %>
     </div>
   </div>
+</div>
   <% end %>

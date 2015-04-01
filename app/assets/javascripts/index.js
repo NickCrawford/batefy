@@ -7,6 +7,7 @@ $(document).ready(function(){
 	latitude = $("#latitude").val();
 	longitude = $("#longitude").val();
 	get_offers()
+	geolocation()
 });
 
 $(document).on('click','.info_toggle', function(){
@@ -57,7 +58,7 @@ $(document).on('click','.tag_button', function(){
 
 $(document).on('click','.tag_close', function(){
 	$(".subtag_bar").fadeOut(200)
-	$("#tag_bar").fadeIn(200)
+	$("#tag_bar").delay(200).fadeIn(200)
 	$("#filter_box").animate({
         height: $("#filter_box").height() - $(this).parent().parent().height() + 55}, 300, function() {
         	$("#tag_bar").fadeIn(200)

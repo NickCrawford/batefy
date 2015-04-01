@@ -34,3 +34,8 @@ $(document).mouseup(function (e)
         $("#mobile_menu").hide()
     }
 });
+
+ //closes modal boxes
+$(document).on('click','.modal .header .close', function(){
+    $(this).parent().parent().parent().fadeOut(300)
+});

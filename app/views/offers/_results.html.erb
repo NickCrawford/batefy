@@ -1,50 +1,18 @@
-	<% time_zone="Rome"%>
-	<%= hidden_field_tag(:latitude, latitude) %>
-	<%= hidden_field_tag(:longitude, longitude) %>
-	<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
-	<% subtag_name = Subtag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name %>
-	<div id="grid_header">
-		<h2>Offers</h2>
-		<h3><%= tag_name.empty? ? "Nearby" : "#{tag_name}" %><u><%= subtag_name.empty? ? "" : " > " %></u><%= subtag_name%></h3>
-	</div>
-	<% if offers.blank? %>
+<% time_zone="Rome"%>
+<%= hidden_field_tag(:latitude, latitude) %>
+<%= hidden_field_tag(:longitude, longitude) %>
+<% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>
+<% subtag_name = Subtag.find_by_id(subtag_id).nil? ? "" : Subtag.find_by_id(subtag_id).name %>
+<div id="grid_header">
+	<h2>Offers</h2>
+	<h3><%= tag_name.empty? ? "Nearby" : "#{tag_name}" %><u><%= subtag_name.empty? ? "" : " > " %></u><%= subtag_name%></h3>
+</div>
+<% if offers.blank? %>
 	<h4><%= "No offers to display" %></h4>
-	<% else %>
+<% else %>
 	<% offers.each do |offer| %>
-	<li>
-		<figure>
-			<div class="percent_label <%= offer.percentage.to_words %>">
-				<h2><%= offer.percentage %>%</h2>
-			</div>
-			<%= image_tag(offer.business.image.url) %>
-			<figcaption>
-				<h3><%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}) %><i><%=offer.business.distance_from(latitude+', '+longitude).round(2)%> km</i></h3>
-				<% date = offer.offer_dates.last %>
-				<% start_time = Time.at(date.start_time).in_time_zone(time_zone) %>
-				<% end_time = Time.at(date.end_time).in_time_zone(time_zone) %>
-				<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
-				<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
-				<% if is_user_signed_in %>
-					<% if !has_user_gotten_offer(offer.id)%>
-						<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Get Offer</div>
-					<% else %>
-						<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Remove Offer</div>
-					<% end %>
-				<% elsif is_business_signed_in %>
-					<% if offer.business.id == Business.find(session[:business_id]).id %>
-					<%= link_to("Manage My Offers", {controller: 'offers', action: 'manage'}, class: 'offer_btn') %>
-					<% else %>
-						<%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}, class: 'offer_btn') %>
-					<% end%>
-				<% else %>
-					<%= link_to("Sign In To Get Offers", {controller: 'sign_in_out', action: 'sign_in'}, class: 'offer_btn') %>
-				<% end %>
-				</figcaption>
-			</figure>
+		<li>
+			<%= render(partial: "offer", locals: {offer: offer, latitude: latitude, longitude: longitude, time_zone: time_zone}) %>
 		</li>
-		<% end %>
-		<% end %>
-
-
-
-
+	<% end %>
+<% end %>

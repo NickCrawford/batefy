@@ -17,7 +17,9 @@ class UserController < ApplicationController
  end
 
 def profile
- @user = User.find(session[:user_id])
+  @user = User.find(session[:user_id])
+  @latitude = request.location.latitude.to_s
+  @longitude = request.location.longitude.to_s
 end
 
 def profile_update
@@ -36,14 +38,20 @@ def my_offers
  @offers=search.filter_by_date(@offers)
 end
 
-def get_offer
+def show_offer
+  @latitude = params[:latitude]
+  @longitude = params[:longitude]
+  
+end
+
+def save_offer
  user = User.find(session[:user_id])
  offer = Offer.find_by_id(params[:offer_id])
  user.offers << offer
  render :nothing => true
 end
 
-def delete_offer
+def unsave_offer
   user = User.find(session[:user_id])
   offer = Offer.find_by_id(params[:offer_id])
   user.offers.delete(offer)
