@@ -59,7 +59,7 @@ $(document).on('click','.tag_button', function(){
     $("#filter_box").animate({
         height: $("#subtag"+id).height() + $("#filter_box").height() - 55}, 300, function() {
         	$("#subtag"+id).fadeIn(200)
-        	//$("#filter_box").css({overflow: "scroll"})
+        	$("#filter_box").css({overflow: "scroll"})
     	});
 });
 
@@ -68,7 +68,7 @@ $(document).on('click','.tag_close', function(){
 	$("#filter_box").animate({
         height: $("#filter_box").height() - $(this).parent().parent().height() + 55}, 300, function() {
         	$("#tag_bar").fadeIn(200)
-        	//$("#filter_box").css({overflow: "scroll"})
+        	$("#filter_box").css({overflow: "scroll"})
     	});
 })
 
