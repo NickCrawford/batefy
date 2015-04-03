@@ -13,6 +13,7 @@ $(document).on('click','.get_offer_btn', function(){
 
 $(document).on('click','.delete_offer_btn', function(){
 	var button = $(this)
+	
 	$.ajax({
 		type:'get',
 		url:'/user/unsave_offer/?offer_id='+$(this).data('offer-id'),
@@ -37,7 +38,6 @@ $(document).on('click','.show_offer',function(){
 	}
 	var map = create_map(info)
 	create_map_marker(map, latitude, longitude)
-
 })
 
 

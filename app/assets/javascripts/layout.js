@@ -39,3 +39,7 @@ $(document).mouseup(function (e)
 $(document).on('click','.modal .header .close', function(){
     $(this).parent().parent().parent().fadeOut(300)
 });
+
+$(document).on('click','.modal', function(){
+   
+});

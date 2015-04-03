@@ -1,0 +1,68 @@
+<% date = offer.offer_dates.last %>
+<% start_time = Time.at(date.start_time).in_time_zone(time_zone) %>
+<% end_time = Time.at(date.end_time).in_time_zone(time_zone) %>
+
+<figure>
+	<div class="percent_label <%= offer.percentage.to_words %>">
+		<h2><%= offer.percentage %>%</h2>
+	</div>
+	<%= image_tag(offer.business.image.url, class: "show_offer", data: {id: offer.id, latitude: offer.business.latitude, longitude: offer.business.longitude}) %>
+	<figcaption>
+		<h3><%= offer.business.name %>
+		<% unless latitude.empty? || longitude.empty? %>
+			<i><%=offer.business.distance_from(latitude+', '+longitude).round(2)%> km</i>
+		<% end %>
+		</h3>
+		<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
+		<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+		<% if is_user_signed_in %>
+			<% if !has_user_gotten_offer(offer.id)%>
+				<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Save Offer</div>
+			<% else %>
+				<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Unsave Offer</div>
+			<% end %>
+		<% elsif is_business_signed_in %>
+			<% if offer.business.id == Business.find(session[:business_id]).id %>
+			<%= link_to("Manage Offers", {controller: 'offers', action: 'manage'}, class: 'offer_btn') %>
+			<% else %>
+				<%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}, class: 'offer_btn') %>
+			<% end%>
+		<% else %>
+			<%= link_to("Sign In to Save", {controller: 'sign_in_out', action: 'sign_in'}, class: 'offer_btn') %>
+		<% end %>
+			<div class="offer_btn show_offer" data-id="<%=offer.id%>" data-latitude="<%=offer.business.latitude%>"
+				data-longitude="<%=offer.business.longitude%>">Show Offer</div>
+	</figcaption>
+</figure>
+
+<div class="modal" id="<%= offer.id %>">
+	<div>
+		<div class="header">
+			<div class="percent_label <%= offer.percentage.to_words %>">
+				<h2><%= offer.percentage %>%</h2>
+			</div>
+			<h1><%= offer.business.name %></h1>
+			<div class="close"><i class="fa fa-times fa-lg"></i></div>
+		</div>
+		<div class="body">
+			<h2>
+				<%= start_time.strftime("%d/%m/%y") %>
+			</h2>
+			<h2>
+				<%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
+				<%= end_time.hour %>:<%= format('%02d',end_time.min) %>
+			</h2>
+			<div class="offer_map" id="map_<%=offer.id%>"></div>
+					
+			<ul>
+				<li><div class="submit_btn get_directions" data-address="<%= offer.business.address %>">Get Directions</div></li>
+			    <li><%= offer.business.address %></li>
+			    <li><%= "#{offer.business.city}, #{offer.business.state}  #{offer.business.zip}"%></li>
+			    <li><%= offer.business.country %></li>
+			    <li><%= offer.business.phone %></li>
+			    <li><%= offer.business.email %></li>
+			    <li><%= offer.business.website%></li>
+			</ul>
+		</div>
+	</div>
+</div>

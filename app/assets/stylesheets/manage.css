@@ -57,12 +57,12 @@ td {
 	transition: color .3s ease;
 }
 
-.change_month:hover { 
+.change_month:not(.change_month_inactive):hover { 
 	color: #FB9E25;
 }
 
 .change_month_inactive {
-	color: #777;
+	color: #E3E3E3;
 	cursor: default;
 }
 
@@ -74,9 +74,48 @@ td {
 
 td .number {
 	position: absolute;
-	top: 20;
-	right:20px;
+	top: 12px;
+	right:22px;
 }
+
+.day_offers_preview {
+	position: relative;
+	top: 15px;
+	max-height: 113px;
+	overflow: hidden;
+}
+
+.day_offers_preview p {
+	height: 14px;
+	margin: 2px;
+	padding: 5px;
+	color: #FFF;
+	border-radius: 2px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	font-size: 14px;
+	margin-right: 8px;
+}
+
+.day_offers_preview p:after { 
+	content: "";
+	position: absolute;
+	right: 0;
+	margin-top: -5px;
+	border-left: 8px solid red; 
+	border-bottom: 12px solid transparent; 
+	border-top: 12px solid transparent; 
+}
+
+.ten, .twenty { background-color: #FBC325;}
+.thirty, .forty { background-color: #FB9E25;}
+.fifty, .sixty { background-color: #E58202;}
+.seventy, .eighty { background-color: #E54302;}
+
+.ten:after, .twenty:after { border-left-color: #FBC325 !important;}
+.thirty:after, .forty:after { border-left-color: #FB9E25 !important;}
+.fifty:after, .sixty:after { border-left-color: #E58202 !important;}
+.seventy:after, .eighty:after { border-left-color: #E54302 !important;}
 
 .day_toggle {
 	cursor: hand;
@@ -104,25 +143,11 @@ th {
 	display: none;
 }
 
-.day_offers_count {
-	width: 100%;
-	height: 100%;
-}
-
-.day_offers_count p {
-	display:block;
-	height:100%;
-	width: 100%;
-	color: #333;
-	text-align: center;
-	font-weight: 300;
-	font-size: 300%;
-}
 
 /* Day Info Style */
 
 .modal > div {
-	width: 600px;
+	width: 650px;
 }
 
 .modal .header {
@@ -130,7 +155,7 @@ th {
 }
 
 .date {
-	padding: 20px;
+	padding: 5px 20px 10px 20px;
 	display: inline-block;
 	text-align: center;
 }
@@ -152,10 +177,16 @@ th {
 }
 
 .weekday {
+	position: absolute;
+	top: 0;
 	margin: 0;
 	display: inline-block;
 	width: 70%;
 	text-align: center;
+}
+
+.modal .header h1 {
+	font-size: 32px;
 }
 
 .cell {
@@ -166,7 +197,7 @@ th {
  	font-weight: 400;
  	color: #777;
  	text-align: center;
- 	width: 100px;
+ 	width: 110px;
 }
 
 .new_toggle {
@@ -194,7 +225,7 @@ th {
 	float: left;
 	display:none;
 	background-color: #E3E3E3;
-	color: #777;
+	color: #333;
 }
 
 .offers_container {

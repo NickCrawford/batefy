@@ -1,5 +1,3 @@
-latitude=''
-longitude=''
 tag_id=''
 subtag_id=''
 
@@ -7,7 +5,7 @@ $(document).ready(function(){
 	latitude = $("#latitude").val();
 	longitude = $("#longitude").val();
 	get_offers()
-	geolocation()
+	geolocation(get_offers)
 });
 
 $(document).on('click','.info_toggle', function(){
@@ -67,7 +65,7 @@ $(document).on('click','.tag_close', function(){
 })
 
 $(document).on('click','#my_location',function(){
-	geolocation()
+	geolocation(get_offers)
 })
 
 function get_offers(){
@@ -79,11 +77,4 @@ function get_offers(){
 			$("#grid").html(data)
 		}
 	})
-}
-
-function set_position(position){
-	$("#spinner").hide()
-	latitude = position.coords.latitude
-	longitude = position.coords.longitude
-	get_offers()
 }
