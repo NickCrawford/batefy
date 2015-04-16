@@ -66,6 +66,7 @@ $(document).on('click','.tag_close', function(){
 
 $(document).on('click','#my_location',function(){
 	geolocation(get_offers)
+	$('#address_bar').val("My Location");
 })
 
 function get_offers(){
