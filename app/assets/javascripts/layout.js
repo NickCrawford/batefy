@@ -6,6 +6,23 @@ $(document).ajaxComplete(function(){
   $('#spinner').hide()
 });
 
+$(document).click(function(e) {
+    var container = $('.dropdown_container')
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+        container.removeClass('open');
+        $('.dropdown_items', this).fadeOut(300)
+    }
+})
+
+$(document).mouseup(function (e){
+    var container = $("#header_mobile")
+    if (!container.is(e.target) 
+        && container.has(e.target).length === 0) 
+    {
+        $("#mobile_menu").hide()
+    }
+})
+
 $(document).ready(function(){
 
     $('.dropdown_container').click(function() {
@@ -22,17 +39,6 @@ $(document).ready(function(){
         $('#mobile_menu', this).slideToggle(400)
     });
  
-});
-
-$(document).mouseup(function (e)
-{
-    var container = $("#header_mobile")
-
-    if (!container.is(e.target) 
-        && container.has(e.target).length === 0) 
-    {
-        $("#mobile_menu").hide()
-    }
 });
 
  //closes modal boxes

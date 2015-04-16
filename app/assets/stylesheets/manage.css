@@ -238,5 +238,5 @@ th {
 }
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
-
+	.day_offers_preview {display: none;}
 }
