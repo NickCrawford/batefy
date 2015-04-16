@@ -227,13 +227,19 @@
 	top: 20px;
 }
 
-
-
 .modal .header .percent_label:after {
 	bottom: -18px; 
 	border-left: 32px solid transparent; 
 	border-right: 32px solid transparent; 
 	border-top: 18px solid red; 
+}
+
+.modal .header h3 {
+	display: block;
+	text-align: center;
+	font-weight: 400;
+	font-size: 14px;
+	color: #FB9E25;
 }
 
 .modal .body h2 {

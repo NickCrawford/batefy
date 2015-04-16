@@ -14,7 +14,9 @@
 		<% end %>
 		</h3>
 		<p> <%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
-		<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+		<%= end_time.hour %>:<%= format('%02d',end_time.min) %>
+		<%= start_time.strftime("%d/%m/%y") %>
+		</p>
 		<% if is_user_signed_in %>
 			<% if !has_user_gotten_offer(offer.id)%>
 				<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Save Offer</div>
@@ -42,13 +44,12 @@
 				<h2><%= offer.percentage %>%</h2>
 			</div>
 			<h1><%= offer.business.name %></h1>
+			<h3><%= offer.business.tags.last.name %> - <%= offer.business.subtags.last.name %></h3>
 			<div class="close"><i class="fa fa-times fa-lg"></i></div>
 		</div>
 		<div class="body">
 			<h2>
-				<%= start_time.strftime("%d/%m/%y") %>
-			</h2>
-			<h2>
+				<%= start_time.strftime("%d/%m/%y") %> 
 				<%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
 				<%= end_time.hour %>:<%= format('%02d',end_time.min) %>
 			</h2>
@@ -62,6 +63,7 @@
 			    <li><%= offer.business.phone %></li>
 			    <li><%= offer.business.email %></li>
 			    <li><%= offer.business.website%></li>
+
 			</ul>
 		</div>
 	</div>
