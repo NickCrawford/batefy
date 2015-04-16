@@ -13,12 +13,12 @@ class SignInOutController < ApplicationController
 		if business = Business.find_by_email(params[:email])
 			if business.authenticate(params[:password])
 				session[:business_id] = business.id
-				redirect_to(controller: "business", action: "profile") and return
+				redirect_to(controller: "offers", action: "index") and return
 			end
 		elsif user = User.find_by_email(params[:email])
 			if user.authenticate(params[:password])
 				session[:user_id]=user.id
-				redirect_to(controller: "user", action: "profile") and return
+				redirect_to(controller: "offers", action: "index") and return
 			end
 		end
 		flash[:error] = "Wrong email or password"
