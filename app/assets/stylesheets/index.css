@@ -170,5 +170,15 @@ main {
 	.tag_close {position: absolute; left: 30px; }
 
 	#address_bar {border-right: 1px solid gray; border-radius: 3px;}
+	#address_button {float: none; margin: 0 auto;}
+
+	#grid {width: 100%;}
+	#grid li {padding: 0;}
+}
+
+@media handheld, only screen and (max-width: 400px), only screen and (max-device-width: 400px)  {
+	
+	#grid li {margin: 0; width: 100%; text-align: center;}
+	#grid figure {margin: 0 auto;}
 }
 
