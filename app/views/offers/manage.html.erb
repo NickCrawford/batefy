@@ -1,13 +1,14 @@
 <%= stylesheet_link_tag "manage.css" %>
 <%= javascript_include_tag "manage.js" %>
 
+<% time_zone="Rome"%>
 <% offers_dates = {} %>
 <% @business.offers.each do |offer| %>  
 	<% offer_date = offer.offer_dates.last %>
-	<% offer_day = Time.at(offer_date.start_time).in_time_zone("Rome").beginning_of_day.to_i %>
+	<% offer_day = Time.at(offer_date.start_time).in_time_zone(time_zone).beginning_of_day.to_i %>
 	<% offers_dates[offer_day].blank? ? offers_dates[offer_day] = [offer.id] : offers_dates[offer_day] << offer.id %>  
 <% end %>
-<% time=Time.now.in_time_zone("Rome").beginning_of_month %>
+<% time=Time.now.beginning_of_month %>
 <div class="month_display">
 	<ul class="month_pages">
 		<% 6.times do |i| %>
@@ -21,8 +22,8 @@
 					<% end %>
 					<tr>
 						<td colspan="5"><h1><%= time.strftime('%B') %></h1><h2><%= time.strftime('%Y') %></h2></td>
-						<td colspan="2"> <div class="change_month" data-id=<%=i-1%>><i class="fa fa-angle-left fa-2x"></i></div>
-						<div class="change_month" data-id=<%=i+1%>><i class="fa fa-angle-right fa-2x"></i></div></td>
+						<td colspan="2"> <div class="change_month <%= ((i == 0)? 'change_month_inactive':'') %>" data-id=<%=i-1%>><i class="fa fa-angle-left fa-2x"></i></div>
+						<div class="change_month <%= ((i == 5)? 'change_month_inactive':'') %>" data-id=<%=i+1%>><i class="fa fa-angle-right fa-2x"></i></div></td>
 					</tr>
 					<th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
 					<% if !time.sunday? %>
@@ -36,7 +37,7 @@
 							<tr class="week">
 						<%end%>
 
-						<% if time < Time.now.in_time_zone("Rome") %>
+						<% if time < Time.now.beginning_of_day %>
 							<td class="day_inactive">
 								<div class="number">
 									<%= time.day %>
@@ -49,26 +50,26 @@
 									<%= time.day %>
 								</div>
 								<div class='day_offers_preview'>
-									<% if(offers=offers_dates[time.beginning_of_day.to_i]) %>
-										<% offers.each do |offer_id| %>
+									<% if(offers=offers_dates[time.in_time_zone(time_zone).beginning_of_day.to_i]) %>
+										<% offers.take(4).each do |offer_id| %>
 											<% offer = Offer.find(offer_id) %>
 											<% offer_date = offer.offer_dates.last %>
-											<% start_time = Time.at(offer_date.start_time) %>
-											<% end_time = Time.at(offer_date.end_time) %>
-											<p><%= offer.percentage.to_s+'%'%>
-											<%= start_time.hour %>:<%= format('%02d',start_time.min) %>
+											<% start_time = Time.at(offer_date.start_time).in_time_zone(time_zone) %>
+											<% end_time = Time.at(offer_date.end_time).in_time_zone(time_zone) %>
+											<p class="<%= offer.percentage.to_words %>"><%= offer.percentage.to_s+'%'%>
+											<%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
 											<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
 										<% end %>
 									<% end %>
 								</div>
 							</td>
 							<!-- Create modal for each day -->
-							<div class="day_info" id="<%= time.to_i%>">
+							<div class="modal" id="<%= time.to_i%>">
 								<div>		
-									<div class="info_header">
+									<div class="header">
 										<div class="date"><h4><%= time.strftime('%b') %><h3><%= time.day %></h3></h4></div>
 										<div class="weekday"><h1><%= time.strftime('%A') %></h1></div>
-										<div class="close" data-id=<%= time.to_i%> >Done</div>
+										<div class="close" data-id=<%= time.to_i%> ><i class="fa fa-times fa-lg"></i></div>
 									</div>
 									<div class="row_info">
 										<div class="cell"><b>Percentage</b></div>
@@ -100,7 +101,7 @@
 										<% end %>
 									</div>
 									<div class="offers_container">	
-										<% if(offers=offers_dates[time.beginning_of_day.to_i]) %>
+										<% if(offers=offers_dates[time.in_time_zone(time_zone).beginning_of_day.to_i]) %>
 											<% offers.each do |offer_id| %>
 												<% offer = Offer.find(offer_id) %>
 												<% offer_date = offer.offer_dates.last %>

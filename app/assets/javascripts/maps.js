@@ -1,3 +1,21 @@
+latitude=''
+longitude=''
+
+function geolocation(callback){
+  $("#spinner").show()
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position){
+      $("#spinner").hide()
+      latitude = position.coords.latitude
+      longitude = position.coords.longitude
+      callback()
+    }, function(error){
+      $("#spinner").hide()
+      alert("You need to allow geolocation")
+    });
+  }
+}
+
 function create_map(info){
 	var mapOptions={
          	center: new google.maps.LatLng(info.coords.latitude,info.coords.longitude),
@@ -30,3 +48,12 @@ function get_address_from_coordinates(coordinates){
     return "Could not create address"
   });
 }
+
+function get_directions(){
+  window.open("https://www.google.com/maps/dir/"+latitude+","+longitude+"/"+business_address)
+}
+
+$(document).on('click','.get_directions',function(){
+  business_address = $(this).data("address")
+  geolocation(get_directions)
+})

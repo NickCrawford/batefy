@@ -1,13 +1,3 @@
-
-function geolocation(){
-  $("#spinner").show()
-  if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(set_position, function(error){
-      $("#spinner").hide()
-    });
-  }
-}
-
 $(document).ajaxStart(function(){
   $('#spinner').show()
 });
@@ -43,4 +33,13 @@ $(document).mouseup(function (e)
     {
         $("#mobile_menu").hide()
     }
+});
+
+ //closes modal boxes
+$(document).on('click','.modal .header .close', function(){
+    $(this).parent().parent().parent().fadeOut(300)
+});
+
+$(document).on('click','.modal', function(){
+   
 });

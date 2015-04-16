@@ -41,37 +41,9 @@ html {
 	background-position: center;
 }
 
-#confirm {
-	display: none;
-
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: rgba(0,0,0,0.8);
-	z-index: 99999;
-
-	font-family: "Raleway";
-	text-align: center;
-	font-size: 14px;
-
-	pointer-events: none;
-	-webkit-backface-visibility: hidden;
-}
-
-#confirm > div {
-	width: 400px;
-	position: relative;
-	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
-	border-radius: 3px;
-	background: white;
-}
-
-#confirm h3 {
-	margin: 15px auto;
-	font-size: 18px;
+.modal .body p {
+	padding: 10px;
+	color: #333;
 }
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px){

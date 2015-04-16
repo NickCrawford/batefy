@@ -1,24 +1,12 @@
 <%= stylesheet_link_tag "offers.css" %>
+<%= stylesheet_link_tag "index.css" %>
 <%= javascript_include_tag "offers.js" %>
+<%= javascript_include_tag "index.js" %>
 <%= javascript_include_tag "maps.js" %>
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false" %>
 
 <div id="search_page">
-	<div class="info_tab"><i class="fa fa-question-circle fa-lg"></i></div>
-	<div id="position_map_modal" class="modal">
-		<div>
-			<h1>Current Location</h1>
-			<div id="map_close">Done</div>
-			<div id="position_map"></div>
-				<div id="position_map_modal_footer">
-					<h2>Double Click the Map to Select a Location</h2>
-					<div id="position_map_modal_right">
-						<%= text_field_tag(:address_bar, "", placeholder: "Enter address", class: "text_input")%>
-						<%= button_tag("Search" , type: "button" , class: "submit_btn", id: "address_button") %>
-					</div>
-				</div>
-		</div>
-	</div>
+	<div class="info_tab info_toggle"><i class="fa fa-question-circle fa-lg"></i></div>
 	<% display = "none" %>
 	<% if (!is_user_signed_in) && (!is_business_signed_in) %>
 	<% display = "block" %>
@@ -29,7 +17,7 @@
 				<p>
 				Trova i migliori sconti alla carta su qualsiasi attività tu abbia in programma nelle prossime 24h…scarica lo sconto SENZA IMPEGNO, GRATIS e SOLO SE LO USI paghi direttamente alla cassa! <%= link_to "COME FUNZIONA", {controller:"pages", action:"show", page:"about"} , class: cp("/pages/show?page=about") %></p>
 			</div>
-			<div class="info_close"><i class="fa fa-times fa-lg"></i></div>
+			<div class="info_close info_toggle"><i class="fa fa-times fa-lg"></i></div>
 	</div>
 	<div id="filter_container">
 		<div id="filter_box">
@@ -39,30 +27,25 @@
 				<div class="search_button tag_button" data-tag-id="<%= tag.id %>"><%=tag.name%></div>
 				<% end %>
 			</div>
-
 			<% Tag.find_each do |tag| %>
-			<div class="subtag_bar" id="subtag<%= tag.id %>" style="display: none;">
-			<div class="subtag_header_ctn">	
-				<div class="tag_close"><i class="fa fa-angle-left fa-lg"></i></div>
-				<h3><%= tag.name %></h3>
-			</div>
-			<% tag.subtags.find_each do |subtag| %>
-				<div class="search_button subtag_button" data-tag-id="<%= tag.id %>" data-subtag-id="<%= subtag.id %>"><%= subtag.name%></div>
-				<% end %>
-			</div>
-		<% end %>
-		
+				<div class="subtag_bar" id="subtag<%= tag.id %>" style="display: none;">
+					<div class="subtag_header_ctn">	
+						<div class="tag_close"><i class="fa fa-angle-left fa-lg"></i></div>
+						<h3><%= tag.name %></h3>
+					</div>
+					<% tag.subtags.find_each do |subtag| %>
+						<div class="search_button subtag_button" data-tag-id="<%= tag.id %>" data-subtag-id="<%= subtag.id %>"><%= subtag.name%></div>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
-		<div id="map_tab">
-			<div>
-				<i class="fa fa-map-marker fa-2x"></i><br>
-				<p id="address_string"> Change Location <p>
-			</div>
+		<div id="location_bar">
+			<i class="fa fa-map-marker fa-lg" id="my_location" title="Use current location"></i>
+			<%= text_field_tag(:address_bar, "", placeholder: "Where?", class: "text_input")%>
+			<%= button_tag("Search" , type: "button" , class: "submit_btn", id: "address_button") %>
 		</div>
-
 	</div>
 	<ul id="grid">
 	<%= render(partial: "results", locals: {offers: @offers, tag_id: @tag_id, subtag_id: @subtag_id, latitude: @latitude, longitude: @longitude}) %>
 	</ul>
-
 </div>
