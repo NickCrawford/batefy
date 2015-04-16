@@ -34,7 +34,7 @@ class SignInOutController < ApplicationController
 			user.update_attributes({forgot_password_token: @token = Digest::SHA1.hexdigest([Time.now, rand].join)})
 			flash[:notice] = "Check your email for further instructions"
 		else
-			flash[:error] = "No account with this email was found"
+			flash[:error] = "No account with this email exists"
 		end
 		render("forgot_password")
 	end
