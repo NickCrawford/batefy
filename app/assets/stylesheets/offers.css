@@ -275,17 +275,17 @@
 	.modal > div {padding: 0; width: 100%; height: 100%; overflow: scroll;}
 }
 
-.ten { background-color: #FBC325; height:30px;}
-.twenty { background-color: #FBC325; height:35px;}
-.thirty { background-color: #FB9E25; height:40px;}
-.forty { background-color: #FB9E25; height:45px;}
-.fifty { background-color: #E58202; height:50px;}
-.sixty { background-color: #E58202; height:55px;}
-.seventy { background-color: #E54302; height:60px;}
+.ten, .fifteen { background-color: #FBC325; height:30px;}
+.twenty, .twentyfive { background-color: #FBC325; height:35px;}
+.thirty, .thirtyfive { background-color: #FB9E25; height:40px;}
+.forty, .fortyfive { background-color: #FB9E25; height:45px;}
+.fifty, .fiftyfive { background-color: #E58202; height:50px;}
+.sixty, .sixtyfive { background-color: #E58202; height:55px;}
+.seventy, .seventyfive { background-color: #E54302; height:60px;}
 .eighty { background-color: #E54302; height:65px;}
 
 
-.ten:after, .twenty:after { border-top-color: #FBC325 !important;}
-.thirty:after, .forty:after { border-top-color: #FB9E25 !important;}
-.fifty:after, .sixty:after { border-top-color: #E58202 !important;}
-.seventy:after, .eighty:after { border-top-color: #E54302 !important;}
+.ten:after, .fifteen:after, .twenty:after, .twentyfive:after { border-top-color: #FBC325 !important;}
+.thirty:after, .thirtyfive:after, .forty:after, .fortyfive:after { border-top-color: #FB9E25 !important;}
+.fifty:after, .fiftyfive:after, .sixty:after, .sixtyfive:after { border-top-color: #E58202 !important;}
+.seventy:after, .seventyfive:after, .eighty:after { border-top-color: #E54302 !important;}
