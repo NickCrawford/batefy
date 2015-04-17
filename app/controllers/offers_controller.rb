@@ -10,8 +10,8 @@ class OffersController < ApplicationController
   before_filter :require_offer_ownership, :only => [:delete]
 
   def index
-    @latitude = request.location.latitude.to_s
-    @longitude = request.location.longitude.to_s
+    @latitude = request.location.latitude.to_s || "45.471041"
+    @longitude = request.location.longitude.to_s || "9.183054"
     search = SearchHelper.new([])
     search.filter_by_location(@latitude.to_s+', '+@longitude.to_s)
     @offers = search.get_offers
