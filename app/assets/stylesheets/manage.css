@@ -107,15 +107,19 @@ td .number {
 	border-top: 12px solid transparent; 
 }
 
-.ten, .twenty { background-color: #FBC325;}
-.thirty, .forty { background-color: #FB9E25;}
-.fifty, .sixty { background-color: #E58202;}
-.seventy, .eighty { background-color: #E54302;}
+.ten, .fifteen { background-color: #FBC325;}
+.twenty, .twentyfive { background-color: #FBC325;}
+.thirty, .thirtyfive { background-color: #FB9E25;}
+.forty, .fortyfive { background-color: #FB9E25;}
+.fifty, .fiftyfive { background-color: #E58202;}
+.sixty, .sixtyfive { background-color: #E58202}
+.seventy, .seventyfive { background-color: #E54302;}
+.eighty { background-color: #E54302;}
 
-.ten:after, .twenty:after { border-left-color: #FBC325 !important;}
-.thirty:after, .forty:after { border-left-color: #FB9E25 !important;}
-.fifty:after, .sixty:after { border-left-color: #E58202 !important;}
-.seventy:after, .eighty:after { border-left-color: #E54302 !important;}
+.ten:after, .fifteen:after, .twenty:after, .twentyfive:after { border-left-color: #FBC325 !important;}
+.thirty:after, .thirtyfive:after, .forty:after, .fortyfive:after { border-left-color: #FB9E25 !important;}
+.fifty:after, .fiftyfive:after, .sixty:after, .sixtyfive:after { border-left-color: #E58202 !important;}
+.seventy:after, .seventyfive:after, .eighty:after { border-left-color: #E54302 !important;}
 
 .day_toggle {
 	cursor: hand;

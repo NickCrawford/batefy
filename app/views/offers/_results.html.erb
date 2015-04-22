@@ -1,4 +1,3 @@
-<% time_zone="Rome"%>
 <%= hidden_field_tag(:latitude, latitude) %>
 <%= hidden_field_tag(:longitude, longitude) %>
 <% tag_name = Tag.find_by_id(tag_id).nil? ? "" : Tag.find_by_id(tag_id).name%>

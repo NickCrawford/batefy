@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+	def time_zone
+		cookies["time_zone"]
+	end
+
 	def is_business_signed_in 
 		return !session[:business_id].nil?
 	end
