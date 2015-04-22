@@ -9,7 +9,7 @@
 	<%= image_tag(offer.business.image.url, class: "show_offer", data: {id: offer.id, latitude: offer.business.latitude, longitude: offer.business.longitude}) %>
 	<figcaption>
 		<h3><%= offer.business.name %>
-		<% unless latitude.empty? || longitude.empty? %>
+		<% unless latitude.empty? %>	
 			<i><%=offer.business.distance_from(latitude+', '+longitude).round(2)%> km</i>
 		<% end %>
 		</h3>
