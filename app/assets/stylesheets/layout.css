@@ -639,5 +639,5 @@ input[type="reset"]::-moz-focus-inner {
  input[type='text'],
 input[type='number'],
 textarea {
-  font-size: 16px; /*Prevents autoscaling on mobile
+  font-size: 16px; /*Prevents autoscaling on mobile*/
 }
