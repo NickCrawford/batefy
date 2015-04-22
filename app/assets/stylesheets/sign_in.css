@@ -75,11 +75,6 @@ main {
 	margin: 0;
 }
 
-@media handheld, only screen and (max-device-width: 800px) {
-	#page {background-image: none;}
-	.content_container {top: 120px;width: 100%;}
-	h1 {font-size: 48px;}
-	.text_input {font-size: 28px;padding: 20px 20px 20px 40px;width: 100%;}
-	p {font-size: 24px;}
-
+@media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px)  {
+	.content_container {width: 90%;}
 }
