@@ -1,9 +1,7 @@
 $(document).ready(function(){
     var timezone = jstz.determine()
-    console.log(timezone.name())
-    console.log(getCookie("time_zone"))
     if (getCookie("time_zone") != encodeURIComponent(timezone.name())){
-        set_cookie("time_zone",encodeURIComponent(timezone.name(),365,"localhost:3000/")
+        set_cookie("time_zone",timezone.name(),365,"")
         location.reload()
     }
 });
@@ -61,8 +59,8 @@ function getCookie(name) {
 
 function set_cookie ( cookie_name, cookie_value, lifespan_in_days, valid_domain )
 {
-  var domain_string = valid_domain ? ("; domain=" + valid_domain) : '' ;
+  var domain_string = valid_domain ? ("; domain=" + valid_domain) : ''
   document.cookie = cookie_name + "=" + encodeURIComponent( cookie_value ) +
       "; max-age=" + 60 * 60 * 24 * lifespan_in_days +
-      "; path=/" + domain_string ;
+      "; path=/" + domain_string
 }
