@@ -19,15 +19,13 @@
 		</p>
 		<% if is_user_signed_in %>
 			<% if !has_user_gotten_offer(offer.id)%>
-				<div class='offer_btn get_offer_btn' data-offer-id="<%= offer.id%>">Save Offer</div>
+				<div class='offer_btn get_offer_btn offer_id_<%= offer.id%>' data-offer-id="<%= offer.id%>">Save Offer</div>
 			<% else %>
-				<div class='offer_btn delete_offer_btn' data-offer-id="<%= offer.id%>">Unsave Offer</div>
+				<div class='offer_btn delete_offer_btn offer_id_<%= offer.id%>' data-offer-id="<%= offer.id%>">Unsave Offer</div>
 			<% end %>
 		<% elsif is_business_signed_in %>
 			<% if offer.business.id == Business.find(session[:business_id]).id %>
 			<%= link_to("Manage Offers", {controller: 'offers', action: 'manage'}, class: 'offer_btn') %>
-			<% else %>
-				<%= link_to(offer.business.name, {controller: 'business', action: 'show', id: offer.business.id}, class: 'offer_btn') %>
 			<% end%>
 		<% else %>
 			<%= link_to("Sign In to Save", {controller: 'sign_in_out', action: 'sign_in'}, class: 'offer_btn') %>
@@ -56,13 +54,28 @@
 			<div class="offer_map" id="map_<%=offer.id%>"></div>
 					
 			<ul>
-				<li><div class="submit_btn get_directions" data-address="<%= offer.business.address %>">Get Directions</div></li>
+				<li>
+					<div class="submit_btn get_directions" data-address="<%= offer.business.address %>">Get Directions</div>
+					<% if is_user_signed_in %>
+						<% if !has_user_gotten_offer(offer.id)%>
+							<div class='submit_btn get_offer_btn offer_id_<%= offer.id%>' data-offer-id="<%= offer.id%>">Save Offer</div>
+						<% else %>
+							<div class='submit_btn delete_offer_btn offer_id_<%= offer.id%>' data-offer-id="<%= offer.id%>">Unsave Offer</div>
+						<% end %>
+					<% elsif is_business_signed_in %>
+						<% if offer.business.id == Business.find(session[:business_id]).id %>
+							<%= link_to("Manage Offers", {controller: 'offers', action: 'manage'}, class: 'submit_btn') %>
+						<% end%>
+					<% else %>
+						<%= link_to("Sign In to Save", {controller: 'sign_in_out', action: 'sign_in'}, class: 'submit_btn') %>
+					<% end %>
+				</li>
 			    <li><%= offer.business.address %></li>
 			    <li><%= "#{offer.business.city}, #{offer.business.state}  #{offer.business.zip}"%></li>
 			    <li><%= offer.business.country %></li>
 			    <li><%= offer.business.phone %></li>
 			    <li><%= offer.business.email %></li>
-			    <li><%= offer.business.website%></li>
+			    <li><%= link_to(offer.business.website, "http://"+offer.business.website) %></li>
 
 			</ul>
 		</div>

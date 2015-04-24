@@ -7,13 +7,13 @@ main {
 }
 
 #search_page {
-	margin-top: 64px;
+	margin-top: 0;
 }
 
 #filter_container {
 	display: block;
 	width: 100%;
-	padding: 50px 0;
+	padding: 64px 0;
 	/* background-color: #F5F5F5; */
 	background-image: url('indexheader.jpg');
 	background-size: auto;
@@ -28,7 +28,7 @@ main {
 	height: auto;
 	min-width: 300px;
 	max-height: 80%;
-	margin: 0 auto;
+	margin: 50px auto 0 auto;
 	position: relative;
 	top: 10%;
 	padding:25px;
@@ -166,7 +166,7 @@ main {
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px)  {
 
-	#filter_box {width: 85%; padding-left: 0;padding-right: 0; margin: 0 auto;}
+	#filter_box {width: 85%; padding-left: 0;padding-right: 0; margin: 50px auto 0 auto;}
 	.subtag_bar h3 {z-index: 100;}
 	.tag_close {position: absolute; left: 30px;}
 

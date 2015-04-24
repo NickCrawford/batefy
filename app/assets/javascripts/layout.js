@@ -46,6 +46,8 @@ $(document).on('click','.modal .header .close', function(){
     $(this).parent().parent().parent().fadeOut(300)
 });
 
-$(document).on('click','.modal', function(){
-   
+$(document).on('click','.modal', function(e){
+   if(e.target == this){ // only if the target itself has been clicked
+       $(".modal").fadeOut("fast");
+   }
 });

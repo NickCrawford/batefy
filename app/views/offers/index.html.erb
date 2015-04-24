@@ -6,20 +6,30 @@
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false" %>
 
 <div id="search_page">
-	<div class="info_tab info_toggle"><i class="fa fa-question-circle fa-lg"></i></div>
-	<% display = "none" %>
-	<% if (!is_user_signed_in) && (!is_business_signed_in) %>
-	<% display = "block" %>
-	<% end %>
-	<div class="info_bar" style="display: <%= display %>">
+	<div id="filter_container">
+
+		<% display = "none" %>
+		<% if (!is_user_signed_in) && (!is_business_signed_in) %>
+			<% display = "block" %>
+			<div class="info_tab info_toggle" style="display: none">
+		<% else %>
+			<% display = "none" %>
+			<div class="info_tab info_toggle" style="display: block">
+		<% end %>
+		
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-question fa-lg fa-stack-1x"></i>
+		</div>
+
+		<div class="info_bar" style="display: <%= display %>">
 			<div class="info_bar_content">
 				<h1>Benvenuti a Batefy</h1>
 				<p>
 				Trova i migliori sconti alla carta su qualsiasi attività tu abbia in programma nelle prossime 24h…scarica lo sconto SENZA IMPEGNO, GRATIS e SOLO SE LO USI paghi direttamente alla cassa! <%= link_to "COME FUNZIONA", {controller:"pages", action:"show", page:"about"} , class: cp("/pages/show?page=about") %></p>
 			</div>
 			<div class="info_close info_toggle"><i class="fa fa-times fa-lg"></i></div>
-	</div>
-	<div id="filter_container">
+		</div>
+
 		<div id="filter_box">
 			<h2>I'd like offers for...</h2>
 			<div id="tag_bar">

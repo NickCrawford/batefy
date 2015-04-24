@@ -1,26 +1,26 @@
 $(document).on('click','.get_offer_btn', function(){
 	var button = $(this)
+
 	$.ajax({
 		type:'get',
 		url:'/user/save_offer/?offer_id='+$(this).data('offer-id'),
 		success:function(){
-			button.html('Unsave Offer')
-			button.removeClass("offer_btn get_offer_btn")
-			button.addClass("offer_btn delete_offer_btn")
+			$(".offer_id_"+button.data('offer-id')).html('Unsave Offer')
+			$(".offer_id_"+button.data('offer-id')).button.removeClass("submit_btn get_offer_btn")
+			$(".offer_id_"+button.data('offer-id')).button.addClass("submit_btn delete_offer_btn")
 		},
 	})
 })
 
 $(document).on('click','.delete_offer_btn', function(){
 	var button = $(this)
-	
 	$.ajax({
 		type:'get',
 		url:'/user/unsave_offer/?offer_id='+$(this).data('offer-id'),
 		success:function(){
-			button.html('Save Offer')
-			button.removeClass("offer_btn delete_offer_btn")
-			button.addClass("offer_btn get_offer_btn")
+			$(".offer_id_"+button.data('offer-id')).html('Save Offer')
+			$(".offer_id_"+button.data('offer-id')).removeClass("submit_btn delete_offer_btn")
+			$(".offer_id_"+button.data('offer-id')).addClass("submit_btn get_offer_btn")
 		},
 	})
 })

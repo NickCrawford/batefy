@@ -10,6 +10,8 @@ $(document).ready(function(){
 
 $(document).on('click','.info_toggle', function(){
 	$('.info_bar').slideToggle(300)
+	$('.info_toggle').fadeIn(200)
+	$(this).fadeOut(200)
 })
 
 $(document).on('click','.search_button', function(){
