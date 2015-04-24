@@ -1,8 +1,10 @@
 class UserController < ApplicationController
 
+ 
+  layout "application"
+  
   require_dependency "../../lib/search_helper.rb"
 
-  before_filter :clear_flash, :only=> [:sign_up_attempt,:sign_in_attempt,:profile_update]
   before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update, :my_offers, :get_offer, :delete_offer]
   before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :sign_in_attempt]
 
@@ -41,7 +43,6 @@ end
 def show_offer
   @latitude = params[:latitude]
   @longitude = params[:longitude]
-  
 end
 
 def save_offer
@@ -82,10 +83,6 @@ def require_parameters
   params.delete(:action)
   params.delete(:controller)
   redirect_to("/") if params.blank?
-end
-
-def clear_flash
-  flash.clear
 end
 
 end

@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag "manage.css" %>
 <%= javascript_include_tag "manage.js" %>
 
-<% time_zone="Rome"%>
 <% offers_dates = {} %>
 <% @business.offers.each do |offer| %>  
 	<% offer_date = offer.offer_dates.last %>
@@ -137,3 +136,4 @@
 		<% end %>
 	</ul>
 </div>
+<% flash.clear %>
