@@ -104,6 +104,25 @@ main {
 	text-align: center;
 }
 
+#location_tooltip {
+	position: absolute;
+	top: -5px;
+	left: -42px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	font-family: sans-serif;
+	color: #333;
+	opacity: 0;
+	pointer-events: none;
+	-o-transition: opacity .3s ease;
+	-ms-transition: opacity .3s ease;
+	-moz-transition: opacity .3s ease;
+	-webkit-transition: opacity .3s ease;
+	transition: opacity .3s ease;
+}
+
 #my_location {
 	padding: 5px;
 	position: relative;
@@ -122,6 +141,24 @@ main {
 #my_location:hover {
 	color: #FB9E25;
 }
+
+#my_location:hover div {
+	opacity: 1;
+}
+
+#my_location:hover + #address_bar {
+	color: transparent;
+}
+
+#my_location:hover + #address_bar::-webkit-input-placeholder {color: transparent;}
+#my_location:hover + #address_bar:-moz-placeholder {color: transparent;}
+#my_location:hover + #address_bar::-moz-placeholder {color: transparent;}
+#my_location:hover + #address_bar:-ms-input-placeholder {color: transparent;}
+
+#address_bar::-webkit-input-placeholder {-webkit-transition: color .3s ease; transition: color .3s ease;}
+#address_bar:-moz-placeholder {	-moz-transition: color .3s ease;}
+#address_bar::-moz-placeholder {-moz-transition: color .3s ease;}
+#address_bar:-ms-input-placeholder {-ms-transition: color .3s ease;}
 
 #address_bar {
 	border-bottom-right-radius: 0;

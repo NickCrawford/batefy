@@ -15,6 +15,9 @@
           </tr>  
   				<tr> 
   					<td><%= f.password_field(:password,  placeholder: "Password", :maxlength => 40,:autocomplete => "off", :class=>"text_input") %></td>
+          </tr>
+          <tr>
+            <td><%= f.password_field(:repassword,  placeholder: "Confirm Password", :maxlength => 40,:autocomplete => "off", :class=>"text_input") %></td>
   				</tr> 			
           <tr>
             <td>
