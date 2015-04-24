@@ -12,13 +12,13 @@ html {
 	background-color: #F5F5F5;
 	font-family: 'Raleway', sans-serif;
 	height: 100%;
-	min-width: 500px;
+	min-width: 320px;
 }
 
 body {
 	height: 100%;
-	  width: 100%;
-	  overflow: auto;
+	width: 100%;
+	overflow: auto;
 }
 
 main {
@@ -226,7 +226,8 @@ header {
 .info_bar {
 	width: 100%;
 	padding: 10px 0;
-	background: rgba(69, 79, 140, 0.9);
+	background: rgba(245, 245, 245, 0.9);
+	box-shadow: 0 0 10px #ccc;
 	position: relative;
 	top: 0;
 	z-index: 300;
@@ -250,7 +251,7 @@ header {
 }
 .info_bar_content p {
 	display: inline-block;
-	color: #E3E3E3; 
+	color: #777; 
 	font-size: 18px;
 	font-weight: 300;
 	text-align: center;
@@ -260,7 +261,7 @@ header {
 
 .info_bar_content a {
 	display: inline-block;
-	color: #FFF; 
+	color: #333; 
 	font-size: 18px;
 	font-weight: 400;
 	text-align: right;
@@ -289,7 +290,7 @@ header {
 	height: 30px;
 	margin-top: -15px;
 	text-align: center;
-	color: #E3E3E3;
+	color: #777;
 	cursor: hand;
 	cursor: pointer;
 	border-radius: 3px;
@@ -538,7 +539,6 @@ header {
 }
 
 .text_input:focus {
-
     background-color: #FFFFFF;
     border: 1px solid #454F8C;
     outline: none;

@@ -50,7 +50,7 @@
 			<% end %>
 		</div>
 		<div id="location_bar">
-			<i class="fa fa-map-marker fa-lg" id="my_location" title="Use current location"></i>
+			<i class="fa fa-map-marker fa-lg" id="my_location" title="Use current location"><div class="text_input" id="location_tooltip">Use Current Location</div></i>
 			<%= text_field_tag(:address_bar, "", placeholder: "Where?", class: "text_input")%>
 			<%= button_tag("Search" , type: "button" , class: "submit_btn", id: "address_button") %>
 		</div>
