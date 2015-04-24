@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
- 
+
   layout "application"
   
   require_dependency "../../lib/search_helper.rb"
@@ -18,7 +18,7 @@ class UserController < ApplicationController
    end
  end
 
-def profile
+ def profile
   @user = User.find(session[:user_id])
   @latitude = request.location.latitude.to_s
   @longitude = request.location.longitude.to_s
@@ -64,7 +64,7 @@ private
 def user_params
   params.require(:user).permit(:name,:email,:password,:birthday,:gender,:latitude_current, 
    :longitude_current, :country, :city, :state, :zip, :address, :image, :phone, :website, 
-   :new_password, :new_password_confirmation, :old_password)
+   :new_password, :new_password_confirmation, :old_password, :terms)
 end
 
 def require_log_in

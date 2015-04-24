@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	has_many :user_offer_opinions
 	has_and_belongs_to_many :offers
 
-	attr_accessor :old_password, :new_password, :new_password_confirmation
+	attr_accessor :old_password, :new_password, :new_password_confirmation, :terms
 	EMAIL_REGEX = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/
 
 	has_secure_password

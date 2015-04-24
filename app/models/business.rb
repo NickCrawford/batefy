@@ -6,7 +6,7 @@ class Business < ActiveRecord::Base
 	has_many :user_business_opinions
 	has_many :users, :through => :user_business_opinions
 
-	attr_accessor :old_password, :new_password, :new_password_confirmation
+	attr_accessor :old_password, :new_password, :new_password_confirmation, :terms
 	EMAIL_REGEX = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/
 
 	has_secure_password
@@ -23,8 +23,8 @@ class Business < ActiveRecord::Base
 	validates_format_of :email,  {:with => EMAIL_REGEX , :message => "is not valid"}
 	validate :email_uniqueness, :on => :create
 	validates_length_of :password, {:minimum => 8, :too_short => "must be at least 8 characters long", :on => :create }
-	validates_confirmation_of :new_password
-	validates_length_of :new_password, {:minimum=> 8, :too_short => "must be at least 8 characters long", :allow_blank => true }
+	validates_length_of :new_password, {:minimum=> 8, :too_short => "must be at least 8 characters long", :allow_blank => true, :on => :update }
+	validates_confirmation_of :new_password, :on => :update
 	validate :examine_password, :on => :update
 	validates_presence_of :address
 	validates_presence_of :city

@@ -3,7 +3,6 @@ class BusinessController < ApplicationController
 
 	layout "application"
 
-	before_filter :clear_flash, :only=> [:sign_up_attempt,:profile_update]
 	before_filter :require_log_in, :only => [:profile, :sign_out, :profile_update]
 	before_filter :require_not_log_in, :only => [:sign_up]
 	before_filter :require_parameters, :only => [:sign_up_attempt, :profile_update, :forgot_password_attempt]
@@ -48,9 +47,9 @@ class BusinessController < ApplicationController
 	private
 
 		def business_params
-				params.require(:business).permit(:name, :email, :password,
-				 :country, :city, :state, :zip, :address, :image, :phone, :website, :promoter_code, 
-					:new_password, :new_password_confirmation, :old_password, :forgot_password_token)
+				params.require(:business).permit(:name, :email, :description,
+				 :country, :city, :state, :zip, :address, :image, :phone, :website, :promoter_code, :new_password, :new_password_confirmation,
+					:password, :password_confirmation, :old_password, :forgot_password_token, :terms)
 		end
 
 		def require_log_in
@@ -69,9 +68,5 @@ class BusinessController < ApplicationController
 			params.delete(:action)
 			params.delete(:controller)
 			redirect_to("/") if params.blank?
-		end
-
-		def clear_flash
-			flash.clear
 		end
 end
