@@ -76,6 +76,18 @@ td .number {
 	position: absolute;
 	top: 12px;
 	right:22px;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+}
+
+td .number p {
+	
+}
+
+td .number.current {
+	background-color: #FB9E25;
+	color: #FFF;
 }
 
 .day_offers_preview {

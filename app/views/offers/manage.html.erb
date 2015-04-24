@@ -31,6 +31,7 @@
 					<% time.wday.times do %>
 						<td></td>
 					<% end %>  
+					<% current = true %>
 					<% Time.days_in_month(time.month, time.year).times do %>
 						<% if time.sunday? %>
 							<tr class="week">
@@ -39,13 +40,17 @@
 						<% if time < Time.now.beginning_of_day %>
 							<td class="day_inactive">
 								<div class="number">
-									<%= time.day %>
+									<p><%= time.day %></p>
 								</div>
 							</td>
 						<% else %>
 							<!-- Create calendar active cell -->
 							<td class="day_toggle day_active" data-id=<%= time.to_i%>> 
-								<div class="number">
+								
+								<div class="number  <%= (current ? "current" : "") %>">
+									<% if (current) %>
+										<% current = false %>
+									<% end %> 
 									<%= time.day %>
 								</div>
 								<div class='day_offers_preview'>
