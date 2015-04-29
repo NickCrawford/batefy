@@ -74,8 +74,8 @@ td {
 
 td .number {
 	position: absolute;
-	top: 8px;
-	right:18px;
+	top: 4px;
+	right:10px;
 	width: 30px;
 	height: 30px;
 	border-radius: 30px;
@@ -83,8 +83,8 @@ td .number {
 
 td .number p {
 	position: absolute;
-	top: 4px;
-	right:4px;
+	top: 6px;
+	right:6px;
 }
 
 td .number.current {
@@ -166,6 +166,7 @@ th {
 
 .modal > div {
 	width: 650px;
+	min-height: 200px;
 }
 
 .modal .header {

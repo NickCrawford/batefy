@@ -51,7 +51,7 @@
 									<% if (current) %>
 										<% current = false %>
 									<% end %> 
-									<%= time.day %>
+									<p><%= time.day %></p>
 								</div>
 								<div class='day_offers_preview'>
 									<% if(offers=offers_dates[time.in_time_zone(time_zone).beginning_of_day.to_i]) %>

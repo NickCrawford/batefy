@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150424012227) do
     t.integer  "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "active"
   end
 
   create_table "offers_users", id: false, force: true do |t|
@@ -102,6 +103,16 @@ ActiveRecord::Schema.define(version: 20150424012227) do
   end
 
   add_index "user_business_opinions", ["business_id", "user_id"], name: "index_user_business_opinions_on_business_id_and_user_id", using: :btree
+
+  create_table "user_offer_opinions", force: true do |t|
+    t.integer  "offer_id"
+    t.integer  "user_id"
+    t.integer  "opinion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_offer_opinions", ["offer_id", "user_id"], name: "index_user_offer_opinions_on_offer_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                 limit: 254,              null: false
