@@ -4,7 +4,6 @@ class OffersController < ApplicationController
 
   layout 'application'
 
-  before_filter :clear_flash, :only=> [:create,:delete]
   before_filter :require_log_in, :only => [:manage,:create,:delete]
   before_filter :require_parameters, :only => [:delete, :create]
   before_filter :require_offer_ownership, :only => [:delete]
@@ -100,10 +99,6 @@ class OffersController < ApplicationController
       params[:offer][:start_time] = Time.new(year,month,day,start_hour,start_minute).to_i
       params[:offer][:end_time] = Time.new(year,month,day,end_hour,end_minute).to_i
       return params[:offer][:end_time] > params[:offer][:start_time]
-    end
-
-    def clear_flash
-      flash.clear
     end
 
 end

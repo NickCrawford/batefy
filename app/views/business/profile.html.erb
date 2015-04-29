@@ -37,6 +37,7 @@
         <li><%= f.label(:tags, "Category") %> <div class="profile_input"><%= @business.tags.last.name %></div></li>
         <li><%= f.label(:subtags, "Sub Category") %> <div class="profile_input"><%= @business.subtags.last.name %></div></li>
         <li><%= f.label(:image, "Image") %> <%= f.file_field(:image, :class => "profile_input") %></li>
+        <li><%= f.label(:description,"Description") %> <%= f.text_area(:description, maxlength: 200,class: "profile_input description")%></li>
       </ul>
     </div>   
 

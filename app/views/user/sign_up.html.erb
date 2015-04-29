@@ -21,7 +21,7 @@
   				</tr> 			
           <tr>
             <td>
-              <p>I accept the <%= link_to "Terms and Conditions", {controller:"pages", action:"show", page:"legal"} , class: cp("/pages/show?page=legal") %>. <%= check_box_tag(:terms, :class => "profile_input") %> </p>
+              <p>I accept the <%= link_to "Terms and Conditions", {controller:"pages", action:"show", page:"legal"} , class: cp("/pages/show?page=legal") %>. <%= f.check_box(:terms, :class => "profile_input") %> </p>
             </td>
           </tr>	
           <tr> 

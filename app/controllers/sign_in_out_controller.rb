@@ -1,7 +1,6 @@
 class SignInOutController < ApplicationController
 
 	before_filter :require_not_log_in, except: [:sign_out]
-	before_filter :clear_flash, only: [:sign_in_attempt, :forgot_password_attempt, :change_password_attempt]
 	before_filter :require_parameters, only: [:sign_in_attempt, :forgot_password_attempt, :change_password_attempt]
 
 	def sign_out
@@ -77,10 +76,6 @@ class SignInOutController < ApplicationController
 		params.delete(:action)
 		params.delete(:controller)
 		redirect_to("/") if params.blank?
-	end
-
-	def clear_flash
-		flash.clear
 	end
 
 end
