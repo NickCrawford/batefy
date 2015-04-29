@@ -74,15 +74,17 @@ td {
 
 td .number {
 	position: absolute;
-	top: 12px;
-	right:22px;
+	top: 8px;
+	right:18px;
 	width: 30px;
 	height: 30px;
 	border-radius: 30px;
 }
 
 td .number p {
-	
+	position: absolute;
+	top: 4px;
+	right:4px;
 }
 
 td .number.current {

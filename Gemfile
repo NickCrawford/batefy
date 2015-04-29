@@ -38,9 +38,6 @@ gem 'gmaps4rails'
 #photo upload
 gem 'paperclip', '~> 3.1'
 
-#Kaminari gem for pagination
-gem 'kaminari'
-
 #change numbers into human words
 gem 'to_words'
 
