@@ -12,6 +12,10 @@
 				<%= link_to "COME FUNZIONA", {controller:"pages", action:"show", page:"about"} , class: cp("/pages/show?page=about") %></p>
 			</div>
 	</div>
+	<div class="notices">
+		<p>Offer succesfully unsaved!</p>
+		<p id="undo">Undo</p>
+	</div>
 <ul id="grid">
 	<% if @offers.blank? %>
 		<%= "No offers to display" %>

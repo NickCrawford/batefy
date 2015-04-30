@@ -12,7 +12,7 @@ html {
 	background-color: #F5F5F5;
 	font-family: 'Raleway', sans-serif;
 	height: 100%;
-	min-width: 320px;
+	min-width: 100vw;
 }
 
 body {
@@ -542,6 +542,10 @@ header {
     background-color: #FFFFFF;
     border: 1px solid #454F8C;
     outline: none;
+}
+
+select {
+   min-height: 20px;
 }
 
 .submit_btn {
