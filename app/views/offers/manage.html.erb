@@ -9,6 +9,7 @@
 <% end %>
 <% time=Time.now.beginning_of_month %>
 <div class="month_display">
+	<% current = true %>
 	<ul class="month_pages">
 		<% 6.times do |i| %>
 			<li class="month" id=<%="month"+i.to_s %> data-id= <%= i.to_s %>>
@@ -31,7 +32,6 @@
 					<% time.wday.times do %>
 						<td></td>
 					<% end %>  
-					<% current = true %>
 					<% Time.days_in_month(time.month, time.year).times do %>
 						<% if time.sunday? %>
 							<tr class="week">
@@ -55,7 +55,7 @@
 								</div>
 								<div class='day_offers_preview'>
 									<% if(offers=offers_dates[time.in_time_zone(time_zone).beginning_of_day.to_i]) %>
-										<% offers.take(4).each do |offer_id| %>
+										<% offers.take(3).each do |offer_id| %>
 											<% offer = Offer.find(offer_id) %>
 											<% offer_date = offer.offer_dates.last %>
 											<% start_time = Time.at(offer_date.start_time).in_time_zone(time_zone) %>
@@ -63,6 +63,9 @@
 											<p class="<%= offer.percentage.to_words %>"><%= offer.percentage.to_s+'%'%>
 											<%= start_time.hour %>:<%= format('%02d',start_time.min) %> - 
 											<%= end_time.hour %>:<%= format('%02d',end_time.min) %></p>
+										<% end %>
+										<% if offers.length > 3 %>
+											<span class="extra">+ <%= offers.length - 3 %> more...</span>
 										<% end %>
 									<% end %>
 								</div>

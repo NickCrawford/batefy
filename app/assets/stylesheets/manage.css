@@ -109,9 +109,10 @@ td .number.current {
 	border-bottom-right-radius: 0;
 	font-size: 14px;
 	margin-right: 8px;
+	overflow: hidden;
 }
 
-.day_offers_preview p:after { 
+.day_offers_preview p:before { 
 	content: "";
 	position: absolute;
 	right: 0;
@@ -119,6 +120,12 @@ td .number.current {
 	border-left: 8px solid red; 
 	border-bottom: 12px solid transparent; 
 	border-top: 12px solid transparent; 
+}
+
+.extra {
+	color: #AAA;
+	text-align: center;
+	font-size: 14px;
 }
 
 .ten, .fifteen { background-color: #FBC325;}
@@ -130,10 +137,10 @@ td .number.current {
 .seventy, .seventyfive { background-color: #E54302;}
 .eighty { background-color: #E54302;}
 
-.ten:after, .fifteen:after, .twenty:after, .twentyfive:after { border-left-color: #FBC325 !important;}
-.thirty:after, .thirtyfive:after, .forty:after, .fortyfive:after { border-left-color: #FB9E25 !important;}
-.fifty:after, .fiftyfive:after, .sixty:after, .sixtyfive:after { border-left-color: #E58202 !important;}
-.seventy:after, .seventyfive:after, .eighty:after { border-left-color: #E54302 !important;}
+.ten:before, .fifteen:before, .twenty:before, .twentyfive:before { border-left-color: #FBC325 !important;}
+.thirty:before, .thirtyfive:before, .forty:before, .fortyfive:before { border-left-color: #FB9E25 !important;}
+.fifty:before, .fiftyfive:before, .sixty:before, .sixtyfive:before { border-left-color: #E58202 !important;}
+.seventy:before, .seventyfive:before, .eighty:before { border-left-color: #E54302 !important;}
 
 .day_toggle {
 	cursor: hand;
