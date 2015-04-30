@@ -9,8 +9,7 @@
     <%= hidden_field_tag(:latitude, @latitude) %>
     <%= hidden_field_tag(:longitude,@longitude)%>
   </div>
-  <% image_url = @user.image.url == "/images/original/missing.png
-    General" ? "profile_default.png" : @user.image.url %>
+  <% image_url = @user.image.url == "/images/original/missing.png" ? "/assets/profile_default.png" : @user.image.url %>
   <div id="header_focus_image" style="background-image: url(<%= image_url %>)">
   </div>
 </div>

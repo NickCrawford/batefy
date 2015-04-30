@@ -22,10 +22,12 @@ class BusinessController < ApplicationController
 			@subtag = Subtag.find(params[:business][:subtags])
 			@subtag.businesses << @business
 			flash[:notice] = "Account successfully created"
-			render("/sign_in_out/sign_in")
-		else
-			render("sign_up")
+			session[:business_id] = @business.id
+			redirect_to(action: "profile") and return
 		end
+		@current_tag = params[:business][:tags]
+		@current_subtag = params[:business][:subtags]
+		render("sign_up")
 	end
 
 	def profile

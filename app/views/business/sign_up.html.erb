@@ -29,10 +29,10 @@
           <li><%= f.label(:phone, "Phone") %> <%= f.text_field(:phone, :class=>"profile_input") %> </li>
           <li><%= f.label(:website, "Website") %> <%= f.text_field(:website, :class=>"profile_input") %> </li>
           <li><%= f.label(:tags, "Category*") %>
-            <%= f.select(:tags, options_for_select(Tag.all.collect {|t| [t.name, t.id]}), {}, {class: "profile_input"})%>
+            <%= f.select(:tags, options_for_select(Tag.all.collect {|t| [t.name, t.id]}, @current_tag), {}, {class: "profile_input"})%>
           </li>
           <li><%= f.label(:subtags, "Sub Category*") %>
-            <%= f.select(:subtags, options_for_select(Subtag.all.collect {|t| [t.name, t.id]}), {}, {class: "profile_input"})%>
+            <%= f.select(:subtags, options_for_select(Subtag.all.collect {|t| [t.name, t.id]},@current_subtag), {}, {class: "profile_input"})%>
           </li>
           <li>
           <%= f.label(:image, "Image*") %> <%= f.file_field(:image, :class => "profile_input") %></li>

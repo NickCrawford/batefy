@@ -15,14 +15,14 @@ class User < ActiveRecord::Base
 
 	before_validation :geocode, :if => ->(){(self.changed & ["address", "zip", "state", "country"]).any?}
 
-	validates_presence_of :name
-	validates_length_of :name, {:maximum=>30, :minimum=>2, :too_long=>"is too long", :too_short=>"is too short"} 
+	validates_length_of :name, {within: 2..30, :too_long=>"is too long", :too_short=>"is too short"} 
 	validates_presence_of :email
 	validates_length_of :email, {:maximum => 254, :message=> "is too long"}
-	validates_format_of :email,  {:with => EMAIL_REGEX , :message => "is not valid"}
-	validate :email_uniqueness, :on => :create	
+	validates_format_of :email,  {:with => EMAIL_REGEX , :message => "is not valid", allow_blank: true}
+	validate :email_uniqueness, :on => :create
+	validates_length_of :password, {:minimum=> 6, too_short: "must be at least 8 characters long", allow_blank: true}
+	validates_length_of :new_password, {:minimum=> 8, too_short: "must be at least 8 characters long", allow_blank: true }	
 	validates_confirmation_of :new_password
-	validates_length_of :new_password, {:minimum=> 8, :too_short => "must be at least 8 characters long", :allow_blank => true }
 	validate :examine_password, :on => :update
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg','image/pjpeg','image/gif','image/png','image/webp']

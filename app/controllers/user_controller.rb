@@ -11,11 +11,11 @@ class UserController < ApplicationController
   def sign_up_attempt
   	@user = User.new(user_params)
     if @user.save
-     flash[:notice] = "Account successfully created"
-     render("/sign_in_out/sign_in")
-   else
-     render("sign_up")
-   end
+      flash[:notice] = "Account successfully created"
+      session[:user_id]=@user.id
+      redirect_to(action: "profile") and return
+    end
+      render("sign_up")
  end
 
  def profile
@@ -62,7 +62,7 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:name,:email,:password,:birthday,:gender,:latitude_current, 
+  params.require(:user).permit(:name,:email,:password, :password_confirmation, :birthday,:gender,:latitude_current, 
    :longitude_current, :country, :city, :state, :zip, :address, :image, :phone, :website, 
    :new_password, :new_password_confirmation, :old_password, :terms)
 end
