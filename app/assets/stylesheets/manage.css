@@ -265,4 +265,38 @@ th {
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
 	.day_offers_preview {display: none;}
+	.modal > div {
+		padding: 0; 
+		width: 100%; 
+		height: 100%; 
+		overflow: scroll;
+	}
+	.modal .header .weekday {
+		position: absolute;
+		left: 0;
+		width: 100%;
+	}
+
+	.modal .row_info .cell{
+		width: 14%;
+		height: 22px;
+	}
+
+	.modal .new_toggle {
+		width: 16%;
+		height: 22px;
+	}
+
+	.modal .new_offer .cell {
+		height: auto;
+	}
+
+	.modal .offers_container {
+		width: 100%;
+	}
+
+	.modal .offers_container .row_info .cell {
+		width: 14%;
+	}
+
 }
