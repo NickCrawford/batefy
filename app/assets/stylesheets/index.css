@@ -85,6 +85,9 @@ main {
 	position: absolute;
 	left: 20%;
 
+	cursor: pointer;
+	cursor: hand;
+
 	-o-transition: color .3s ease;
 	-ms-transition: color .3s ease;
 	-moz-transition: color .3s ease;
