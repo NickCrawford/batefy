@@ -544,6 +544,10 @@ header {
     outline: none;
 }
 
+select {
+   min-height: 20px;
+}
+
 .submit_btn {
 	background-color: #454F8C;
     border:none;
