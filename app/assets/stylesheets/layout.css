@@ -12,7 +12,6 @@ html {
 	background-color: #F5F5F5;
 	font-family: 'Raleway', sans-serif;
 	height: 100%;
-	min-width: 100vw;
 }
 
 body {
@@ -424,6 +423,8 @@ header {
 	right: 0;
 	width: 64px;
 	height: 64px;
+	cursor: pointer;
+	cursor: hand;
 
 	background-color: transparent;
 
@@ -628,7 +629,7 @@ select {
 /* Mobile Styles */
 
 @media handheld, only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
-	#header_big {display: none;}
+	#header_big {display: none; width: 100%;}
 	#header_mobile {
 		opacity: 1;
     	height: 64px;

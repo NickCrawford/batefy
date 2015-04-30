@@ -206,7 +206,6 @@ main {
 }
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px)  {
-
 	#filter_box {width: 85%; padding-left: 0;padding-right: 0; margin: 50px auto 0 auto;}
 	.subtag_bar h3 {z-index: 100;}
 	.tag_close {position: absolute; left: 30px;}
@@ -215,7 +214,5 @@ main {
 	#address_bar {border-right: 1px solid gray; border-radius: 3px; margin: 0 auto;}
 	#address_button {float: none; margin: 0 auto;}
 
-	#grid {width: 100%; padding: 0;}
-	#grid li {padding: 0;}
 }
 
