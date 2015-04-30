@@ -90,3 +90,11 @@ main {
    		-webkit-transition: opacity .25s ease-in-out;
 	}
 }
+
+@media handheld, only screen and (max-width: 400px), only screen and (max-device-width: 400px)  {
+	.content_container {
+		width: 90%; 
+		top: 57%;
+		margin-top: 60% auto 0 auto;
+	}
+}
