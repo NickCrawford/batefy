@@ -89,20 +89,15 @@
 }
 
 
-@media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
+@media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px)  {
 	#tabs_container{width: 90%; height: auto;}
 	.profile_input{display: block; width: 100%;}
 	#profile_info { height: auto;}
-	.tab {border:  none;}
+	.tab {border:  none; height: auto;}
 	
-}
-
-@media handheld, only screen and (max-device-width: 800px)	{
-
-
 }
 
 @media handheld, only screen and (max-width: 950px) {
 	.profile_input{display: block; width: 100%;}
-	.tab {height: 350px;}
+	.tab {height: auto;}
 }
