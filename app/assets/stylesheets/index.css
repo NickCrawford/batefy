@@ -211,8 +211,13 @@ main {
 	.tag_close {position: absolute; left: 30px;}
 
 	#location_bar {width: 100%; padding: 0;}
-	#address_bar {border-right: 1px solid gray; border-radius: 3px; margin: 0 auto;}
-	#address_button {float: none; margin: 0 auto;}
+	#address_bar {
+		border-right: 1px solid gray;
+		border-radius: 3px; 
+		margin: 0 auto;
+	} 
+	#my_location {margin-left: -25px;}
+	#address_button {float: none; margin: 5px auto 0 auto; left: 0; border-radius: 3px;}
 
 }
 
