@@ -3,8 +3,15 @@ $(document).ready(function(){
 
 	$(".new_toggle").click(function(){
 		var id = $(this).data("id")
-		$("#"+id).slideToggle(500)
-		$(this).toggleClass("active")
+		if ($(this).hasClass( "active" )) {//close
+			$("#"+id).slideToggle(300)
+			setTimeout(function () {
+    			$(".new_toggle").removeClass('active').html('<i class="fa fa-plus "></i>')
+			}, 300);
+		} else {//open
+			$("#"+id).delay(200).slideToggle(300)
+			$(this).addClass("active").html('<p>New Offer</p><i class="fa fa-times fa-lg"></i>')
+		}
 	});
 
 	$(".day_toggle, .close").click(function(){
