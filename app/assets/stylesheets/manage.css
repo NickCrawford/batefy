@@ -227,7 +227,8 @@ th {
 }
 
 .new_toggle {
-	float: right;
+	position: absolute;
+	right: 0;
 	width: 100px;
 	padding: 12px 10px;
  	display: inline-block;
@@ -241,10 +242,20 @@ th {
 	-moz-transition: background-color .3s ease;
 	-webkit-transition: background-color .3s ease;
 	transition: background-color .3s ease;
+
+	-o-transition: width .2s ease;
+	-ms-transition: width .2s ease;
+	-moz-transition: width .2s ease;
+	-webkit-transition: width .2s ease;
+	transition: width .2s ease;
 }
 
 .new_toggle:hover, .new_toggle.active {
 	background-color: #E3E3E3;
+}
+
+.new_toggle p {
+	display: none;
 }
 
 .new_offer {
@@ -252,6 +263,25 @@ th {
 	display:none;
 	background-color: #E3E3E3;
 	color: #333;
+	padding-top: 10px;
+}
+
+.new_offer .cell p {
+	display: none;
+	font-size: 20px;
+	color: #333;
+}
+
+.new_offer .cell i {
+	font-size: 12px;
+	font-style: normal;
+	color: #333;
+	display: inline-block;
+}
+
+.new_offer .cell select, .new_offer .cell input {
+	font-size: 14px;
+	margin-right: 10px;
 }
 
 .offers_container {
@@ -260,7 +290,8 @@ th {
 }
 
 .row_info {
-	overflow: auto;
+	position: relative;
+	overflow: hidden;
 }
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
@@ -300,6 +331,45 @@ th {
 
 	.modal .offers_container .row_info .cell {
 		width: 14%;
+	}
+
+	.new_toggle.active {
+		float: none;
+		width: 100% !important;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.new_toggle p {
+		display: block;
+		font-size: 24px;
+		color: #FB9E25;
+	}
+
+	.new_toggle.active i {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		display: inline-block;
+		padding: 18px 10px 6px 10px;
+		width: 64px;
+		height: 22px;
+		color: #777;
+		cursor: pointer;
+		vertical-align: baseline;
+	}
+
+	.new_offer .cell {
+		display: block;
+		width: 100%;
+		text-align: right;
+		padding: 10px 0;
+	}
+
+	.new_offer .cell p {
+		display: inline-block;
+		float: left;
+		margin: 0 10px;
 	}
 
 }
