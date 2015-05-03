@@ -168,7 +168,6 @@ th {
 	display: none;
 }
 
-
 /* Day Info Style */
 
 .modal > div {
@@ -295,7 +294,31 @@ th {
 }
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
-	
+
+	table * {
+		width: auto;
+		height: auto;
+		padding: 0;
+		margin: 0;
+	}
+
+	table th {
+		text-align: center;
+		font-size: 16px;
+	}
+
+	table h1, table h2 {
+		margin-left: 10px;
+		font-size: 28px;
+	}
+
+	.week td {
+		height: 5%;
+		width: 14.286%;
+		padding: 20px;
+		border: none;
+	}
+
 	.day_offers_preview {display: none;}
 
 	/* Modal */
