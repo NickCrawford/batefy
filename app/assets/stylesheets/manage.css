@@ -305,7 +305,12 @@ th {
 	table th {
 		text-align: center;
 		font-size: 16px;
+		padding-bottom: 5px;
+		height: 25px;
 	}
+
+	table td {height: 50px;padding: 0;}
+
 
 	table h1, table h2 {
 		margin-left: 10px;
@@ -334,10 +339,15 @@ th {
 		width: 100%;
 	}
 
-	.modal .row_info .cell{
-		width: 14%;
+	.row_info .cell:first-child {
+		width: 16% !important;
+	}
+
+	.row_info .cell {
+		width: 12%;
 		height: 22px;
 	}
+
 
 	.modal .new_toggle {
 		width: 16%;
@@ -350,10 +360,6 @@ th {
 
 	.modal .offers_container {
 		width: 100%;
-	}
-
-	.modal .offers_container .row_info .cell {
-		width: 14%;
 	}
 
 	.new_toggle.active {
