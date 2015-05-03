@@ -66,14 +66,14 @@ class OffersController < ApplicationController
 
     def require_log_in 
       if !view_context.is_business_signed_in
-        redirect_to(:controller=>'business', :action => 'sign_in')
+        redirect_to(:controller=>'sign_in_out', :action => 'sign_in')
       end
     end
 
     def require_parameters
       params.delete(:action)
       params.delete(:controller)
-      redirect_to(:controller=>'business', :action => 'sign_in') if params.blank?
+      redirect_to(:controller=>'sign_in_out', :action => 'sign_in') if params.blank?
     end
 
     def require_offer_ownership
@@ -83,7 +83,7 @@ class OffersController < ApplicationController
           return
         end
       end
-      redirect_to(:controller=>'business', :action => 'sign_in')
+      redirect_to(:controller=>'sign_in_out', :action => 'sign_in')
     end
 
     def set_time_attributes_from_params
