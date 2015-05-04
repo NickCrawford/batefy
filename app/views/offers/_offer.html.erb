@@ -73,9 +73,13 @@
 			    <li><%= offer.business.address %></li>
 			    <li><%= "#{offer.business.city}, #{offer.business.state}  #{offer.business.zip}"%></li>
 			    <li><%= offer.business.country %></li>
-			    <li><%= offer.business.phone %></li>
-			    <li><%= offer.business.email %></li>
-			    <li><%= link_to(offer.business.website, "http://"+offer.business.website) %></li>
+			    <li><span class="toggle_info">More Info</span></li>
+			    <div class="info_content">
+				    <li><%= offer.business.phone %></li>
+				    <li><%= offer.business.email %></li>
+				    <li><%= link_to(offer.business.website, "http://"+offer.business.website) %></li>
+				    <li><%= offer.business.description %></li>
+			    </div>
 
 			</ul>
 		</div>

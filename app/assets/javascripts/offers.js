@@ -63,5 +63,12 @@ $(document).on('click','.show_offer',function(){
 	create_map_marker(map, latitude, longitude)
 })
 
-
+$(document).on('click','.toggle_info',function(){
+	$('.info_content').toggle()
+	if ($(this).html()=="More Info") {
+		$('.toggle_info').html("Less Info")
+	} else {
+		$('.toggle_info').html("More Info")
+	}
+})	
 
