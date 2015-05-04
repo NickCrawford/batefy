@@ -302,7 +302,7 @@
 }
 
 @media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 800px)  {
-	.modal > div {padding: 0; width: 100%; height: 100%; overflow: scroll;}
+	.modal > div {padding: 0; width: 100%; height: 100%; overflow: scroll; max-width: none;}
 	.modal .header .percent_label {left: 10px;}
 	.modal .body li {padding: 5px 0 5px 0;}
 
