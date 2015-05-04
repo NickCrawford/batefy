@@ -1,17 +1,17 @@
 latitude=''
 longitude=''
 
-function geolocation(callback){
+function geolocation(success_callback, failur_callback){
   $("#spinner").show()
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
       $("#spinner").hide()
       latitude = position.coords.latitude
       longitude = position.coords.longitude
-      callback()
+      success_callback()
     }, function(error){
       $("#spinner").hide()
-      alert("You need to allow geolocation")
+      failur_callback()
     });
   }
 }
