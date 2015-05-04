@@ -216,6 +216,7 @@ th {
 
 .cell {
 	float: left;
+	width: 110px;
 	padding: 10px;
  	display: inline-block;
  	font-size: 14px;
@@ -286,6 +287,7 @@ th {
 .offers_container {
 	display: inline-block;
 	overflow: auto;
+	width: 100%;
 }
 
 .row_info {
@@ -356,7 +358,7 @@ th {
 
 
 	.modal .new_toggle {
-		width: 16%;
+		width: 15%;
 		height: 22px;
 	}
 
