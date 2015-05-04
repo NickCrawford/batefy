@@ -53,7 +53,16 @@ function get_directions(){
   window.open("https://www.google.com/maps/dir/"+latitude+","+longitude+"/"+business_address)
 }
 
+function get_non_accurate_directions(){
+  alert("Share your location for a better user experience.")
+  window.open("https://www.google.com/maps/dir//"+business_address)
+}
+
+function alert_geolocation(){
+  alert("You need to share your position to use this feature.")
+}
+
 $(document).on('click','.get_directions',function(){
   business_address = $(this).data("address")
-  geolocation(get_directions)
+  geolocation(get_directions,get_non_accurate_directions)
 })

@@ -55,7 +55,7 @@
 					
 			<ul>
 				<li>
-					<div class="submit_btn get_directions" data-address="<%= offer.business.address %>">Get Directions</div>
+					<div class="submit_btn get_directions" data-address="<%= offer.business.city+' '+offer.business.state+' '+offer.business.address %>">Get Directions</div>
 					<% if is_user_signed_in %>
 						<% if !has_user_gotten_offer(offer.id)%>
 							<div class='submit_btn get_offer_btn offer_id_<%= offer.id%>' data-offer-id="<%= offer.id%>">Save Offer</div>
