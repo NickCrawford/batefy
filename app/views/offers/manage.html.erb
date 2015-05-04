@@ -93,25 +93,25 @@
 											<div class="cell">
 												<p>Percent</p>
 												<span class="input">
-													<%= f.select(:percentage, options_for_select((10..80).step(5).to_a.map {|p| "#{p}%"} )) %>
+													<%= f.select(:percentage, options_for_select((10..80).step(5).to_a.map {|p| "#{p}%"}, "25%")) %>
 												</span>
 											</div>
 											<div class="cell">
 												<p>Start</p>
 												<span class="input">
-												<%= f.time_select(:time_start, {ignore_date: true, minute_step: 30}) %>
+												<%= f.time_select(:time_start, {ignore_date: true, minute_step: 30, ampm: true}) %>
 												</span>
 											</div>
 											<div class="cell">
 												<p>End</p>
 												<span class="input">
-												<%= f.time_select(:time_end, {ignore_date: true, minute_step: 30}) %>
+												<%= f.time_select(:time_end, {ignore_date: true, minute_step: 30, ampm: true}) %>
 												</span>
 											</div>
 											<div class="cell">
 												<p>Visible at</p>
 												<span class="input">
-												<%= f.select(:visible_from, (1..24).step(1).to_a.map {|p| "#{p}"}) %><i>hours before</i>
+												<%= f.select(:visible_from, options_for_select((1..24).step(1).to_a.map {|p| "#{p}"}, 12)) %><i>hours before</i>
 												</span>
 											</div>
 											<div class="cell">
