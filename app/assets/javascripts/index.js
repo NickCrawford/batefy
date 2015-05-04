@@ -67,12 +67,15 @@ $(document).on('click','.tag_close', function(){
 })
 
 $(document).on('click','#my_location',function(){
-	geolocation(get_offers)
+	geolocation(get_offers,alert_geolocation)
 	$('#address_bar').val("My Location");
 })
 
+function alert_geolocation(){
+	alert("You need to allow geolocation to use this feature.")
+}
+
 function get_offers(){
-	//alert("latitude:"+latitude+" longitude:"+longitude+" tag_id:"+tag_id+" subtag_id:"+subtag_id)
 	$.ajax({
 		type:'get',
 		url:'offers/show/?latitude='+latitude+'&longitude='+longitude+'&tag_id='+tag_id+'&subtag_id='+subtag_id,
